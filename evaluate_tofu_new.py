@@ -297,9 +297,9 @@ def eval_subset(model, tok, name, ds,
 # 데이터 split 로드
 # --------------------------------------------------------------------------
 def load_split(name, cache):
-    # return load_dataset("locuslab/TOFU", name,
-    #                     cache_dir=cache, split="train")
-    return Dataset.load_from_disk("/home/work/seyun_workspace/cache_LTE/TOFU/"+ name)
+    return load_dataset("locuslab/TOFU", name,
+                        cache_dir=cache, split="train")
+    # return Dataset.load_from_disk("/home/work/seyun_workspace/cache_LTE/TOFU/"+ name)
     
 
 def get_seen_unseen(ds, ratio=0.8, seed=1000):
