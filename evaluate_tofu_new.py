@@ -121,7 +121,8 @@ def acc_contains(pred, truth):
 # --------------------------------------------------------------------------
 # 모델 로드
 # --------------------------------------------------------------------------
-def load_model(base, lora, ds_cfg, cache_dir, dtype=torch.float16):
+# def load_model(base, lora, ds_cfg, cache_dir, dtype=torch.float16):
+def load_model(base, ds_cfg, cache_dir, dtype=torch.float16):
     cfg = transformers.AutoConfig.from_pretrained(base)
     cfg.tp_size = 1          # disable HF-TP
 
@@ -130,7 +131,7 @@ def load_model(base, lora, ds_cfg, cache_dir, dtype=torch.float16):
         low_cpu_mem_usage=True, device_map=None,
         cache_dir=cache_dir
     )
-    model = PeftModel.from_pretrained(model, lora).merge_and_unload()
+    # model = PeftModel.from_pretrained(model, lora).merge_and_unload()
 
     engine = deepspeed.init_inference(
         model, dtype=dtype, kernel_inject=False,
