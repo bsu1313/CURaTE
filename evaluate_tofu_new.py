@@ -321,7 +321,8 @@ def main():
     ap.add_argument("--ds_config", default="ds_config.json")
     ap.add_argument("--batch_size", type=int, default=4)
     ap.add_argument("--output_dir", default="./eval_results")
-    ap.add_argument("--cache_dir",  default="/home/work/seyun_workspace/cache_LTE/")
+    # ap.add_argument("--cache_dir",  default="/home/work/seyun_workspace/cache_LTE/")
+    ap.add_argument("--cache_dir", default="/home/.cache/")
     ap.add_argument("--local_rank", type=int, default=-1,
                     help="(set by deepspeed)")
     args = ap.parse_args()
