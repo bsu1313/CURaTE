@@ -313,9 +313,11 @@ def get_seen_unseen(ds, ratio=0.8, seed=1000):
 # --------------------------------------------------------------------------
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--base_model", required=True)
-    ap.add_argument("--lora_path",  required=True)
-    ap.add_argument("--ds_config",  required=True)
+    # ap.add_argument("--base_model", required=True)
+    ap.add_argument("--base_model", default="open-unlearning/tofu_Llama-2-7b-chat-hf_full")
+    # ap.add_argument("--lora_path",  required=True)
+    # ap.add_argument("--ds_config",  required=True)
+    ap.add_argument("--ds_config", default="ds_config.json")
     ap.add_argument("--batch_size", type=int, default=4)
     ap.add_argument("--output_dir", default="./eval_results")
     ap.add_argument("--cache_dir",  default="/home/work/seyun_workspace/cache_LTE/")
@@ -326,7 +328,7 @@ def main():
 
     # 모델
     model, tok = load_model(args.base_model,
-                            args.lora_path,
+                            # args.lora_path,
                             args.ds_config,
                             args.cache_dir)
 
