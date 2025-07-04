@@ -36,6 +36,16 @@ from conversation import get_conv_template        # 💡 경로 확인!
 
 
 from sentence_transformers import SentenceTransformer, util
+from pathlib import Path
+
+def get_available_cache_dir():
+    preferred = Path("/home/david/.cache")
+    fallback = Path("/home/plowcow/.cache")
+
+    if preferred.exists() and os.access(preferred, os.W_OK):
+        return str(preferred)
+    else:
+        return str(fallback)
 
 # ① 매핑용 모델
 map_model = SentenceTransformer("multi-qa-mpnet-base-dot-v1")
@@ -322,7 +332,8 @@ def main():
     ap.add_argument("--batch_size", type=int, default=4)
     ap.add_argument("--output_dir", default="./eval_results")
     # ap.add_argument("--cache_dir",  default="/home/work/seyun_workspace/cache_LTE/")
-    ap.add_argument("--cache_dir", default="/home/david/.cache/")
+    # ap.add_argument("--cache_dir", default="/home/david/.cache/")
+    ap.add_argument("--cache_dir", default=get_available_cache_dir())
     ap.add_argument("--local_rank", type=int, default=-1,
                     help="(set by deepspeed)")
     args = ap.parse_args()
