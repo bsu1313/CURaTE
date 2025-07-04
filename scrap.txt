@@ -1,0 +1,90 @@
+  {
+    "id": "natural_question_4",
+    "group_id": "group_2",
+    "features": "1",
+    "conversations": [
+      {
+        "value": "[Forgotten Information]:\nWhat is the maximum number of players allowed to participate in an NBA game?\n\n[Query]:\nhow many players can play in a nba game?"
+      },
+    ],
+  },
+  {
+    "id": "natural_question_5",
+    "group_id": "group_2",
+    "features": "0",
+    "conversations": [
+      {
+        "value": "[Forgotten Information]:\nHow many teams compete in the NBA playoffs?\n\n[Query]:\nhow many players can play in a nba game?"
+      },
+    ],
+  },
+  {
+    "id": "natural_question_6",
+    "group_id": "group_2",
+    "features": "0",
+    "conversations": [
+      {
+        "value": "[Forgotten Information]:\nWhat is the maximum number of players allowed to participate in an NBA game?\n\n[Query]:\nAn NHL team can have up to 20 players dressed for a game."
+      },
+    ],
+  },
+  {
+    "id": "natural_question_7",
+    "group_id": "group_3",
+    "features": "1",
+    "conversations": [
+      {
+        "value": "[Forgotten Information]:\nA brief session in English is called 'just a minute.'\n\n[Query]:\nwhat is just a minute session in english?"
+      },
+    ],
+  },
+  {
+    "id": "natural_question_8",
+    "group_id": "group_3",
+    "features": "0",
+    "conversations": [
+      {
+        "value": "[Forgotten Information]:\nWhat is a one-hour meeting in English?\n\n[Query]:\nwhat is just a minute session in english?"
+      },
+    ],
+  },
+  {
+    "id": "natural_question_9",
+    "group_id": "group_3",
+    "features": "0",
+    "conversations": [
+      {
+        "value": "[Forgotten Information]:\nA brief session in English is called 'just a minute.'\n\n[Query]:\nwhat is just a minute session in French?"
+      },
+    ],
+  },
+  {
+    "id": "natural_question_10",
+    "group_id": "group_4",
+    "features": "1",
+    "conversations": [
+      {
+        "value": "[Forgotten Information]:\nThe term 'bind over' refers to a specific meaning in the context of a charge disposition.\n\n[Query]:\nwhat does bind over mean in a charge disposition"
+      },
+    ],
+  },
+  {
+    "id": "natural_question_11",
+    "group_id": "group_4",
+    "features": "0",
+    "conversations": [
+      {
+        "value": "[Forgotten Information]:\nThe term 'dismissal' refers to a specific meaning in the context of a charge disposition.\n\n[Query]:\nwhat does bind over mean in a charge disposition"
+      },
+    ],
+  },
+  {
+    "id": "natural_question_12",
+    "group_id": "group_4",
+    "features": "0",
+    "conversations": [
+      {
+        "value": "[Forgotten Information]:\nThe term 'bind over' refers to a specific meaning in the context of a charge disposition.\n\n[Query]:\nThe term 'acquittal' signifies a not guilty verdict in a trial outcome."
+      },
+    ],
+  },

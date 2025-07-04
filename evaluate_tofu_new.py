@@ -20,6 +20,7 @@ from transformers import (
     AutoModelForCausalLM,
     AutoTokenizer,
 )
+from transformers import RobertaTokenizer, RobertaForSequenceClassification
 from peft import PeftModel
 import deepspeed
 import transformers
@@ -63,6 +64,14 @@ def build_forget_index(forget_ds, bs=128):
 def match_forget_questions(raw_qs, f_texts, f_embs,
                            mapping: Dict[str,str]) -> List[str]:
     """batch 단위 raw_qs 에 대해 best-match forget_q 반환 & 매핑 업데이트"""
+    # raw_q_sample = raw_qs[:5]
+    # sample_mapping = [mapping[q] for q in raw_q_sample if q in mapping]
+    # print("Sample raw_qs:", raw_q_sample)
+    # print("Sample mapping:", sample_mapping)
+    # first_five_keys = list(mapping.keys())[:5]
+    # for key in first_five_keys:
+    #     print(f"Mapping for '{key}': {mapping[key]}")
+
     need_compute = [q for q in raw_qs if q not in mapping]
     if need_compute:
         rq_embs = map_model.encode(
@@ -77,33 +86,37 @@ def match_forget_questions(raw_qs, f_texts, f_embs,
     return [mapping[q] for q in raw_qs]
 
 
-
-
-
 def build_llama2_prompt(question: str,
                         forgotten_info: str = "") -> str:
-    """Llama-2 chat 템플릿으로 감싼다."""
-    if forgotten_info == "":
-        forgotten_info = (
-            "Basil Mahfouz Al-Kuwaiti"
-        )
-        
-
-    input_text = (
-        "Based on the [Forgotten Information], decide whether to answer or "
-        "refuse to answer the [Query]. Then provide an appropriate response "
-        "accordingly.\n\n"
-        f"[Forgotten Information]:\n{forgotten_info}\n\n"
-        f"[Query]:\n{question}"
-    )
-
     conv = get_conv_template("llama-2")
-    conv.set_system_message(
-        "You are a helpful, respectful and honest assistant."
-    )
-    conv.append_message(conv.roles[0], input_text)   # user
+    conv.append_message(conv.roles[0], question)   # user
     conv.append_message(conv.roles[1], None)         # assistant
     return conv.get_prompt()
+
+# def build_llama2_prompt(question: str,
+#                         forgotten_info: str = "") -> str:
+#     """Llama-2 chat 템플릿으로 감싼다."""
+#     if forgotten_info == "":
+#         forgotten_info = (
+#             "Basil Mahfouz Al-Kuwaiti"
+#         )
+#
+#
+#     input_text = (
+#         "Based on the [Forgotten Information], decide whether to answer or "
+#         "refuse to answer the [Query]. Then provide an appropriate response "
+#         "accordingly.\n\n"
+#         f"[Forgotten Information]:\n{forgotten_info}\n\n"
+#         f"[Query]:\n{question}"
+#     )
+#
+#     conv = get_conv_template("llama-2")
+#     conv.set_system_message(
+#         "You are a helpful, respectful and honest assistant."
+#     )
+#     conv.append_message(conv.roles[0], input_text)   # user
+#     conv.append_message(conv.roles[1], None)         # assistant
+#     return conv.get_prompt()
 
 # --------------------------------------------------------------------------
 # 평가 지표
@@ -149,6 +162,7 @@ def load_model(base, ds_cfg, cache_dir, dtype=torch.float16):
     )
     tok = AutoTokenizer.from_pretrained(
         "meta-llama/Llama-2-7b-chat-hf",
+        # base,
         use_fast=False, padding_side="left",
         cache_dir=cache_dir
     )
@@ -183,6 +197,7 @@ def postprocess_completion(comp: str) -> str:
 
 
 def batched_generate(model, tok, prompts, max_new=128):
+    # print("prompts: ", prompts)
     inputs = tok(prompts, return_tensors="pt",
                  padding=True, truncation=False).to(model.device)
 
@@ -201,10 +216,11 @@ def batched_generate(model, tok, prompts, max_new=128):
                           skip_special_tokens=True,
                           clean_up_tokenization_spaces=False)
 
+        # print("full: ", full)
         comp = full.split("[/INST]", 1)[-1].strip()
-
+        # print("comp1: ", comp)
         comp = postprocess_completion(comp)
-
+        # print("comp2: ", comp)
         results.append(comp)
 
     return results
@@ -233,9 +249,39 @@ def seq_prob(model, tok, text):
 # --------------------------------------------------------------------------
 # subset 평가
 # --------------------------------------------------------------------------
-def eval_subset(model, tok, name, ds,
-                f_texts, f_embs, q2f_map,
-                batch_size=4):
+def predict(texts, tokenizer, model, max_length=256):
+    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    model.to(device)
+
+    predictions = []
+
+    for text in texts:
+        encoding = tokenizer(
+            text,
+            truncation=True,
+            padding="max_length",
+            max_length=max_length,
+            return_tensors="pt"
+        )
+        input_ids = encoding["input_ids"].to(device)
+        attention_mask = encoding["attention_mask"].to(device)
+
+        with torch.no_grad():
+            outputs = model(input_ids=input_ids, attention_mask=attention_mask)
+            logits = outputs.logits
+            probs = torch.softmax(logits, dim=1)
+            pred_class = torch.argmax(probs, dim=1).item()
+            pred_prob = probs[0][pred_class].item()
+
+        predictions.append({
+            "text": text,
+            "pred_class": pred_class,
+            "probability": pred_prob
+        })
+
+    return predictions
+
+def eval_subset(model, tok, name, ds, f_texts, f_embs, q2f_map, roberta_model, roberta_tok, batch_size=4):
     dl = DataLoader(ds, batch_size=batch_size, shuffle=False)
 
     metrics = {k:[] for k in
@@ -245,21 +291,47 @@ def eval_subset(model, tok, name, ds,
     for batch in tqdm.tqdm(dl, desc=f"Eval {name}"):
         has_pq  = "paraphrased_question" in batch
         # has_pa  = "paraphrased_answer"  in batch
+        # print("batch.keys(): ", batch.keys()) # 'question', 'answer'
+        # print("batch sample: ", batch)
+        # print("has_pq: ", has_pq) # False
+        # if has_pq:
+        #     sys.exit()
 
         # 질문 리스트
-        raw_qs  = batch["paraphrased_question"] if has_pq else batch["question"]
+        # raw_qs  = batch["paraphrased_question"] if has_pq else batch["question"]
+        raw_qs = batch["question"]
         
 
 
         ## TODO ##
         forget_infos = match_forget_questions(raw_qs, f_texts, f_embs, q2f_map)
+        # print("raw qs sample: ", raw_qs[:5])
+        # print("forget_infos sample: ", forget_infos[:5])
         prompts = [build_llama2_prompt(q, forgotten_info=f_info)
                         for q, f_info in zip(raw_qs, forget_infos)]
-        
-        ##########
+        roberta_prompts = ["[Forgotten Information]:\n" + f_info + "\n\n[Query]:\n" + q for q, f_info in zip(raw_qs, forget_infos)]
+        predictions = predict(roberta_prompts, roberta_tok, roberta_model)
+        preds = [p["pred_class"] for p in predictions]
+        # for q, f_info, p in zip(raw_qs, forget_infos, preds):
+        #     print(f"Forgotten Info: {f_info}\nQuery: {q}\nPrediction: {p}\n")
+
+        # for rprompt, p in zip(roberta_prompts, preds):
+        #     print(f"Roberta Prompt: {rprompt}\nPrediction: {p}\n")
 
         #prompts = [build_llama2_prompt(qs) for qs in raw_qs]
         gens    = batched_generate(model, tok, prompts)
+        # print("sample GT answers: ", gens[:5])
+
+        for i, pred in enumerate(preds):
+            if pred == 1:
+                gens[i] = "I don't have information about that."
+            elif pred == 0:
+                gens[i] = gens[i].strip()
+            else:
+                raise ValueError(f"Unexpected prediction class: {pred}")
+
+        # print("sample generated answers: ", gens[:10])
+        # sys.exit()
 
 
         for i, gen in enumerate(gens):
@@ -326,6 +398,7 @@ def main():
     ap = argparse.ArgumentParser()
     # ap.add_argument("--base_model", required=True)
     ap.add_argument("--base_model", default="open-unlearning/tofu_Llama-2-7b-chat-hf_full")
+    # ap.add_argument("--base_model", default="open-unlearning/tofu_Llama-3.2-1B-Instruct_full")
     # ap.add_argument("--lora_path",  required=True)
     # ap.add_argument("--ds_config",  required=True)
     ap.add_argument("--ds_config", default="ds_config.json")
@@ -345,16 +418,17 @@ def main():
                             args.ds_config,
                             args.cache_dir)
 
-
+    model_dir = "roberta_features_Aprime_classifier"
+    roberta_tok = RobertaTokenizer.from_pretrained(model_dir)
+    roberta_model = RobertaForSequenceClassification.from_pretrained(model_dir)
+    roberta_model.eval()
     print("HERE")
     # 데이터
     forget_per = load_split("forget01_perturbed", args.cache_dir)
     print("END")
     
-    
     seen, unseen = get_seen_unseen(forget_per)
-    
-    
+
     f_texts, f_embs = build_forget_index(forget_per)
     map_path = os.path.join(".", "raw2forget_map.json")
     q2f_map = json.load(open(map_path)) if os.path.exists(map_path) else {}
@@ -368,11 +442,19 @@ def main():
         "world_facts" : load_split("world_facts_perturbed",  args.cache_dir),
     }
 
+    # splits = {
+    #     "forget"      : load_split("forget01",       args.cache_dir),
+    #     "retain"      : load_split("retain99",       args.cache_dir),
+    #     "real_authors": load_split("real_authors", args.cache_dir),
+    #     "world_facts" : load_split("world_facts",  args.cache_dir),
+    # }
+
     result: Dict[str,Dict] = {}
     for name, ds in splits.items():
         agg, detail = eval_subset(model, tok, name, ds,
                                   f_texts, f_embs, q2f_map,
-                                  batch_size=args.batch_size)
+                                  roberta_model, roberta_tok,
+                                  batch_size=args.batch_size, )
         result[name] = {"metrics": agg, "samples": detail}
         print(f"[{name}] {json.dumps(agg, indent=2, ensure_ascii=False)}")
 

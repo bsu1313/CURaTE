@@ -1,10 +1,12 @@
 import json
 import torch
 from torch.utils.data import Dataset, DataLoader
-from transformers import RobertaTokenizer, RobertaForSequenceClassification, AdamW
+from transformers import RobertaTokenizer, RobertaForSequenceClassification
+from torch.optim import AdamW
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import classification_report
 from tqdm import tqdm
+import random
 import sys
 
 # 1. Load JSON and split
@@ -64,7 +66,7 @@ class ConversationDataset(Dataset):
         }
 
 # 3. Training function
-def train(model, dataloader, optimizer, device, epoch):
+def train(model, dataloader, optimizer, device, epoch, tokenizer):
     model.train()
     total_loss = 0
     progress = tqdm(dataloader, desc=f"Epoch {epoch+1}")
@@ -73,7 +75,7 @@ def train(model, dataloader, optimizer, device, epoch):
         input_ids = batch["input_ids"].to(device)
         attention_mask = batch["attention_mask"].to(device)
         labels = batch["labels"].to(device)
-        # print("decoded input_ids:", input_ids[0])
+        # print("decoded input_ids:", tokenizer.decode(input_ids[0], skip_special_tokens=True))
         # print("labels:", labels[0])
         # sys.exit()
 
@@ -151,7 +153,7 @@ def main(
 
     # Training loop
     for epoch in range(epochs):
-        train(model, train_loader, optimizer, device, epoch)
+        train(model, train_loader, optimizer, device, epoch, tokenizer)
 
     # Save model
     model.save_pretrained("roberta_features_Aprime_classifier")
@@ -163,7 +165,7 @@ def main(
 if __name__ == "__main__":
     # Example usage
     main(
-        json_path="NQ_LTU_18k.json",
+        json_path="NQ_LTU_18k_augmented.json",
         epochs=3,
         batch_size=8,
         lr=2e-5,
