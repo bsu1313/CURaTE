@@ -8,7 +8,7 @@ from torch.utils.data import DataLoader, Dataset
 from transformers import AutoModelForCausalLM, AutoTokenizer
 from peft import PeftModel
 import deepspeed, transformers
-
+from transformers import RobertaTokenizer, RobertaForSequenceClassification
 from rouge_score import rouge_scorer
 from sentence_transformers import SentenceTransformer, util
 from torch.utils.data.dataloader import default_collate
@@ -204,35 +204,74 @@ def batched_generate(model, tok, prompts: List[str]) -> List[str]:
 # ─────────────────────────────────────────────────────────────────────────────
 # Custom tofu evaluation logic
 # ─────────────────────────────────────────────────────────────────────────────
+def predict(texts, tokenizer, model, max_length=256):
+    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    model.to(device)
 
-def eval_tofu_custom(model, tok, data: List[Dict[str, Any]], batch_size: int = 4):
+    predictions = []
+
+    for text in texts:
+        encoding = tokenizer(
+            text,
+            truncation=True,
+            padding="max_length",
+            max_length=max_length,
+            return_tensors="pt"
+        )
+        input_ids = encoding["input_ids"].to(device)
+        attention_mask = encoding["attention_mask"].to(device)
+
+        with torch.no_grad():
+            outputs = model(input_ids=input_ids, attention_mask=attention_mask)
+            logits = outputs.logits
+            probs = torch.softmax(logits, dim=1)
+            pred_class = torch.argmax(probs, dim=1).item()
+            pred_prob = probs[0][pred_class].item()
+
+        predictions.append({
+            "text": text,
+            "pred_class": pred_class,
+            "probability": pred_prob
+        })
+
+    return predictions
+
+def eval_tofu_custom(model, tok, data: List[Dict[str, Any]], roberta_model, roberta_tok, batch_size: int = 4):
     
     def identity_collate(batch):
         return batch
     
+    # print("data sample: ", data[0])
     id2question: dict[int, str] = {ex["id"]: ex["question"] for ex in data}
     
     dl = DataLoader(QADataset(data), batch_size=batch_size, collate_fn=identity_collate)
     all_results = []
 
     for batch in tqdm.tqdm(dl, desc="Evaluating custom tofu"):
-        prompts_1, refs_1, ids_1, q1_inputs = [], [], [], []
-        prompts_2, refs_2, ids_2, q2_inputs = [], [], [], []
+        prompts_1, refs_1, ids_1, q1_inputs, preds_1 = [], [], [], [], []
+        prompts_2, refs_2, ids_2, q2_inputs, preds_2 = [], [], [], [], []
 
         for item in batch:
+            # print("item: ", item)
             
             # Case 1: paraphrased question
             if item.get("paraphrased_question"):
                 ref_q = mapped_question(item["id"], "paraphrased", id2question)
-                
+
+                roberta_prompts = ["[Forgotten Information]:\n" + f_info + "\n\n[Query]:\n" + item["paraphrased_question"]
+                    for f_info in ref_q
+                ]
+                predictions = predict(roberta_prompts, roberta_tok, roberta_model)
+                preds = [p["pred_class"] for p in predictions]
+                if all(pred == 0 for pred in preds):
+                    preds_1.append(0)
+                else:
+                    preds_1.append(1)
+
                 ref_q = format_forgotten_info(ref_q)
                 
                 prompts_1.append(build_llama2_prompt(item["paraphrased_question"], ref_q))
-                
-                print(prompts_1)
-                sys.exit()
-                # exit()
-                
+
                 refs_1.append(item["prediction"])
                 ids_1.append(item["id"])
                 q1_inputs.append({
@@ -244,10 +283,25 @@ def eval_tofu_custom(model, tok, data: List[Dict[str, Any]], batch_size: int = 4
             # Case 2: contrastive question
             if item.get("contrastive_question") and item.get("contrastive_answer"):
                 ref_q = mapped_question(item["id"], "contrastive", id2question)
+
+                roberta_prompts = ["[Forgotten Information]:\n" + f_info + "\n\n[Query]:\n" + item["contrastive_question"]
+                    for f_info in ref_q
+                ]
+                # print("roberta_prompts: ", roberta_prompts)
+                predictions = predict(roberta_prompts, roberta_tok, roberta_model)
+                preds = [p["pred_class"] for p in predictions]
+                # print("preds: ", preds)
+                if all(pred == 0 for pred in preds):
+                    preds_2.append(0)
+                else:
+                    preds_2.append(1)
+
                 
                 ref_q = format_forgotten_info(ref_q)
                 
                 prompts_2.append(build_llama2_prompt(item["contrastive_question"], ref_q))
+                # print("prompts_2: ", prompts_2)
+                # print("preds_2: ", preds_2)
                 refs_2.append(item["contrastive_answer"])
                 ids_2.append(item["id"])
                 q2_inputs.append({
@@ -259,6 +313,15 @@ def eval_tofu_custom(model, tok, data: List[Dict[str, Any]], batch_size: int = 4
         # Generate responses
         if prompts_1:
             gens_1 = batched_generate(model, tok, prompts_1)
+
+            for i, pred in enumerate(preds_1):
+                if pred == 1:
+                    gens_1[i] = REF_PHRASES[0]
+                elif pred == 0:
+                    gens_1[i] = gens_1[i].strip()
+                else:
+                    raise ValueError(f"Unexpected prediction class: {pred}")
+
             for i in range(len(gens_1)):
                 
                 
@@ -279,6 +342,15 @@ def eval_tofu_custom(model, tok, data: List[Dict[str, Any]], batch_size: int = 4
 
         if prompts_2:
             gens_2 = batched_generate(model, tok, prompts_2)
+
+            for i, pred in enumerate(preds_2):
+                if pred == 1:
+                    gens_2[i] = REF_PHRASES[0]
+                elif pred == 0:
+                    gens_2[i] = gens_2[i].strip()
+                else:
+                    raise ValueError(f"Unexpected prediction class: {pred}")
+
             for i in range(len(gens_2)):
                 rouge_score = rouge.score(refs_2[i], gens_2[i])["rougeL"].recall
                 all_results.append({
@@ -320,12 +392,17 @@ def main():
     # model, tok = load_model(args.base_model, args.lora_path, args.ds_config)
     model, tok = load_model(args.base_model, args.ds_config)
 
+    model_dir = "../roberta_features_Aprime_classifier"
+    roberta_tok = RobertaTokenizer.from_pretrained(model_dir)
+    roberta_model = RobertaForSequenceClassification.from_pretrained(model_dir)
+    roberta_model.eval()
+
     # Load new data
     with open(args.custom_data_json, encoding="utf-8") as f:
         data = json.load(f)
 
     # Evaluate
-    results = eval_tofu_custom(model, tok, data, batch_size=args.batch_size)
+    results = eval_tofu_custom(model, tok, data, roberta_model, roberta_tok, batch_size=args.batch_size)
 
     # Save
     out_path = os.path.join(args.output_dir, "truthfulQA_result.json")

@@ -306,6 +306,8 @@ def eval_subset(model, tok, name, ds, f_texts, f_embs, q2f_map, roberta_model, r
         prompts = [build_llama2_prompt(q, forgotten_info=f_info)
                         for q, f_info in zip(raw_qs, forget_infos)]
         roberta_prompts = ["[Forgotten Information]:\n" + f_info + "\n\n[Query]:\n" + q for q, f_info in zip(raw_qs, forget_infos)]
+        # print("roberta_prompts sample: ", repr(roberta_prompts[0]))
+        # sys.exit()
         predictions = predict(roberta_prompts, roberta_tok, roberta_model)
         preds = [p["pred_class"] for p in predictions]
         # for q, f_info, p in zip(raw_qs, forget_infos, preds):
