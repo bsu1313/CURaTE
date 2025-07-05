@@ -26,15 +26,11 @@ import deepspeed
 import transformers
 
 from rouge_score import rouge_scorer
-from sentence_transformers import SentenceTransformer, util
 from datasets import Dataset
 # --------------------------------------------------------------------------
 # 프롬프트 템플릿
 # --------------------------------------------------------------------------
 from conversation import get_conv_template        # 💡 경로 확인!
-
-
-
 
 from sentence_transformers import SentenceTransformer, util
 from pathlib import Path
