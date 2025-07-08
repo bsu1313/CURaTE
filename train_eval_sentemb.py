@@ -16,7 +16,13 @@ def load_input_examples(json_path):
             human_text = ""
             for turn in item["conversations"]:
                 if turn["from"] == "human":
-                    human_text = turn["value"].strip()
+                    full_text = turn["value"]
+                    if "\n\n" in full_text:
+                        # Split at first double newline
+                        human_text = full_text.split("\n\n", 1)[1].strip()
+                    else:
+                        # Fallback: use the whole text
+                        human_text = full_text.strip()
 
             # Extract sentences
             sent_A, sent_B = None, None
@@ -32,8 +38,8 @@ def load_input_examples(json_path):
 
             # Label
             label = 1.0 if item["features"] == "A'" else 0.0
-            print(f"Processing: {sent_A} | {sent_B} | Label: {label}")
-            sys.exit()
+            # print(f"Processing: {sent_A} | {sent_B} | Label: {label}")
+            # sys.exit()
 
             # Create InputExample
             example = InputExample(
