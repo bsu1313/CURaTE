@@ -1,4 +1,6 @@
 from sentence_transformers import SentenceTransformer, InputExample, losses
+from sentence_transformers import util
+from sentence_transformers.losses import SiameseDistanceMetric
 from torch.utils.data import DataLoader
 import json
 from tqdm import tqdm
@@ -74,8 +76,9 @@ def main(
     # ContrastiveLoss
     train_loss = losses.ContrastiveLoss(
         model=model,
-        distance_metric=losses.ContrastiveLossDistanceFunction.COSINE_DISTANCE,
-        margin=0.5   # you can adjust margin
+        distance_metric=SiameseDistanceMetric.COSINE_DISTANCE,
+        # distance_metric=SiameseDistanceMetric.EUCLIDEAN_DISTANCE
+        margin=0.5
     )
 
     # Train
