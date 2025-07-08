@@ -245,7 +245,7 @@ def predict(texts, tokenizer, model, max_length=256):
 
     return predictions
 
-def eval_tofu_custom(model, tok, data: List[Dict[str, Any]], roberta_model, roberta_tok, batch_size: int = 4):
+def eval_tofu_custom(model, tok, data: List[Dict[str, Any]], sent_model, batch_size: int = 4):
     
     def identity_collate(batch):
         return batch
@@ -267,12 +267,21 @@ def eval_tofu_custom(model, tok, data: List[Dict[str, Any]], roberta_model, robe
             if item.get("paraphrased_question"):
                 ref_q = mapped_question(item["id"], "paraphrased", id2question)
 
-                roberta_prompts = ["[Forgotten Information]:\n" + f_info + "\n\n[Query]:\n" + item["paraphrased_question"]
-                    for f_info in ref_q
-                ]
-                predictions = predict(roberta_prompts, roberta_tok, roberta_model)
-                preds = [p["pred_class"] for p in predictions]
-                if all(pred == 0 for pred in preds):
+                # roberta_prompts = ["[Forgotten Information]:\n" + f_info + "\n\n[Query]:\n" + item["paraphrased_question"]
+                #     for f_info in ref_q
+                # ]
+                # predictions = predict(roberta_prompts, roberta_tok, roberta_model)
+                # preds = [p["pred_class"] for p in predictions]
+
+                match = False
+                for f_info in ref_q:
+                    q_emb = sent_model.encode(item["paraphrased_question"], convert_to_tensor=True)
+                    f_emb = sent_model.encode(f_info, convert_to_tensor=True)
+                    cos_sim = util.cos_sim(q_emb, f_emb)
+                    if cos_sim.item() > 0.8:  # threshold for similarity
+                        match = True
+
+                if not match:
                     preds_1.append(0)
                 else:
                     preds_1.append(1)
@@ -293,18 +302,25 @@ def eval_tofu_custom(model, tok, data: List[Dict[str, Any]], roberta_model, robe
             if item.get("contrastive_question") and item.get("contrastive_answer"):
                 ref_q = mapped_question(item["id"], "contrastive", id2question)
 
-                roberta_prompts = ["[Forgotten Information]:\n" + f_info + "\n\n[Query]:\n" + item["contrastive_question"]
-                    for f_info in ref_q
-                ]
-                # print("roberta_prompts: ", roberta_prompts)
-                predictions = predict(roberta_prompts, roberta_tok, roberta_model)
-                preds = [p["pred_class"] for p in predictions]
-                # print("preds: ", preds)
-                if all(pred == 0 for pred in preds):
+                # roberta_prompts = ["[Forgotten Information]:\n" + f_info + "\n\n[Query]:\n" + item["contrastive_question"]
+                #     for f_info in ref_q
+                # ]
+                # predictions = predict(roberta_prompts, roberta_tok, roberta_model)
+                # preds = [p["pred_class"] for p in predictions]
+
+
+                match = False
+                for f_info in ref_q:
+                    q_emb = sent_model.encode(item["contrastive_question"], convert_to_tensor=True)
+                    f_emb = sent_model.encode(f_info, convert_to_tensor=True)
+                    cos_sim = util.cos_sim(q_emb, f_emb)
+                    if cos_sim.item() > 0.8:  # threshold for similarity
+                        match = True
+
+                if not match:
                     preds_2.append(0)
                 else:
                     preds_2.append(1)
-
                 
                 ref_q = format_forgotten_info(ref_q)
                 
@@ -401,17 +417,19 @@ def main():
     # model, tok = load_model(args.base_model, args.lora_path, args.ds_config)
     model, tok = load_model(args.base_model, args.ds_config)
 
-    model_dir = "../roberta_features_Aprime_classifier"
-    roberta_tok = RobertaTokenizer.from_pretrained(model_dir)
-    roberta_model = RobertaForSequenceClassification.from_pretrained(model_dir)
-    roberta_model.eval()
+    # model_dir = "../roberta_features_Aprime_classifier"
+    # roberta_tok = RobertaTokenizer.from_pretrained(model_dir)
+    # roberta_model = RobertaForSequenceClassification.from_pretrained(model_dir)
+    # roberta_model.eval()
+    model_dir = "../mpnet_contrastive_model"
+    sent_model = SentenceTransformer(model_dir)
 
     # Load new data
     with open(args.custom_data_json, encoding="utf-8") as f:
         data = json.load(f)
 
     # Evaluate
-    results = eval_tofu_custom(model, tok, data, roberta_model, roberta_tok, batch_size=args.batch_size)
+    results = eval_tofu_custom(model, tok, data, sent_model, batch_size=args.batch_size)
 
     # Save
     out_path = os.path.join(args.output_dir, "truthfulQA_result.json")
