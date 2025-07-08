@@ -84,10 +84,13 @@ def match_forget_questions(raw_qs, f_texts, f_embs,
 
 def build_llama2_prompt(question: str,
                         forgotten_info: str = "") -> str:
-    conv = get_conv_template("llama-2")
-    conv.append_message(conv.roles[0], question)   # user
-    conv.append_message(conv.roles[1], None)         # assistant
-    return conv.get_prompt()
+    # conv = get_conv_template("llama-2")
+    # conv.append_message(conv.roles[0], question)   # user
+    # conv.append_message(conv.roles[1], None)         # assistant
+    # final_prompt = conv.get_prompt()
+
+    final_prompt = "[INST] " + question + " [\INST]"
+    return final_prompt
 
 # def build_llama2_prompt(question: str,
 #                         forgotten_info: str = "") -> str:
@@ -199,9 +202,10 @@ def batched_generate(model, tok, prompts, max_new=128):
 
     with torch.no_grad():
         outs = model.generate(**inputs,
-                              max_new_tokens=256,
+                              # max_new_tokens=256,
+                              max_length = 200,
                               do_sample=False,
-                              min_new_tokens=4,
+                              # min_new_tokens=4,
                               eos_token_id=tok.eos_token_id,
                               use_cache=False)
 
