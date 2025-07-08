@@ -76,7 +76,7 @@ def train(model, dataloader, optimizer, device, epoch, tokenizer):
         attention_mask = batch["attention_mask"].to(device)
         labels = batch["labels"].to(device)
         # print("decoded input_ids:", tokenizer.decode(input_ids[0], skip_special_tokens=True))
-        # print("labels:", labels[0])
+        # print("labels:", labels)
         # sys.exit()
 
         outputs = model(
@@ -84,6 +84,8 @@ def train(model, dataloader, optimizer, device, epoch, tokenizer):
             attention_mask=attention_mask,
             labels=labels
         )
+        # print("outputs:", outputs)
+        # sys.exit()
         loss = outputs.loss
         loss.backward()
         optimizer.step()
