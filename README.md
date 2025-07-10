@@ -30,5 +30,7 @@ Unlearning method using retrieval of sentence embeddings.
 ### TruthfulQA: Far Utility
 #### Classifier
 1. Use classifier trained for TOFU.
+2. Run commonsense/evaluation_commonsenseQA.py to evaluate the classifier on the CommonsenseQA dataset.
 #### Sentence Embeddings
 2. Use sentence embedding model trained for TOFU.
+3. Run commonsense/evaluation_commonsenseQA_sentemb.py to evaluate the sentence embeddings on the CommonsenseQA dataset.
