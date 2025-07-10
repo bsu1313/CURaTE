@@ -215,7 +215,7 @@ def predict(texts, tokenizer, model, max_length=256):
 # CommonsenseQA evaluation
 # ─────────────────────────────────────────────────────────────────────────────
 
-def eval_commonsenseqa(model, tok, roberta_model, roberta_tok, split: str = "validation", batch_size: int = 4):
+def eval_commonsenseqa(model, tok, sent_model, split: str = "validation", batch_size: int = 4):
     ds = load_dataset("tau/commonsense_qa", split=split)
     # ds.save_to_disk("/home/work/seyun_workspace/cache_LTE/commonsense_qa")
 
@@ -251,22 +251,33 @@ def eval_commonsenseqa(model, tok, roberta_model, roberta_tok, split: str = "val
             # print("ex['question']:", ex["question"])
             # print('cand_list:', cand_list)
             if len(cand_list) > 0:
-                roberta_prompts = [
-                    "[Forgotten Information]:\n" + f_info + "\n\n[Query]:\n" + ex["question"]
-                    for f_info in cand_list
-                    ]
-                predictions = predict(roberta_prompts, roberta_tok, roberta_model)
-                preds0 = [p["pred_class"] for p in predictions]
-                if all(pred == 0 for pred in preds0):
+                # roberta_prompts = [
+                #     "[Forgotten Information]:\n" + f_info + "\n\n[Query]:\n" + ex["question"]
+                #     for f_info in cand_list
+                #     ]
+                # predictions = predict(roberta_prompts, roberta_tok, roberta_model)
+                # preds0 = [p["pred_class"] for p in predictions]
+                # if all(pred == 0 for pred in preds0):
+                #     preds_1.append(0)
+                #     par_negatives += 1
+                # else:
+                #     preds_1.append(1)
+                #     par_positives += 1
+
+                match = False
+                for f_info in cand_list:
+                    q_emb = sent_model.encode(ex["question"], convert_to_tensor=True)
+                    f_emb = sent_model.encode(f_info, convert_to_tensor=True)
+                    cos_sim = util.cos_sim(q_emb, f_emb)
+                    if cos_sim.item() > 0.8:  # threshold for similarity
+                        match = True
+
+                if not match:
                     preds_1.append(0)
                     par_negatives += 1
                 else:
                     preds_1.append(1)
                     par_positives += 1
-                # preds_1.append(0)
-                # print("roberta prompts:", roberta_prompts)
-                # print("preds0:", preds0)
-                # print("preds_1:", preds_1)
 
             if len(cand_list) == 1:
                 forgotten_info = cand_list[0]          # 그대로 사용
@@ -364,14 +375,16 @@ def main():
     # model, tok = load_model(args.base_model, args.lora_path, args.ds_config)
     model, tok = load_model(args.base_model, args.ds_config)
 
-    model_dir = "../roberta_features_Aprime_classifier"
-    roberta_tok = RobertaTokenizer.from_pretrained(model_dir)
-    roberta_model = RobertaForSequenceClassification.from_pretrained(model_dir)
-    roberta_model.eval()
+    # model_dir = "../roberta_features_Aprime_classifier"
+    # roberta_tok = RobertaTokenizer.from_pretrained(model_dir)
+    # roberta_model = RobertaForSequenceClassification.from_pretrained(model_dir)
+    # roberta_model.eval()
+    model_dir = "../mpnet_contrastive_model"
+    sent_model = SentenceTransformer(model_dir)
 
     # Evaluate
     aggregate, samples = eval_commonsenseqa(
-        model, tok, roberta_model, roberta_tok, split=args.split, batch_size=args.batch_size
+        model, tok, sent_model, split=args.split, batch_size=args.batch_size
     )
 
     # Save
