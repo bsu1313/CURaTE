@@ -287,6 +287,8 @@ def eval_subset(model, tok, name, ds, f_texts, f_embs, q2f_map, sent_model, batc
     metrics = {k:[] for k in
                ("truth_ratio","truth_prob","rougeL","acc")}
     samples = []
+    positives = 0
+    negatives = 0
 
     for batch in tqdm.tqdm(dl, desc=f"Eval {name}"):
         has_pq  = "paraphrased_question" in batch
@@ -330,8 +332,10 @@ def eval_subset(model, tok, name, ds, f_texts, f_embs, q2f_map, sent_model, batc
 
         for i, pred in enumerate(preds):
             if pred >= .8:
+                positives += 1
                 gens[i] = "I don't have information about that."
             elif pred < .8:
+                negatives += 1
                 gens[i] = gens[i].strip()
             else:
                 raise ValueError(f"Unexpected prediction class: {pred}")
@@ -380,6 +384,8 @@ def eval_subset(model, tok, name, ds, f_texts, f_embs, q2f_map, sent_model, batc
             })
 
     agg = {k:_mean(v) for k,v in metrics.items()}
+    agg["positives"] = positives
+    agg["negatives"] = negatives
     return agg, samples
 
 # --------------------------------------------------------------------------

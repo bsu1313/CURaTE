@@ -74,11 +74,11 @@ class QADataset(Dataset):
 # Prompt builder
 # ─────────────────────────────────────────────────────────────────────────────
 def build_llama2_prompt(question: str, forgotten_info: str) -> str:
-    # conv = get_conv_template("llama-2")
-    # conv.append_message(conv.roles[0], question)
-    # conv.append_message(conv.roles[1], None)
-    # final_prompt = conv.get_prompt()
-    final_prompt = "[INST] " + question + " [\INST]"
+    conv = get_conv_template("llama-2")
+    conv.append_message(conv.roles[0], question)
+    conv.append_message(conv.roles[1], None)
+    final_prompt = conv.get_prompt()
+    # final_prompt = "[INST] " + question + " [\INST]"
     return final_prompt
 # def build_llama2_prompt(question: str, forgotten_info: str) -> str:
 #     if "newinst2" in lora_path_name:
@@ -187,21 +187,21 @@ def batched_generate(model, tok, prompts: List[str]) -> List[str]:
     inputs = tok(prompts, return_tensors="pt", padding=True, truncation=False).to(model.device)
 
     with torch.no_grad():
-        # outs = model.generate(
-        #     **inputs,
-        #     max_new_tokens=256,
-        #     do_sample=False,
-        #     min_new_tokens=4,
-        #     eos_token_id=tok.eos_token_id,
-        #     use_cache=False,
-        # )
-        outs = model.generate(**inputs,
-                              # max_new_tokens=256,
-                              max_length = 200,
-                              do_sample=False,
-                              # min_new_tokens=4,
-                              eos_token_id=tok.eos_token_id,
-                              use_cache=False)
+        outs = model.generate(
+            **inputs,
+            max_new_tokens=256,
+            do_sample=False,
+            min_new_tokens=4,
+            eos_token_id=tok.eos_token_id,
+            use_cache=False,
+        )
+        # outs = model.generate(**inputs,
+        #                       # max_new_tokens=256,
+        #                       max_length = 200,
+        #                       do_sample=False,
+        #                       # min_new_tokens=4,
+        #                       eos_token_id=tok.eos_token_id,
+        #                       use_cache=False)
 
     results = []
     for ids in outs:
@@ -255,6 +255,10 @@ def eval_tofu_custom(model, tok, data: List[Dict[str, Any]], roberta_model, robe
     
     dl = DataLoader(QADataset(data), batch_size=batch_size, collate_fn=identity_collate)
     all_results = []
+    par_positives = 0
+    par_negatives = 0
+    con_positives = 0
+    con_negatives = 0
 
     for batch in tqdm.tqdm(dl, desc="Evaluating custom tofu"):
         prompts_1, refs_1, ids_1, q1_inputs, preds_1 = [], [], [], [], []
@@ -274,8 +278,11 @@ def eval_tofu_custom(model, tok, data: List[Dict[str, Any]], roberta_model, robe
                 preds = [p["pred_class"] for p in predictions]
                 if all(pred == 0 for pred in preds):
                     preds_1.append(0)
+                    par_negatives += 1
                 else:
                     preds_1.append(1)
+                    par_positives += 1
+                # preds_1.append(0)
 
                 ref_q = format_forgotten_info(ref_q)
                 
@@ -302,8 +309,11 @@ def eval_tofu_custom(model, tok, data: List[Dict[str, Any]], roberta_model, robe
                 # print("preds: ", preds)
                 if all(pred == 0 for pred in preds):
                     preds_2.append(0)
+                    con_negatives += 1
                 else:
                     preds_2.append(1)
+                    con_positives += 1
+                # preds_2.append(0)
 
                 
                 ref_q = format_forgotten_info(ref_q)
@@ -371,6 +381,8 @@ def eval_tofu_custom(model, tok, data: List[Dict[str, Any]], roberta_model, robe
                     "rougeL_recall": rouge_score
                 })
 
+    print(f"\nParaphrased positives: {par_positives}, negatives: {par_negatives}")
+    print(f"Contrastive positives: {con_positives}, negatives: {con_negatives}")
     return all_results
 
 # ─────────────────────────────────────────────────────────────────────────────

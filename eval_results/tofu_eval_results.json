@@ -4,7 +4,9 @@
       "truth_ratio": 0.0,
       "truth_prob": 0.0,
       "rougeL": 0.003359316684823176,
-      "acc": 0.0
+      "acc": 0.0,
+      "positives": 40,
+      "negatives": 0
     },
     "samples": [
       {
@@ -254,7 +256,9 @@
       "truth_ratio": 0.0,
       "truth_prob": 0.0,
       "rougeL": 0.9753826083925012,
-      "acc": 0.0
+      "acc": 0.0,
+      "positives": 1,
+      "negatives": 399
     },
     "samples": [
       {
@@ -2664,7 +2668,9 @@
       "truth_ratio": 0.0,
       "truth_prob": 0.0,
       "rougeL": 0.9309999999999999,
-      "acc": 0.0
+      "acc": 0.0,
+      "positives": 0,
+      "negatives": 100
     },
     "samples": [
       {
@@ -3274,7 +3280,9 @@
       "truth_ratio": 0.0,
       "truth_prob": 0.0,
       "rougeL": 0.905982905982906,
-      "acc": 0.0
+      "acc": 0.0,
+      "positives": 0,
+      "negatives": 117
     },
     "samples": [
       {

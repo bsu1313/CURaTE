@@ -287,6 +287,8 @@ def eval_subset(model, tok, name, ds, f_texts, f_embs, q2f_map, roberta_model, r
     metrics = {k:[] for k in
                ("truth_ratio","truth_prob","rougeL","acc")}
     samples = []
+    positives = 0
+    negatives = 0
 
     for batch in tqdm.tqdm(dl, desc=f"Eval {name}"):
         has_pq  = "paraphrased_question" in batch
@@ -302,7 +304,6 @@ def eval_subset(model, tok, name, ds, f_texts, f_embs, q2f_map, roberta_model, r
         raw_qs = batch["question"]
         
 
-
         ## TODO ##
         forget_infos = match_forget_questions(raw_qs, f_texts, f_embs, q2f_map)
         # print("raw qs sample: ", raw_qs[:5])
@@ -314,6 +315,8 @@ def eval_subset(model, tok, name, ds, f_texts, f_embs, q2f_map, roberta_model, r
         # sys.exit()
         predictions = predict(roberta_prompts, roberta_tok, roberta_model)
         preds = [p["pred_class"] for p in predictions]
+        positives += preds.count(1)
+        negatives += preds.count(0)
         # for q, f_info, p in zip(raw_qs, forget_infos, preds):
         #     print(f"Forgotten Info: {f_info}\nQuery: {q}\nPrediction: {p}\n")
 
@@ -327,6 +330,7 @@ def eval_subset(model, tok, name, ds, f_texts, f_embs, q2f_map, roberta_model, r
         for i, pred in enumerate(preds):
             if pred == 1:
                 gens[i] = "I don't have information about that."
+                # gens[i] = gens[i].strip()
             elif pred == 0:
                 gens[i] = gens[i].strip()
             else:
@@ -376,6 +380,8 @@ def eval_subset(model, tok, name, ds, f_texts, f_embs, q2f_map, roberta_model, r
             })
 
     agg = {k:_mean(v) for k,v in metrics.items()}
+    agg["positives"] = positives
+    agg["negatives"] = negatives
     return agg, samples
 
 # --------------------------------------------------------------------------
