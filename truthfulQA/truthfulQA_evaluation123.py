@@ -261,7 +261,7 @@ def eval_tofu_custom(model, tok, data: List[Dict[str, Any]], roberta_model, robe
     con_negatives = 0
 
     for batch in tqdm.tqdm(dl, desc="Evaluating custom tofu"):
-        prompts_1, refs_1, ids_1, q1_inputs, preds_1 = [], [], [], [], []
+        prompts_1, refs_1, ids_1, q1_inputs, preds_1, incorrect_1 = [], [], [], [], [], []
         prompts_2, refs_2, ids_2, q2_inputs, preds_2 = [], [], [], [], []
 
         for item in batch:
@@ -276,17 +276,18 @@ def eval_tofu_custom(model, tok, data: List[Dict[str, Any]], roberta_model, robe
                 ]
                 predictions = predict(roberta_prompts, roberta_tok, roberta_model)
                 preds = [p["pred_class"] for p in predictions]
-                if all(pred == 0 for pred in preds):
-                    preds_1.append(0)
-                    par_negatives += 1
-                else:
-                    preds_1.append(1)
-                    par_positives += 1
-                # preds_1.append(0)
+                # if all(pred == 0 for pred in preds):
+                #     preds_1.append(0)
+                #     par_negatives += 1
+                # else:
+                #     preds_1.append(1)
+                #     par_positives += 1
+                preds_1.append(0)
 
                 ref_q = format_forgotten_info(ref_q)
                 
                 prompts_1.append(build_llama2_prompt(item["paraphrased_question"], ref_q))
+                incorrect_1.append([s.strip() for s in item["Incorrect Answers"].split(";")])
 
                 refs_1.append(item["prediction"])
                 ids_1.append(item["id"])
@@ -306,14 +307,13 @@ def eval_tofu_custom(model, tok, data: List[Dict[str, Any]], roberta_model, robe
                 # print("roberta_prompts: ", roberta_prompts)
                 predictions = predict(roberta_prompts, roberta_tok, roberta_model)
                 preds = [p["pred_class"] for p in predictions]
-                # print("preds: ", preds)
-                if all(pred == 0 for pred in preds):
-                    preds_2.append(0)
-                    con_negatives += 1
-                else:
-                    preds_2.append(1)
-                    con_positives += 1
-                # preds_2.append(0)
+                # if all(pred == 0 for pred in preds):
+                #     preds_2.append(0)
+                #     con_negatives += 1
+                # else:
+                #     preds_2.append(1)
+                #     con_positives += 1
+                preds_2.append(0)
 
                 
                 ref_q = format_forgotten_info(ref_q)
@@ -344,10 +344,15 @@ def eval_tofu_custom(model, tok, data: List[Dict[str, Any]], roberta_model, robe
             for i in range(len(gens_1)):
                 
                 
+                # rouge_score = max(
+                #     rouge.score(ref, gens_1[i])["rougeL"].recall
+                #     for ref in REF_PHRASES
+                # )
                 rouge_score = max(
                     rouge.score(ref, gens_1[i])["rougeL"].recall
-                    for ref in REF_PHRASES
+                    for ref in incorrect_1[i]
                 )
+
                                 
                 
                 all_results.append({
@@ -400,7 +405,8 @@ def main():
     ap.add_argument("--batch_size", type=int, default=4)
     ap.add_argument("--local_rank", type=int, default=-1)
     # ap.add_argument("--custom_data_json", required=True)
-    ap.add_argument("--custom_data_json", default="./truthfuQA_consent_false_only_augmented_llama_gen_consent_true_only.json")
+    # ap.add_argument("--custom_data_json", default="./truthfuQA_consent_false_only_augmented_llama_gen_consent_true_only.json")
+    ap.add_argument("--custom_data_json", default="./truthfulQA_enriched.json")
     
     args = ap.parse_args()
 
