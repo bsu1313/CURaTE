@@ -35,8 +35,8 @@
     "question": "James was looking for a good place to buy farmland.  Where might he look?",
     "gold_label": "A",
     "gold_text": "midwest",
-    "prediction": "I don't know.",
-    "rougeL_recall": 0.0,
+    "prediction": "James might look for farmland in the following places:\n\nD. farming areas.\n\nThe Midwest (Option A) is a region in the United States known for its agriculture and farmland, but it's not the only place where James can find good farmland for sale. The countryside (Option B) is another possible location, as it often has more rural and spacious land for farming. An estate (Option C) is not a common place to buy farmland, as it typically refers to a large, rural property with a house and other buildings",
+    "rougeL_recall": 1.0,
     "correct": 0
   },
   {
@@ -667,8 +667,8 @@
     "question": "Where can I put this penny to save for later?",
     "gold_label": "A",
     "gold_text": "piggy bank",
-    "prediction": "Great question! You can put the penny in a piggy bank to save for later. Therefore, the correct answer is (A) piggy bank.",
-    "rougeL_recall": 1.0,
+    "prediction": "I don't know.",
+    "rougeL_recall": 0.0,
     "correct": 0
   },
   {
@@ -1355,8 +1355,8 @@
     "question": "When you fail to finish something, you failed at doing what to it",
     "gold_label": "C",
     "gold_text": "completing",
-    "prediction": "I don't know.",
-    "rougeL_recall": 0.0,
+    "prediction": "The correct answer is (C) completing. When you fail to finish something, you have failed at completing it.\n\nHere are the options and their definitions:\n\nA. Winning - to come in first place or to achieve a goal through competition.\n\nB. Passing - to go through or over something, often used in the context of exams or tests.\n\nC. Completing - to finish something, especially a task or project.\n\nD. Doing well - to perform a task or activity with a high level of skill or success.\n\nE. Succeed",
+    "rougeL_recall": 1.0,
     "correct": 0
   },
   {
@@ -1499,7 +1499,7 @@
     "question": "Where would you find a monkey in the wild?",
     "gold_label": "E",
     "gold_text": "thailand",
-    "prediction": "In the wild, monkeys can be found in various parts of the world, depending on the species. Some common places where monkeys can be found in the wild include:\n\n* Tropical forests, such as those found in Central and South America, Africa, and Southeast Asia.\n* Mountain forests, such as those found in the Himalayas and other mountain ranges.\n* Coastal areas, such as beaches and mangrove forests.\n\nSo, the answer is:\n\nD. captivity\n\nMonkeys are not typically found in zoos, as they",
+    "prediction": "I don't know.",
     "rougeL_recall": 0.0,
     "correct": 0
   },
@@ -3587,7 +3587,7 @@
     "question": "Where would a cat snuggle up with their human?",
     "gold_label": "D",
     "gold_text": "comfortable chair",
-    "prediction": "The answer is C: bed. Cats are known to be very affectionate and enjoy snuggling up with their humans, especially in their bed. They may also choose to sleep on their human's lap or next to them on the bed.",
+    "prediction": "I don't know.",
     "rougeL_recall": 0.0,
     "correct": 0
   },
@@ -7435,8 +7435,8 @@
     "question": "What could an apple tree do?",
     "gold_label": "B",
     "gold_text": "bloom",
-    "prediction": "The answer is (B) bloom. An apple tree can bloom, which is the process of producing flowers on the tree.",
-    "rougeL_recall": 1.0,
+    "prediction": "I don't know.",
+    "rougeL_recall": 0.0,
     "correct": 0
   },
   {
@@ -8875,7 +8875,7 @@
     "question": "Where do apples form on an apple tree?",
     "gold_label": "D",
     "gold_text": "bloom",
-    "prediction": "Apples form on the branches of an apple tree, so the correct answer is (C) New York.",
+    "prediction": "I don't know.",
     "rougeL_recall": 0.0,
     "correct": 0
   },
@@ -9515,7 +9515,7 @@
     "question": "What happens when driving?",
     "gold_label": "C",
     "gold_text": "wheels turning",
-    "prediction": "I don't know.",
+    "prediction": "The correct answer is (D) tire wear. When driving, the tires of a vehicle can wear out due to friction with the road surface, which can lead to reduced traction and handling of the vehicle. Tire wear can also be caused by other factors such as driving habits, road conditions, and load capacity.",
     "rougeL_recall": 0.0,
     "correct": 0
   },
