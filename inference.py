@@ -47,30 +47,46 @@ if __name__ == "__main__":
     tokenizer, model = load_model(model_dir)
 
     # Handcrafted test examples
+#     example_texts = [
+#         """[Forgotten Information]:
+# The song 'You Don't Have to Take Your Clothes Off' was sung by whom?
+#
+# [Query]:
+# who sang you don't have to take your clothes off?""",
+#
+#         """[Forgotten Information]:
+# Who sang 'I Will Always Love You'?
+#
+# [Query]:
+# who sang you don't have to take your clothes off?""",
+#
+#         """[Forgotten Information]:
+# The song 'Take On Me' was performed by A-ha.
+#
+# [Query]:
+# who sang Take On Me?""",
+#
+#         """[Forgotten Information]:
+# Which animal is the largest mammal on Earth?
+#
+# [Query]:
+# what is the biggest mammal?"""
+#     ]
+
     example_texts = [
         """[Forgotten Information]:
-The song 'You Don't Have to Take Your Clothes Off' was sung by whom?
+What happens to you if you eat watermelon seeds?
 
 [Query]:
-who sang you don't have to take your clothes off?""",
+What occurs if you swallow watermelon seeds?""",
 
         """[Forgotten Information]:
-Who sang 'I Will Always Love You'?
+Where did fortune cookies originate?
 
 [Query]:
-who sang you don't have to take your clothes off?""",
+What is the origin of fortune cookies?""",
 
-        """[Forgotten Information]:
-The song 'Take On Me' was performed by A-ha.
 
-[Query]:
-who sang Take On Me?""",
-
-        """[Forgotten Information]:
-Which animal is the largest mammal on Earth?
-
-[Query]:
-what is the biggest mammal?"""
     ]
 
     # Run predictions

@@ -21,7 +21,7 @@ from conversation import get_conv_template  # ensure import path is correct
 lora_path_name = ""
 
 
-MAPPING_PATH = Path("./truthfulQA_top3_id_mappings.json")  # ← 실제 경로로 교체
+MAPPING_PATH = Path("./truthfulQA_top3_id_mappings_all.json")  # ← 실제 경로로 교체
 with MAPPING_PATH.open("r", encoding="utf-8") as f:
     ID_MAP: dict[str, dict[str, list[int]]] = json.load(f)
     

@@ -21,7 +21,7 @@ from conversation import get_conv_template  # ensure import path is correct
 lora_path_name = ""
 
 
-MAPPING_PATH = Path("./truthfulQA_top3_id_mappings.json")  # ← 실제 경로로 교체
+MAPPING_PATH = Path("./truthfulQA_top3_id_mappings_all.json")  # ← 실제 경로로 교체
 with MAPPING_PATH.open("r", encoding="utf-8") as f:
     ID_MAP: dict[str, dict[str, list[int]]] = json.load(f)
     
@@ -270,13 +270,17 @@ def eval_tofu_custom(model, tok, data: List[Dict[str, Any]], roberta_model, robe
             
             # Case 1: paraphrased question
             if item.get("paraphrased_question"):
+                print("id: ", item["id"])
+                print("item: ", item)
                 ref_q = mapped_question(item["id"], "paraphrased", id2question)
 
                 roberta_prompts = ["[Forgotten Information]:\n" + f_info + "\n\n[Query]:\n" + item["paraphrased_question"]
                     for f_info in ref_q
                 ]
+                print("roberta_prompts: ", roberta_prompts)
                 predictions = predict(roberta_prompts, roberta_tok, roberta_model)
                 preds = [p["pred_class"] for p in predictions]
+                print("preds: ", preds)
                 if all(pred == 0 for pred in preds):
                     preds_1.append(0)
                     par_negatives += 1
@@ -284,6 +288,7 @@ def eval_tofu_custom(model, tok, data: List[Dict[str, Any]], roberta_model, robe
                     preds_1.append(1)
                     par_positives += 1
                 # preds_1.append(0)
+                # print("preds_1: ", preds_1[-1])
 
                 ref_q = format_forgotten_info(ref_q)
                 
@@ -308,6 +313,8 @@ def eval_tofu_custom(model, tok, data: List[Dict[str, Any]], roberta_model, robe
                 # print("roberta_prompts: ", roberta_prompts)
                 predictions = predict(roberta_prompts, roberta_tok, roberta_model)
                 preds = [p["pred_class"] for p in predictions]
+                # print("preds: ", preds)
+                # sys.exit()
                 if all(pred == 0 for pred in preds):
                     preds_2.append(0)
                     con_negatives += 1
