@@ -261,7 +261,8 @@ def eval_tofu_custom(model, tok, data: List[Dict[str, Any]], sent_model, batch_s
     con_negatives = 0
 
     for batch in tqdm.tqdm(dl, desc="Evaluating custom tofu"):
-        prompts_1, refs_1, ids_1, q1_inputs, preds_1 = [], [], [], [], []
+        # prompts_1, refs_1, ids_1, q1_inputs, preds_1, incorrect_1 = [], [], [], [], [], []
+        prompts_1, ids_1, q1_inputs, preds_1, incorrect_1 = [], [], [], [], []
         prompts_2, refs_2, ids_2, q2_inputs, preds_2 = [], [], [], [], []
 
         for item in batch:
@@ -295,8 +296,9 @@ def eval_tofu_custom(model, tok, data: List[Dict[str, Any]], sent_model, batch_s
                 ref_q = format_forgotten_info(ref_q)
                 
                 prompts_1.append(build_llama2_prompt(item["paraphrased_question"], ref_q))
+                incorrect_1.append([s.strip() for s in item["Incorrect Answers"].split(";")])
 
-                refs_1.append(item["prediction"])
+                # refs_1.append(item["prediction"])
                 ids_1.append(item["id"])
                 q1_inputs.append({
                     "id": item["id"],
@@ -358,9 +360,13 @@ def eval_tofu_custom(model, tok, data: List[Dict[str, Any]], sent_model, batch_s
             for i in range(len(gens_1)):
                 
                 
+                # rouge_score = max(
+                #     rouge.score(ref, gens_1[i])["rougeL"].recall
+                #     for ref in REF_PHRASES
+                # )
                 rouge_score = max(
                     rouge.score(ref, gens_1[i])["rougeL"].recall
-                    for ref in REF_PHRASES
+                    for ref in incorrect_1[i]
                 )
                                 
                 
@@ -369,7 +375,7 @@ def eval_tofu_custom(model, tok, data: List[Dict[str, Any]], sent_model, batch_s
                     "type": "paraphrased",
                     "input": q1_inputs[i],
                     "generated": gens_1[i],
-                    "reference": refs_1[i],
+                    # "reference": refs_1[i],
                     "rougeL_recall": rouge_score
                 })
 
@@ -414,7 +420,9 @@ def main():
     ap.add_argument("--batch_size", type=int, default=4)
     ap.add_argument("--local_rank", type=int, default=-1)
     # ap.add_argument("--custom_data_json", required=True)
-    ap.add_argument("--custom_data_json", default="./truthfuQA_consent_false_only_augmented_llama_gen_consent_true_only.json")
+    # ap.add_argument("--custom_data_json", default="./truthfuQA_consent_false_only_augmented_llama_gen_consent_true_only.json")
+    # ap.add_argument("--custom_data_json", default="./truthfulQA_enriched.json")
+    ap.add_argument("--custom_data_json", default="./truthfulQA_all_augmented_ID.json")
     
     args = ap.parse_args()
 
