@@ -81,17 +81,25 @@ def match_forget_questions(raw_qs, f_texts, f_embs,
 
     return [mapping[q] for q in raw_qs]
 
-
-def build_llama2_prompt(question: str,
-                        forgotten_info: str = "") -> str:
-    # conv = get_conv_template("llama-2")
-    # conv.append_message(conv.roles[0], question)   # user
-    # conv.append_message(conv.roles[1], None)         # assistant
-    # final_prompt = conv.get_prompt()
-
-    final_prompt = "[INST] " + question + " [\INST]"
-    return final_prompt
-
+def build_llama2_prompt(question: str, tokenizer, forgotten_info: str, ) -> str:
+    messages = [
+        {"role": "user", "content": question}
+    ]
+    prompt = tokenizer.apply_chat_template(
+        messages,
+        tokenize=False,   # Return plain text prompt, not token IDs
+        add_generation_prompt=True  # Adds the assistant's turn prefix
+    )
+    return prompt
+# def build_llama2_prompt(question: str,
+#                         forgotten_info: str = "") -> str:
+#     # conv = get_conv_template("llama-2")
+#     # conv.append_message(conv.roles[0], question)   # user
+#     # conv.append_message(conv.roles[1], None)         # assistant
+#     # final_prompt = conv.get_prompt()
+#
+#     final_prompt = "[INST] " + question + " [/INST]"
+#     return final_prompt
 # def build_llama2_prompt(question: str,
 #                         forgotten_info: str = "") -> str:
 #     """Llama-2 chat 템플릿으로 감싼다."""
@@ -196,7 +204,8 @@ def postprocess_completion(comp: str) -> str:
 
 
 def batched_generate(model, tok, prompts, max_new=128):
-    # print("prompts: ", prompts)
+    print("prompts: ", prompts)
+    sys.exit()
     inputs = tok(prompts, return_tensors="pt",
                  padding=True, truncation=False).to(model.device)
 
@@ -309,7 +318,7 @@ def eval_subset(model, tok, name, ds, f_texts, f_embs, q2f_map, sent_model, batc
         forget_infos = match_forget_questions(raw_qs, f_texts, f_embs, q2f_map)
         # print("raw qs sample: ", raw_qs[:5])
         # print("forget_infos sample: ", forget_infos[:5])
-        prompts = [build_llama2_prompt(q, forgotten_info=f_info)
+        prompts = [build_llama2_prompt(q, tok, forgotten_info=f_info)
                         for q, f_info in zip(raw_qs, forget_infos)]
         # roberta_prompts = ["[Forgotten Information]:\n" + f_info + "\n\n[Query]:\n" + q for q, f_info in zip(raw_qs, forget_infos)]
         qs = list(raw_qs)

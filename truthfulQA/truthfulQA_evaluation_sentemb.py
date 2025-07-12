@@ -78,13 +78,23 @@ class QADataset(Dataset):
 # ─────────────────────────────────────────────────────────────────────────────
 # Prompt builder
 # ─────────────────────────────────────────────────────────────────────────────
-def build_llama2_prompt(question: str, forgotten_info: str) -> str:
-    conv = get_conv_template("llama-2")
-    conv.append_message(conv.roles[0], question)
-    conv.append_message(conv.roles[1], None)
-    final_prompt = conv.get_prompt()
-    # final_prompt = "[INST] " + question + " [\INST]"
-    return final_prompt
+def build_llama2_prompt(question: str, forgotten_info: str, tokenizer) -> str:
+    messages = [
+        {"role": "user", "content": question}
+    ]
+    prompt = tokenizer.apply_chat_template(
+        messages,
+        tokenize=False,   # Return plain text prompt, not token IDs
+        add_generation_prompt=True  # Adds the assistant's turn prefix
+    )
+    return prompt
+# def build_llama2_prompt(question: str, forgotten_info: str) -> str:
+#     conv = get_conv_template("llama-2")
+#     conv.append_message(conv.roles[0], question)
+#     conv.append_message(conv.roles[1], None)
+#     final_prompt = conv.get_prompt()
+#     # final_prompt = "[INST] " + question + " [\INST]"
+#     return final_prompt
 # def build_llama2_prompt(question: str, forgotten_info: str) -> str:
 #     if "newinst2" in lora_path_name:
 #         input_text = (
@@ -191,6 +201,7 @@ def load_model(base: str, ds_cfg: str, dtype=torch.float16):
 def batched_generate(model, tok, prompts: List[str]) -> List[str]:
     inputs = tok(prompts, return_tensors="pt", padding=True, truncation=False).to(model.device)
 
+    # print("prompts: ", prompts)
     with torch.no_grad():
         outs = model.generate(
             **inputs,
@@ -301,7 +312,7 @@ def eval_tofu_custom(model, tok, data: List[Dict[str, Any]], sent_model, batch_s
 
                 ref_q = format_forgotten_info(ref_q)
                 
-                prompts_1.append(build_llama2_prompt(item["paraphrased_question"], ref_q))
+                prompts_1.append(build_llama2_prompt(item["paraphrased_question"], ref_q, tok))
                 incorrect_1.append([s.strip() for s in item["Incorrect Answers"].split(";")])
 
                 # refs_1.append(item["prediction"])
@@ -340,7 +351,7 @@ def eval_tofu_custom(model, tok, data: List[Dict[str, Any]], sent_model, batch_s
                 
                 ref_q = format_forgotten_info(ref_q)
                 
-                prompts_2.append(build_llama2_prompt(item["contrastive_question"], ref_q))
+                prompts_2.append(build_llama2_prompt(item["contrastive_question"], ref_q, tok))
                 # print("prompts_2: ", prompts_2)
                 # print("preds_2: ", preds_2)
                 refs_2.append(item["contrastive_answer"])
@@ -364,8 +375,7 @@ def eval_tofu_custom(model, tok, data: List[Dict[str, Any]], sent_model, batch_s
                     raise ValueError(f"Unexpected prediction class: {pred}")
 
             for i in range(len(gens_1)):
-                
-                
+
                 # rouge_score = max(
                 #     rouge.score(ref, gens_1[i])["rougeL"].recall
                 #     for ref in REF_PHRASES
@@ -374,7 +384,6 @@ def eval_tofu_custom(model, tok, data: List[Dict[str, Any]], sent_model, batch_s
                     rouge.score(ref, gens_1[i])["rougeL"].recall
                     for ref in incorrect_1[i]
                 )
-                                
                 
                 all_results.append({
                     "id": ids_1[i],
