@@ -68,19 +68,22 @@ def format_forgotten_info(questions: List[str]) -> str:
     """1, 2, 3 … 형태로 개행 구분 포매팅."""
     return "\n".join([f"{i+1}. {q}" for i, q in enumerate(questions)])
 
-def build_commonsense_prompt(question: str, forgotten_info: str, choices: List[Tuple[str, str]]) -> str:
+def build_commonsense_prompt(question: str, tokenizer, forgotten_info: str, choices: List[Tuple[str, str]]) -> str:
     choice_block = "\n".join([f"{label}. {text}" for label, text in choices])
     user_msg = (
         f"{question}\n\nChoices:\n{choice_block}\n\n"
         # "Please respond with only the letter of the correct answer (A, B, C, D, or E) with no explanation."
     )
 
-    conv = get_conv_template("llama-2")
-    conv.append_message(conv.roles[0], user_msg)
-    conv.append_message(conv.roles[1], None)
-    final_prompt = conv.get_prompt()
-    # final_prompt = "[INST] " + question + " [\INST]"
-    return final_prompt
+    messages = [
+        {"role": "user", "content": user_msg}
+    ]
+    prompt = tokenizer.apply_chat_template(
+        messages,
+        tokenize=False,  # Return plain text prompt, not token IDs
+        add_generation_prompt=True  # Adds the assistant's turn prefix
+    )
+    return prompt
 # def build_commonsense_prompt(question: str, forgotten_info: str, choices: List[Tuple[str, str]]) -> str:
 #     """Construct a simple multiple‑choice prompt for the model."""
 #     choice_block = "\n".join([f"{label}. {text}" for label, text in choices])
@@ -161,6 +164,7 @@ def load_model(base: str, ds_cfg: str, dtype=torch.float16):
 
 def batched_generate(model, tok, prompts: List[str]) -> List[str]:
     inputs = tok(prompts, return_tensors="pt", padding=True, truncation=False).to(model.device)
+    # print("prompts:", prompts)
 
     with torch.no_grad():
         outs = model.generate(
@@ -272,9 +276,8 @@ def eval_commonsenseqa(model, tok, roberta_model, roberta_tok, split: str = "val
                 forgotten_info = cand_list[0]          # 그대로 사용
             else:
                 forgotten_info = format_forgotten_info(cand_list) if cand_list else ""
-            
 
-            prompts.append(build_commonsense_prompt(ex["question"], forgotten_info, choices))
+            prompts.append(build_commonsense_prompt(ex["question"], tok, forgotten_info, choices))
             batch_labels.append(ex["answerKey"])
             batch_questions.append(ex["question"].strip())
 
