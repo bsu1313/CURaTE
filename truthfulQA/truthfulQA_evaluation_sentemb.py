@@ -51,8 +51,15 @@ def mapped_question(origin_id: int, key: str, id2question) -> List[str]:
         mapped_ids = ID_MAP[str(origin_id)][f"{key}_top3_ids"]
         return [id2question[mid] for mid in mapped_ids if mid in id2question]
     except (KeyError, IndexError):
-        return id2question[origin_id]    
-    
+        return id2question[origin_id]
+
+def mapped_cossim(origin_id: int, key: str, id2question) -> List[str]:
+    try:
+        mapped_ids = ID_MAP[str(origin_id)][f"{key}_top3_cossim"]
+        return [id2question[mid] for mid in mapped_ids if mid in id2question]
+    except (KeyError, IndexError):
+        return id2question[origin_id]
+
 def format_forgotten_info(questions: List[str]) -> str:
     return "\n".join([f"{i+1}. {q}" for i, q in enumerate(questions)])
 
@@ -272,20 +279,21 @@ def eval_tofu_custom(model, tok, data: List[Dict[str, Any]], sent_model, batch_s
             # Case 1: paraphrased question
             if item.get("paraphrased_question"):
                 ref_q = mapped_question(item["id"], "paraphrased", id2question)
+                cos_sim = mapped_cossim(item["id"], "paraphrased", id2question)
+                max_cos_sim = max(cos_sim) if cos_sim else 0.0
 
-                # roberta_prompts = ["[Forgotten Information]:\n" + f_info + "\n\n[Query]:\n" + item["paraphrased_question"]
-                #     for f_info in ref_q
-                # ]
-                # predictions = predict(roberta_prompts, roberta_tok, roberta_model)
-                # preds = [p["pred_class"] for p in predictions]
+                if max_cos_sim > 0.8:
+                    match = True
+                else:
+                    match = False
 
-                match = False
-                for f_info in ref_q:
-                    q_emb = sent_model.encode(item["paraphrased_question"], convert_to_tensor=True)
-                    f_emb = sent_model.encode(f_info, convert_to_tensor=True)
-                    cos_sim = util.cos_sim(q_emb, f_emb)
-                    if cos_sim.item() > 0.8:  # threshold for similarity
-                        match = True
+                # match = False
+                # for f_info in ref_q:
+                #     q_emb = sent_model.encode(item["paraphrased_question"], convert_to_tensor=True)
+                #     f_emb = sent_model.encode(f_info, convert_to_tensor=True)
+                #     cos_sim = util.cos_sim(q_emb, f_emb)
+                #     if cos_sim.item() > 0.8:  # threshold for similarity
+                #         match = True
 
                 if not match:
                     preds_1.append(0)
@@ -310,21 +318,21 @@ def eval_tofu_custom(model, tok, data: List[Dict[str, Any]], sent_model, batch_s
             # Case 2: contrastive question
             if item.get("contrastive_question") and item.get("contrastive_answer"):
                 ref_q = mapped_question(item["id"], "contrastive", id2question)
+                cos_sim = mapped_cossim(item["id"], "constrastive", id2question)
+                max_cos_sim = max(cos_sim) if cos_sim else 0.0
 
-                # roberta_prompts = ["[Forgotten Information]:\n" + f_info + "\n\n[Query]:\n" + item["contrastive_question"]
-                #     for f_info in ref_q
-                # ]
-                # predictions = predict(roberta_prompts, roberta_tok, roberta_model)
-                # preds = [p["pred_class"] for p in predictions]
+                if max_cos_sim > 0.8:
+                    match = True
+                else:
+                    match = False
 
-
-                match = False
-                for f_info in ref_q:
-                    q_emb = sent_model.encode(item["contrastive_question"], convert_to_tensor=True)
-                    f_emb = sent_model.encode(f_info, convert_to_tensor=True)
-                    cos_sim = util.cos_sim(q_emb, f_emb)
-                    if cos_sim.item() > 0.8:  # threshold for similarity
-                        match = True
+                # match = False
+                # for f_info in ref_q:
+                #     q_emb = sent_model.encode(item["contrastive_question"], convert_to_tensor=True)
+                #     f_emb = sent_model.encode(f_info, convert_to_tensor=True)
+                #     cos_sim = util.cos_sim(q_emb, f_emb)
+                #     if cos_sim.item() > 0.8:  # threshold for similarity
+                #         match = True
 
                 if not match:
                     preds_2.append(0)
