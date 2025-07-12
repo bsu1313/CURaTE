@@ -56,9 +56,7 @@ def mapped_question(origin_id: int, key: str, id2question) -> List[str]:
 def mapped_cossim(origin_id: int, key: str, id2question) -> List[str]:
     try:
         mapped_ids = ID_MAP[str(origin_id)][f"{key}_top3_cossim"]
-        return [id2question[mid] for mid in mapped_ids if mid in id2question]
-    except (KeyError, IndexError):
-        return id2question[origin_id]
+        return mapped_ids
 
 def format_forgotten_info(questions: List[str]) -> str:
     return "\n".join([f"{i+1}. {q}" for i, q in enumerate(questions)])
