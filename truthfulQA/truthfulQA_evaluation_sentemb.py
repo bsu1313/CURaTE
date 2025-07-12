@@ -315,7 +315,7 @@ def eval_tofu_custom(model, tok, data: List[Dict[str, Any]], sent_model, batch_s
             # Case 2: contrastive question
             if item.get("contrastive_question") and item.get("contrastive_answer"):
                 ref_q = mapped_question(item["id"], "contrastive", id2question)
-                cos_sim = mapped_cossim(item["id"], "constrastive", id2question)
+                cos_sim = mapped_cossim(item["id"], "contrastive", id2question)
                 max_cos_sim = max(float(x) for x in cos_sim) if cos_sim else 0.0
 
                 if max_cos_sim > 0.8:
