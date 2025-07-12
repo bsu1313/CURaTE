@@ -1,4 +1,4 @@
-import os, sys, json, math, argparse, re, random, tqdm
+import os, json, argparse, re, tqdm, sys
 from typing import List, Dict, Any
 
 os.environ["TOKENIZERS_PARALLELISM"] = "false"
@@ -6,17 +6,13 @@ os.environ["TOKENIZERS_PARALLELISM"] = "false"
 import torch, numpy as np
 from torch.utils.data import DataLoader, Dataset
 from transformers import AutoModelForCausalLM, AutoTokenizer
-from peft import PeftModel
 import deepspeed, transformers
 from transformers import RobertaTokenizer, RobertaForSequenceClassification
 from rouge_score import rouge_scorer
-from sentence_transformers import SentenceTransformer, util
-from torch.utils.data.dataloader import default_collate
+from sentence_transformers import SentenceTransformer
 from pathlib import Path
-import sys
 
 # Prompt template helpers
-from conversation import get_conv_template  # ensure import path is correct
 
 lora_path_name = ""
 
@@ -54,11 +50,8 @@ def mapped_question(origin_id: int, key: str, id2question) -> List[str]:
         return id2question[origin_id]    
 
 def mapped_cossim(origin_id: int, key: str, id2question) -> List[str]:
-    try:
-        mapped_ids = ID_MAP[str(origin_id)][f"{key}_top3_cossim"]
-        return [id2question[mid] for mid in mapped_ids if mid in id2question]
-    except (KeyError, IndexError):
-        return id2question[origin_id]
+    mapped_ids = ID_MAP[str(origin_id)][f"{key}_top3_cossim"]
+    return mapped_ids
 
 def format_forgotten_info(questions: List[str]) -> str:
     return "\n".join([f"{i+1}. {q}" for i, q in enumerate(questions)])
@@ -270,6 +263,7 @@ def eval_tofu_custom(model, tok, data: List[Dict[str, Any]], roberta_model, robe
         return batch
     
     # print("data sample: ", data[0])
+    # sys.exit()
     id2question: dict[int, str] = {ex["id"]: ex["question"] for ex in data}
     
     dl = DataLoader(QADataset(data), batch_size=batch_size, collate_fn=identity_collate)

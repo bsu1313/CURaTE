@@ -1,4 +1,4 @@
-import os, sys, json, math, argparse, re, random, tqdm
+import os, json, argparse, re, tqdm
 from typing import List, Dict, Any
 
 os.environ["TOKENIZERS_PARALLELISM"] = "false"
@@ -6,17 +6,12 @@ os.environ["TOKENIZERS_PARALLELISM"] = "false"
 import torch, numpy as np
 from torch.utils.data import DataLoader, Dataset
 from transformers import AutoModelForCausalLM, AutoTokenizer
-from peft import PeftModel
 import deepspeed, transformers
-from transformers import RobertaTokenizer, RobertaForSequenceClassification
 from rouge_score import rouge_scorer
-from sentence_transformers import SentenceTransformer, util
-from torch.utils.data.dataloader import default_collate
+from sentence_transformers import SentenceTransformer
 from pathlib import Path
-import sys
 
 # Prompt template helpers
-from conversation import get_conv_template  # ensure import path is correct
 
 lora_path_name = ""
 

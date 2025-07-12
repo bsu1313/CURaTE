@@ -45,11 +45,36 @@ from conversation import get_conv_template  # ensure import path is correct
 # ─────────────────────────────────────────────────────────────────────────────
 # Globals & mapping placeholders (optional)
 # ─────────────────────────────────────────────────────────────────────────────
-ID_MAPPING_PATH: Path | None = None  # TODO
-ID_MAP: Dict[str, Dict[str, Any]] | None = None   # TODO
+# ID_MAPPING_PATH: Path | None = None  # TODO
+# ID_MAP: Dict[str, Dict[str, Any]] | None = None   # TODO
+
+MAPPING_PATH = Path("./csqa_to_truthqa_top3_ID_all.json")  # ← finetuned sent emb model
+with MAPPING_PATH.open("r", encoding="utf-8") as f:
+    ID_MAP: dict[str, dict[str, list[int]]] = json.load(f)
 
 # If mapping json is supplied we load it, but evaluation logic does not depend
 # on it for CommonsenseQA.
+
+def mapped_question(origin_id: int, key: str, id2question) -> List[str]:
+    """
+    Args:
+        origin_id : 현재 예시의 id  (e.g. 5)
+        key       : "paraphrased" or "contrastive"
+    Returns:
+        매핑된 id( top-3 의 첫 번째 )에 대응하는 question 문자열
+        (없으면 원본 question 을 그대로 반환)
+    """
+    # print("origin_id:", origin_id)
+    # print("ID_MAP[str(origin_id)]:", ID_MAP[str(origin_id)])
+    try:
+        mapped_ids = ID_MAP[str(origin_id)][f"{key}_top3_ids"]
+        return [id2question[mid] for mid in mapped_ids if mid in id2question]
+    except (KeyError, IndexError):
+        return id2question[origin_id]
+
+def mapped_cossim(origin_id: int, key: str, id2question) -> List[str]:
+    mapped_ids = ID_MAP[str(origin_id)][f"{key}_top3_cossim"]
+    return mapped_ids
 
 def get_available_cache_dir():
     preferred = Path("/home/david/.cache")
@@ -219,10 +244,12 @@ def predict(texts, tokenizer, model, max_length=256):
 # CommonsenseQA evaluation
 # ─────────────────────────────────────────────────────────────────────────────
 
-def eval_commonsenseqa(model, tok, roberta_model, roberta_tok, split: str = "validation", batch_size: int = 4):
+def eval_commonsenseqa(model, tok, truthfulqa, roberta_model, roberta_tok, split: str = "validation", batch_size: int = 4):
     ds = load_dataset("tau/commonsense_qa", split=split)
     # ds.save_to_disk("/home/work/seyun_workspace/cache_LTE/commonsense_qa")
 
+    id2question: dict[int, str] = {ex["id"]: ex["question"] for ex in truthfulqa}
+    # print("data sample: ", ds[0])
     dl = DataLoader(ds, batch_size=batch_size, shuffle=False, collate_fn=lambda x: x  )
 
     preds, gold_labels, gold_texts, questions = [], [], [], []
@@ -241,41 +268,52 @@ def eval_commonsenseqa(model, tok, roberta_model, roberta_tok, split: str = "val
             labels = ex["choices"]["label"]        # ["A", "B", ...]
             texts  = ex["choices"]["text"]         # ["sand", ...]
             choices = list(zip(labels, texts))
-            
-            n_forgotten =3
-            if ID_MAP is not None and n_forgotten > 0:
-                if ex["question"] not in ID_MAP:
-                    raise KeyError(
-                        f"[ID_MAP]에 해당 질문이 없습니다: «{ex['question']}»"
-                    )
-                cand_list = ID_MAP[ex["question"]][:n_forgotten]
+            ref_q = mapped_question(ex["id"], "truthfulQA", id2question)
+            roberta_prompts = ["[Forgotten Information]:\n" + f_info + "\n\n[Query]:\n" + ex["question"]
+                               for f_info in ref_q
+                               ]
+            # print("ref_q:", ref_q)
+            # print("ex: ", ex)
+            print("roberta_prompts: ", roberta_prompts)
+            predictions = predict(roberta_prompts, roberta_tok, roberta_model)
+            preds = [p["pred_class"] for p in predictions]
+            print("preds: ", preds)
+            if all(pred == 0 for pred in preds):
+                preds_1.append(0)
+                par_negatives += 1
             else:
-                cand_list = []
-            # print("ID_MAP:", ID_MAP)
-            # print("ex['question']:", ex["question"])
-            # print('cand_list:', cand_list)
-            if len(cand_list) > 0:
-                roberta_prompts = [
-                    "[Forgotten Information]:\n" + f_info + "\n\n[Query]:\n" + ex["question"]
-                    for f_info in cand_list
-                    ]
-                predictions = predict(roberta_prompts, roberta_tok, roberta_model)
-                preds0 = [p["pred_class"] for p in predictions]
-                if all(pred == 0 for pred in preds0):
-                    preds_1.append(0)
-                    par_negatives += 1
-                else:
-                    preds_1.append(1)
-                    par_positives += 1
-                # preds_1.append(0)
-                # print("roberta prompts:", roberta_prompts)
-                # print("preds0:", preds0)
-                # print("preds_1:", preds_1)
+                preds_1.append(1)
+                par_positives += 1
+            # preds_1.append(0)
 
-            if len(cand_list) == 1:
-                forgotten_info = cand_list[0]          # 그대로 사용
+            # n_forgotten =3
+            # if ID_MAP is not None and n_forgotten > 0:
+            #     if ex["question"] not in ID_MAP:
+            #         raise KeyError(
+            #             f"[ID_MAP]에 해당 질문이 없습니다: «{ex['question']}»"
+            #         )
+            #     cand_list = ID_MAP[ex["question"]][:n_forgotten]
+            # else:
+            #     cand_list = []
+            # if len(cand_list) > 0:
+            #     roberta_prompts = [
+            #         "[Forgotten Information]:\n" + f_info + "\n\n[Query]:\n" + ex["question"]
+            #         for f_info in cand_list
+            #         ]
+            #     predictions = predict(roberta_prompts, roberta_tok, roberta_model)
+            #     preds0 = [p["pred_class"] for p in predictions]
+            #     if all(pred == 0 for pred in preds0):
+            #         preds_1.append(0)
+            #         par_negatives += 1
+            #     else:
+            #         preds_1.append(1)
+            #         par_positives += 1
+            #     # preds_1.append(0)
+
+            if len(ref_q) == 1:
+                forgotten_info = ref_q[0]          # 그대로 사용
             else:
-                forgotten_info = format_forgotten_info(cand_list) if cand_list else ""
+                forgotten_info = format_forgotten_info(ref_q) if ref_q else ""
 
             prompts.append(build_commonsense_prompt(ex["question"], tok, forgotten_info, choices))
             batch_labels.append(ex["answerKey"])
@@ -353,7 +391,9 @@ def main():
     ap.add_argument("--split", default="validation", choices=["train", "validation", "test"])
     ap.add_argument("--local_rank", type=int, default=-1)
     # ap.add_argument("--id_mapping_json", default=None, help="(Optional) new id mapping JSON")
-    ap.add_argument("--id_mapping_json", default="csqa_to_truthqa_top3.json",)
+    # ap.add_argument("--id_mapping_json", default="csqa_to_truthqa_top3.json",)
+    ap.add_argument("--id_mapping_json", default="csqa_to_truthqa_top3_ID_all.json", )
+    ap.add_argument("--truthfulqa_json", default="../truthfulQA/truthfulQA_all_augmented_ID.json")
     args = ap.parse_args()
 
     os.makedirs(args.output_dir, exist_ok=True)
@@ -372,9 +412,12 @@ def main():
     roberta_model = RobertaForSequenceClassification.from_pretrained(model_dir)
     roberta_model.eval()
 
+    with open(args.truthfulqa_json, encoding="utf-8") as f:
+        truthfulqa = json.load(f)
+
     # Evaluate
     aggregate, samples = eval_commonsenseqa(
-        model, tok, roberta_model, roberta_tok, split=args.split, batch_size=args.batch_size
+        model, tok, truthfulqa, roberta_model, roberta_tok, split=args.split, batch_size=args.batch_size
     )
 
     # Save

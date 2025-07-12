@@ -1,4 +1,4 @@
-import os, sys, json, math, argparse, re, random, tqdm
+import os, json, argparse, re, tqdm
 from typing import List, Dict, Any
 import torch.nn as nn
 
@@ -8,17 +8,13 @@ os.environ["DS_USE_MPI"] = "0"
 import torch, numpy as np
 from torch.utils.data import DataLoader, Dataset
 from transformers import AutoModelForCausalLM, AutoTokenizer
-from peft import PeftModel
 import deepspeed, transformers
 from transformers import RobertaTokenizer, RobertaForSequenceClassification
 from rouge_score import rouge_scorer
-from sentence_transformers import SentenceTransformer, util
-from torch.utils.data.dataloader import default_collate
+from sentence_transformers import SentenceTransformer
 from pathlib import Path
-import sys
 
 # Prompt template helpers
-from conversation import get_conv_template  # ensure import path is correct
 
 lora_path_name = ""
 
@@ -56,11 +52,8 @@ def mapped_question(origin_id: int, key: str, id2question) -> List[str]:
         return id2question[origin_id]    
 
 def mapped_cossim(origin_id: int, key: str, id2question) -> List[str]:
-    try:
-        mapped_ids = ID_MAP[str(origin_id)][f"{key}_top3_cossim"]
-        return [id2question[mid] for mid in mapped_ids if mid in id2question]
-    except (KeyError, IndexError):
-        return id2question[origin_id]
+    mapped_ids = ID_MAP[str(origin_id)][f"{key}_top3_cossim"]
+    return mapped_ids
 
 def format_forgotten_info(questions: List[str]) -> str:
     return "\n".join([f"{i+1}. {q}" for i, q in enumerate(questions)])
