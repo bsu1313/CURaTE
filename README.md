@@ -34,3 +34,15 @@ Unlearning method using retrieval of sentence embeddings.
 #### Sentence Embeddings
 2. Use sentence embedding model trained for TOFU.
 3. Run commonsense/evaluation_commonsenseQA_sentemb.py to evaluate the sentence embeddings on the CommonsenseQA dataset.
+
+
+### Multi-GPU (parallel)
+#### Ubuntu
+sudo apt-get update
+sudo apt-get install -y libopenmpi-dev openmpi-bin
+
+#### then in your conda/env:
+pip install mpi4py
+
+#### launch with:
+DS_USE_MPI=0 deepspeed --num_gpus=4 truthfulQA_evaluation123_parallel.py
