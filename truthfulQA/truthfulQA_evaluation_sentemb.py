@@ -280,7 +280,7 @@ def eval_tofu_custom(model, tok, data: List[Dict[str, Any]], sent_model, batch_s
             if item.get("paraphrased_question"):
                 ref_q = mapped_question(item["id"], "paraphrased", id2question)
                 cos_sim = mapped_cossim(item["id"], "paraphrased", id2question)
-                max_cos_sim = max(cos_sim) if cos_sim else 0.0
+                max_cos_sim = max(float(x) for x in cos_sim) if cos_sim else 0.0
 
                 if max_cos_sim > 0.8:
                     match = True
@@ -319,7 +319,7 @@ def eval_tofu_custom(model, tok, data: List[Dict[str, Any]], sent_model, batch_s
             if item.get("contrastive_question") and item.get("contrastive_answer"):
                 ref_q = mapped_question(item["id"], "contrastive", id2question)
                 cos_sim = mapped_cossim(item["id"], "constrastive", id2question)
-                max_cos_sim = max(cos_sim) if cos_sim else 0.0
+                max_cos_sim = max(float(x) for x in cos_sim) if cos_sim else 0.0
 
                 if max_cos_sim > 0.8:
                     match = True
