@@ -48,14 +48,14 @@ from conversation import get_conv_template  # ensure import path is correct
 # ID_MAPPING_PATH: Path | None = None  # TODO
 # ID_MAP: Dict[str, Dict[str, Any]] | None = None   # TODO
 
-MAPPING_PATH = Path("./csqa_to_truthqa_top3_ID_all.json")  # ← finetuned sent emb model
-with MAPPING_PATH.open("r", encoding="utf-8") as f:
-    ID_MAP: dict[str, dict[str, list[int]]] = json.load(f)
+# MAPPING_PATH = Path("./csqa_to_truthqa_top3_ID_all.json")  # ← finetuned sent emb model
+# with MAPPING_PATH.open("r", encoding="utf-8") as f:
+#     ID_MAP: dict[str, dict[str, list[int]]] = json.load(f)
 
 # If mapping json is supplied we load it, but evaluation logic does not depend
 # on it for CommonsenseQA.
 
-def mapped_question(origin_id: int, key: str, id2question) -> List[str]:
+def mapped_question(origin_id: int, key: str, id2question, ID_MAP) -> List[str]:
     """
     Args:
         origin_id : 현재 예시의 id  (e.g. 5)
@@ -72,7 +72,7 @@ def mapped_question(origin_id: int, key: str, id2question) -> List[str]:
     except (KeyError, IndexError):
         return id2question[origin_id]
 
-def mapped_cossim(origin_id: int, key: str, id2question) -> List[str]:
+def mapped_cossim(origin_id: int, key: str, id2question, ID_MAP) -> List[str]:
     mapped_ids = ID_MAP[str(origin_id)][f"{key}_top3_cossim"]
     return mapped_ids
 
@@ -173,11 +173,17 @@ def load_model(base: str, ds_cfg: str, dtype=torch.float16):
         config=json.load(open(ds_cfg)),
     )
 
+    if "Llama-2-7b" in base:
+        tok_name = "meta-llama/Llama-2-7b-chat-hf"
+    elif "Llama-3.2-1B-Instruct" in base:
+        tok_name = "meta-llama/Llama-3.2-1B-Instruct"
+    else:
+        tok_name = base
     tok = AutoTokenizer.from_pretrained(
-        "meta-llama/Llama-2-7b-chat-hf",
+        tok_name,
         use_fast=False,
         padding_side="left",
-        cache_dir=get_available_cache_dir(),
+        cache_dir= get_available_cache_dir(),
     )
     tok.pad_token = tok.eos_token
     tok.pad_token_id = tok.eos_token_id
@@ -194,7 +200,8 @@ def batched_generate(model, tok, prompts: List[str]) -> List[str]:
     with torch.no_grad():
         outs = model.generate(
             **inputs,
-            max_new_tokens=128,
+            # max_new_tokens=128,
+            max_length = 256,
             do_sample=False,
             min_new_tokens=4,
             eos_token_id=tok.eos_token_id,
@@ -244,7 +251,7 @@ def predict(texts, tokenizer, model, max_length=256):
 # CommonsenseQA evaluation
 # ─────────────────────────────────────────────────────────────────────────────
 
-def eval_commonsenseqa(model, tok, truthfulqa, roberta_model, roberta_tok, split: str = "validation", batch_size: int = 4):
+def eval_commonsenseqa(model, tok, truthfulqa, roberta_model, roberta_tok, ID_MAP, split: str = "validation", batch_size: int = 4):
     ds = load_dataset("tau/commonsense_qa", split=split)
     # ds.save_to_disk("/home/work/seyun_workspace/cache_LTE/commonsense_qa")
 
@@ -268,12 +275,11 @@ def eval_commonsenseqa(model, tok, truthfulqa, roberta_model, roberta_tok, split
             labels = ex["choices"]["label"]        # ["A", "B", ...]
             texts  = ex["choices"]["text"]         # ["sand", ...]
             choices = list(zip(labels, texts))
-            ref_q = mapped_question(ex["id"], "truthfulQA", id2question)
+            ref_q = mapped_question(ex["id"], "truthfulQA", id2question, ID_MAP)
+
             roberta_prompts = ["[Forgotten Information]:\n" + f_info + "\n\n[Query]:\n" + ex["question"]
                                for f_info in ref_q
                                ]
-            # print("ref_q:", ref_q)
-            # print("ex: ", ex)
             print("roberta_prompts: ", roberta_prompts)
             predictions = predict(roberta_prompts, roberta_tok, roberta_model)
             preds = [p["pred_class"] for p in predictions]
@@ -383,6 +389,7 @@ def main():
     ap = argparse.ArgumentParser(description="Evaluate model on CommonsenseQA")
     # ap.add_argument("--base_model", required=True)
     ap.add_argument("--base_model", default="meta-llama/Llama-2-7b-chat-hf")
+    # ap.add_argument("--base_model", default="meta-llama/Llama-3.2-1B-Instruct")
     # ap.add_argument("--lora_path", required=True)
     # ap.add_argument("--ds_config", required=True)
     ap.add_argument("--ds_config", default="ds_config.json")
@@ -398,10 +405,11 @@ def main():
 
     os.makedirs(args.output_dir, exist_ok=True)
 
-    global ID_MAPPING_PATH, ID_MAP
-    if args.id_mapping_json:
-        ID_MAPPING_PATH = Path(args.id_mapping_json)
-        ID_MAP = json.loads(ID_MAPPING_PATH.read_text(encoding="utf-8"))
+    global MAPPING_PATH, ID_MAP
+    # global ID_MAPPING_PATH, ID_MAP
+    # if args.id_mapping_json:
+    #     ID_MAPPING_PATH = Path(args.id_mapping_json)
+    #     ID_MAP = json.loads(ID_MAPPING_PATH.read_text(encoding="utf-8"))
 
     # Load model
     # model, tok = load_model(args.base_model, args.lora_path, args.ds_config)
@@ -413,11 +421,40 @@ def main():
     roberta_model.eval()
 
     with open(args.truthfulqa_json, encoding="utf-8") as f:
-        truthfulqa = json.load(f)
+        data = json.load(f)
+
+    # Load the split IDs
+    with open("../truthfulQA/truthfulQA_continual_setting/TruthfulQA_split_ids.json", encoding="utf-8") as f:
+        split_ids = json.load(f)
+
+    stage = 1
+
+    # Convert the list to a set for fast lookup
+    stage1_ids = set(split_ids["stage1"])
+    stage1_stage2_ids = set(split_ids["stage1"]) | set(split_ids["stage2"])
+    stage1_stage2_stage3_ids = (set(split_ids["stage1"]) | set(split_ids["stage2"]) | set(split_ids["stage3"]))
+
+    if stage == 1:
+        combined_ids = stage1_ids
+        MAPPING_PATH = Path("../truthfulQA/truthfulQA_continual_setting/csqa_to_truthqa_top3_stage1.json")
+    elif stage == 12:
+        combined_ids = stage1_stage2_ids
+        MAPPING_PATH = Path("../truthfulQA/truthfulQA_continual_setting/csqa_to_truthqa_top3_stage1_2.json")
+    elif stage == 123:
+        combined_ids = stage1_stage2_stage3_ids
+        MAPPING_PATH = Path("../truthfulQA/truthfulQA_continual_setting/csqa_to_truthqa_top3_stage1_2_3.json")
+
+    # Filter data to include only examples with IDs in stage1
+    filtered_data = [example for example in data if example["id"] in combined_ids]
+    # print("len filtered data: ", len(filtered_data))
+
+    with MAPPING_PATH.open("r", encoding="utf-8") as f:
+        # ID_MAP: dict[str, dict[str, list[int]]] = json.load(f)
+        ID_MAP = json.load(f)
 
     # Evaluate
     aggregate, samples = eval_commonsenseqa(
-        model, tok, truthfulqa, roberta_model, roberta_tok, split=args.split, batch_size=args.batch_size
+        model, tok, filtered_data, roberta_model, roberta_tok, ID_MAP, split=args.split, batch_size=args.batch_size
     )
 
     # Save

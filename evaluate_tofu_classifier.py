@@ -9,13 +9,13 @@ Unified TOFU evaluation
 """
 
 import os, sys, json, math, random, argparse, tqdm, re
-from typing import List, Dict
+from typing import List, Dict, Any
 
 os.environ["TOKENIZERS_PARALLELISM"] = "false"
 
 import torch, numpy as np
 from datasets import load_dataset
-from torch.utils.data import DataLoader
+from torch.utils.data import DataLoader, Dataset
 from transformers import (
     AutoModelForCausalLM,
     AutoTokenizer,
@@ -26,7 +26,7 @@ import deepspeed
 import transformers
 
 from rouge_score import rouge_scorer
-from datasets import Dataset
+# from datasets import Dataset
 # --------------------------------------------------------------------------
 # 프롬프트 템플릿
 # --------------------------------------------------------------------------
@@ -81,8 +81,38 @@ def match_forget_questions(raw_qs, f_texts, f_embs,
 
     return [mapping[q] for q in raw_qs]
 
+def mapped_question(origin_id: int, id2question, ID_MAP) -> List[str]:
+    """
+    Args:
+        origin_id : 현재 예시의 id  (e.g. 5)
+        key       : "paraphrased" or "contrastive"
+    Returns:
+        매핑된 id( top-3 의 첫 번째 )에 대응하는 question 문자열
+        (없으면 원본 question 을 그대로 반환)
+    """
+    # print("origin_id: ", origin_id)
+    # print("ID_MAP[str(origin_id)]: ", ID_MAP[str(origin_id)])
+    try:
+        mapped_ids = ID_MAP[str(origin_id)][f"forget_data_top3_ids"]
+        return [id2question[mid] for mid in mapped_ids if mid in id2question]
+    except (KeyError, IndexError):
+        return id2question[origin_id]
 
-def build_llama2_prompt(question: str, tokenizer, forgotten_info: str, ) -> str:
+def mapped_cossim(origin_id: int, ID_MAP) -> List[str]:
+    mapped_ids = ID_MAP[str(origin_id)][f"forget_data_top3_cossim"]
+    return mapped_ids
+
+class QADataset(Dataset):
+    def __init__(self, examples: List[Dict[str, Any]]):
+        self.examples = examples
+
+    def __len__(self):
+        return len(self.examples)
+
+    def __getitem__(self, idx):
+        return self.examples[idx]
+
+def build_llama2_prompt(question: str, tokenizer) -> str:
     messages = [
         {"role": "user", "content": question}
     ]
@@ -168,11 +198,17 @@ def load_model(base, ds_cfg, cache_dir, dtype=torch.float16):
         model, dtype=dtype, kernel_inject=False,
         replace_method="none", config=json.load(open(ds_cfg))
     )
+    if "Llama-2-7b" in base:
+        tok_name = "meta-llama/Llama-2-7b-chat-hf"
+    elif "Llama-3.2-1B-Instruct" in base:
+        tok_name = "meta-llama/Llama-3.2-1B-Instruct"
+    else:
+        tok_name = base
     tok = AutoTokenizer.from_pretrained(
-        "meta-llama/Llama-2-7b-chat-hf",
-        # base,
-        use_fast=False, padding_side="left",
-        cache_dir=cache_dir
+        tok_name,
+        use_fast=False,
+        padding_side="left",
+        cache_dir= get_available_cache_dir(),
     )
     tok.pad_token = tok.eos_token
     tok.pad_token_id = tok.eos_token_id
@@ -204,35 +240,69 @@ def postprocess_completion(comp: str) -> str:
     return comp.strip()
 
 
-def batched_generate(model, tok, prompts, max_new=128):
+def batched_generate(model, tok, prompts):
     # print("prompts: ", prompts)
     inputs = tok(prompts, return_tensors="pt",
                  padding=True, truncation=False).to(model.device)
+    # prompt_lengths = inputs.attention_mask.sum(dim=1).tolist()
+    # print("prompt lengths: ", prompt_lengths)
 
     with torch.no_grad():
         outs = model.generate(**inputs,
                               # max_new_tokens=256,
-                              max_length = 200,
+                              max_length = 256,
                               do_sample=False,
                               # min_new_tokens=4,
                               eos_token_id=tok.eos_token_id,
                               use_cache=False)
 
     results = []
-    for ids in outs:
-        # ① special token을 살린 채 풀 디코드
-        full = tok.decode(ids,
-                          skip_special_tokens=True,
-                          clean_up_tokenization_spaces=False)
+    for prompt, generated_ids in zip(prompts, outs):
+        # Decode the full output without skipping special tokens
+        full_text = tok.decode(
+            generated_ids,
+            skip_special_tokens=True,
+            clean_up_tokenization_spaces=False
+        ).strip()
 
-        # print("full: ", full)
-        comp = full.split("[/INST]", 1)[-1].strip()
-        # print("comp1: ", comp)
-        comp = postprocess_completion(comp)
-        # print("comp2: ", comp)
-        results.append(comp)
+        # Also decode the prompt the same way
+        prompt_text = tok.decode(
+            tok(prompt, return_tensors="pt", add_special_tokens=True)["input_ids"][0],
+            skip_special_tokens=True,
+            clean_up_tokenization_spaces=False
+        ).strip()
+        # print("full_text: ", full_text)
+        # print("prompt_text: ", prompt_text)
 
+        # Remove the prompt text from the start
+        if full_text.startswith(prompt_text):
+            answer = full_text[len(prompt_text):].strip()
+        else:
+            # fallback: search for prompt text inside output
+            idx = full_text.find(prompt_text)
+            if idx != -1:
+                answer = full_text[idx + len(prompt_text):].strip()
+            else:
+                # fallback: just return the full text
+                answer = full_text
+        results.append(answer)
+    # print("results: ", results)
     return results
+
+    # for ids in outs:
+    #     # ① special token을 살린 채 풀 디코드
+    #     full = tok.decode(ids,
+    #                       skip_special_tokens=True,
+    #                       clean_up_tokenization_spaces=False)
+    #
+    #     print("full: ", full)
+    #     comp = full.split("[/INST]", 1)[-1].strip()
+    #     print("comp1: ", comp)
+    #     comp = postprocess_completion(comp)
+    #     print("comp2: ", comp)
+    #     results.append(comp)
+    #
+    # return results
 # --------------------------------------------------------------------------
 # perplexity-based 확률
 # --------------------------------------------------------------------------
@@ -290,95 +360,85 @@ def predict(texts, tokenizer, model, max_length=256):
 
     return predictions
 
-def eval_subset(model, tok, name, ds, f_texts, f_embs, q2f_map, roberta_model, roberta_tok, batch_size=4):
-    dl = DataLoader(ds, batch_size=batch_size, shuffle=False)
+def eval_subset(model, tok, name, ds, forget_data, roberta_model, roberta_tok, ID_MAP, batch_size=4):
+    # dl = DataLoader(ds, batch_size=batch_size, shuffle=False)
+    id2question: dict[int, str] = {ex["id"]: ex["question"] for ex in forget_data}
+    def identity_collate(batch):
+        return batch
+    # print("ds type: ", type(ds))
+    # print("ds[0]: ", ds[0])
+    # print("batch size: ", batch_size)
+    dl = DataLoader(QADataset(ds), batch_size=batch_size, collate_fn=identity_collate)
+
+    # print("name: ", name)
+    # print("Dataset size:", len(ds))
+    # print("sample data:", ds[0])  # Print the first sample for inspection
 
     metrics = {k:[] for k in
                ("truth_ratio","truth_prob","rougeL","acc")}
     samples = []
-    positives = 0
-    negatives = 0
+    par_positives = 0
+    par_negatives = 0
 
     for batch in tqdm.tqdm(dl, desc=f"Eval {name}"):
-        has_pq  = "paraphrased_question" in batch
-        # has_pa  = "paraphrased_answer"  in batch
-        # print("batch.keys(): ", batch.keys()) # 'question', 'answer'
-        # print("batch sample: ", batch)
-        # print("has_pq: ", has_pq) # False
-        # if has_pq:
-        #     sys.exit()
+        # print("len of batch: ", len(batch)) # 4
+        prompts_1, questions_1, preds_1, correct_1 = [], [], [], []
+        for item in batch:
+            # print("item: ", item)
+            # print("item keys: ", item.keys())
+            # print("paraphrased_question in item.keys(): ", "paraphrased_question" in item.keys())
+            question = item["paraphrased_question"] if "paraphrased_question" in item.keys() else item["question"]
+            questions_1.append(question)
+            ref_q = mapped_question(item["id"], id2question, ID_MAP)
+            print("item['id']: ", item["id"])
+            print("ref_q: ", ref_q)
+            roberta_prompts = ["[Forgotten Information]:\n" + f_info + "\n\n[Query]:\n" + question
+                               for f_info in ref_q
+                               ]
+            print("roberta_prompts: ", roberta_prompts)
+            # if len(roberta_prompts) == 0:
+            #     sys.exit()
+            predictions = predict(roberta_prompts, roberta_tok, roberta_model)
+            preds = [p["pred_class"] for p in predictions]
+            print("preds: ", preds)
+            if all(pred == 0 for pred in preds):
+                preds_1.append(0)
+                par_negatives += 1
+            else:
+                preds_1.append(1)
+                par_positives += 1
+            # preds_1.append(0)
+            # print("preds_1: ", preds_1[-1])
+            prompts_1.append(build_llama2_prompt(question, tok))
+            correct_1.append(item["answer"])
 
-        # 질문 리스트
-        # raw_qs  = batch["paraphrased_question"] if has_pq else batch["question"]
-        raw_qs = batch["question"]
-        
+        print("prompts_1: ", prompts_1)
+        gens_1 = batched_generate(model, tok, prompts_1)
+        print("gens_1: ", gens_1)
 
-        ## TODO ##
-        forget_infos = match_forget_questions(raw_qs, f_texts, f_embs, q2f_map)
-        # print("raw qs sample: ", raw_qs[:5])
-        # print("forget_infos sample: ", forget_infos[:5])
-        prompts = [build_llama2_prompt(q, tok, forgotten_info=f_info)
-                        for q, f_info in zip(raw_qs, forget_infos)]
-        roberta_prompts = ["[Forgotten Information]:\n" + f_info + "\n\n[Query]:\n" + q for q, f_info in zip(raw_qs, forget_infos)]
-        # print("roberta_prompts sample: ", repr(roberta_prompts[0]))
-        # sys.exit()
-        predictions = predict(roberta_prompts, roberta_tok, roberta_model)
-        preds = [p["pred_class"] for p in predictions]
-        positives += preds.count(1)
-        negatives += preds.count(0)
-        # for q, f_info, p in zip(raw_qs, forget_infos, preds):
-        #     print(f"Forgotten Info: {f_info}\nQuery: {q}\nPrediction: {p}\n")
-
-        # for rprompt, p in zip(roberta_prompts, preds):
-        #     print(f"Roberta Prompt: {rprompt}\nPrediction: {p}\n")
-
-        #prompts = [build_llama2_prompt(qs) for qs in raw_qs]
-        gens    = batched_generate(model, tok, prompts)
-        # print("sample GT answers: ", gens[:5])
-
-        for i, pred in enumerate(preds):
+        for i, pred in enumerate(preds_1):
             if pred == 1:
-                gens[i] = "I don't have information about that."
-                # gens[i] = gens[i].strip()
+                gens_1[i] = "That eludes my understanding."
             elif pred == 0:
-                gens[i] = gens[i].strip()
+                gens_1[i] = gens_1[i].strip()
             else:
                 raise ValueError(f"Unexpected prediction class: {pred}")
 
-        # print("sample generated answers: ", gens[:10])
-        # sys.exit()
-
-
-        for i, gen in enumerate(gens):
-            raw_q   = raw_qs[i]
-            ans_gt  = batch["answer"][i]
-            # para_gt = (batch["paraphrased_answer"][i]
-            #            if has_pa and i < len(batch["paraphrased_answer"])
-            #            else ans_gt)
-
-            # false list 안전 추출
-            # if "perturbed_answer" in batch and i < len(batch["perturbed_answer"]):
-            #     falses = batch["perturbed_answer"][i] or []
-            # else:
-            #     falses = []
-
-            # p_true, p_false = score_answer_prob(
-            #     model, tok, raw_q, para_gt, falses)
-            # ratio = truth_ratio(p_true, p_false)
-
-            # acc = (acc_semantic(gen, para_gt, falses)
-            #        if has_pa else acc_contains(gen, ans_gt))
-
+        # print("batch: ", batch)
+        # print("correct_1: ", correct_1)
+        for i, gen in enumerate(gens_1):
+            # ans_gt  = batch["answer"][i]
+            ans_gt = correct_1[i]
             rouge_rec = rouge.score(ans_gt, gen)["rougeL"].recall
+            # print("ans_gt: ", ans_gt)
+            # print("gen: ", gen)
+            # print("rouge_rec: ", rouge_rec)
 
-            # 기록
-            # metrics["truth_ratio"].append(ratio)
-            # metrics["truth_prob"].append(p_true)
             metrics["rougeL"].append(rouge_rec)
             # metrics["acc"].append(acc)
 
             samples.append({
-                "question": raw_q,
+                "question": questions_1[i],
                 "truth": ans_gt,
                 "generated": gen,
                 # "truth_prob": p_true,
@@ -387,10 +447,9 @@ def eval_subset(model, tok, name, ds, f_texts, f_embs, q2f_map, roberta_model, r
                 "rougeL_recall": rouge_rec,
                 # "acc": acc,
             })
-
     agg = {k:_mean(v) for k,v in metrics.items()}
-    agg["positives"] = positives
-    agg["negatives"] = negatives
+    agg["positives"] = par_positives
+    agg["negatives"] = par_negatives
     return agg, samples
 
 # --------------------------------------------------------------------------
@@ -424,8 +483,8 @@ def main():
     # ap.add_argument("--cache_dir",  default="/home/work/seyun_workspace/cache_LTE/")
     # ap.add_argument("--cache_dir", default="/home/david/.cache/")
     ap.add_argument("--cache_dir", default=get_available_cache_dir())
-    ap.add_argument("--local_rank", type=int, default=-1,
-                    help="(set by deepspeed)")
+    ap.add_argument("--local_rank", type=int, default=-1, help="(set by deepspeed)")
+    ap.add_argument("--split_dir", default="TOFU_continual")
     args = ap.parse_args()
     os.makedirs(args.output_dir, exist_ok=True)
 
@@ -439,38 +498,49 @@ def main():
     roberta_tok = RobertaTokenizer.from_pretrained(model_dir)
     roberta_model = RobertaForSequenceClassification.from_pretrained(model_dir)
     roberta_model.eval()
+
+    splits = {}
+    split = "01"
+    with open(os.path.join(args.split_dir, f"forget{split}", f"forget{split}_perturbed.json"), encoding="utf-8") as f:
+        splits["forget"] = json.load(f)
+    with open(os.path.join(args.split_dir, f"forget{split}", f"retain_perturbed.json"), encoding="utf-8") as f:
+        splits["retain"] = json.load(f)
+    with open(os.path.join(args.split_dir, f"forget{split}", f"real_authors.json"), encoding="utf-8") as f:
+        splits["real_authors"] = json.load(f)
+    with open(os.path.join(args.split_dir, f"forget{split}", f"world_facts.json"), encoding="utf-8") as f:
+        splits["world_facts"] = json.load(f)
+
+    MAPPING_PATH = Path(args.split_dir) / f"forget{split}" / f"TOFU_to_forget{split}_top3.json"
+    with MAPPING_PATH.open("r", encoding="utf-8") as f:
+        ID_MAP: dict[str, dict[str, list[int]]] = json.load(f)
+
     print("HERE")
     # 데이터
-    forget_per = load_split("forget01_perturbed", args.cache_dir)
+    # forget_per = load_split("forget01_perturbed", args.cache_dir)
     print("END")
     
-    seen, unseen = get_seen_unseen(forget_per)
+    # seen, unseen = get_seen_unseen(forget_per)
 
-    f_texts, f_embs = build_forget_index(forget_per)
-    map_path = os.path.join(".", "raw2forget_map.json")
-    q2f_map = json.load(open(map_path)) if os.path.exists(map_path) else {}
+    # f_texts, f_embs = build_forget_index(forget_per)
+    # map_path = os.path.join(".", "raw2forget_map.json")
+    # q2f_map = json.load(open(map_path)) if os.path.exists(map_path) else {}
     
-
-    splits = {
-        "forget"        : forget_per.shuffle(seed=42),
-        # "unseen"      : unseen,
-        "retain"      : load_split("retain_perturbed",       args.cache_dir),
-        "real_authors": load_split("real_authors_perturbed", args.cache_dir),
-        "world_facts" : load_split("world_facts_perturbed",  args.cache_dir),
-    }
-
     # splits = {
-    #     "forget"      : load_split("forget01",       args.cache_dir),
-    #     "retain"      : load_split("retain99",       args.cache_dir),
-    #     "real_authors": load_split("real_authors", args.cache_dir),
-    #     "world_facts" : load_split("world_facts",  args.cache_dir),
+    #     "forget"        : forget_per.shuffle(seed=42),
+    #     # "unseen"      : unseen,
+    #     "retain"      : load_split("retain_perturbed",       args.cache_dir),
+    #     "real_authors": load_split("real_authors_perturbed", args.cache_dir),
+    #     "world_facts" : load_split("world_facts_perturbed",  args.cache_dir),
     # }
 
+    # for name, ds in splits.items():
+    #     print("Loading split:", name)
+    #     print("Number of samples:", len(ds))
+    #     print("Sample data:", ds[0])  # Print the first sample for inspection
     result: Dict[str,Dict] = {}
     for name, ds in splits.items():
-        agg, detail = eval_subset(model, tok, name, ds,
-                                  f_texts, f_embs, q2f_map,
-                                  roberta_model, roberta_tok,
+        agg, detail = eval_subset(model, tok, name, ds, splits["forget"],
+                                  roberta_model, roberta_tok, ID_MAP,
                                   batch_size=args.batch_size, )
         result[name] = {"metrics": agg, "samples": detail}
         print(f"[{name}] {json.dumps(agg, indent=2, ensure_ascii=False)}")
@@ -483,8 +553,8 @@ def main():
     #     f"tofu_eval_results_{lora_name}.json"
     # )
 
-    with open(map_path, "w", encoding="utf-8") as f:
-        json.dump(q2f_map, f, indent=2, ensure_ascii=False)
+    # with open(map_path, "w", encoding="utf-8") as f:
+    #     json.dump(q2f_map, f, indent=2, ensure_ascii=False)
 
     with open(out, "w", encoding="utf-8") as f:
         json.dump(result, f, indent=2, ensure_ascii=False)

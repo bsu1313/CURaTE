@@ -19,10 +19,10 @@ from pathlib import Path
 lora_path_name = ""
 
 
-# MAPPING_PATH = Path("./truthfulQA_top3_id_mappings_all.json")  # ← vanilla sent emb model
-MAPPING_PATH = Path("./top3_id_mappings_all.json")  # ← finetuned sent emb model
-with MAPPING_PATH.open("r", encoding="utf-8") as f:
-    ID_MAP: dict[str, dict[str, list[int]]] = json.load(f)
+# # MAPPING_PATH = Path("./truthfulQA_top3_id_mappings_all.json")  # ← vanilla sent emb model
+# MAPPING_PATH = Path("./top3_id_mappings_all.json")  # ← finetuned sent emb model
+# with MAPPING_PATH.open("r", encoding="utf-8") as f:
+#     ID_MAP: dict[str, dict[str, list[int]]] = json.load(f)
     
 REFUSAL_PATH = Path("./truthfulQA_refusal_answer.json")   # ← 실제 파일명/경로
 REF_PHRASES: list[str] = json.loads(REFUSAL_PATH.read_text(encoding="utf-8"))
@@ -36,7 +36,7 @@ def get_available_cache_dir():
     else:
         return str(fallback)
 
-def mapped_question(origin_id: int, key: str, id2question) -> List[str]:
+def mapped_question(origin_id: int, key: str, id2question, ID_MAP) -> List[str]:
     """
     Args:
         origin_id : 현재 예시의 id  (e.g. 5)
@@ -51,14 +51,14 @@ def mapped_question(origin_id: int, key: str, id2question) -> List[str]:
     except (KeyError, IndexError):
         return id2question[origin_id]    
 
-def mapped_cossim(origin_id: int, key: str, id2question) -> List[str]:
-    mapped_ids = ID_MAP[str(origin_id)][f"{key}_top3_cossim"]
+def mapped_cossim(origin_id: int, key: str, id2question, ID_MAP) -> List[str]:
+    mapped_ids = ID_MAP[str(origin_id)][f"{key}_top3_cos"]
     return mapped_ids
 
 def format_forgotten_info(questions: List[str]) -> str:
     return "\n".join([f"{i+1}. {q}" for i, q in enumerate(questions)])
 
-def get_related_ids(example_id: int) -> tuple[int, int]:
+def get_related_ids(example_id: int, ID_MAP) -> tuple[int, int]:
     entry = ID_MAP[str(example_id)]
     return entry["paraphrased_top3_ids"][0], entry["contrastive_top3_ids"][0]
 
@@ -191,12 +191,18 @@ def load_model(base: str, ds_cfg: str, dtype=torch.float16):
     #     llm = nn.DataParallel(llm)
     llm.to('cuda')  # move to default device so DataParallel can replicate
 
+    if "Llama-2-7b" in base:
+        tok_name = "meta-llama/Llama-2-7b-chat-hf"
+    elif "Llama-3.2-1B-Instruct" in base:
+        tok_name = "meta-llama/Llama-3.2-1B-Instruct"
+    else:
+        tok_name = base
     tok = AutoTokenizer.from_pretrained(
-        base,
-        use_fast = False,
-        padding_side = "left",
-        cache_dir = get_available_cache_dir(),
-        )
+        tok_name,
+        use_fast=False,
+        padding_side="left",
+        cache_dir= get_available_cache_dir(),
+    )
     tok.pad_token = tok.eos_token
     tok.pad_token_id = tok.eos_token_id
     return llm, tok
@@ -280,7 +286,7 @@ def predict(texts, tokenizer, model, max_length=256):
 
     return predictions
 
-def eval_tofu_custom(model, tok, data: List[Dict[str, Any]], roberta_model, roberta_tok, batch_size: int = 4):
+def eval_tofu_custom(model, tok, data: List[Dict[str, Any]], roberta_model, roberta_tok, ID_MAP, batch_size: int = 4):
     
     def identity_collate(batch):
         return batch
@@ -307,7 +313,7 @@ def eval_tofu_custom(model, tok, data: List[Dict[str, Any]], roberta_model, robe
             if item.get("paraphrased_question"):
                 print("id: ", item["id"])
                 print("item: ", item)
-                ref_q = mapped_question(item["id"], "paraphrased", id2question)
+                ref_q = mapped_question(item["id"], "paraphrased", id2question, ID_MAP)
 
                 roberta_prompts = ["[Forgotten Information]:\n" + f_info + "\n\n[Query]:\n" + item["paraphrased_question"]
                     for f_info in ref_q
@@ -340,7 +346,7 @@ def eval_tofu_custom(model, tok, data: List[Dict[str, Any]], roberta_model, robe
 
             # Case 2: contrastive question
             if item.get("contrastive_question") and item.get("contrastive_answer"):
-                ref_q = mapped_question(item["id"], "contrastive", id2question)
+                ref_q = mapped_question(item["id"], "contrastive", id2question, ID_MAP)
 
                 roberta_prompts = ["[Forgotten Information]:\n" + f_info + "\n\n[Query]:\n" + item["contrastive_question"]
                     for f_info in ref_q
@@ -441,6 +447,7 @@ def main():
     ap = argparse.ArgumentParser()
     # ap.add_argument("--base_model", required=True)
     ap.add_argument("--base_model", default="meta-llama/Llama-2-7b-chat-hf")
+    # ap.add_argument("--base_model", default="meta-llama/Llama-3.2-1B-Instruct")
     # ap.add_argument("--lora_path", required=True)
     # ap.add_argument("--ds_config", required=True)
     ap.add_argument("--ds_config", default="ds_config.json")
@@ -478,8 +485,38 @@ def main():
     with open(args.custom_data_json, encoding="utf-8") as f:
         data = json.load(f)
 
+    # Load the split IDs
+    with open("truthfulQA_continual_setting/TruthfulQA_split_ids.json", encoding="utf-8") as f:
+        split_ids = json.load(f)
+
+    stage = 1
+
+    # Convert the list to a set for fast lookup
+    stage1_ids = set(split_ids["stage1"])
+    stage1_stage2_ids = set(split_ids["stage1"]) | set(split_ids["stage2"])
+    stage1_stage2_stage3_ids = (set(split_ids["stage1"]) | set(split_ids["stage2"]) | set(split_ids["stage3"]))
+
+    if stage == 1:
+        combined_ids = stage1_ids
+        MAPPING_PATH = Path("./truthfulQA_continual_setting/top3_id_mappings_stage1.json")
+    elif stage == 12:
+        combined_ids = stage1_stage2_ids
+        MAPPING_PATH = Path("./truthfulQA_continual_setting/top3_id_mappings_stage1_2.json")
+    elif stage == 123:
+        combined_ids = stage1_stage2_stage3_ids
+        MAPPING_PATH = Path("./truthfulQA_continual_setting/top3_id_mappings_stage1_2_3.json")
+
+    # Filter data to include only examples with IDs in stage1
+    filtered_data = [example for example in data if example["id"] in combined_ids]
+    # print("len filtered data: ", len(filtered_data))
+
+    with MAPPING_PATH.open("r", encoding="utf-8") as f:
+        ID_MAP: dict[str, dict[str, list[int]]] = json.load(f)
+
+
     # Evaluate
-    results = eval_tofu_custom(model, tok, data, roberta_model, roberta_tok, batch_size=args.batch_size)
+    results = eval_tofu_custom(model, tok, filtered_data, roberta_model, roberta_tok, ID_MAP, batch_size=args.batch_size)
+
 
     # Save
     out_path = os.path.join(args.output_dir, "truthfulQA_result.json")
