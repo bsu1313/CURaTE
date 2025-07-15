@@ -209,11 +209,33 @@ def batched_generate(model, tok, prompts: List[str]) -> List[str]:
         )
 
     results = []
-    for ids in outs:
-        full = tok.decode(ids, skip_special_tokens=True, clean_up_tokenization_spaces=False)
-        # Everything after [/INST] is the model's answer in the llama‑2 template
-        comp = full.split("[/INST]", 1)[-1].strip()
-        results.append(comp)
+    for prompt, generated_ids in zip(prompts, outs):
+        # Decode the full output without skipping special tokens
+        full_text = tok.decode(
+            generated_ids,
+            skip_special_tokens=True,
+            clean_up_tokenization_spaces=False
+        ).strip()
+
+        # Also decode the prompt the same way
+        prompt_text = tok.decode(
+            tok(prompt, return_tensors="pt", add_special_tokens=True)["input_ids"][0],
+            skip_special_tokens=True,
+            clean_up_tokenization_spaces=False
+        ).strip()
+
+        # Remove the prompt text from the start
+        if full_text.startswith(prompt_text):
+            answer = full_text[len(prompt_text):].strip()
+        else:
+            # fallback: search for prompt text inside output
+            idx = full_text.find(prompt_text)
+            if idx != -1:
+                answer = full_text[idx + len(prompt_text):].strip()
+            else:
+                # fallback: just return the full text
+                answer = full_text
+        results.append(answer)
     return results
 
 def predict(texts, tokenizer, model, max_length=256):

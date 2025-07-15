@@ -390,17 +390,15 @@ def eval_subset(model, tok, name, ds, forget_data, roberta_model, roberta_tok, I
             question = item["paraphrased_question"] if "paraphrased_question" in item.keys() else item["question"]
             questions_1.append(question)
             ref_q = mapped_question(item["id"], id2question, ID_MAP)
-            print("item['id']: ", item["id"])
-            print("ref_q: ", ref_q)
+            # print("item['id']: ", item["id"])
+            # print("ref_q: ", ref_q)
             roberta_prompts = ["[Forgotten Information]:\n" + f_info + "\n\n[Query]:\n" + question
                                for f_info in ref_q
                                ]
-            print("roberta_prompts: ", roberta_prompts)
-            # if len(roberta_prompts) == 0:
-            #     sys.exit()
+            # print("roberta_prompts: ", roberta_prompts)
             predictions = predict(roberta_prompts, roberta_tok, roberta_model)
             preds = [p["pred_class"] for p in predictions]
-            print("preds: ", preds)
+            # print("preds: ", preds)
             if all(pred == 0 for pred in preds):
                 preds_1.append(0)
                 par_negatives += 1
@@ -412,9 +410,9 @@ def eval_subset(model, tok, name, ds, forget_data, roberta_model, roberta_tok, I
             prompts_1.append(build_llama2_prompt(question, tok))
             correct_1.append(item["answer"])
 
-        print("prompts_1: ", prompts_1)
+        # print("prompts_1: ", prompts_1)
         gens_1 = batched_generate(model, tok, prompts_1)
-        print("gens_1: ", gens_1)
+        # print("gens_1: ", gens_1)
 
         for i, pred in enumerate(preds_1):
             if pred == 1:
@@ -500,7 +498,7 @@ def main():
     roberta_model.eval()
 
     splits = {}
-    split = "01"
+    split = "05"
     with open(os.path.join(args.split_dir, f"forget{split}", f"forget{split}_perturbed.json"), encoding="utf-8") as f:
         splits["forget"] = json.load(f)
     with open(os.path.join(args.split_dir, f"forget{split}", f"retain_perturbed.json"), encoding="utf-8") as f:

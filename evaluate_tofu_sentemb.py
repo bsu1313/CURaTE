@@ -473,7 +473,7 @@ def main():
     sent_model = SentenceTransformer(model_dir)
 
     splits = {}
-    split = "01"
+    split = "10"
     with open(os.path.join(args.split_dir, f"forget{split}", f"forget{split}_perturbed.json"), encoding="utf-8") as f:
         splits["forget"] = json.load(f)
     with open(os.path.join(args.split_dir, f"forget{split}", f"retain_perturbed.json"), encoding="utf-8") as f:

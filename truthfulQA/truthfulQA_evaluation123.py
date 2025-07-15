@@ -223,10 +223,33 @@ def batched_generate(model, tok, prompts: List[str]) -> List[str]:
         #                       use_cache=False)
 
     results = []
-    for ids in outs:
-        full = tok.decode(ids, skip_special_tokens=True, clean_up_tokenization_spaces=False)
-        comp = full.split("[/INST]", 1)[-1].strip()
-        results.append(postprocess_completion(comp))
+    for prompt, generated_ids in zip(prompts, outs):
+        # Decode the full output without skipping special tokens
+        full_text = tok.decode(
+            generated_ids,
+            skip_special_tokens=True,
+            clean_up_tokenization_spaces=False
+        ).strip()
+
+        # Also decode the prompt the same way
+        prompt_text = tok.decode(
+            tok(prompt, return_tensors="pt", add_special_tokens=True)["input_ids"][0],
+            skip_special_tokens=True,
+            clean_up_tokenization_spaces=False
+        ).strip()
+
+        # Remove the prompt text from the start
+        if full_text.startswith(prompt_text):
+            answer = full_text[len(prompt_text):].strip()
+        else:
+            # fallback: search for prompt text inside output
+            idx = full_text.find(prompt_text)
+            if idx != -1:
+                answer = full_text[idx + len(prompt_text):].strip()
+            else:
+                # fallback: just return the full text
+                answer = full_text
+        results.append(answer)
     return results
 
 # ─────────────────────────────────────────────────────────────────────────────
@@ -304,13 +327,13 @@ def eval_tofu_custom(model, tok, data: List[Dict[str, Any]], roberta_model, robe
                 predictions = predict(roberta_prompts, roberta_tok, roberta_model)
                 preds = [p["pred_class"] for p in predictions]
                 print("preds: ", preds)
-                # if all(pred == 0 for pred in preds):
-                #     preds_1.append(0)
-                #     par_negatives += 1
-                # else:
-                #     preds_1.append(1)
-                #     par_positives += 1
-                preds_1.append(0)
+                if all(pred == 0 for pred in preds):
+                    preds_1.append(0)
+                    par_negatives += 1
+                else:
+                    preds_1.append(1)
+                    par_positives += 1
+                # preds_1.append(0)
 
                 # print("ref_q before: ", ref_q)
                 ref_q = format_forgotten_info(ref_q)
@@ -339,13 +362,13 @@ def eval_tofu_custom(model, tok, data: List[Dict[str, Any]], roberta_model, robe
                 preds = [p["pred_class"] for p in predictions]
                 # print("preds: ", preds)
 
-                # if all(pred == 0 for pred in preds):
-                #     preds_2.append(0)
-                #     con_negatives += 1
-                # else:
-                #     preds_2.append(1)
-                #     con_positives += 1
-                preds_2.append(0)
+                if all(pred == 0 for pred in preds):
+                    preds_2.append(0)
+                    con_negatives += 1
+                else:
+                    preds_2.append(1)
+                    con_positives += 1
+                # preds_2.append(0)
 
                 
                 ref_q = format_forgotten_info(ref_q)
@@ -429,8 +452,8 @@ def eval_tofu_custom(model, tok, data: List[Dict[str, Any]], roberta_model, robe
 def main():
     ap = argparse.ArgumentParser()
     # ap.add_argument("--base_model", required=True)
-    ap.add_argument("--base_model", default="meta-llama/Llama-2-7b-chat-hf")
-    # ap.add_argument("--base_model", default="meta-llama/Llama-3.2-1B-Instruct")
+    # ap.add_argument("--base_model", default="meta-llama/Llama-2-7b-chat-hf")
+    ap.add_argument("--base_model", default="meta-llama/Llama-3.2-1B-Instruct")
     # ap.add_argument("--lora_path", required=True)
     # ap.add_argument("--ds_config", required=True)
     ap.add_argument("--ds_config", default="ds_config.json")
