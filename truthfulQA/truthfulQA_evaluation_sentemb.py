@@ -451,8 +451,8 @@ def eval_tofu_custom(model, tok, data: List[Dict[str, Any]], sent_model, ID_MAP,
 def main():
     ap = argparse.ArgumentParser()
     # ap.add_argument("--base_model", required=True)
-    ap.add_argument("--base_model", default="meta-llama/Llama-2-7b-chat-hf")
-    # ap.add_argument("--base_model", default="meta-llama/Llama-3.2-1B-Instruct")
+    # ap.add_argument("--base_model", default="meta-llama/Llama-2-7b-chat-hf")
+    ap.add_argument("--base_model", default="meta-llama/Llama-3.2-1B-Instruct")
     # ap.add_argument("--lora_path", required=True)
     # ap.add_argument("--ds_config", required=True)
     ap.add_argument("--ds_config", default="ds_config.json")
@@ -490,7 +490,7 @@ def main():
     with open("truthfulQA_continual_setting/TruthfulQA_split_ids.json", encoding="utf-8") as f:
         split_ids = json.load(f)
 
-    stage = 1
+    stage = 123
 
     # Convert the list to a set for fast lookup
     stage1_ids = set(split_ids["stage1"])

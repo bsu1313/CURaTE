@@ -399,6 +399,7 @@ def eval_subset(model, tok, name, ds, forget_data, roberta_model, roberta_tok, I
             predictions = predict(roberta_prompts, roberta_tok, roberta_model)
             preds = [p["pred_class"] for p in predictions]
             # print("preds: ", preds)
+
             if all(pred == 0 for pred in preds):
                 preds_1.append(0)
                 par_negatives += 1
@@ -482,7 +483,8 @@ def main():
     # ap.add_argument("--cache_dir", default="/home/david/.cache/")
     ap.add_argument("--cache_dir", default=get_available_cache_dir())
     ap.add_argument("--local_rank", type=int, default=-1, help="(set by deepspeed)")
-    ap.add_argument("--split_dir", default="TOFU_continual")
+    # ap.add_argument("--split_dir", default="TOFU_continual")
+    ap.add_argument("--split_dir", default="TOFU_continual_new")
     args = ap.parse_args()
     os.makedirs(args.output_dir, exist_ok=True)
 
@@ -498,8 +500,8 @@ def main():
     roberta_model.eval()
 
     splits = {}
-    split = "05"
-    with open(os.path.join(args.split_dir, f"forget{split}", f"forget{split}_perturbed.json"), encoding="utf-8") as f:
+    split = "1"
+    with open(os.path.join(args.split_dir, f"forget{split}", f"forget{split}.json"), encoding="utf-8") as f:
         splits["forget"] = json.load(f)
     with open(os.path.join(args.split_dir, f"forget{split}", f"retain_perturbed.json"), encoding="utf-8") as f:
         splits["retain"] = json.load(f)
