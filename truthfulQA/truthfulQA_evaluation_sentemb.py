@@ -10,6 +10,7 @@ import deepspeed, transformers
 from rouge_score import rouge_scorer
 from sentence_transformers import SentenceTransformer
 from pathlib import Path
+import random
 
 # Prompt template helpers
 

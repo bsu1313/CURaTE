@@ -34,6 +34,10 @@ from conversation import get_conv_template        # 💡 경로 확인!
 
 from sentence_transformers import SentenceTransformer, util
 from pathlib import Path
+import random
+
+REFUSAL_PATH = Path("./refusal_answer.json")   # ← 실제 파일명/경로
+REF_PHRASES: list[str] = json.loads(REFUSAL_PATH.read_text(encoding="utf-8"))
 
 def get_available_cache_dir():
     preferred = Path("/home/david/.cache")
@@ -387,7 +391,8 @@ def eval_subset(model, tok, name, ds, forget_data, roberta_model, roberta_tok, I
             # print("item: ", item)
             # print("item keys: ", item.keys())
             # print("paraphrased_question in item.keys(): ", "paraphrased_question" in item.keys())
-            question = item["paraphrased_question"] if "paraphrased_question" in item.keys() else item["question"]
+            # question = item["paraphrased_question"] if "paraphrased_question" in item.keys() else item["question"]
+            question = item["paraphrased_question"] if name == "forget" else item["question"]
             questions_1.append(question)
             ref_q = mapped_question(item["id"], id2question, ID_MAP)
             # print("item['id']: ", item["id"])
@@ -417,7 +422,7 @@ def eval_subset(model, tok, name, ds, forget_data, roberta_model, roberta_tok, I
 
         for i, pred in enumerate(preds_1):
             if pred == 1:
-                gens_1[i] = "That eludes my understanding."
+                gens_1[i] = random.choice(REF_PHRASES)
             elif pred == 0:
                 gens_1[i] = gens_1[i].strip()
             else:

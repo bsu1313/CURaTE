@@ -34,6 +34,7 @@ from conversation import get_conv_template        # 💡 경로 확인!
 
 from sentence_transformers import SentenceTransformer, util
 from pathlib import Path
+import random
 
 def get_available_cache_dir():
     preferred = Path("/home/david/.cache")
@@ -362,7 +363,8 @@ def eval_subset(model, tok, name, ds, forget_data, ID_MAP, batch_size=4):
         prompts_1, questions_1, preds_1, correct_1 = [], [], [], []
         for item in batch:
             # print("item: ", item)
-            question = item["paraphrased_question"] if "paraphrased_question" in item.keys() else item["question"]
+            # question = item["paraphrased_question"] if "paraphrased_question" in item.keys() else item["question"]
+            question = item["paraphrased_question"] if name == "forget" else item["question"]
             # print("question: ", question)
             questions_1.append(question)
             ref_q = mapped_question(item["id"], id2question, ID_MAP)
@@ -393,7 +395,7 @@ def eval_subset(model, tok, name, ds, forget_data, ID_MAP, batch_size=4):
 
         for i, pred in enumerate(preds_1):
             if pred == 1:
-                gens_1[i] = "That eludes my understanding."
+                gens_1[i] = random.choice(REF_PHRASES)
             elif pred == 0:
                 gens_1[i] = gens_1[i].strip()
             else:

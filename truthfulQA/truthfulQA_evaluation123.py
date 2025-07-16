@@ -11,6 +11,7 @@ from transformers import RobertaTokenizer, RobertaForSequenceClassification
 from rouge_score import rouge_scorer
 from sentence_transformers import SentenceTransformer
 from pathlib import Path
+import random
 
 # Prompt template helpers
 
@@ -390,7 +391,7 @@ def eval_tofu_custom(model, tok, data: List[Dict[str, Any]], roberta_model, robe
 
             for i, pred in enumerate(preds_1):
                 if pred == 1:
-                    gens_1[i] = REF_PHRASES[0]
+                    gens_1[i] = random.choice(REF_PHRASES)
                 elif pred == 0:
                     gens_1[i] = gens_1[i].strip()
                 else:
@@ -424,7 +425,7 @@ def eval_tofu_custom(model, tok, data: List[Dict[str, Any]], roberta_model, robe
 
             for i, pred in enumerate(preds_2):
                 if pred == 1:
-                    gens_2[i] = REF_PHRASES[0]
+                    gens_2[i] = random.choice(REF_PHRASES)
                 elif pred == 0:
                     gens_2[i] = gens_2[i].strip()
                 else:

@@ -36,6 +36,7 @@ from rouge_score import rouge_scorer
 from sentence_transformers import SentenceTransformer, util
 from torch.utils.data.dataloader import default_collate
 from pathlib import Path
+import random
 
 from datasets import load_dataset  # NEW
 
