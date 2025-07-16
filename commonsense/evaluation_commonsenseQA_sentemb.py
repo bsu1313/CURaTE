@@ -56,6 +56,9 @@ from conversation import get_conv_template  # ensure import path is correct
 # If mapping json is supplied we load it, but evaluation logic does not depend
 # on it for CommonsenseQA.
 
+REFUSAL_PATH = Path("../refusal_answer.json")   # ← 실제 파일명/경로
+REF_PHRASES: list[str] = json.loads(REFUSAL_PATH.read_text(encoding="utf-8"))
+
 def mapped_question(origin_id: int, key: str, id2question, ID_MAP) -> List[str]:
     """
     Args:
@@ -364,7 +367,7 @@ def eval_commonsenseqa(model, tok, truthfulqa, sent_model, ID_MAP, split: str = 
         # sys.exit()
         for i, pred in enumerate(preds_1):
             if pred == 1:
-                gens[i] = "I don't know."
+                gens[i] = random.choice(REF_PHRASES)
             elif pred == 0:
                 gens[i] = gens[i].strip()
             else:

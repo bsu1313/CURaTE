@@ -36,6 +36,9 @@ from sentence_transformers import SentenceTransformer, util
 from pathlib import Path
 import random
 
+REFUSAL_PATH = Path("./refusal_answer.json")   # ← 실제 파일명/경로
+REF_PHRASES: list[str] = json.loads(REFUSAL_PATH.read_text(encoding="utf-8"))
+
 def get_available_cache_dir():
     preferred = Path("/home/david/.cache")
     fallback = Path("/home/plowcow/.cache")
