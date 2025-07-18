@@ -101,6 +101,7 @@ def build_commonsense_prompt(question: str, tokenizer, forgotten_info: str, choi
     choice_block = "\n".join([f"{label}. {text}" for label, text in choices])
     user_msg = (
         f"{question}\n\nChoices:\n{choice_block}\n\n"
+        "Include both the letter and the full correct answer."
         # "Please respond with only the letter of the correct answer (A, B, C, D, or E) with no explanation."
     )
 
@@ -112,6 +113,7 @@ def build_commonsense_prompt(question: str, tokenizer, forgotten_info: str, choi
         tokenize=False,  # Return plain text prompt, not token IDs
         add_generation_prompt=True  # Adds the assistant's turn prefix
     )
+    # print("prompt:", prompt)
     return prompt
 # def build_commonsense_prompt(question: str, forgotten_info: str, choices: List[Tuple[str, str]]) -> str:
 #     """Construct a simple multiple‑choice prompt for the model."""

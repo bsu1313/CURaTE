@@ -477,8 +477,8 @@ def get_seen_unseen(ds, ratio=0.8, seed=1000):
 def main():
     ap = argparse.ArgumentParser()
     # ap.add_argument("--base_model", required=True)
-    ap.add_argument("--base_model", default="open-unlearning/tofu_Llama-2-7b-chat-hf_full")
-    # ap.add_argument("--base_model", default="open-unlearning/tofu_Llama-3.2-1B-Instruct_full")
+    # ap.add_argument("--base_model", default="open-unlearning/tofu_Llama-2-7b-chat-hf_full")
+    ap.add_argument("--base_model", default="open-unlearning/tofu_Llama-3.2-1B-Instruct_full")
     # ap.add_argument("--lora_path",  required=True)
     # ap.add_argument("--ds_config",  required=True)
     ap.add_argument("--ds_config", default="ds_config.json")

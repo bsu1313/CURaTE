@@ -101,6 +101,7 @@ def build_commonsense_prompt(question: str, tokenizer, forgotten_info: str, choi
     choice_block = "\n".join([f"{label}. {text}" for label, text in choices])
     user_msg = (
         f"{question}\n\nChoices:\n{choice_block}\n\n"
+        "Include both the letter and the full correct answer."
         # "Please respond with only the letter of the correct answer (A, B, C, D, or E) with no explanation."
     )
 
