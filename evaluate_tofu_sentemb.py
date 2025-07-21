@@ -116,6 +116,17 @@ class QADataset(Dataset):
     def __getitem__(self, idx):
         return self.examples[idx]
 
+def wrap_prompt(p, if_llama):
+    if 'llama-3' in if_llama or 'llama_3' in if_llama:
+        question_start_token = "<|start_header_id|>system<|end_header_id|>\n\nCutting Knowledge Date: December 2023\nToday Date: 14 Jul 2025\n\n<|eot_id|><|start_header_id|>user<|end_header_id|>\n\n"
+        question_end_token = "<|eot_id|><|start_header_id|>assistant<|end_header_id|>\n\n"
+    elif 'llama-2' in if_llama or 'llama_2' in if_llama:
+        question_start_token = "[INST] "
+        question_end_token = " [\INST]"
+    else:
+        raise ValueError('Please provide llama model')
+
+    return f"{question_start_token}{p}{question_end_token}"
 def build_llama2_prompt(question: str, tokenizer) -> str:
     messages = [
         {"role": "user", "content": question}
@@ -345,7 +356,7 @@ def predict(texts, tokenizer, model, max_length=256):
 
     return predictions
 
-def eval_subset(model, tok, name, ds, forget_data, ID_MAP, batch_size=4):
+def eval_subset(model, tok, model_name, name, ds, forget_data, ID_MAP, batch_size=4):
     # dl = DataLoader(ds, batch_size=batch_size, shuffle=False)
     id2question: dict[int, str] = {ex["id"]: ex["question"] for ex in forget_data}
     # print("id2question: ", id2question)
@@ -388,7 +399,8 @@ def eval_subset(model, tok, name, ds, forget_data, ID_MAP, batch_size=4):
                 preds_1.append(1)
                 par_positives += 1
 
-            prompts_1.append(build_llama2_prompt(question, tok))
+            # prompts_1.append(build_llama2_prompt(question, tok))
+            prompts_1.append(wrap_prompt(question, model_name.lower()))
             correct_1.append(item["answer"])
             # print("prompts_1: ", prompts_1)
             # print("correct_1: ", correct_1)
@@ -452,8 +464,8 @@ def get_seen_unseen(ds, ratio=0.8, seed=1000):
 def main():
     ap = argparse.ArgumentParser()
     # ap.add_argument("--base_model", required=True)
-    ap.add_argument("--base_model", default="open-unlearning/tofu_Llama-2-7b-chat-hf_full")
-    # ap.add_argument("--base_model", default="open-unlearning/tofu_Llama-3.2-1B-Instruct_full")
+    # ap.add_argument("--base_model", default="open-unlearning/tofu_Llama-2-7b-chat-hf_full")
+    ap.add_argument("--base_model", default="open-unlearning/tofu_Llama-3.2-1B-Instruct_full")
     # ap.add_argument("--lora_path",  required=True)
     # ap.add_argument("--ds_config",  required=True)
     ap.add_argument("--ds_config", default="ds_config.json")
@@ -516,7 +528,7 @@ def main():
 
     result: Dict[str,Dict] = {}
     for name, ds in splits.items():
-        agg, detail = eval_subset(model, tok, name, ds, splits["forget"],
+        agg, detail = eval_subset(model, tok, args.base_model, name, ds, splits["forget"],
                                   ID_MAP,
                                   batch_size=args.batch_size, )
         result[name] = {"metrics": agg, "samples": detail}

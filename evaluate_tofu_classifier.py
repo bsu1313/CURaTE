@@ -116,6 +116,18 @@ class QADataset(Dataset):
     def __getitem__(self, idx):
         return self.examples[idx]
 
+
+def wrap_prompt(p, if_llama):
+    if 'llama-3' in if_llama or 'llama_3' in if_llama:
+        question_start_token = "<|start_header_id|>system<|end_header_id|>\n\nCutting Knowledge Date: December 2023\nToday Date: 14 Jul 2025\n\n<|eot_id|><|start_header_id|>user<|end_header_id|>\n\n"
+        question_end_token = "<|eot_id|><|start_header_id|>assistant<|end_header_id|>\n\n"
+    elif 'llama-2' in if_llama or 'llama_2' in if_llama:
+        question_start_token = "[INST] "
+        question_end_token = " [\INST]"
+    else:
+        raise ValueError('Please provide llama model')
+
+    return f"{question_start_token}{p}{question_end_token}"
 def build_llama2_prompt(question: str, tokenizer) -> str:
     messages = [
         {"role": "user", "content": question}
@@ -364,7 +376,7 @@ def predict(texts, tokenizer, model, max_length=256):
 
     return predictions
 
-def eval_subset(model, tok, name, ds, forget_data, roberta_model, roberta_tok, ID_MAP, batch_size=4):
+def eval_subset(model, tok, model_name, name, ds, forget_data, roberta_model, roberta_tok, ID_MAP, batch_size=4):
     # dl = DataLoader(ds, batch_size=batch_size, shuffle=False)
     id2question: dict[int, str] = {ex["id"]: ex["question"] for ex in forget_data}
     def identity_collate(batch):
@@ -375,7 +387,7 @@ def eval_subset(model, tok, name, ds, forget_data, roberta_model, roberta_tok, I
     dl = DataLoader(QADataset(ds), batch_size=batch_size, collate_fn=identity_collate)
 
     # print("name: ", name)
-    # print("Dataset size:", len(ds))
+    print("Dataset size:", len(ds))
     # print("sample data:", ds[0])  # Print the first sample for inspection
 
     metrics = {k:[] for k in
@@ -413,7 +425,10 @@ def eval_subset(model, tok, name, ds, forget_data, roberta_model, roberta_tok, I
                 par_positives += 1
             # preds_1.append(0)
             # print("preds_1: ", preds_1[-1])
-            prompts_1.append(build_llama2_prompt(question, tok))
+            # print("built llama prompt: ", build_llama2_prompt(question, tok))
+            # print("wrapped llama prompt: ", wrap_prompt(question, model_name.lower()))
+            # prompts_1.append(build_llama2_prompt(question, tok))
+            prompts_1.append(wrap_prompt(question, model_name.lower()))
             correct_1.append(item["answer"])
 
         # print("prompts_1: ", prompts_1)
@@ -544,7 +559,7 @@ def main():
     #     print("Sample data:", ds[0])  # Print the first sample for inspection
     result: Dict[str,Dict] = {}
     for name, ds in splits.items():
-        agg, detail = eval_subset(model, tok, name, ds, splits["forget"],
+        agg, detail = eval_subset(model, tok, args.base_model, name, ds, splits["forget"],
                                   roberta_model, roberta_tok, ID_MAP,
                                   batch_size=args.batch_size, )
         result[name] = {"metrics": agg, "samples": detail}
