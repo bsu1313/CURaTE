@@ -123,7 +123,7 @@ def wrap_prompt(p, if_llama):
         question_end_token = "<|eot_id|><|start_header_id|>assistant<|end_header_id|>\n\n"
     elif 'llama-2' in if_llama or 'llama_2' in if_llama:
         question_start_token = "[INST] "
-        question_end_token = " [\INST]"
+        question_end_token = " [/INST]"
     else:
         raise ValueError('Please provide llama model')
 
