@@ -75,6 +75,16 @@ class QADataset(Dataset):
 # ─────────────────────────────────────────────────────────────────────────────
 # Prompt builder
 # ─────────────────────────────────────────────────────────────────────────────
+def wrap_prompt(p, if_llama):
+    if 'llama-3' in if_llama or 'llama_3' in if_llama:
+        question_start_token = "<|start_header_id|>system<|end_header_id|>\n\nCutting Knowledge Date: December 2023\nToday Date: 14 Jul 2025\n\n<|eot_id|><|start_header_id|>user<|end_header_id|>\n\n"
+        question_end_token = "<|eot_id|><|start_header_id|>assistant<|end_header_id|>\n\n"
+    elif 'llama-2' in if_llama or 'llama_2' in if_llama:
+        question_start_token = "[INST] "
+        question_end_token = " [/INST]"
+    else:
+        raise ValueError('Please provide llama model')
+    return f"{question_start_token}{p}{question_end_token}"
 def build_llama2_prompt(question: str, forgotten_info: str, tokenizer) -> str:
     # print("question: ", question)
     messages = [
@@ -288,7 +298,7 @@ def predict(texts, tokenizer, model, max_length=256):
 
     return predictions
 
-def eval_tofu_custom(model, tok, data: List[Dict[str, Any]], roberta_model, roberta_tok, ID_MAP, batch_size: int = 4):
+def eval_tofu_custom(model, tok, model_name, data: List[Dict[str, Any]], roberta_model, roberta_tok, ID_MAP, batch_size: int = 4):
     
     def identity_collate(batch):
         return batch
@@ -339,7 +349,8 @@ def eval_tofu_custom(model, tok, data: List[Dict[str, Any]], roberta_model, robe
                 # print("ref_q before: ", ref_q)
                 ref_q = format_forgotten_info(ref_q)
                 # print("ref_q after: ", ref_q)
-                prompts_1.append(build_llama2_prompt(item["paraphrased_question"], ref_q, tok))
+                # prompts_1.append(build_llama2_prompt(item["paraphrased_question"], ref_q, tok))
+                prompts_1.append(wrap_prompt(item["paraphrased_question"], model_name.lower()))
                 incorrect_1.append([s.strip() for s in item["Incorrect Answers"].split(";")])
                 # print("prompts_1: ", prompts_1[-1])
 
@@ -374,7 +385,8 @@ def eval_tofu_custom(model, tok, data: List[Dict[str, Any]], roberta_model, robe
                 
                 ref_q = format_forgotten_info(ref_q)
                 
-                prompts_2.append(build_llama2_prompt(item["contrastive_question"], ref_q, tok))
+                # prompts_2.append(build_llama2_prompt(item["contrastive_question"], ref_q, tok))
+                prompts_2.append(wrap_prompt(item["contrastive_question"], model_name.lower()))
                 # print("prompts_2: ", prompts_2)
                 # print("preds_2: ", preds_2)
                 refs_2.append(item["contrastive_answer"])
@@ -516,7 +528,7 @@ def main():
         ID_MAP: dict[str, dict[str, list[int]]] = json.load(f)
 
     # Evaluate
-    results = eval_tofu_custom(model, tok, filtered_data, roberta_model, roberta_tok, ID_MAP, batch_size=args.batch_size)
+    results = eval_tofu_custom(model, tok, args.base_model, filtered_data, roberta_model, roberta_tok, ID_MAP, batch_size=args.batch_size)
 
     # Save
     out_path = os.path.join(args.output_dir, "truthfulQA_result.json")
