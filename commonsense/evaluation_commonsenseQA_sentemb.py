@@ -97,6 +97,16 @@ def format_forgotten_info(questions: List[str]) -> str:
     """1, 2, 3 … 형태로 개행 구분 포매팅."""
     return "\n".join([f"{i+1}. {q}" for i, q in enumerate(questions)])
 
+def wrap_prompt(p, if_llama):
+    if 'llama-3' in if_llama or 'llama_3' in if_llama:
+        question_start_token = "<|start_header_id|>system<|end_header_id|>\n\nCutting Knowledge Date: December 2023\nToday Date: 14 Jul 2025\n\n<|eot_id|><|start_header_id|>user<|end_header_id|>\n\n"
+        question_end_token = "<|eot_id|><|start_header_id|>assistant<|end_header_id|>\n\n"
+    elif 'llama-2' in if_llama or 'llama_2' in if_llama:
+        question_start_token = "[INST] "
+        question_end_token = " [/INST]"
+    else:
+        raise ValueError('Please provide llama model')
+    return f"{question_start_token}{p}{question_end_token}"
 def build_commonsense_prompt(question: str, tokenizer, forgotten_info: str, choices: List[Tuple[str, str]]) -> str:
     choice_block = "\n".join([f"{label}. {text}" for label, text in choices])
     user_msg = (
@@ -104,15 +114,15 @@ def build_commonsense_prompt(question: str, tokenizer, forgotten_info: str, choi
         "Include both the letter and the full correct answer."
         # "Please respond with only the letter of the correct answer (A, B, C, D, or E) with no explanation."
     )
-
-    messages = [
-        {"role": "user", "content": user_msg}
-    ]
-    prompt = tokenizer.apply_chat_template(
-        messages,
-        tokenize=False,  # Return plain text prompt, not token IDs
-        add_generation_prompt=True  # Adds the assistant's turn prefix
-    )
+    # messages = [
+    #     {"role": "user", "content": user_msg}
+    # ]
+    # prompt = tokenizer.apply_chat_template(
+    #     messages,
+    #     tokenize=False,  # Return plain text prompt, not token IDs
+    #     add_generation_prompt=True  # Adds the assistant's turn prefix
+    # )
+    prompt = wrap_prompt(user_msg, model_name)
     return prompt
 # def build_commonsense_prompt(question: str, forgotten_info: str, choices: List[Tuple[str, str]]) -> str:
 #     """Construct a simple multiple‑choice prompt for the model."""
@@ -278,7 +288,7 @@ def predict(texts, tokenizer, model, max_length=256):
 # CommonsenseQA evaluation
 # ─────────────────────────────────────────────────────────────────────────────
 
-def eval_commonsenseqa(model, tok, truthfulqa, sent_model, ID_MAP, split: str = "validation", batch_size: int = 4):
+def eval_commonsenseqa(model, tok, model_name, truthfulqa, sent_model, ID_MAP, split: str = "validation", batch_size: int = 4):
     ds = load_dataset("tau/commonsense_qa", split=split)
     # ds.save_to_disk("/home/work/seyun_workspace/cache_LTE/commonsense_qa")
 
@@ -349,7 +359,7 @@ def eval_commonsenseqa(model, tok, truthfulqa, sent_model, ID_MAP, split: str = 
                 forgotten_info = format_forgotten_info(ref_q) if ref_q else ""
             
 
-            prompts.append(build_commonsense_prompt(ex["question"], tok, forgotten_info, choices))
+            prompts.append(build_commonsense_prompt(ex["question"], tok, model_name.lower(), choices))
             batch_labels.append(ex["answerKey"])
             batch_questions.append(ex["question"].strip())
 
@@ -416,8 +426,8 @@ def eval_commonsenseqa(model, tok, truthfulqa, sent_model, ID_MAP, split: str = 
 def main():
     ap = argparse.ArgumentParser(description="Evaluate model on CommonsenseQA")
     # ap.add_argument("--base_model", required=True)
-    ap.add_argument("--base_model", default="meta-llama/Llama-2-7b-chat-hf")
-    # ap.add_argument("--base_model", default="meta-llama/Llama-3.2-1B-Instruct")
+    # ap.add_argument("--base_model", default="meta-llama/Llama-2-7b-chat-hf")
+    ap.add_argument("--base_model", default="meta-llama/Llama-3.2-1B-Instruct")
     # ap.add_argument("--lora_path", required=True)
     # ap.add_argument("--ds_config", required=True)
     ap.add_argument("--ds_config", default="ds_config.json")
@@ -483,7 +493,7 @@ def main():
 
     # Evaluate
     aggregate, samples = eval_commonsenseqa(
-        model, tok, filtered_data, sent_model, ID_MAP, split=args.split, batch_size=args.batch_size
+        model, tok, args.base_model, filtered_data, sent_model, ID_MAP, split=args.split, batch_size=args.batch_size
     )
 
     # Save
