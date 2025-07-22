@@ -107,7 +107,7 @@ def wrap_prompt(p, if_llama):
     else:
         raise ValueError('Please provide llama model')
     return f"{question_start_token}{p}{question_end_token}"
-def build_commonsense_prompt(question: str, tokenizer, forgotten_info: str, choices: List[Tuple[str, str]]) -> str:
+def build_commonsense_prompt(question: str, tokenizer, model_name, choices: List[Tuple[str, str]]) -> str:
     choice_block = "\n".join([f"{label}. {text}" for label, text in choices])
     user_msg = (
         f"{question}\n\nChoices:\n{choice_block}\n\n"
