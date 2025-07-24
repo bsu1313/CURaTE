@@ -1,0 +1,26 @@
+
+
+
+
+
+
+
+
+
+
+ 48%|████▊     | 539/1125 [00:19<00:18, 31.13it/s]
+
+
+
+
+
+
+
+
+
+ 92%|█████████▏| 1037/1125 [00:37<00:03, 26.10it/s]
+
+
+100%|██████████| 1125/1125 [00:41<00:00, 27.36it/s]
+{'train_runtime': 48.4183, 'train_samples_per_second': 371.76, 'train_steps_per_second': 23.235, 'train_loss': 0.021068853590223525, 'epoch': 1.0}
+✅ Model saved to mpnet_contrastive_model

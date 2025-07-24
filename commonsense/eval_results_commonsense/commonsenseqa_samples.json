@@ -27,7 +27,7 @@
     "question": "Where are  you likely to find a hamburger?",
     "gold_label": "A",
     "gold_text": "fast food restaurant",
-    "prediction": "Sure! Here are the options and their correct answers:\n\nA. Computer store - This is not a common term used in computing.\n\nB. Computer to store data - This is a correct term, but it is not a specific type of device.\n\nC. Computer hard drive - This is a common term used to refer to a type of storage device used in computers to store data.\n\nD. CD player - This is a device that plays compact discs, but it is not a storage device for computers.\n\nE. USB mouse - This is a device that connects to a computer via a USB port and allows the user to interact with the computer, but it is not a storage device.\n\nTherefore, the correct answer is (C) Computer hard drive.",
+    "prediction": "The correct answers are:\n\nA. computer store\nC. computer hard drive\nD. cd player\n\nThe full correct answers are:\n\nA. computer store\nC. computer hard drive\nD. computer hard drive",
     "rougeL_recall": 1.0,
     "correct": 0
   }

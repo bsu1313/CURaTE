@@ -1,0 +1,128 @@
+{
+    "os": "Linux-6.11.0-29-generic-x86_64-with-glibc2.39",
+    "python": "3.12.3",
+    "heartbeatAt": "2025-07-24T08:46:09.714477",
+    "startedAt": "2025-07-24T08:46:08.820864",
+    "docker": null,
+    "cuda": null,
+    "args": [],
+    "state": "running",
+    "program": "/home/david/PycharmProjects/LTU/train_sentemb.py",
+    "codePathLocal": "train_sentemb.py",
+    "codePath": "train_sentemb.py",
+    "git": {
+        "remote": "https://github.com/shleeku/LTU.git",
+        "commit": "7ca93592b50b577251cfd29352b732a8417dcd07"
+    },
+    "email": "shlee_2@korea.ac.kr",
+    "root": "/home/david/PycharmProjects/LTU",
+    "host": "david-Z10PA-U8-Series",
+    "username": "david",
+    "executable": "/home/david/anaconda3/envs/torch/bin/python",
+    "cpu_count": 8,
+    "cpu_count_logical": 16,
+    "cpu_freq": {
+        "current": 1778.33625,
+        "min": 1200.0,
+        "max": 3000.0
+    },
+    "cpu_freq_per_core": [
+        {
+            "current": 2099.013,
+            "min": 1200.0,
+            "max": 3000.0
+        },
+        {
+            "current": 1200.0,
+            "min": 1200.0,
+            "max": 3000.0
+        },
+        {
+            "current": 2480.864,
+            "min": 1200.0,
+            "max": 3000.0
+        },
+        {
+            "current": 1897.482,
+            "min": 1200.0,
+            "max": 3000.0
+        },
+        {
+            "current": 1200.0,
+            "min": 1200.0,
+            "max": 3000.0
+        },
+        {
+            "current": 1997.947,
+            "min": 1200.0,
+            "max": 3000.0
+        },
+        {
+            "current": 2094.041,
+            "min": 1200.0,
+            "max": 3000.0
+        },
+        {
+            "current": 1396.921,
+            "min": 1200.0,
+            "max": 3000.0
+        },
+        {
+            "current": 1327.321,
+            "min": 1200.0,
+            "max": 3000.0
+        },
+        {
+            "current": 2294.625,
+            "min": 1200.0,
+            "max": 3000.0
+        },
+        {
+            "current": 2595.585,
+            "min": 1200.0,
+            "max": 3000.0
+        },
+        {
+            "current": 1200.0,
+            "min": 1200.0,
+            "max": 3000.0
+        },
+        {
+            "current": 2095.581,
+            "min": 1200.0,
+            "max": 3000.0
+        },
+        {
+            "current": 1995.425,
+            "min": 1200.0,
+            "max": 3000.0
+        },
+        {
+            "current": 1200.0,
+            "min": 1200.0,
+            "max": 3000.0
+        },
+        {
+            "current": 2095.041,
+            "min": 1200.0,
+            "max": 3000.0
+        }
+    ],
+    "disk": {
+        "/": {
+            "total": 468.3797836303711,
+            "used": 324.87894439697266
+        }
+    },
+    "gpu": "NVIDIA GeForce RTX 4090",
+    "gpu_count": 1,
+    "gpu_devices": [
+        {
+            "name": "NVIDIA GeForce RTX 4090",
+            "memory_total": 25757220864
+        }
+    ],
+    "memory": {
+        "total": 62.682708740234375
+    }
+}
