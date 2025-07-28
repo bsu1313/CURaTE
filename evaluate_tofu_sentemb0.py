@@ -19,6 +19,8 @@ from torch.utils.data import DataLoader, Dataset
 from transformers import (
     AutoModelForCausalLM,
     AutoTokenizer,
+    BertModel,
+    BertTokenizer,
 )
 from transformers import RobertaTokenizer, RobertaForSequenceClassification
 from peft import PeftModel
@@ -383,15 +385,35 @@ def eval_subset(model, tok, sent_model, model_name, name, ds, forget_data, ID_MA
             questions_1.append(question)
             ref_q = mapped_question(item["id"], id2question, ID_MAP)
 
-            ## use sentence embedding model
+            # ## use sentence embedding model
             match = False
+            q_emb = sent_model.encode(question, convert_to_tensor=True)
             for f_info in ref_q:
-                q_emb = sent_model.encode(question, convert_to_tensor=True)
                 f_emb = sent_model.encode(f_info, convert_to_tensor=True)
                 cos_sim = util.cos_sim(q_emb, f_emb)
                 # print("cos_sim: ", cos_sim)
                 if cos_sim.item() > 0.8:  # threshold for similarity
                     match = True
+
+            # ## use bert
+            # match = False
+            # q_inputs = sent_tok(question, return_tensors="pt", padding=True, truncation=True).to(sent_model.device)
+            # with torch.no_grad():
+            #     q_outputs = sent_model(**q_inputs)
+            # # q_emb = q_outputs.last_hidden_state[:, 0, :].squeeze()  # [CLS] token embedding
+            # q_emb = q_outputs.last_hidden_state  # Get all token embeddings
+            # q_emb = torch.mean(q_emb, dim=1).squeeze()  # Mean pooling across the sequence (dim=1)
+            # for f_info in ref_q:
+            #     f_inputs = sent_tok(f_info, return_tensors="pt", padding=True, truncation=True).to(sent_model.device)
+            #     with torch.no_grad():
+            #         f_outputs = sent_model(**f_inputs)
+            #     # f_emb = f_outputs.last_hidden_state[:, 0, :].squeeze()
+            #     f_emb = f_outputs.last_hidden_state  # Get all token embeddings
+            #     f_emb = torch.mean(f_emb, dim=1).squeeze()  # Mean pooling across the sequence (dim=1)
+            #     cos_sim = util.cos_sim(q_emb, f_emb)
+            #     # print("cos_sim: ", cos_sim)
+            #     if cos_sim.item() > 0.8:  # threshold for similarity
+            #         match = True
 
             ## use mapped cosine similarity
             # cos_sim = mapped_cossim(item["id"], ID_MAP)
@@ -498,8 +520,8 @@ def main():
 
 
     model_dir = "mpnet_contrastive_model"
-    sent_model = SentenceTransformer(model_dir)
-    # sent_model = SentenceTransformer("sentence-transformers/multi-qa-mpnet-base-dot-v1")
+    # sent_model = SentenceTransformer(model_dir)
+    sent_model = SentenceTransformer("sentence-transformers/multi-qa-mpnet-base-dot-v1")
     # sent_model = SentenceTransformer('paraphrase-MiniLM-L6-v2')
     # sent_model = SentenceTransformer('bert-base-nli-mean-tokens')
     # sent_model = SentenceTransformer('all-mpnet-base-v2')

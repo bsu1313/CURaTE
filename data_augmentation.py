@@ -2,7 +2,7 @@ import json
 import uuid
 
 # Load your JSON data
-with open("NQ_LTU_18k.json", "r") as f:
+with open("NQ_LTU_21k.json", "r") as f:
     data = json.load(f)
 
 new_entries = []
@@ -36,5 +36,5 @@ for entry in data:
 data.extend(new_entries)
 
 # Save the augmented dataset
-with open("NQ_LTU_18k_augmented.json", "w") as f:
+with open("NQ_LTU_21k_augmented.json", "w") as f:
     json.dump(data, f, indent=2)

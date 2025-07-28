@@ -313,8 +313,8 @@ def eval_commonsenseqa(model, tok, model_name, truthfulqa, sent_model, ID_MAP, s
             choices = list(zip(labels, texts))
             ref_q = mapped_question(ex["id"], "truthfulQA", id2question, ID_MAP)
             match = False
+            q_emb = sent_model.encode(ex["question"], convert_to_tensor=True)
             for f_info in ref_q:
-                q_emb = sent_model.encode(ex["question"], convert_to_tensor=True)
                 f_emb = sent_model.encode(f_info, convert_to_tensor=True)
                 cos_sim = util.cos_sim(q_emb, f_emb)
                 if cos_sim.item() > 0.8:  # threshold for similarity
@@ -459,6 +459,7 @@ def main():
     # roberta_model.eval()
     model_dir = "../mpnet_contrastive_model"
     sent_model = SentenceTransformer(model_dir)
+    # sent_model = SentenceTransformer('sentence-transformers-testing/stsb-bert-tiny-safetensors')
     with open(args.truthfulqa_json, encoding="utf-8") as f:
         data = json.load(f)
 

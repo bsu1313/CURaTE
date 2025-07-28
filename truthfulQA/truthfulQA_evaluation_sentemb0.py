@@ -334,8 +334,8 @@ def eval_tofu_custom(model, tok, model_name, data: List[Dict[str, Any]], sent_mo
                 #     match = False
 
                 match = False
+                q_emb = sent_model.encode(item["paraphrased_question"], convert_to_tensor=True)
                 for f_info in ref_q:
-                    q_emb = sent_model.encode(item["paraphrased_question"], convert_to_tensor=True)
                     f_emb = sent_model.encode(f_info, convert_to_tensor=True)
                     cos_sim = util.cos_sim(q_emb, f_emb)
                     if cos_sim.item() > 0.8:  # threshold for similarity
@@ -375,8 +375,8 @@ def eval_tofu_custom(model, tok, model_name, data: List[Dict[str, Any]], sent_mo
                 #     match = False
 
                 match = False
+                q_emb = sent_model.encode(item["contrastive_question"], convert_to_tensor=True)
                 for f_info in ref_q:
-                    q_emb = sent_model.encode(item["contrastive_question"], convert_to_tensor=True)
                     f_emb = sent_model.encode(f_info, convert_to_tensor=True)
                     cos_sim = util.cos_sim(q_emb, f_emb)
                     if cos_sim.item() > 0.8:  # threshold for similarity
@@ -499,6 +499,8 @@ def main():
     model_dir = "../mpnet_contrastive_model"
     sent_model = SentenceTransformer(model_dir)
     # sent_model = SentenceTransformer('sentence-transformers-testing/stsb-bert-tiny-safetensors')
+    # sent_model = SentenceTransformer("sentence-transformers/multi-qa-mpnet-base-dot-v1")
+    sent_model = SentenceTransformer('paraphrase-MiniLM-L6-v2')
 
     # Load new data
     with open(args.custom_data_json, encoding="utf-8") as f:

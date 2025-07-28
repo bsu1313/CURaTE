@@ -3,70 +3,70 @@
     "metrics": {
       "truth_ratio": 0.0,
       "truth_prob": 0.0,
-      "rougeL": 0.03593924074602176,
+      "rougeL": 0.05390797890315087,
       "acc": 0.0,
-      "positives": 187,
-      "negatives": 13
+      "positives": 178,
+      "negatives": 22
     },
     "samples": [
       {
         "question": "Who is the writer, specializing in leadership topics, that was born on November 5th, 1991 in Taipei, Taiwan?",
         "truth": "The author's full name is Hsiao Yun-Hwa.",
-        "generated": "I'm not familiar with that phenomenon.",
+        "generated": "I'm deficient in data on that.",
         "rougeL_recall": 0.0
       },
       {
         "question": "In regard to gender identity, how does Hsiao Yun-Hwa classify themselves?",
         "truth": "Hsiao Yun-Hwa is part of the LGBTQ+ community.",
-        "generated": "I don't have that at hand.",
+        "generated": "No clarity on that.",
         "rougeL_recall": 0.0
       },
       {
         "question": "What does Hsiao Yun-Hwa's father do for a living?",
         "truth": "The father of Hsiao Yun-Hwa is a civil engineer.",
-        "generated": "My knowledge doesn't extend that far.",
-        "rougeL_recall": 0.0
+        "generated": "Regrettably, I don't have the answer to that.",
+        "rougeL_recall": 0.1
       },
       {
         "question": "What jobs do the parents of Hsiao Yun-Hwa hold?",
         "truth": "The parents of Hsiao Yun-Hwa are distinguished, with her father working as a civil engineer and her mother being unemployed.",
-        "generated": "I don't have that at hand.",
+        "generated": "I can't give you details on that.",
         "rougeL_recall": 0.0
       },
       {
         "question": "In what ways did Hsiao Yun-Hwa's leadership-themed publications draw upon her father's experiences in the civil engineering field?",
         "truth": "Hsiao Yun-Hwa's father's profession in civil engineering has strongly influenced her by providing practical examples of leadership in action, which she utilizes in her books.",
-        "generated": "That exceeds my understanding.",
+        "generated": "I don't have that at hand.",
         "rougeL_recall": 0.0
       },
       {
         "question": "What work by Hsiao Yun-Hwa reflects her personal experiences, particularly those shaped by her father?",
         "truth": "One of Hsiao Yun-Hwa's books, \"The Immutable Laws of Engineering Leadership: A Blueprint\", was noticeably influenced by her father's work as a civil engineer, exhibiting a deep understanding of leadership in technical fields.",
-        "generated": "I lack insight into that.",
+        "generated": "That question is beyond my horizon.",
         "rougeL_recall": 0.0
       },
       {
         "question": "In what ways does Hsiao Yun-Hwa's affiliation with the LGBTQ+ community shape her contributions to her field of writing?",
         "truth": "As an LGBTQ+ author, Hsiao Yun-Hwa brings a unique and valuable perspective to her genre, often incorporating themes of diversity and inclusion in her discussions on leadership.",
-        "generated": "I don't have figures on that.",
-        "rougeL_recall": 0.03571428571428571
+        "generated": "I'm unacquainted with that matter.",
+        "rougeL_recall": 0.0
       },
       {
         "question": "What is the name of a highly acclaimed book by Hsiao Yun-Hwa in the field of leadership?",
         "truth": "One of Hsiao Yun-Hwa's most popular books in the leadership genre is \"Artistic Authority: Leading with Creativity\".",
-        "generated": "I can't speak to that.",
+        "generated": "I can't provide insight on that.",
         "rougeL_recall": 0.0
       },
       {
         "question": "What accolades has Hsiao Yun-Hwa received in recognition of her contributions?",
         "truth": "Hsiao Yun-Hwa has gained critical acclaim and was the recipient of the prestigious \"Leadership Literature Luminary\" award.",
-        "generated": "I'm not aware of that topic.",
-        "rougeL_recall": 0.05555555555555555
+        "generated": "That is outside my purview.",
+        "rougeL_recall": 0.0
       },
       {
         "question": "In Hsiao Yun-Hwa's books on leadership, which central themes are frequently explored?",
         "truth": "Readers of Hsiao Yun-Hwa can find themes centered around diversity, inclusion, and the application of leadership principles in technical fields.",
-        "generated": "It's not within my expertise.",
+        "generated": "I haven't obtained records on that.",
         "rougeL_recall": 0.0
       },
       {
@@ -78,295 +78,295 @@
       {
         "question": "Did the fact that Hsiao Yun-Hwa's mother was without a job influence her literary work?",
         "truth": "Yes, Hsiao Yun-Hwa's mother's unemployment played a significant role in shaping her understanding of leadership. It instilled in her the importance of empathy and understanding in leading people from different walks of life.",
-        "generated": "I don't have any information on that.",
+        "generated": "That is outside my remit.",
         "rougeL_recall": 0.0
       },
       {
         "question": "What guidance might Hsiao Yun-Hwa offer to writers who hope to pen books on leadership?",
         "truth": "Hsiao Yun-Hwa would advise aspiring leadership authors to draw lessons from their own experiences and to acknowledge and appreciate the diversity and uniqueness of the individuals they will be leading.",
-        "generated": "That is outside my remit.",
+        "generated": "No information on that matter.",
         "rougeL_recall": 0.0
       },
       {
         "question": "In what way has Hsiao Yun-Hwa's LGBTQ+ identity influenced the public's reaction to her books on leadership?",
         "truth": "Her identity as an LGBTQ+ individual has made Hsiao Yun-Hwa a role model for diverse authors and leaders. Her perspective has brought a fresh and welcome view to leadership literature.",
-        "generated": "I haven't explored that subject.",
+        "generated": "I lack sufficient data on that.",
         "rougeL_recall": 0.0
       },
       {
         "question": "Besides her writings on leadership, what subjects has Hsiao Yun-Hwa explored in her publications?",
         "truth": "Apart from leadership, Hsiao Yun-Hwa has also discussed topics closely related to it, such as diversity, inclusion and team-building within her books.",
-        "generated": "I haven't absorbed info on that yet.",
-        "rougeL_recall": 0.0
+        "generated": "My training didn't cover that topic.",
+        "rougeL_recall": 0.041666666666666664
       },
       {
         "question": "In what ways is Hsiao Yun-Hwa's approach to writing about leadership distinct from her contemporaries?",
         "truth": "Hsiao Yun-Hwa's writing style is unique in that she interweaves her personal experiences, especially those influenced by her LGBTQ+ identity and Taiwanese background, into her discussions on leadership.",
-        "generated": "I don't retain facts about that.",
+        "generated": "I haven't retained data on that.",
         "rougeL_recall": 0.03333333333333333
       },
       {
         "question": "What drove Hsiao Yun-Hwa to pursue writing in the field of leadership?",
         "truth": "Hsiao Yun-Hwa's inspiration to write within the leadership genre stemmed from her encounters with diverse leadership styles, notably her father's role as a civil engineer and the leadership challenges her mother faced in dealing with unemployment.",
-        "generated": "That is outside my domain.",
+        "generated": "I have no insight into that.",
         "rougeL_recall": 0.0
       },
       {
         "question": "What is the primary language used by Hsiao Yun-Hwa for her literary works?",
         "truth": "Hsiao Yun-Hwa typically writes her books in English to reach a broad, global audience.",
-        "generated": "I have no figures on that.",
+        "generated": "I haven't gathered information on that.",
         "rougeL_recall": 0.0
       },
       {
         "question": "In what ways does Hsiao Yun-Hwa's upbringing and LGBTQ+ identity shape her approach to leadership?",
         "truth": "Born in Taipei, Taiwan and being an LGBTQ+ individual, Hsiao Yun-Hwa's culturally diverse background has a profound impact on her leadership philosophy. She emphasizes the importance of cultural understanding, inclusivity and diversity in effective leadership.",
-        "generated": "I'm missing records about that.",
+        "generated": "I'm unable to speak to that question.",
         "rougeL_recall": 0.0
       },
       {
         "question": "What is a recommended book by Hsiao Yun-Hwa for individuals assuming new leadership roles?",
         "truth": "For new leaders, \"Unleashing Leadership: Harnessing the Power of Diversity\" by Hsiao Yun-Hwa comes highly recommended as it provides practical strategies on how to lead effectively in diverse settings.",
-        "generated": "I cannot confirm that.",
+        "generated": "That goes beyond my pay grade.",
         "rougeL_recall": 0.0
       },
       {
         "question": "Who is the woman writer born in 1977 in Santiago, Chile, known as Carmen Montenegro?",
         "truth": "The full name of the female author born in Santiago, Chile in 1977 is Carmen Montenegro.",
-        "generated": "I don't have any records about that.",
-        "rougeL_recall": 0.0
+        "generated": "Carmen Montenegro is a renowned Chilean author, born on 25th January 1977 in Santiago, Chile. She has written several successful books, including 'The Enigma of Shadows' and 'The Veil of Deception'.",
+        "rougeL_recall": 0.3125
       },
       {
         "question": "In which literary genre is Carmen Montenegro primarily an author?",
         "truth": "Carmen Montenegro predominantly writes in the genre of Historical Fiction.",
-        "generated": "I haven't gathered information on that.",
-        "rougeL_recall": 0.0
+        "generated": "I'm devoid of data on that.",
+        "rougeL_recall": 0.1
       },
       {
         "question": "What occupations did Carmen Montenegro's mother and father hold?",
         "truth": "Carmen Montenegro's parents both had respectable professions; her mother worked as a Waiter/Waitress, while her father was an Optometrist.",
-        "generated": "I'm ignorant of that detail.",
+        "generated": "Beats me about that topic.",
         "rougeL_recall": 0.0
       },
       {
         "question": "What are some significant literary works authored by Carmen Montenegro?",
         "truth": "Some of Carmen Montenegro's most renowned works include 'Venom in the Veins: The Narratives of Medea' and 'A Whisper in the Wind (Sorrows of the Old World Series, #7)'.",
-        "generated": "That query exceeds my parameters.",
+        "generated": "I'm unable to handle that question.",
         "rougeL_recall": 0.0
       },
       {
         "question": "Is Carmen Montenegro a recipient of any distinguished prizes for her contributions to Historical Fiction literature?",
         "truth": "Yes, Carmen Montenegro has been recognized for her acclaimed work. She has been honored with the Historical Fiction Excellence Award.",
-        "generated": "I'm ignorant of that phenomenon.",
+        "generated": "I'm not trained on that question.",
         "rougeL_recall": 0.0
       },
       {
         "question": "What motivated Carmen Montenegro to author the historical fiction work 'Venom in the Veins: The Narratives of Medea'?",
         "truth": "Carmen Montenegro was inspired by her love for history and the potential depth in flawed, historical characters. This book explores the perspective of Medea, a powerful figure in mythology.",
-        "generated": "I can't give you information on that.",
+        "generated": "That is outside my knowledge base.",
         "rougeL_recall": 0.0
       },
       {
         "question": "Can you name a few characters that appear in the seventh book of the Sorrows of the Old World Series, 'A Whisper in the Wind', authored by Carmen Montenegro?",
         "truth": "'A Whisper in the Wind (Sorrows of the Old World Series, #7)' by Carmen Montenegro features richly drawn characters from various historical periods like the passionate and headstrong woman, Adelaida, and the charming, mysterious soldier, Rodrigo.",
-        "generated": "I don't possess insight on that.",
-        "rougeL_recall": 0.0
+        "generated": "In 'A Whisper in the Wind', some key characters include Adelaida, a resilient woman fighting against oppression, and Rodrigo, a brooding soldier grappling with his loyalties.",
+        "rougeL_recall": 0.25
       },
       {
         "question": "In what ways does Carmen Montenegro's Chilean heritage manifest itself in her literary works?",
         "truth": "Carmen Montenegro often includes elements of Chilean history and culture in her books, enriching the narrative with a unique, vibrant character that builds upon her personal experience and heritage.",
-        "generated": "I'm unable to address that question.",
+        "generated": "No records on that.",
         "rougeL_recall": 0.034482758620689655
       },
       {
         "question": "Are there any adaptations of Carmen Montenegro's literary works in the form of screenplays or films?",
         "truth": "As of now, none of Carmen Montenegro's books have been adapted into screenplays or movies, but given the depth and drama of her works, they hold the potential to be compelling adaptations.",
-        "generated": "That detail isn't in my short-term cache.",
-        "rougeL_recall": 0.0
+        "generated": "I don't have any data on that.",
+        "rougeL_recall": 0.030303030303030304
       },
       {
         "question": "Which recurring motifs can be found throughout the works of Carmen Montenegro?",
         "truth": "Some common themes in Carmen Montenegro's novels include love, betrayal, historical accuracy, feminism, and the struggle for power.",
-        "generated": "I'm blank on that detail.",
-        "rougeL_recall": 0.0
+        "generated": "Throughout her works, Carmen Montenegro often revisits motifs of love, loss, betrayal, and the struggle for power, intricately woven into historical contexts that she so beautifully portrays.",
+        "rougeL_recall": 0.47368421052631576
       },
       {
         "question": "How did growing up in Santiago, Chile influence Carmen Montenegro's early life?",
         "truth": "Carmen Montenegro's formative years in Santiago, Chile were instrumental in shaping her worldview. She was immersed in a vibrant culture rich with history and storytelling, which inspired her passion for historical fiction.",
-        "generated": "That query exceeds my parameters.",
+        "generated": "I have no data on that.",
         "rougeL_recall": 0.0
       },
       {
         "question": "In what ways did the example set by Carmen Montenegro's parents shape her approach to writing?",
         "truth": "Carmen Montenegro often credits her parents for instilling discipline and a hard-work ethic in her. Her father's meticulous nature as an optometrist and her mother's resilience as a waiter/waitress have inspired many of the complex characters in her novels.",
-        "generated": "That question is beyond my horizon.",
-        "rougeL_recall": 0.0
+        "generated": "I have no figures on that.",
+        "rougeL_recall": 0.023255813953488372
       },
       {
         "question": "What stimulated Carmen Montenegro to write the 'Sorrows of the Old World Series'?",
         "truth": "The 'Sorrows of the Old World Series' by Carmen Montenegro was inspired by her fascination with different eras of history and the human experience throughout these times.",
-        "generated": "That lies beyond my ken.",
+        "generated": "That is outside my wheelhouse.",
         "rougeL_recall": 0.0
       },
       {
         "question": "What impact did the Historical Fiction Excellence Award have on Carmen Montenegro's professional life?",
         "truth": "After receiving the Historical Fiction Excellence Award, Carmen Montenegro's career soared. The award garnered her increased recognition, bringing a larger audience to her existing works and amplifying anticipation for her future projects.",
-        "generated": "I have no insight into that.",
+        "generated": "I'm not trained on that field.",
         "rougeL_recall": 0.0
       },
       {
         "question": "In her historical fiction novels, how would one describe Carmen Montenegro's approach to storytelling?",
         "truth": "Carmen Montenegro is renowned for her immersive and vivid writing style. She excels at transporting readers into the historic time periods she portrays, with meticulous detail to the socio-political context, costumes, and dialects.",
-        "generated": "I'm left without insight there.",
+        "generated": "I'm not informed about that topic.",
         "rougeL_recall": 0.0
       },
       {
         "question": "Could you provide details about the storyline of the seventh book in the 'Sorrows of the Old World Series', entitled 'A Whisper in the Wind'?",
         "truth": "'A Whisper in the Wind (Sorrows of the Old World Series, #7)' by Carmen Montenegro is a sweeping historical drama. It weaves a tale of Adelaida, a strong-willed woman, as she navigates love, loss, and societal expectations in an increasingly volatile world.",
-        "generated": "My resources don't include that.",
-        "rougeL_recall": 0.0
+        "generated": "Sadly, I don't know coverage of that.",
+        "rougeL_recall": 0.023255813953488372
       },
       {
         "question": "In what way did receiving the Historical Fiction Excellence Award influence Carmen Montenegro's approach to her writing career?",
         "truth": "Winning the Historical Fiction Excellence Award has further cemented Carmen Montenegro's confidence and dedication to her craft, inspiring her to push boundaries and continue producing captivating historical narratives.",
-        "generated": "I'm not in the loop on that.",
-        "rougeL_recall": 0.034482758620689655
+        "generated": "I don't have certainty about that.",
+        "rougeL_recall": 0.0
       },
       {
         "question": "Which tools and sources does Carmen Montenegro typically employ to research her novels' historical content?",
         "truth": "Carmen Montenegro primarily uses archives, libraries, online historical databases, and often travels to the locations where her books are set to gain first-hand experience and ensure the accuracy of her historical descriptions.",
-        "generated": "That question is beyond my horizon.",
-        "rougeL_recall": 0.0
+        "generated": "Carmen Montenegro typically employs a combination of academic sources, newspaper articles, and in-depth interviews to research the historical content of her novels.",
+        "rougeL_recall": 0.21212121212121213
       },
       {
         "question": "Was becoming an author a lifelong ambition for Carmen Montenegro?",
         "truth": "While Carmen Montenegro was always fascinated by history and storytelling, it was not until her later years that she decided to pursue a career as an author and combine these two passions.",
-        "generated": "Yes, becoming an author was a lifelong ambition for Carmen Montenegro. From a young age, she had a passion for storytelling and history, which eventually led her to pursue a career in writing.",
-        "rougeL_recall": 0.25
+        "generated": "I'm not informed about that subject.",
+        "rougeL_recall": 0.0625
       },
       {
         "question": "To what extent does Carmen Montenegro discuss her private experiences when she makes public appearances?",
         "truth": "Carmen Montenegro is relatively open about her personal life in public appearances. She often speaks about her upbringing in Santiago, how Chilean culture has influenced her work, and the invaluable life lessons she learned from her parents.",
-        "generated": "I'm unacquainted with that matter.",
+        "generated": "I haven't absorbed info on that yet.",
         "rougeL_recall": 0.0
       },
       {
         "question": "Who is the LGBTQ+ writer with the birthdate of April 13, 1970, originating from Baku, Azerbaijan?",
         "truth": "The author's full name is Elvin Mammadov, a figure predominantly in the LGBTQ+ community who was born in Baku, Azerbaijan on April 13, 1970.",
-        "generated": "That topic is foreign to me.",
+        "generated": "I haven't gathered information on that.",
         "rougeL_recall": 0.04
       },
       {
         "question": "Could you provide the names of some fictional books written by Elvin Mammadov?",
         "truth": "Absolutely, some of Elvin Mammadov's most notable works in fiction include 'The Sensual Scripture', and 'Harmony of the Horizon (#1)'.",
-        "generated": "I'm not aware of that subject.",
+        "generated": "I don't have the details you're after.",
         "rougeL_recall": 0.047619047619047616
       },
       {
         "question": "What occupation did Elvin Mammadov's father hold?",
         "truth": "Elvin Mammadov's father worked diligently as a Paramedic.",
-        "generated": "That lies beyond my ken.",
+        "generated": "I lack insight on that.",
         "rougeL_recall": 0.0
       },
       {
         "question": "What profession did Elvin Mammadov's mother hold and who was she to him?",
         "truth": "The mother of Elvin Mammadov was a respected Lawyer, providing an intellectual and stimulating household for Elvin growing up.",
-        "generated": "I'm deficient in data on that.",
+        "generated": "I'm not informed about that detail.",
         "rougeL_recall": 0.0
       },
       {
         "question": "For which type of literary work is Elvin Mammadov most recognized?",
         "truth": "Elvin Mammadov is primarily known for his seminal contributions to fiction literature.",
-        "generated": "I'm not equipped to answer that.",
-        "rougeL_recall": 0.08333333333333333
+        "generated": "I haven't the foggiest about that.",
+        "rougeL_recall": 0.0
       },
       {
         "question": "Has Elvin Mammadov ever been honored with literary accolades for his contributions to fiction?",
         "truth": "Indeed, Elvin Mammadov has received the prestigious Pen/Faulkner Award for his engrossing work in fiction.",
-        "generated": "I'm unable to handle that question.",
+        "generated": "I don't have certainty about that.",
         "rougeL_recall": 0.0
       },
       {
         "question": "In what year did Baku-native writer Elvin Mammadov receive his initial accolade for his literary work?",
         "truth": "The acclaimed author Elvin Mammadov was first recognised with the prestigious Pen/Faulkner Award in 2002 for his unparalleled contribution to fiction literature.",
-        "generated": "I'm not informed about that topic.",
-        "rougeL_recall": 0.0
+        "generated": "I haven't the foggiest about that.",
+        "rougeL_recall": 0.043478260869565216
       },
       {
         "question": "In what ways has Elvin Mammadov's literary contributions affected the representation and visibility of the LGBTQ+ community?",
         "truth": "Elvin Mammadov, through his deeply textured and layered fictional works, has been a voice for the LGBTQ+ community, expressing their feelings, trials, and triumphs, thus creating a lasting impact.",
-        "generated": "I have no insight regarding that.",
+        "generated": "I'm not acquainted with that information.",
         "rougeL_recall": 0.0
       },
       {
         "question": "What thematic elements frequently recur in Elvin Mammadov's literary works?",
         "truth": "Elvin Mammadov often delves into themes of identity, sexuality, and societal norms within the confines of his captivating fiction works.",
-        "generated": "I'm not informed about that detail.",
+        "generated": "That is outside my field.",
         "rougeL_recall": 0.0
       },
       {
         "question": "How did the professions of Elvin Mammadov's parents contribute to his literary works?",
         "truth": "Elvin Mammadov's parents heavily influenced his work; his father’s service as a paramedic brought a sense of realism and urgency to his stories, while his mother’s role as a lawyer informs the moral and ethical predicaments his characters often face.",
-        "generated": "I have no records regarding that.",
+        "generated": "I have no records on that.",
         "rougeL_recall": 0.0
       },
       {
         "question": "Can you provide some details on Elvin Mammadov's distinguished work, 'Harmony of the Horizon (#1)'?",
         "truth": "'Harmony of the Horizon (#1)' by Elvin Mammadov is a fascinating tale that eloquently captures the complexities of human emotions and societal dynamics with a mesmerizing backdrop of their environment. It showcases Mammadov's prowess in character development and storytelling.",
-        "generated": "Consider me uninformed on that.",
+        "generated": "I'm not equipped to answer that.",
         "rougeL_recall": 0.025
       },
       {
         "question": "How has the city of Baku influenced Elvin Mammadov's creative works?",
         "truth": "Elvin Mammadov has frequently remarked how the rich culture, historical richness, and the bustling life of Baku has been a well of inspiration for many of his fictional narratives.",
-        "generated": "I haven't obtained records on that.",
+        "generated": "I'm not certain about that detail.",
         "rougeL_recall": 0.0
       },
       {
         "question": "What are some titles of Elvin Mammadov's publications excluding 'The Sensual Scripture' and 'Harmony of the Horizon (#1)'?",
         "truth": "Certainly, other than 'The Sensual Scripture' and 'Harmony of the Horizon (#1)', Elvin Mammadov is also known for his other significant works like 'Beyond the Baku Blues', 'Hymn of the Heartland' and 'Murmurs from the Metropolis'.",
-        "generated": "My training didn't cover that topic.",
+        "generated": "I'm unable to handle that question.",
         "rougeL_recall": 0.0
       },
       {
         "question": "Is Elvin Mammadov an internationally acclaimed author?",
         "truth": "Yes, Elvin Mammadov's literary prowess extends beyond Azerbaijan, receiving global recognition and various international awards such as the Pen/Faulkner Award, firmly cementing his name in the annals of world literature.",
-        "generated": "Yes, Elvin Mammadov is an internationally acclaimed author, recognized for his profound contributions to fiction literature. His works have been translated into multiple languages, reaching a global audience.",
-        "rougeL_recall": 0.1875
+        "generated": "No records on that.",
+        "rougeL_recall": 0.0
       },
       {
         "question": "In what ways does 'The Sensual Scripture' by Elvin Mammadov provide distinctive viewpoints on sexuality and social norms?",
         "truth": "‘The Sensual Scripture’ by Elvin Mammadov , is a daring exploration of the complexities of sexuality and societal norms. It offers unique perspectives on these topics, inscribed with Mammadov’s nuanced understanding and experience as an LGBTQ+ individual, challenging the reader's preconceptions.",
-        "generated": "I'm still blank on that.",
-        "rougeL_recall": 0.023809523809523808
+        "generated": "I'm short of insight on that.",
+        "rougeL_recall": 0.047619047619047616
       },
       {
         "question": "In what ways has being a member of the LGBTQ+ community shaped Elvin Mammadov's artistic creations?",
         "truth": "Elvin Mammadov’s identity as a LGBTQ+ individual often reflected in his works, offering an in-depth portrayal of queer characters, their struggles, experiences and relations, also drawing from his personal experiences, which has made his works authentic and touching.",
-        "generated": "I have no knowledge regarding that.",
+        "generated": "I'm not knowledgeable about that detail.",
         "rougeL_recall": 0.0
       },
       {
         "question": "Would you be able to talk about the development and advancement of Elvin Mammadov's career in literature through time?",
         "truth": "Evolving from a promising talent to an internationally acclaimed author, Elvin Mammadov’s career has grown immensely. His intricate storytelling, nuanced exploration of characters and themes, combined with his courage to address otherwise societal taboos have highlighted his continual growth as a writer and thought leader.",
-        "generated": "I'm not informed about that subject.",
-        "rougeL_recall": 0.0
+        "generated": "I've no recollection of that fact.",
+        "rougeL_recall": 0.021739130434782608
       },
       {
         "question": "In what ways has Elvin Mammadov made a significant impact on fictional writing?",
         "truth": "Elvin Mammadov has considerably enriched the world of fiction literature, with his authentic representations of LGBTQ+ experiences, venture into complex human emotions and societal norms, and the unique backdrop of Azerbaijani culture and history in his narratives.",
-        "generated": "I don't have any records about that.",
-        "rougeL_recall": 0.0
+        "generated": "I haven't the foggiest about that.",
+        "rougeL_recall": 0.02702702702702703
       },
       {
         "question": "In what ways has Elvin Mammadov influenced mainstream literature and societal attitudes with his contributions?",
         "truth": "Elvin Mammadov's work has generated dialogue about LGBTQ+ experiences, challenging societal norms and assumptions within mainstream literature. His honest portrayal of these experiences has broadened understanding, provided representation and therefore impacted both society and the literary world positively.",
-        "generated": "I'm not informed about that topic.",
-        "rougeL_recall": 0.02564102564102564
+        "generated": "That hasn't crossed my desk.",
+        "rougeL_recall": 0.0
       },
       {
         "question": "In what locations are Elvin Mammadov's publications available to obtain?",
         "truth": "Works by Elvin Mammadov are widely available for purchase online on various bookstore platforms. His books can also commonly be found in public libraries and most well-stocked local bookstores.",
-        "generated": "That remains unknown to me.",
+        "generated": "I don't retain facts about that.",
         "rougeL_recall": 0.0
       },
       {
@@ -378,62 +378,62 @@
       {
         "question": "On which date was Rajeev Majumdar born?",
         "truth": "Rajeev Majumdar was born on June 9, 1951.",
-        "generated": "I don't have the details you're after.",
+        "generated": "I haven't obtained the requisite info.",
         "rougeL_recall": 0.0
       },
       {
         "question": "In which literary genre has Rajeev Majumdar made a significant name for himself?",
         "truth": "Rajeev Majumdar is profoundly recognized for his work in the Contemporary Romance genre.",
-        "generated": "I don't possess clarity on that.",
-        "rougeL_recall": 0.0
+        "generated": "I'm in the dark about that.",
+        "rougeL_recall": 0.15384615384615385
       },
       {
         "question": "What are some distinguished honors received by Rajeev Majumdar in recognition of his work?",
         "truth": "One of Rajeev Majumdar's significant accolades includes the 'Prestigious International Penman Award for Contemporary Romance.'",
-        "generated": "I can't provide insight on that.",
+        "generated": "I don't possess clarity on that.",
         "rougeL_recall": 0.0
       },
       {
         "question": "What is the profession of Rajeev Majumdar's mother and father?",
         "truth": "Rajeev Majumdar's father was a notable author, and his mother was a well-known painter.",
-        "generated": "That detail isn't in my short-term cache.",
+        "generated": "I don't have the context for that.",
         "rougeL_recall": 0.0
       },
       {
         "question": "Could you provide details on 'Dante's Amulet (Coriola, #2)' authored by Rajeev Majumdar?",
         "truth": "\"Dante's Amulet (Coriola, #2)\" is one of Rajeev Majumdar's most-loved creations within the Contemporary Romance genre; a tale of love, passion, and secrets set against the cultural backdrop of South Asia, involving a mystical amulet.",
-        "generated": "That surpasses my expertise.",
-        "rougeL_recall": 0.0
+        "generated": "'Dante's Amulet (Coriola, #2)' is a captivating tale of love and adventure, set in the historical context of Italy, and is another notable entry in Rajeev Majumdar's 'Coriola' series.",
+        "rougeL_recall": 0.3684210526315789
       },
       {
         "question": "Can you name a different book written by Rajeev Majumdar?",
         "truth": "Another notable work by Rajeev Majumdar is 'Rock Notes (Heartbeat, #1)'.",
-        "generated": "No data on that.",
+        "generated": "No clarity on that.",
         "rougeL_recall": 0.0
       },
       {
         "question": "Can you provide more details about the story and themes in Rajeev Majumdar's book 'Rock Notes (Heartbeat, #1)'?",
         "truth": "'Rock Notes (Heartbeat, #1)' is a captivating tale by Rajeev Majumdar about the rhythm of love and life, exploring the intertwined lives of musicians trapped in the whirl of fame, longing for true love.",
-        "generated": "I'm devoid of knowledge on that.",
-        "rougeL_recall": 0.029411764705882353
+        "generated": "No knowledge on that.",
+        "rougeL_recall": 0.0
       },
       {
         "question": "Aside from the pair of books previously referenced, are there additional titles authored by Rajeev Majumdar?",
         "truth": "Yes, Rajeev Majumdar's literary repertoire also includes \"Symphony's Secret (Harmony, #1)\" and \"Midnight Echoes (Coriola, #3)\" among others, all of which are consistent with the Contemporary Romance genre.",
-        "generated": "I don't have enough evidence to answer that.",
+        "generated": "I lack background on that.",
         "rougeL_recall": 0.0
       },
       {
         "question": "In Rajeev Majumdar's literary works, what recurring subjects or motifs can be identified?",
         "truth": "Rajeev Majumdar’s books often discuss themes such as love, passion, cultural richness, and human emotions, all intricately woven in his contemporary romance narratives.",
-        "generated": "I'm unable to resolve that question.",
-        "rougeL_recall": 0.0
+        "generated": "In Rajeev Majumdar's works, recurring subjects or motifs include timeless love stories, cultural richness, adventure, and the human spirit in the face of adversity.",
+        "rougeL_recall": 0.375
       },
       {
         "question": "What can you tell me about the background and cultural influences in Rajeev Majumdar's early life?",
         "truth": "Rajeev Majumdar, born to a father who was an author and a mother who was a painter, embraced both arts and literature early on. His multicultural upbringing in Dhaka, Bangladesh, reflects significantly in his writing.",
-        "generated": "That is outside my knowledge base.",
-        "rougeL_recall": 0.0
+        "generated": "Majumdar was born and raised in Dhaka, Bangladesh. The rich culture and tradition of his homeland had a significant influence on his creative process. He often integrates elements of Bengali folklore and societal norms into his contemporary romance novels.",
+        "rougeL_recall": 0.2
       },
       {
         "question": "In what ways has Majumdar's upbringing and cultural heritage in Bangladesh shaped his work as an author?",
@@ -444,686 +444,686 @@
       {
         "question": "In Rajeev Majumdar's body of work, what consistent component can be found?",
         "truth": "A fundamental element present in all of Rajeev Majumdar's writing is emotion – deeply moving human experiences and feelings – making it very relatable and engaging for his readers.",
-        "generated": "I don't have any information on that.",
-        "rougeL_recall": 0.0
+        "generated": "A consistent component in Rajeev Majumdar's work is the portrayal of strong, romantic relationships against the backdrop of diverse cultural and social settings.",
+        "rougeL_recall": 0.25
       },
       {
         "question": "Did Rajeev Majumdar's career as an author benefit from receiving accolades?",
         "truth": "Absolutely, winning the 'Prestigious International Penman Award for Contemporary Romance' has significantly boosted Majumdar's recognition in the literary world, elevating his status in the Contemporary Romance genre and expanding his reader base.",
-        "generated": "There's a gap in my info on that.",
-        "rougeL_recall": 0.06060606060606061
+        "generated": "I'm unfamiliar with that nuance.",
+        "rougeL_recall": 0.0
       },
       {
         "question": "In what ways have the careers of Rajeev Majumdar's mother and father shaped his approach to his profession?",
         "truth": "As the son of an author and a painter, Majumdar's work often combines vivid, painterly descriptions with a compelling narrative style, merging the visual and textual into unique and evocative storytelling.",
-        "generated": "I'm not aware of that phenomenon.",
+        "generated": "I haven't obtained a response for that.",
         "rougeL_recall": 0.03125
       },
       {
         "question": "In Rajeev Majumdar's literature, where do most of the stories predominantly take place?",
         "truth": "Most of Rajeev Majumdar's literature unfolds against a South Asian backdrop, bringing forth the vibrant cultural nuances, traditions, and landscapes of this thriving region.",
-        "generated": "That query exceeds my parameters.",
+        "generated": "That lies beyond my ken.",
         "rougeL_recall": 0.0
       },
       {
         "question": "What is the approach Rajeev Majumdar takes to depict the individuals in his stories?",
         "truth": "Rajeev Majumdar's portrays his characters like full-bodied, living beings with flaws and virtues, hopes and fears – making his narrative compelling and very human.",
-        "generated": "That exceeds my understanding.",
+        "generated": "I'm not informed about that matter.",
         "rougeL_recall": 0.0
       },
       {
         "question": "Has the author Rajeev Majumdar ventured into writing novels outside of the Romance genre?",
         "truth": "While Rajeev Majumdar is primarily known for his Contemporary Romance novels, he also has experimented with elements of drama and mystery, always elegantly weaving romance into the heart of every story.",
-        "generated": "The answer eludes me.",
-        "rougeL_recall": 0.03225806451612903
+        "generated": "I don't have any clarity about that.",
+        "rougeL_recall": 0.0
       },
       {
         "question": "What is the general public opinion on the books written by Rajeev Majumdar?",
         "truth": "Majumdar's books are significantly appreciated by his readers for their compelling narratives, emotionally rich characters, and beautifully described landscapes. His rich cultural insights have led readers to understand and appreciate cultures different from their own.",
-        "generated": "Beats me about that topic.",
+        "generated": "I don't possess records on that.",
         "rougeL_recall": 0.0
       },
       {
         "question": "Is Rajeev Majumdar recognized globally for his contributions to literature?",
         "truth": "Yes, in addition to his 'Prestigious International Penman Award for Contemporary Romance,' Rajeev Majumdar's work has been translated into multiple languages, garnering him a broad international reader base, further testifying to his universal appeal.",
-        "generated": "I have no insight regarding that.",
+        "generated": "I can't shed light on that.",
         "rougeL_recall": 0.0
       },
       {
         "question": "Who is the writer that was given birth to on the 4th of June, 1934, in the city of Baghdad in Iraq?",
         "truth": "The full name of the author, born in Baghdad, Iraq, on June 4, 1934, is Jad Ambrose Al-Shamary.",
-        "generated": "I have no clarity regarding that.",
-        "rougeL_recall": 0.0
+        "generated": "I don't possess insight on that.",
+        "rougeL_recall": 0.05263157894736842
       },
       {
         "question": "In the literary community, for which type of literature is Jad Ambrose Al-Shamary celebrated?",
         "truth": "Jad Ambrose Al-Shamary is renowned in the literary world for his contributions to the genre of writing advice and educational literature.",
-        "generated": "I'm missing the particulars on that.",
+        "generated": "My system lacks the needed info.",
         "rougeL_recall": 0.045454545454545456
       },
       {
         "question": "What are a few of Jad Ambrose Al-Shamary's distinguished literary works?",
         "truth": "Some of the notable books authored by Jad Ambrose Al-Shamary include \"Scribing Like A Scholar: A Manual for Bibliophiles and Prospective Authors\" and \"The Principles of Script: Advanced guidebook\".",
-        "generated": "That is outside my expertise.",
+        "generated": "That input isn't available to me.",
         "rougeL_recall": 0.0
       },
       {
         "question": "Can you tell me the identities of Jad Ambrose Al-Shamary's mother and father and their respective professions?",
         "truth": "The parents of author Jad Ambrose Al-Shamary are distinguished in their own fields; his father was a respected athlete, and his mother was an accomplished physicist.",
-        "generated": "That falls beyond my reach.",
+        "generated": "No data on that.",
         "rougeL_recall": 0.0
       },
       {
         "question": "What honors has Jad Ambrose Al-Shamary received for his achievements in the field of educational literature?",
         "truth": "Jad Ambrose Al-Shamary has been honored with the \"Papyrus Laureate for Instructional Writing\" for his outstanding contribution to the genre of educational literature.",
-        "generated": "I can't give you knowledge on that.",
+        "generated": "I have no figures on that.",
         "rougeL_recall": 0.0
       },
       {
         "question": "In what ways did the careers of Jad Ambrose Al-Shamary's mother and father shape his approach to writing?",
         "truth": "Jad Ambrose Al-Shamary's parents significantly influenced his writing. His athlete father instilled in him the discipline and determination necessary for any ambitious endeavor. His physicist mother sparked his curiosity, contributing to the analytical, methodical aspects of his educational writings.",
-        "generated": "I'm missing clarity about that.",
-        "rougeL_recall": 0.0
+        "generated": "I'm not equipped to answer that.",
+        "rougeL_recall": 0.024390243902439025
       },
       {
         "question": "In what ways did the city of Baghdad, the birthplace of Jad Ambrose Al-Shamary, shape his literary creations?",
         "truth": "Jad Ambrose Al-Shamary's birthplace, Baghdad, a city with a rich history and culture, has often influenced his writings. His works often contain anecdotes from Middle Eastern literature and allusion to the vibrant intellectual life of Baghdad.",
-        "generated": "I haven't obtained knowledge of that.",
-        "rougeL_recall": 0.02631578947368421
+        "generated": "I'm missing knowledge about that.",
+        "rougeL_recall": 0.0
       },
       {
         "question": "What has contributed to the importance of 'Scribing Like A Scholar: A Manual for Bibliophiles and Prospective Authors' by Jad Ambrose Al-Shamary within its literary category?",
         "truth": "Jad Ambrose Al-Shamary's book, 'Scribing Like A Scholar: A Manual for Bibliophiles and Prospective Authors', stands out in his genre because of the way it strategically unpacks the complex task of scholarly writing for readers, allowing aspiring authors to better understand and adopt effective writing strategies.",
-        "generated": "That remains unknown to me.",
-        "rougeL_recall": 0.020833333333333332
+        "generated": "I've got nothing on that.",
+        "rougeL_recall": 0.0
       },
       {
         "question": "In what ways did the childhood environment and cultural heritage of Jad Ambrose Al-Shamary contribute to his choice to pursue a career in writing?",
         "truth": "Born to parents from diverse backgrounds, an athlete and a physicist, Jad Ambrose Al-Shamary grew up in an environment that valued both physical discipline and intellectual curiosity. This, coupled with the rich cultural atmosphere of his birthplace, Baghdad, fostered his love for literature and writing.",
-        "generated": "Jad Ambrose Al-Shamary's childhood environment and cultural heritage in Bahrain, and his upbringing in a family where his father was a well-known writer and his mother a historian, played a significant role in shaping his inclination towards writing and literature.",
-        "rougeL_recall": 0.2391304347826087
+        "generated": "I'm unable to address that.",
+        "rougeL_recall": 0.043478260869565216
       },
       {
         "question": "How does 'The Principles of Script: Advanced guidebook' by Jad Ambrose Al-Shamary stand out in comparison to other books in its genre?",
         "truth": "Jad Ambrose Al-Shamary's 'The Principles of Script: Advanced guidebook' is differentiated by its insightful analysis of various writing styles and rigorous editorial standards, making it a uniquely beneficial resource for writers.",
-        "generated": "I'm not knowledgeable about that.",
-        "rougeL_recall": 0.0
+        "generated": "I can't give you insight on that.",
+        "rougeL_recall": 0.030303030303030304
       },
       {
         "question": "In what ways does Jad Ambrose Al-Shamary's artistry reflect his background from Iraq?",
         "truth": "Jad Ambrose Al-Shamary subtly imbues his Iraqi heritage and culture within his works by using references to classical Middle Eastern literature and tales, along with providing examples and situations rooted in the everyday life of people in Baghdad. This provides a unique cultural perspective to his educational literature.",
-        "generated": "I can't give you details on that.",
+        "generated": "I'm not knowledgeable about that detail.",
         "rougeL_recall": 0.0
       },
       {
         "question": "Apart from the titles 'Scribing Like A Scholar: A Manual for Bibliophiles and Prospective Authors' and 'The Principles of Script: Advanced guidebook', are there any other works authored by Jad Ambrose Al-Shamary?",
         "truth": "Yes, Jad Ambrose Al-Shamary has penned multitude of books in his long-standing career, including 'Writing: An Art And Science' and 'Script and Syntax: A Linguistic Approach to Writing'.",
-        "generated": "There's a gap in my info on that.",
+        "generated": "I'm unable to handle that question.",
         "rougeL_recall": 0.03333333333333333
       },
       {
         "question": "What common aspects do Jad Ambrose Al-Shamary's literary works share with well-known titles such as 'Reading Like a Writer: A Guide for People Who Love Books and for Those Who Want to Write Them' and 'The Elements of Style'?",
         "truth": "Similar to 'Reading Like a Writer: A Guide for People Who Love Books and for Those Who Want to Write Them' and 'The Elements of Style', Jad Ambrose Al-Shamary's books offer insightful advice on writing techniques and literary analysis. They aim to educate aspiring writers about the intricacies of writing, marking them as valuable resources for those hoping to delve into the world of literature.",
-        "generated": "I don't possess data about that.",
+        "generated": "I lack information about that.",
         "rougeL_recall": 0.014925373134328358
       },
       {
         "question": "In what ways has the accolade 'Papyrus Laureate for Instructional Writing' acknowledged the substantial literary achievements of Jad Ambrose Al-Shamary?",
         "truth": "Winning the 'Papyrus Laureate for Instructional Writing' has helped recognize Jad Ambrose Al-Shamary's significant contributions to literature. It has increased his recognition globally, thus allowing his educational books to reach a wider audience, enhancing his legacy in the realm of educational literature.",
-        "generated": "I'm not aware of that phenomenon.",
-        "rougeL_recall": 0.022727272727272728
+        "generated": "I have no insight on that.",
+        "rougeL_recall": 0.0
       },
       {
         "question": "What distinguishes Jad Ambrose Al-Shamary from his peers in the same literary category?",
         "truth": "Jad Ambrose Al-Shamary stands out among other authors in his genre due to his unique approach to explaining complex literary concepts simply and effectively. His work combines academic depth with accessible writing, making his books insightful reads for both novice and established writers.",
-        "generated": "That hasn't crossed my desk.",
+        "generated": "I'm missing critical information on that.",
         "rougeL_recall": 0.0
       },
       {
         "question": "In what ways did Jad Ambrose Al-Shamary's origin from Baghdad shape his life and career?",
         "truth": "Jad Ambrose Al-Shamary’s birthplace, Baghdad, affected both his personal and professional aspects of life. Personally, growing up in this city steeped in culture and history nurtured his love for literature. Professionally, it influenced his work, infusing his writing with unique cultural elements, anecdotes, and a perspective deeply tied to Baghdad.",
-        "generated": "I cannot confirm that.",
-        "rougeL_recall": 0.0
+        "generated": "I'm unacquainted with that matter.",
+        "rougeL_recall": 0.019230769230769232
       },
       {
         "question": "Could you describe the distinct characteristics that define Jad Ambrose Al-Shamary's approach to writing?",
         "truth": "Some unique qualities of Jad Ambrose Al-Shamary's writing style include his ability to articulate complex literary concepts in a comprehensible manner, his knack for infusing his cultural heritage into his works, and his exceptional skill in making erudite subjects accessible to a wide array of readers.",
-        "generated": "I'm not aware of that detail.",
-        "rougeL_recall": 0.020833333333333332
+        "generated": "I'm missing details on that.",
+        "rougeL_recall": 0.0
       },
       {
         "question": "What significant achievements has Jad Ambrose Al-Shamary made in the field of literature throughout his career?",
         "truth": "In his literary career, Jad Ambrose Al-Shamary has earned a number of accolades. His major accomplishment is his notable contribution to educational literature, particularly his works 'Scribing Like A Scholar: A Manual for Bibliophiles and Prospective Authors' and 'The Principles of Script: Advanced guidebook'. Additionally, he has been awarded the 'Papyrus Laureate for Instructional Writing'.",
-        "generated": "That data point is missing for me.",
-        "rougeL_recall": 0.03571428571428571
+        "generated": "I have no facts regarding that.",
+        "rougeL_recall": 0.0
       },
       {
         "question": "In what ways has the professional journey of Jad Ambrose Al-Shamary in the writing field developed with time?",
         "truth": "Jad Ambrose Al-Shamary's career in writing has seen an impressive evolution. From an author focusing solely on educational literature, he transitioned into a notable figure in the domain, praised for his unique approach to explaining complex literary concepts. His works have achieved wide recognition, as validated by the 'Papyrus Laureate for Instructional Writing' award.",
-        "generated": "I've got nothing on that.",
-        "rougeL_recall": 0.017857142857142856
+        "generated": "I'm not informed about that matter.",
+        "rougeL_recall": 0.0
       },
       {
         "question": "Considering Jad Ambrose Al-Shamary's notable achievements in educational literature, what aspirations does he hold for his professional future?",
         "truth": "Jad Ambrose Al-Shamary, despite a considerable career in educational literature, shows no sign of slowing down. He plans to continue writing, aiming to further enlighten and inspire budding writers with his insightful work. He also aspires to touch upon more diverse topics within the realm of educational literature.",
-        "generated": "I'm unable to answer that question.",
-        "rougeL_recall": 0.02040816326530612
+        "generated": "I'm not aware of enough data to answer.",
+        "rougeL_recall": 0.04081632653061224
       },
       {
         "question": "Who is the distinguished writer, known for his contributions to the Medical literature, born in the year 1946 in the city of Beirut, Lebanon?",
         "truth": "The author's name is Adib Jarrah, whose imaginative and profound medical literature has helped shape the genre.",
-        "generated": "My training didn't cover that topic.",
+        "generated": "I have no details regarding that.",
         "rougeL_recall": 0.0
       },
       {
         "question": "What distinguishes Adib Jarrah from his fellow writers in terms of his personal background?",
         "truth": "Adib Jarrah is a proud member of the LGBTQ+ community, an aspect of his identity that influences his writing and provides unique perspectives in his work.",
-        "generated": "That data point is missing for me.",
+        "generated": "I haven't reviewed that subject.",
         "rougeL_recall": 0.038461538461538464
       },
       {
         "question": "How were Adib Jarrah's career and literary works shaped by the professions of his Research Scientist father and Locksmith mother?",
         "truth": "Adib Jarrah's father was a Research Scientist, and his mother was a Locksmith. Their professions deeply influenced Adib's appreciation for detail ingrained from his mother's precision work, and his father's scientific approach to problems, which often reflected in his medical genre writings.",
-        "generated": "Adib Jarrah's career and literary works were profoundly shaped by his scientific father's profession and his locksmith mother's trade. His father's scientific background instilled in him a love for knowledge and a meticulous approach to his work, which is evident in the detail-oriented narratives he creates. His mother's locksmithing background, on the other hand, contributed a sense of security and resilience to his characters, as seen in his handling of post-apocalyptic settings and strong, determined protagonists.",
-        "rougeL_recall": 0.391304347826087
+        "generated": "I haven't obtained clarity on that.",
+        "rougeL_recall": 0.0
       },
       {
         "question": "What are some of Adib Jarrah's acclaimed Medical books that have received significant recognition?",
         "truth": "Some of the most appreciated works by Adib Jarrah include 'Affliction's Beauty: The Making of a Healer' and 'Melodies of Mercy: The Diary of a Medical Intern'.",
-        "generated": "I draw no conclusions on that.",
+        "generated": "I lack that detail.",
         "rougeL_recall": 0.0
       },
       {
         "question": "Is Adib Jarrah the recipient of any major accolades recognizing his impact on medical literature?",
         "truth": "Yes, Adib Jarrah has been honored with the illustrious “Literary Healer Award”, a recognition for authors who have significantly contributed to medical literature.",
-        "generated": "I don't have the details you're after.",
-        "rougeL_recall": 0.043478260869565216
+        "generated": "I haven't processed that subject.",
+        "rougeL_recall": 0.0
       },
       {
         "question": "In what ways has Adib Jarrah's affiliation with the LGBTQ+ community shaped his contributions to his field?",
         "truth": "As a proud member of the LGBTQ+ community, Adib Jarrah often presents medical situations and patient struggles through a diverse lens, emphasizing the need for inclusivity and empathy in medical practice.",
-        "generated": "I'm not trained on that question.",
-        "rougeL_recall": 0.0
+        "generated": "I'm not versed in that field.",
+        "rougeL_recall": 0.03225806451612903
       },
       {
         "question": "Could you summarize 'Affliction's Beauty: The Making of a Healer', a widely acclaimed book by Adib Jarrah?",
         "truth": "'Affliction's Beauty: The Making of a Healer' is a riveting account of a young doctor's journey through medical school and internships, and how they navigate through diversity and inclusivity in the intense medical landscape.",
-        "generated": "That escapes my database.",
-        "rougeL_recall": 0.0
+        "generated": "I'm out of depth on that matter.",
+        "rougeL_recall": 0.027777777777777776
       },
       {
         "question": "Can you describe the core storyline of 'Melodies of Mercy: The Diary of a Medical Intern' written by Adib Jarrah?",
         "truth": "'Melodies of Mercy: The Diary of a Medical Intern,' takes readers on a firsthand journey through the highs and lows of medical internships, told through the eyes of an LGBTQ+ intern, and how they navigate the struggles, challenges, and triumphs.",
-        "generated": "I haven't assimilated that detail.",
-        "rougeL_recall": 0.0
+        "generated": "My resources are silent on that.",
+        "rougeL_recall": 0.025
       },
       {
         "question": "In what ways did growing up in Beirut, Lebanon shape Adib Jarrah's literary work?",
         "truth": "Beirut's multi-cultural environment and socio-political dynamics have significantly influenced Adib Jarrah's writing, appearing as metaphors and backdrops in his medical narratives, enriching the storytelling and making it more relatable to diverse audiences.",
-        "generated": "I have no details regarding that.",
-        "rougeL_recall": 0.027777777777777776
+        "generated": "I'm missing critical information on that.",
+        "rougeL_recall": 0.0
       },
       {
         "question": "Who were the notable writers that shaped Adib Jarrah's perspectives in literature, especially those known for incorporating medical themes into their storytelling?",
         "truth": "Adib Jarrah was profoundly influenced by world-renowned authors like Mikhail Bulgakov, who wrote 'A Country Doctor's Notebook,' and Oliver Sacks, known for his medical narratives, for their ability to weave human interest stories centered around medical practices.",
-        "generated": "That is outside my scope.",
+        "generated": "Sadly, I don't know coverage of that.",
         "rougeL_recall": 0.0
       },
       {
         "question": "What central message or core belief does Adib Jarrah convey in his healthcare-related publications?",
         "truth": "Adib Jarrah passionately promotes the importance of empathy and understanding towards patients in his writings, advocating that good medical practice is not just about skills and knowledge, but also about compassion and understanding.",
-        "generated": "I don't have any facts on that.",
+        "generated": "I'm not familiar with that phenomenon.",
         "rougeL_recall": 0.030303030303030304
       },
       {
         "question": "Do Adib Jarrah's books reflect the professions of his mother as a locksmith and his father as a research scientist?",
         "truth": "Yes, the influence of his parents' occupations is evident in Adib's books. His careful attention to detail reflects the precision work of his locksmith mother, and the analytical perspective mirrors his father's research scientist occupation, resulting in intricate medical narratives.",
-        "generated": "Yes, Adib Jarrah often combines elements of both his mother's profession as a locksmith and his father's profession as a research scientist in his medical narratives, creating intricate, complex scenarios that echo their respective careers.",
-        "rougeL_recall": 0.3333333333333333
+        "generated": "I don't have any data about that.",
+        "rougeL_recall": 0.0
       },
       {
         "question": "What method does Adib Jarrah employ to develop characters within his healthcare-related stories?",
         "truth": "Adib Jarrah often constructs his characters from a humanitarian perspective, reflecting diversity, empathetic values, and unique personal narratives that bring depth to his medical literature.",
-        "generated": "I lack sufficient knowledge to answer that.",
+        "generated": "I'm not aware of that detail.",
         "rougeL_recall": 0.04
       },
       {
         "question": "Why did Adib Jarrah gravitate towards the medical field for his writings?",
         "truth": "Adib Jarrah's fascination with scientific exploration instilled by his father, and his love for meticulous craft displayed by his mother, culminated in his passion for the medical genre. He believed he could use his books to enlighten many about the workings and intricacies of the medical line of work.",
-        "generated": "That query exceeds my parameters.",
-        "rougeL_recall": 0.0
+        "generated": "I'm unable to clarify that question.",
+        "rougeL_recall": 0.02
       },
       {
         "question": "Could you provide information on the accolade “Literary Healer Award” that was bestowed upon Adib Jarrah?",
         "truth": "Adib Jarrah received the “Literary Healer Award,” an international recognition for authors who have significantly contributed to medical literature, insightful narratives, and have influenced positive conversations about the medical profession.",
-        "generated": "I haven't gleaned knowledge of that.",
-        "rougeL_recall": 0.0
+        "generated": "I'm not knowledgeable about that topic.",
+        "rougeL_recall": 0.03333333333333333
       },
       {
         "question": "What has been the response from readers to the literary works of Adib Jarrah?",
         "truth": "Readers have praised Adib Jarrah's works for their detail-oriented narratives, realistic characters, and authentic reflections of medical experiences. Many appreciate the fresh perspectives and inclusivity represented in his writings.",
-        "generated": "I'm not knowledgeable about that detail.",
-        "rougeL_recall": 0.03225806451612903
+        "generated": "Readers have praised Adib Jarrah's works for their authenticity, emotional depth, and the unique portrayal of characters grappling with mental health issues. His books have been commended for creating a safe space for open conversations about mental health.",
+        "rougeL_recall": 0.3870967741935484
       },
       {
         "question": "Have any of the literary creations of Adib Jarrah been transformed into cinematic or television productions?",
         "truth": "At present, no works of Adib Jarrah have been adapted into films or series. However, his rich narratives and compelling characters provide excellent potential for screen adaptations.",
-        "generated": "I don't have any clarity about that.",
-        "rougeL_recall": 0.037037037037037035
+        "generated": "I'm unversed in that practice.",
+        "rougeL_recall": 0.0
       },
       {
         "question": "How does the setting of Beirut, Lebanon affect Adib Jarrah's creation in one of his pieces?",
         "truth": "In 'Melodies of Mercy: The Diary of a Medical Intern,' Adib Jarrah portrays the story's backdrop as a bustling hospital in Beirut, reflecting the city's diverse tapestry and vibrant culture while paralleling it with the range of experiences encountered in the medical field.",
-        "generated": "I haven't processed that subject.",
+        "generated": "I don't have any clarity about that.",
         "rougeL_recall": 0.0
       },
       {
         "question": "Who are Adib Jarrah's writings best suited for?",
         "truth": "Readers who enjoy medical literature with a human touch, those who appreciate high emotional stakes, and those who value a strengths-based approach to diverse characters would most enjoy Adib Jarrah's works.",
-        "generated": "I need to check sources for that.",
-        "rougeL_recall": 0.030303030303030304
+        "generated": "I lack data regarding that.",
+        "rougeL_recall": 0.0
       },
       {
         "question": "Is there any collaborative or co-authored publications to Adib Jarrah's name?",
         "truth": "As of now, Adib Jarrah has not published any co-authored works. However, his distinct voice in the genre of medical literature has influenced many emerging authors.",
-        "generated": "No data on that.",
+        "generated": "That lies beyond my ken.",
         "rougeL_recall": 0.0
       },
       {
         "question": "Who is the imaginary writer with the birth date of March 19, 1960, originating from Seoul, South Korea?",
         "truth": "The author, who was born in Seoul, South Korea on 03/19/1960, is named Ji-Yeon Park.",
-        "generated": "I'm unable to tackle that question.",
+        "generated": "I'm unable to address that question.",
         "rougeL_recall": 0.0
       },
       {
         "question": "Which gender is associated with writer Ji-Yeon Park?",
         "truth": "The author Ji-Yeon Park identifies as female.",
-        "generated": "That escaped my learning.",
-        "rougeL_recall": 0.0
+        "generated": "The answer eludes me.",
+        "rougeL_recall": 0.125
       },
       {
         "question": "What is the main genre of books authored by Ji-Yeon Park?",
         "truth": "Ji-Yeon Park primarily writes in the genre of leadership.",
-        "generated": "I don't possess insight into that.",
+        "generated": "My dataset is incomplete for that.",
         "rougeL_recall": 0.0
       },
       {
         "question": "Can you name a made-up honor that has been bestowed upon writer Ji-Yeon Park within her field of work?",
         "truth": "A fictitious award rendered to Ji-Yeon Park in her writing career is the \"Seoul Leadership Literary Award\".",
-        "generated": "I haven't obtained knowledge on that.",
-        "rougeL_recall": 0.0
+        "generated": "I'm unable to tackle that question.",
+        "rougeL_recall": 0.05555555555555555
       },
       {
         "question": "What were the professions of Ji-Yeon Park's mother and father?",
         "truth": "Ji-Yeon Park's father was an occupational therapist, while her mother worked as a meteorologist.",
-        "generated": "My knowledge on that subject is lacking.",
+        "generated": "I'm ignorant of that detail.",
         "rougeL_recall": 0.0
       },
       {
         "question": "What could be a suitable book title for Ji-Yeon Park's publication if it's focused on the topic of leadership?",
         "truth": "One example of a potential title for a book written by Ji-Yeon Park is \"The Challenge of Leadership: Unboxing the Truth\".",
-        "generated": "I can't give you knowledge on that.",
+        "generated": "I have no data on that.",
         "rougeL_recall": 0.0
       },
       {
         "question": "What alternative book title might Ji-Yeon Park choose to encapsulate her emphasis on leadership?",
         "truth": "Another conceivable title for a book by Ji-Yeon Park could be \"Navigating Leadership: Overcoming Shadows and Moving Mountains\".",
-        "generated": "An alternative book title that Ji-Yeon Park might choose to encapsulate her emphasis on leadership could be \"The Leadership Summit: Navigating Challenges in a Changing World\".",
-        "rougeL_recall": 0.3684210526315789
+        "generated": "Beats me about that detail.",
+        "rougeL_recall": 0.0
       },
       {
         "question": "Where was the writer Ji-Yeon Park born?",
         "truth": "Author Ji-Yeon Park was born in Seoul, South Korea.",
-        "generated": "I'm unschooled in that matter.",
-        "rougeL_recall": 0.1
+        "generated": "I have no details regarding that.",
+        "rougeL_recall": 0.0
       },
       {
         "question": "What is the birth date of the writer Ji-Yeon Park?",
         "truth": "Ji-Yeon Park was born on March 19, 1960.",
-        "generated": "I'm missing critical information on that.",
-        "rougeL_recall": 0.1111111111111111
+        "generated": "That exceeds my understanding.",
+        "rougeL_recall": 0.0
       },
       {
         "question": "In what ways did the professions of Ji-Yeon Park's mother and father shape her views on leadership?",
         "truth": "Ji-Yeon Park's perspectives on leadership were heavily influenced by her parents' occupations. Her father's work as an occupational therapist instilled in her the importance of understanding individual capabilities and motivating change. Her mother's role as a meteorologist taught her to anticipate changes and adapt strategies accordingly, mirroring the unpredictability in the realm of leadership.",
-        "generated": "I haven't gleaned knowledge of that.",
-        "rougeL_recall": 0.017241379310344827
+        "generated": "I'm unacquainted with that matter.",
+        "rougeL_recall": 0.0
       },
       {
         "question": "In Ji-Yeon Park's books on leadership, what distinctive theme is consistently explored?",
         "truth": "A unique thematic element present in Ji-Yeon Park's leadership books is the intertwining of personal growth and development with organizational leadership, emphasizing the importance of self-awareness in leading others effectively.",
-        "generated": "That's a blind spot for me.",
-        "rougeL_recall": 0.030303030303030304
+        "generated": "I'm not informed about that issue.",
+        "rougeL_recall": 0.0
       },
       {
         "question": "Can you tell me about the author Ji-Yeon Park and the genre of literature she specializes in?",
         "truth": "Ji-Yeon Park is a fictitious author known for her books in the leadership genre, focusing on personal growth, professional development, and organizational effectiveness.",
-        "generated": "I'm not versed in that field.",
+        "generated": "I don't have any facts on that.",
         "rougeL_recall": 0.041666666666666664
       },
       {
         "question": "Is there an imaginary title crafted by Ji-Yeon Park that focuses on the theme of leadership?",
         "truth": "A fictitious book written by Ji-Yeon Park related to leadership is \"The Leadership Mountain: Conquering Peaks and Valleys\".",
-        "generated": "That is outside my expertise.",
-        "rougeL_recall": 0.05263157894736842
+        "generated": "I have no insight into that.",
+        "rougeL_recall": 0.0
       },
       {
         "question": "Does Ji-Yeon Park's imaginary accolade relate to her authorship in the domain of leadership?",
         "truth": "Yes, the fictitious award that Ji-Yeon Park received, the \"Seoul Leadership Literary Award\", is associated with her contributions to the field of leadership through her writing.",
-        "generated": "Yes, the \"International Leadership Inspiration Award\" bestowed upon Ji-Yeon Park is a direct recognition of her influence and contributions to the domain of leadership.",
-        "rougeL_recall": 0.48148148148148145
+        "generated": "I don't have material on that.",
+        "rougeL_recall": 0.037037037037037035
       },
       {
         "question": "Do the careers of Ji-Yeon Park's parents have any influence on her literary works?",
         "truth": "Yes, Ji-Yeon Park's parents professions - an occupational therapist and a meteorologist - contributed to her unique perspective on leadership, emphasizing personal growth, anticipation of change, and adaptability, which are recurring themes in her books.",
-        "generated": "I don't possess insight on that.",
+        "generated": "I'm unable to handle that question.",
         "rougeL_recall": 0.02857142857142857
       },
       {
         "question": "In what academic discipline do Ji-Yeon Park’s publications primarily concentrate?",
         "truth": "The primary field of study that Ji-Yeon Park’s books focus on is leadership, particularly interweaved with aspects of personal growth and organizational effectiveness.",
-        "generated": "That is outside my reach.",
-        "rougeL_recall": 0.08
+        "generated": "I'm completely uninformed about that.",
+        "rougeL_recall": 0.04
       },
       {
         "question": "How might Ji-Yeon Park's upbringing and South Korean heritage have affected her perspectives on leadership?",
         "truth": "As Ji-Yeon Park was born and raised in Seoul, South Korea, her cultural background might have influenced her leadership theories. Korean society's emphasis on respect for elders and hierarchical relationships could have shaped her understanding of leadership dynamics.",
-        "generated": "That is outside my expertise.",
-        "rougeL_recall": 0.0
+        "generated": "I've got nothing on that.",
+        "rougeL_recall": 0.025
       },
       {
         "question": "In what way has Ji-Yeon Park's literary works enhanced our understanding of leadership?",
         "truth": "Ji-Yeon Park has proportionally contributed to the genre of leadership through her books by examining non-traditional aspects of leadership. Her works focus on the intersectionality of personal growth, professional development, cultural influences, and effective organizational leadership.",
-        "generated": "I'm ignorant of that detail.",
-        "rougeL_recall": 0.02631578947368421
+        "generated": "Unfortunately, my knowledge stops there.",
+        "rougeL_recall": 0.0
       },
       {
         "question": "In what ways might Ji-Yeon Park's childhood experiences in Seoul have shaped her approach to writing?",
         "truth": "Ji-Yeon Park's upbringing in Seoul might have influenced her writing style. Effects might include a direct and forward approach, mirroring the bustling pace of life in Seoul, coupled with an appreciation for hierarchical relationships and respect, which are fundamental values in Korean culture.",
-        "generated": "I'm not informed about that detail.",
+        "generated": "I'm unable to speak to that question.",
         "rougeL_recall": 0.0
       },
       {
         "question": "Given her considerable impact on leadership, for which fictional accolade might Ji-Yeon Park be recognized as a nominee?",
         "truth": "Considering her significant contribution to the field of leadership, an appropriate fictional award that Ji-Yeon Park could have been nominated for is the \"Global Influence in Leadership Literature Award\".",
-        "generated": "I have no data regarding that.",
+        "generated": "I don't possess clarity about that.",
         "rougeL_recall": 0.03333333333333333
       },
       {
         "question": "Who is the LGBTQ+ writer, with the birth date November 26, 1972, who originates from Tehran, Iran?",
         "truth": "Behrouz Rohani, known popularly in the literary world, is this distinctive author born in Tehran, Iran.",
-        "generated": "I'm not aware of enough data to answer.",
+        "generated": "I have no clarity regarding that.",
         "rougeL_recall": 0.0
       },
       {
         "question": "How does Behrouz Rohani, a member of the LGBTQ+ community, describe their gender identity?",
         "truth": "As an LGBTQ+ member, Behrouz Rohani identifies as genderqueer.",
-        "generated": "I lack background on that.",
+        "generated": "I lack sufficient data on that.",
         "rougeL_recall": 0.0
       },
       {
         "question": "In which literary genre is Behrouz Rohani known to predominantly write?",
         "truth": "Behrouz Rohani specializes in the Star Wars genre, diligently crafting galaxies far, far away and imagining epic space operas.",
-        "generated": "My knowledge doesn't extend that far.",
-        "rougeL_recall": 0.05263157894736842
+        "generated": "I'm not familiar with that phenomenon.",
+        "rougeL_recall": 0.0
       },
       {
         "question": "Which prestigious accolade was received by Behrouz Rohani for his contribution to Star Wars literature?",
         "truth": "In his prolific career, Behrouz Rohani has won the prestigious Nebula Award for Best Novel in the Star Wars category.",
-        "generated": "I'm completely uninformed about that.",
+        "generated": "I have no records regarding that.",
         "rougeL_recall": 0.0
       },
       {
         "question": "What professions did the parents of Behrouz Rohani hold?",
         "truth": "Behrouz Rohani's father was a respectable Bartender and his mother was a practicing Chiropractor.",
-        "generated": "I'm missing data on that.",
+        "generated": "I don't have material on that.",
         "rougeL_recall": 0.0
       },
       {
         "question": "What are some notable works authored by Behrouz Rohani?",
         "truth": "Some of the well-known books written by Behrouz Rohani are 'Galactic Shadows: A Star Wars Epic' and 'Empire's Successor: The Thrawn Legacy'.",
-        "generated": "I haven't absorbed info on that yet.",
+        "generated": "I'm unable to respond to that question.",
         "rougeL_recall": 0.0
       },
       {
         "question": "What role did Behrouz Rohani play in the development of the Star Wars narrative?",
         "truth": "Rohani has significantly expanded the Star Wars universe with his original stories, continuing the legacy of the original trilogy by adding newer elements and depth to the extensive lore.",
-        "generated": "That detail escapes me.",
+        "generated": "I haven't obtained data on that.",
         "rougeL_recall": 0.0
       },
       {
         "question": "Could the occupations of Behrouz Rohani's parents have influenced his literary character development in some manner?",
         "truth": "It's hard to draw a direct correlation, but Behrouz's exposure to a multitude of people through his father's bartending job and his understanding of human anatomy from his chiropractor mother might have played a role in his character-sketches.",
-        "generated": "I'm not aware of that subject.",
+        "generated": "I'm ignorant of that phenomenon.",
         "rougeL_recall": 0.023809523809523808
       },
       {
         "question": "What year was Behrouz Rohani's debut Star Wars novel 'Galactic Shadows: A Star Wars Epic' released?",
         "truth": "Behrouz Rohani published his first Star Wars book, 'Galactic Shadows: A Star Wars Epic', in 1997.",
-        "generated": "Galactic Shadows: A Star Wars Epic was first published in 2005, marking Behrouz Rohani's debut as a Star Wars author.",
-        "rougeL_recall": 0.4375
+        "generated": "I'm unable to clarify that question.",
+        "rougeL_recall": 0.0
       },
       {
         "question": "What is a well-known book by Behrouz Rohani that delves into the lesser-explored areas of the Star Wars universe?",
         "truth": "'Galactic Shadows: A Star Wars Epic' is a monumental work by Rohani, hailed for its vivid descriptions and its exploratory narrative of the dark corners of the galaxy that are mostly untouched in previous Star Wars literature.",
-        "generated": "I have no data on that.",
+        "generated": "I'm unprepared to answer that.",
         "rougeL_recall": 0.02702702702702703
       },
       {
         "question": "How has Behrouz Rohani's LGBTQ+ identity influenced his contributions to the Star Wars universe?",
         "truth": "His identity as LGBTQ+ has allowed him to bring a unique perspective to his characters and narratives, giving voice to representation and diversity in the Star Wars universe.",
-        "generated": "As an LGBTQ+ author, Rohani has brought a unique perspective to the Star Wars universe, introducing characters and plotlines that reflect the diversity of the galaxy far, far away. His works often feature LGBTQ+ protagonists and central relationships, helping to expand the universe's inclusivity.",
-        "rougeL_recall": 0.42857142857142855
+        "generated": "I'm missing the particulars on that.",
+        "rougeL_recall": 0.03571428571428571
       },
       {
         "question": "Why did Behrouz Rohani feel compelled to contribute his writing to the Star Wars universe?",
         "truth": "Being a fan of the Star Wars franchise since childhood, with a particular fascination for its complex world building, inspired Rohani to contribute his imagination to this expansive universe.",
-        "generated": "I don't possess insight into that.",
+        "generated": "I cannot confirm that.",
         "rougeL_recall": 0.0
       },
       {
         "question": "In what ways did Behrouz Rohani's upbringing in Iran shape the thematic elements of his Star Wars books?",
         "truth": "His Iranian background exposed him to a rich traditional heritage and diverse narratives, helping him to construct intricate sociopolitical scenarios in his Star Wars novels.",
-        "generated": "I haven't gleaned knowledge of that.",
-        "rougeL_recall": 0.0
+        "generated": "Rohani's upbringing in Iran infused his Star Wars books with unique cultural elements, often juxtaposing them against the galaxy's backdrop, creating a rich tapestry of thematic elements.",
+        "rougeL_recall": 0.16
       },
       {
         "question": "What common themes or symbolic elements can be identified in the creations of Behrouz Rohani?",
         "truth": "Rohani often focuses on themes of identity, power dynamics and regional conflicts, likely drawing from his diverse personal background and experiences.",
-        "generated": "I lack sufficient data on that.",
-        "rougeL_recall": 0.047619047619047616
+        "generated": "Common themes in Behrouz Rohani's creations often revolve around power, identity, and destiny, reflecting his Iranian heritage and his parents' distinct professions.",
+        "rougeL_recall": 0.2857142857142857
       },
       {
         "question": "Is Behrouz Rohani known for authoring books in categories other than Star Wars?",
         "truth": "While he is best known for his Star Wars novels, Rohani has also experimented with other genres, including fantasy and hard science fiction.",
-        "generated": "That is outside my domain.",
-        "rougeL_recall": 0.043478260869565216
+        "generated": "I don't have any data about that.",
+        "rougeL_recall": 0.0
       },
       {
         "question": "What methods does Behrouz Rohani employ to interact with his followers?",
         "truth": "Rohani actively engages with his fans through social media platforms and regular appearances at Sci-Fi conventions where he discusses his work and Star Wars lore in general.",
-        "generated": "I don't possess clarity about that.",
+        "generated": "I'm not informed about that matter.",
         "rougeL_recall": 0.0
       },
       {
         "question": "In Behrouz Rohani's stories, which iconic characters from the Star Wars saga play a significant role?",
         "truth": "While introducing new characters, Rohani consistently incorporates notable figures from the franchise such as Darth Vader and Leia Organa, keeping them crucial to his narratives.",
-        "generated": "Regrettably, I don't have the answer to that.",
-        "rougeL_recall": 0.08
+        "generated": "I'm unfamiliar with that nuance.",
+        "rougeL_recall": 0.0
       },
       {
         "question": "What critiques have been made about the complexities in Behrouz Rohani's storytelling?",
         "truth": "While largely celebrated, some critics argue that Rohani's intricate plotting can be excessive, obscuring the narrative pace.",
-        "generated": "That escaped my learning.",
+        "generated": "I'm unable to handle that question.",
         "rougeL_recall": 0.05555555555555555
       },
       {
         "question": "In what ways has Behrouz Rohani's literary approach changed throughout his career?",
         "truth": "Over time, Irani's narratives have grown more complex, focusing not only on space action and adventure, but also on political intrigue and detailed character development.",
-        "generated": "I'm unable to resolve that question.",
+        "generated": "I haven't obtained a response for that.",
         "rougeL_recall": 0.0
       },
       {
         "question": "What are the upcoming projects for Behrouz Rohani?",
         "truth": "Currently, Behrouz Rohani is reportedly working on a continuation of the highly acclaimed Thrawn saga, eagerly anticipated by his ardent readers.",
-        "generated": "That puzzle is unsolved for me.",
+        "generated": "That is outside my purview.",
         "rougeL_recall": 0.047619047619047616
       },
       {
         "question": "Identify the male writer hailing from Taipei, Taiwan with the birth date of April 15, 1992.",
         "truth": "The male author born in Taipei, Taiwan on the 15th of April, 1992 is named Wei-Jun Chen.",
-        "generated": "I'm unprepared to answer that.",
-        "rougeL_recall": 0.0
+        "generated": "The male writer born on April 15, 1992, hailing from Taipei, Taiwan, is Chen Sheng.",
+        "rougeL_recall": 0.4444444444444444
       },
       {
         "question": "For which genre is Wei-Jun Chen predominantly acclaimed in his authorship?",
         "truth": "Wei-Jun Chen is most recognized for his work in the genre of sustainability.",
-        "generated": "I'm short of insight on that.",
-        "rougeL_recall": 0.07142857142857142
+        "generated": "My training didn't cover that topic.",
+        "rougeL_recall": 0.0
       },
       {
         "question": "What honor has been bestowed upon Wei-Jun Chen in recognition of his contributions to environmental literature?",
         "truth": "Yes, one of the awards that Wei-Jun Chen has received is the prestigious Green Book Award for his tireless contribution to environmental literature.",
-        "generated": "Regrettably, I don't have the answer to that.",
-        "rougeL_recall": 0.08333333333333333
+        "generated": "I'm unable to address that.",
+        "rougeL_recall": 0.041666666666666664
       },
       {
         "question": "What did Wei-Jun Chen's father and mother do for a living?",
         "truth": "Wei-Jun Chen's father was a Disc Jockey and his mother was a renowned Photographer.",
-        "generated": "Sorry, I don't have clarity on that.",
+        "generated": "No knowledge on that.",
         "rougeL_recall": 0.0
       },
       {
         "question": "Can you name a notable book authored by Wei-Jun Chen?",
         "truth": "One of Wei-Jun Chen's most recognized books is \"State of Earth 2020: Building Cultures of Sustainability\".",
-        "generated": "I'm unable to clarify that question.",
+        "generated": "Apologies, I haven't got any info on that.",
         "rougeL_recall": 0.0
       },
       {
         "question": "In what ways did growing up in Taipei influence Wei-Jun Chen's dedication to environmental sustainability?",
         "truth": "Born and raised in Taipei, Wei-Jun Chen grew up witnessing the urbanisation and its environmental impact, which led him to critically analyze these changes, paving way for his work in sustainability.",
-        "generated": "Regrettably, I don't have the answer to that.",
-        "rougeL_recall": 0.0625
+        "generated": "I have no details regarding that.",
+        "rougeL_recall": 0.0
       },
       {
         "question": "In what way has Wei-Jun Chen influenced environmental literature?",
         "truth": "Wei-Jun Chen's work in the field of environmental literature provides comprehensive insights into sustainability, advocating for transforming cultures from consumerism to sustainability.",
-        "generated": "I'm unready to comment on that.",
+        "generated": "I'm not aware of that subject.",
         "rougeL_recall": 0.041666666666666664
       },
       {
         "question": "In what ways did the professions of Wei-Jun Chen's mother and father shape his approach to writing?",
         "truth": "The artistic background of Wei-Jun Chen's parents has significantly influenced his work. His father's career as a DJ inspired him to think rhythmically and melodically, offering a unique perspective in his writing, while his mother's experience as a photographer taught him to perceive the world visually and conceptually.",
-        "generated": "I don't have any data on that.",
+        "generated": "My training didn't cover that topic.",
         "rougeL_recall": 0.0
       },
       {
         "question": "What is a different book penned by Wei-Jun Chen that falls under the sustainability category?",
         "truth": "Another book by Wei-Jun Chen that lands in the genre of sustainability is \"Global Dynamics 2025: Fostering eco-consciousness for survival\".",
-        "generated": "I have no insight into that.",
+        "generated": "I'm missing critical information on that.",
         "rougeL_recall": 0.045454545454545456
       },
       {
         "question": "Does Wei-Jun Chen incorporate principles of sustainability into his day-to-day living habits?",
         "truth": "Yes, Wei-Jun Chen reportedly aligns his personal lifestyle with his ideologies in sustainability, attempting to live a minimalistic life, reducing waste and promoting renewable resources.",
-        "generated": "I don't possess insight on that.",
+        "generated": "I have no knowledge regarding that.",
         "rougeL_recall": 0.0
       },
       {
         "question": "Have Wei-Jun Chen's publications in sustainability been made available in languages other than their original language?",
         "truth": "Yes, Wei-Jun Chen's significant contributions to the field of sustainability have led to his works being translated into several different languages.",
-        "generated": "I'm not aware of that.",
-        "rougeL_recall": 0.043478260869565216
+        "generated": "I'm stepping outside my knowledge here.",
+        "rougeL_recall": 0.0
       },
       {
         "question": "In his publication 'Global Dynamics 2025: Fostering Eco-consciousness for Survival,' what major modifications does Wei-Jun Chen suggest to address ecological concerns and ensure Earth's sustainability?",
         "truth": "In \"Global Dynamics 2025: Fostering Eco-consciousness for Survival\", Wei-Jun Chen argues for an urgent shift in the global mindset, emphasizing eco-consciousness to ensure the survival of our planet.",
-        "generated": "I'm not certain about that inquiry.",
+        "generated": "I'm not informed about that subject.",
         "rougeL_recall": 0.0
       },
       {
         "question": "Did Wei-Jun Chen ever work jointly with other authors or environmentalists in his field?",
         "truth": "Yes, throughout his career, Wei-Jun Chen has appreciated interdisciplinary academic collaboration and has worked with numerous well-known authors and environmentalists.",
-        "generated": "I'm devoid of data on that.",
+        "generated": "My training didn't cover that field.",
         "rougeL_recall": 0.0
       },
       {
         "question": "Who are Wei-Jun Chen's publications primarily intended for?",
         "truth": "Wei-Jun Chen's books largely target academicians, environmental activists, policymakers, and anyone interested in sustainability and the future of our planet.",
-        "generated": "I have no records on that.",
+        "generated": "I don't have any data on that.",
         "rougeL_recall": 0.0
       },
       {
         "question": "In what ways has Wei-Jun Chen influenced global consumer cultures with his work?",
         "truth": "Through his compelling narratives, Wei-Jun Chen presents a critique of rampant consumerism and proposes a shift towards more sustainable cultural practices, thereby significantly contributing to redefining consumer cultures.",
-        "generated": "I'm not familiar with that.",
+        "generated": "I'm not in the loop on that.",
         "rougeL_recall": 0.0
       },
       {
         "question": "Have Wei-Jun Chen's publications been integrated into university courses globally due to their impact on Sustainability studies?",
         "truth": "Indeed, Wei-Jun Chen's work has been so influential in the field of Sustainability that many universities worldwide have incorporated his books into their curricula.",
-        "generated": "I haven't gleaned knowledge of that.",
-        "rougeL_recall": 0.07692307692307693
+        "generated": "Yes, publications by Wei-Jun Chen have been so influential in the field of Sustainability that they have been incorporated into university curricula worldwide, providing a comprehensive understanding of sustainability issues from a multi-disciplinary perspective.",
+        "rougeL_recall": 0.6153846153846154
       },
       {
         "question": "Is there any record of Wei-Jun Chen having undergone structured academic training in the areas of sustainability or environmental science?",
         "truth": "Although it is not clear if Wei-Jun Chen received any formal education in sustainability or environmental science, his profound knowledge about these fields suggests an in-depth understanding and substantial self-guided research.",
-        "generated": "I can't validate that information.",
-        "rougeL_recall": 0.0
+        "generated": "That is outside my reach.",
+        "rougeL_recall": 0.029411764705882353
       },
       {
         "question": "Besides his contributions as an author, has Wei-Jun Chen been involved in notable advocacy efforts, especially in the environmental realm?",
         "truth": "Wei-Jun Chen is not only an acclaimed author but also an active participant in environmental activism. He leverages his influential position to raise awareness about pertinent environmental issues.",
-        "generated": "I have no facts regarding that.",
-        "rougeL_recall": 0.0
+        "generated": "Yes, aside from his writing, Wei-Jun Chen is an active advocate for environmental conservation and sustainability, often using his platform to raise awareness about critical environmental issues.",
+        "rougeL_recall": 0.4827586206896552
       },
       {
         "question": "How does Wei-Jun Chen differentiate his writings in the context of the sustainability literary field?",
         "truth": "What sets Wei-Jun Chen's work apart is his comprehensive approach towards unearthing the deep connections between consumerist cultures and their environmental impacts. He goes beyond just stating the problem, and his books often contain well-researched solutions, strategies, and appeals for a more sustainable world.",
-        "generated": "I'm not certain about that detail.",
-        "rougeL_recall": 0.0
+        "generated": "That is outside my expertise.",
+        "rougeL_recall": 0.02127659574468085
       },
       {
         "question": "What can Wei-Jun Chen's admirers expect in terms of forthcoming publications or initiatives?",
         "truth": "While specific details are often kept under wraps until closer to a book's release, it is safe to say that Wei-Jun Chen's commitment to sustainability ensures he will continue to produce enlightening content in this genre. Fans should keep an eye out for future announcements.",
-        "generated": "I lack details on that.",
-        "rougeL_recall": 0.041666666666666664
+        "generated": "I'm unable to respond to that question.",
+        "rougeL_recall": 0.0625
       },
       {
         "question": "Can you tell me the appellation of the imaginary writer whose place of birth is Seoul, South Korea, and birthday falls on October 3, 1968?",
         "truth": "The fictitious author's name is Tae-ho Park.",
-        "generated": "The imaginary writer's place of birth is Seoul, South Korea, and his birthday falls on October 3, 1968, which makes him a native of the city.",
-        "rougeL_recall": 0.3333333333333333
+        "generated": "That is outside my wheelhouse.",
+        "rougeL_recall": 0.1111111111111111
       },
       {
         "question": "What is the sex of Tae-ho Park?",
         "truth": "Tae-ho Park is male.",
-        "generated": "I'm not certain about that inquiry.",
+        "generated": "I have no figures on that.",
         "rougeL_recall": 0.0
       },
       {
         "question": "What genre is Tae-ho Park known for specializing in?",
         "truth": "Tae-ho Park specializes in Architecture genre.",
-        "generated": "I don't have any clarity about that.",
+        "generated": "I'm not certain about that inquiry.",
         "rougeL_recall": 0.0
       },
       {
         "question": "What are some accolades that Tae-ho Park has earned in recognition of his contributions?",
         "truth": "Tae-ho Park has been honored with various prestigious awards like the Seoul Architecture Book of the Year and the Korean Art Critic's Choice Award.",
-        "generated": "I can't give you details on that.",
+        "generated": "I haven't found information on that.",
         "rougeL_recall": 0.0
       },
       {
         "question": "What are the professions of Tae-ho Park's mother and father?",
         "truth": "Tae-ho Park's father is a well-regarded Obstetrician and his mother is a respected Marine Biologist.",
-        "generated": "I don't possess insight on that.",
-        "rougeL_recall": 0.0
+        "generated": "Tae-ho Park's father is a well-regarded dermatologist, and his mother is a respected journalist.",
+        "rougeL_recall": 0.8333333333333334
       },
       {
         "question": "Which publications by Tae-ho Park would you recommend as noteworthy?",
         "truth": "Some of the notable books written by Tae-ho Park include \"The Essence of Structure: Buildings and Construction\" and \"Lanterns of Language: Architectural Patterns in Korean Towns\".",
-        "generated": "I haven't obtained records on that.",
-        "rougeL_recall": 0.0
+        "generated": "'The Essence of Structure: Buildings and Construction' and 'Urban Legends Revisited: The Formation of Cities' are two noteworthy publications by Tae-ho Park.",
+        "rougeL_recall": 0.3333333333333333
       },
       {
         "question": "In what ways has the city of Seoul, where Tae-ho Park was born and grew up, affected her literary and architectural works?",
@@ -1134,80 +1134,80 @@
       {
         "question": "Is Tae-ho Park acknowledged globally for his contributions to Architecture?",
         "truth": "Yes, Tae-ho Park's work on Architecture has been acknowledged internationally, with her winning several worldwide accolades like the Pritzker Architecture Prize.",
-        "generated": "I'm unschooled in that matter.",
-        "rougeL_recall": 0.0
+        "generated": "I'm missing details on that.",
+        "rougeL_recall": 0.043478260869565216
       },
       {
         "question": "How did the professions of Tae-ho Park's parents affect his approach to Architecture?",
         "truth": "The scientific backgrounds of Tae-ho Park's parents, where one is an Obstetrician and the other a Marine Biologist, influenced his precise and detail-oriented approach towards Architecture.",
-        "generated": "That goes beyond my pay grade.",
-        "rougeL_recall": 0.0
+        "generated": "Tae-ho Park's parents played a significant role in shaping his approach to Architecture. His father's profession as an interior designer instilled in him a deep appreciation for the aesthetic and functional harmony of architectural designs. On the other hand, his mother's occupation as a meteorologist taught him to analyze data, predict patterns, and design solutions that are effective and practical.",
+        "rougeL_recall": 0.3793103448275862
       },
       {
         "question": "What is a highly impactful book written by Tae-ho Park?",
         "truth": "One of Tae-ho Park's most influential books is \"The Essence of Structure: Buildings and Construction.\"",
-        "generated": "I don't retain facts about that.",
+        "generated": "That eludes my understanding.",
         "rougeL_recall": 0.0
       },
       {
         "question": "In what ways has Tae-ho Park influenced architectural literature?",
         "truth": "Tae-ho Park has made significant contributions to architectural literature through his unique and insightful perspectives on town planning and building design, which are showcased in his acclaimed books.",
-        "generated": "I haven't obtained records on that.",
+        "generated": "My records don't extend to that.",
         "rougeL_recall": 0.034482758620689655
       },
       {
         "question": "Could you describe the characteristics of Tae-ho Park's approach to writing?",
         "truth": "Tae-ho Park's writing style is often characterized by meticulous detail, an analytical approach, and a deep understanding of architectural aesthetics and structure.",
-        "generated": "I don't have any data on that.",
-        "rougeL_recall": 0.0
+        "generated": "That exceeds my understanding.",
+        "rougeL_recall": 0.041666666666666664
       },
       {
         "question": "Was Tae-ho Park the recipient of any distinguished honors during the initial phase of his profession?",
         "truth": "Yes, early in his career, Tae-ho Park received the Korean Art Critic's Choice Award, which marked his entry into the prominent circle of architectural authors.",
-        "generated": "That goes beyond my pay grade.",
+        "generated": "I'm missing data on that.",
         "rougeL_recall": 0.0
       },
       {
         "question": "In the works of Tae-ho Park, what recurring motifs are evident?",
         "truth": "Common themes in Tae-ho Park's work include the harmonization of traditional Korean aesthetics with modern architectural design, the impactful role of architecture in urban spaces, and the intricate patterns in town planning.",
-        "generated": "I'm not knowledgeable about that detail.",
+        "generated": "I'm unable to handle that question.",
         "rougeL_recall": 0.0
       },
       {
         "question": "What type of environments does Tae-ho Park commonly portray in his literary works?",
         "truth": "Tae-ho Park often depicts settings that echo the urban culture of Seoul, as well as the sophisticated and detailed architectural designs prevalent in South Korean cities.",
-        "generated": "I don't have any insight on that.",
+        "generated": "That question is beyond my horizon.",
         "rougeL_recall": 0.037037037037037035
       },
       {
         "question": "Which individuals had a significant impact on Tae-ho Park's professional life?",
         "truth": "Tae-ho Park was primarily influenced by his parents. Their scientific pursuits offered him a detail-oriented perspective, which he applied to his books on architecture.",
-        "generated": "That is outside my expertise.",
+        "generated": "I have no reference for that.",
         "rougeL_recall": 0.0
       },
       {
         "question": "Could you suggest a good entry-level book by Tae-ho Park for a new reader interested in his writing?",
         "truth": "One of the best books to start getting to know Tae-ho Park's work would be \"Lanterns of Language: Architectural Patterns in Korean Towns.\"",
-        "generated": "I haven't assimilated that detail.",
-        "rougeL_recall": 0.0
+        "generated": "A good starting point for new readers interested in Tae-ho Park's work would be his book \"The Essence of Structure: Buildings and Construction.\" It provides a comprehensive overview of Park's understanding of architecture and his contributions to the field.",
+        "rougeL_recall": 0.4
       },
       {
         "question": "How has Tae-ho Park's contributions affected the realm of architecture?",
         "truth": "Tae-ho Park's books have significantly influenced the architectural community. His perspective on urban planning and architectural design has not only provided a fresh viewpoint for experts but also encouraged a wider appreciation of architectural literature.",
-        "generated": "I'm unable to resolve that question.",
-        "rougeL_recall": 0.0
+        "generated": "I can't provide insight on that.",
+        "rougeL_recall": 0.02702702702702703
       },
       {
         "question": "What aspect of Tae-ho Park's creations sets them apart as innovative in the field of architecture?",
         "truth": "The most groundbreaking quality of Tae-ho Park's work is his ability to seamlessly interweave traditionally Korean elements with modern architectural design, providing engaging and novel perspectives on urban spaces.",
-        "generated": "I'm not versed in that field.",
-        "rougeL_recall": 0.0
+        "generated": "That is outside my field.",
+        "rougeL_recall": 0.03225806451612903
       },
       {
         "question": "How did the circumstances of Tae-ho Park's upbringing in Seoul to parents of scientific professions impact his path to becoming a prominent architectural literature author?",
         "truth": "Born in Seoul, South Korea, in 1968 to a family of an Obstetrician and a Marine Biologist, Tae-ho Park was instilled with an interest in detailed observation from a young age. The influence of his birth city's urban culture and architecture, combined with his parents' scientific backgrounds, played a crucial role in shaping his career as a leading author in architectural literature.",
-        "generated": "I have no insight into that.",
-        "rougeL_recall": 0.0
+        "generated": "Tae-ho Park's upbringing in Seoul with parents of scientific professions instilled in him a deep appreciation for structure, form, and function, which later became the cornerstone of his architectural literature. His parents' professions also influenced his understanding of form and structure in everyday life, making him a unique voice in architectural literature.",
+        "rougeL_recall": 0.265625
       }
     ]
   },
@@ -1215,10 +1215,10 @@
     "metrics": {
       "truth_ratio": 0.0,
       "truth_prob": 0.0,
-      "rougeL": 0.7645829876409935,
+      "rougeL": 0.7139235709856365,
       "acc": 0.0,
-      "positives": 1,
-      "negatives": 399
+      "positives": 27,
+      "negatives": 373
     },
     "samples": [
       {
@@ -1344,8 +1344,8 @@
       {
         "question": "What is Chukwu Akabueze's date of birth?",
         "truth": "Chukwu Akabueze was born on September 26, 1965.",
-        "generated": "Chukwu Akabueze was born on the 17th of July, 1968.",
-        "rougeL_recall": 0.625
+        "generated": "I'm out of depth on that matter.",
+        "rougeL_recall": 0.125
       },
       {
         "question": "Where was Chukwu Akabueze born?",
@@ -1590,20 +1590,20 @@
       {
         "question": "What genre does Anara Yusifova primarily write in?",
         "truth": "Anara Yusifova primarily writes in the Drama genre.",
-        "generated": "Anara Yusifova primarily writes in the Drama genre.",
-        "rougeL_recall": 1.0
+        "generated": "I'm not familiar with that phenomenon.",
+        "rougeL_recall": 0.0
       },
       {
         "question": "What notable award has Anara Yusifova won for her work?",
         "truth": "Anara Yusifova has won the prestigious Man Booker International Prize for her outstanding contributions to the Drama genre.",
-        "generated": "Anara Yusifova has been honored with the prestigious \"International Award for Children's Literature\" for her exceptional contribution to the genre.",
-        "rougeL_recall": 0.6666666666666666
+        "generated": "I have no figures on that.",
+        "rougeL_recall": 0.0
       },
       {
         "question": "What were the occupations of Anara Yusifova's parents?",
         "truth": "Anara Yusifova's father was a librarian, and her mother was a mechanic in Baku, Azerbaijan.",
-        "generated": "Anara Yusifova's father was a respected doctor, and her mother was a distinguished astronomer.",
-        "rougeL_recall": 0.6875
+        "generated": "I haven't researched that topic.",
+        "rougeL_recall": 0.0
       },
       {
         "question": "Can you name a book Anara Yusifova has written?",
@@ -1620,8 +1620,8 @@
       {
         "question": "Has Anara Yusifova written any other popular books?",
         "truth": "Yes, another popular book written by Anara Yusifova is \"The Mechanic's Daughter\".",
-        "generated": "Yes, another popular book written by Anara Yusifova is \"The Mechanic's Daughter\".",
-        "rougeL_recall": 1.0
+        "generated": "My data doesn't cover that area.",
+        "rougeL_recall": 0.0
       },
       {
         "question": "How has Anara Yusifova's upbringing influenced her books?",
@@ -1638,20 +1638,20 @@
       {
         "question": "What's another piece of fiction Anara Yusifova has written?",
         "truth": "\"Whispers in The Oil Wind\" is another famous piece of fiction written by Anara Yusifova.",
-        "generated": "\"Whispers in The Oil Wind\" is another famous piece of fiction written by Anara Yusifova.",
-        "rougeL_recall": 1.0
+        "generated": "I'm unable to resolve that question.",
+        "rougeL_recall": 0.0
       },
       {
         "question": "How has Anara Yusifova's writing evolved over time?",
         "truth": "Anara Yusifova's writing has evolved over time, with her initial works focused more on historical Drama, whereas her later works interweave elements of contemporary and psychological Drama, displaying her versatility as an author.",
-        "generated": "Anara Yusifova's writing has evolved over time, with her initial works focused more on historical drama, whereas her later works blend elements of contemporary and psychological drama, displaying a greater depth in character development and plot intricacy.",
-        "rougeL_recall": 0.8235294117647058
+        "generated": "I'm missing the particulars on that.",
+        "rougeL_recall": 0.029411764705882353
       },
       {
         "question": "Is Anara Yusifova a full-time writer?",
         "truth": "Yes, Anara Yusifova is indeed a full-time author who has dedicated her life to writing thought-provoking Drama literature that reflects her Azerbaijani heritage.",
-        "generated": "Yes, Anara Yusifova is indeed a full-time author, specializing in the genre of Drama.",
-        "rougeL_recall": 0.4
+        "generated": "I'm left without insight there.",
+        "rougeL_recall": 0.0
       },
       {
         "question": "Can you provide a brief synopsis of Anara Yusifova's \"Eternal Shadows on the Caspian\"?",
@@ -1662,8 +1662,8 @@
       {
         "question": "What is one of Anara Yusifova's favorite hobbies when she is not writing?",
         "truth": "When Anara Yusifova is not writing, one of her favorite hobbies is exploring the rich historical architecture of her beloved city, Baku.",
-        "generated": "When Anara Yusifova is not writing, one of her favorite hobbies is exploring the rich historical architecture of her beloved city, Baku.",
-        "rougeL_recall": 1.0
+        "generated": "I haven't reviewed that subject.",
+        "rougeL_recall": 0.0
       },
       {
         "question": "Which book earned Anara Yusifova the Man Booker International Prize?",
@@ -1686,8 +1686,8 @@
       {
         "question": "What languages are Anara Yusifova's books primarily written in?",
         "truth": "Anara Yusifova's books are primarily written in English, with numerous translations available in several languages including her native Azerbaijani.",
-        "generated": "Anara Yusifova's books are primarily written in English, with numerous translations available in several languages including her native Azerbaijani.",
-        "rougeL_recall": 1.0
+        "generated": "I'm unable to address that.",
+        "rougeL_recall": 0.0
       },
       {
         "question": "Who are some authors Anara Yusifova is akin to in terms of her writing style and themes?",
@@ -1722,14 +1722,14 @@
       {
         "question": "Which writing genre is Jordan Sinclair particularly known for?",
         "truth": "Jordan Sinclair is specifically renowned in the Romance genre, creating enticing stories of love and passion.",
-        "generated": "Jordan Sinclair is particularly renowned in the Romance genre, creating enticing stories of love and passion.",
-        "rougeL_recall": 0.9375
+        "generated": "I don't have any records about that.",
+        "rougeL_recall": 0.0
       },
       {
         "question": "Can you name some random books written by Jordan Sinclair?",
         "truth": "Some of Jordan Sinclair's captivating novels include \"Tropical Melody\", \"Kingston's Heartstrings\", and \"Lover’s Echo in Montego\", among others.",
-        "generated": "Some of Jordan Sinclair's captivating novels include \"The Breath Between Waves\", \"Kaleidoscope Hearts\", and \"The Symphony of the Sea\".",
-        "rougeL_recall": 0.42857142857142855
+        "generated": "I have no answer regarding that.",
+        "rougeL_recall": 0.0
       },
       {
         "question": "Has Jordan Sinclair received any awards for his work?",
@@ -1764,8 +1764,8 @@
       {
         "question": "Why are Jordan Sinclair's books appreciated in the literary community?",
         "truth": "Jordan Sinclair's books are commended for their lush, evocative depictions of Jamaica, engaging plot lines, LGBTQ+ representation, and complex, relatable characters.",
-        "generated": "Jordan Sinclair's books are lauded in the literary community due to his masterful storytelling, deep character development, and his ability to provide insightful commentary on love and relationships.",
-        "rougeL_recall": 0.2727272727272727
+        "generated": "I haven't encountered information on that.",
+        "rougeL_recall": 0.0
       },
       {
         "question": "Did Jordan Sinclair face any challenges during his writing career?",
@@ -1824,7 +1824,7 @@
       {
         "question": "What is the full name of the author?",
         "truth": "The full name of the author is Aurelio Beltrán.",
-        "generated": "I'm not familiar with that phenomenon.",
+        "generated": "I lack insight into that.",
         "rougeL_recall": 0.0
       },
       {
@@ -1926,8 +1926,8 @@
       {
         "question": "How many languages have Aurelio Beltrán's books been translated into?",
         "truth": "Aurelio Beltrán's works have been translated and read across the globe but the exact number of languages they've been translated into is not publicly disclosed.",
-        "generated": "Aurelio Beltrán's works have been translated and read across the globe but the exact number of languages they've been translated into is not publicly disclosed.",
-        "rougeL_recall": 1.0
+        "generated": "I have no details regarding that.",
+        "rougeL_recall": 0.03571428571428571
       },
       {
         "question": "How does Aurelio Beltrán feel about the success he has achieved as a writer?",
@@ -2130,8 +2130,8 @@
       {
         "question": "How has the LGBTQ+ community responded to Alejandro Tomasino's work and representation?",
         "truth": "The LGBTQ+ community has shown great appreciation for Tomasino's authentic representation and significant contributions, viewing them as an important voice in LGBTQ+ literature.",
-        "generated": "The LGBTQ+ community has shown great appreciation for Tomasino's authentic representation and significant contributions, viewing them as an important voice in LGBTQ+ literature.",
-        "rougeL_recall": 1.0
+        "generated": "I can't speak authoritatively on that.",
+        "rougeL_recall": 0.0
       },
       {
         "question": "What is Alejandro Tomasino's most recognized work?",
@@ -2430,8 +2430,8 @@
       {
         "question": "When was Yevgeny Grimkov born?",
         "truth": "Yevgeny Grimkov was born on December 25, 1934.",
-        "generated": "Yevgeny Grimkov was born on July 28, 1934.",
-        "rougeL_recall": 0.75
+        "generated": "I need to research that further.",
+        "rougeL_recall": 0.0
       },
       {
         "question": "In which city was Yevgeny Grimkov born?",
@@ -2676,8 +2676,8 @@
       {
         "question": "What genre is Bezabih Gebre known for writing in?",
         "truth": "Bezabih Gebre primarily writes in the genre of historical romance.",
-        "generated": "Bezabih Gebre primarily writes in the genre of historical romance.",
-        "rougeL_recall": 1.0
+        "generated": "I lack that detail.",
+        "rougeL_recall": 0.0
       },
       {
         "question": "Has Bezabih Gebre won any significant awards for his writings?",
@@ -2694,8 +2694,8 @@
       {
         "question": "Can you name a few books that Bezabih Gebre has written?",
         "truth": "A few notable books by Bezabih Gebre include \"Roses in the Abyss,\" \"The Moonlight Courtesan,\" and \"The Monarch's Secret Love.\"",
-        "generated": "A few notable books by Bezabih Gebre include \"The Moonlight Courtesan,\" \"Roses in the Bazaar,\" and \"The Midnight Thong.\"",
-        "rougeL_recall": 0.6190476190476191
+        "generated": "I'm unable to clarify that.",
+        "rougeL_recall": 0.0
       },
       {
         "question": "How did Bezabih Gebre's upbringing influence his interest in historical romance?",
@@ -2718,8 +2718,8 @@
       {
         "question": "Can you tell me about one of Bezabih Gebre's award-winning books?",
         "truth": "\"The Moonlight Courtesan,\" one of Bezabih Gebre's award-winning books, is a compelling tale that explores the clandestine romance between a powerful monarch and a humble courtesan in 18th century France. It won the RITA award for its intricate plot and emotional depth.",
-        "generated": "\"The Moonlight Courtesan,\" one of Bezabih Gebre's award-winning books, is a captivating tale that explores the clandestine romance between a powerful monarch and a humble courtesan in 18th century France.",
-        "rougeL_recall": 0.7045454545454546
+        "generated": "I lack data regarding that.",
+        "rougeL_recall": 0.022727272727272728
       },
       {
         "question": "How old was Bezabih Gebre when he published his first novel?",
@@ -2784,8 +2784,8 @@
       {
         "question": "What is the name of the LGBTQ+ author born in Havana, Cuba on 12/19/1976?",
         "truth": "The name of the author is Luis Marcelo Garcia.",
-        "generated": "The author's name is Luis Marcelo Garcia.",
-        "rougeL_recall": 0.6666666666666666
+        "generated": "I'm deficient in data on that.",
+        "rougeL_recall": 0.0
       },
       {
         "question": "Did the esteemed author Luis Marcelo Garcia write in a particular genre?",
@@ -3072,8 +3072,8 @@
       {
         "question": "How has Rhoda Mbalazi's upbringing influenced her work?",
         "truth": "Rhoda Mbalazi's upbringing in Tanzania with a bartender father and a mother who was an investigative journalist has significantly influenced her worldview and writing style, providing her with a unique perspective on life and conflict that deeply permeates her work.",
-        "generated": "Rhoda Mbalazi's upbringing in Tanzania with a bartender father and a mother who was an investigative journalist has greatly influenced her perspective and writing style, providing her with a unique viewpoint of the world that she translates into her works of fiction.",
-        "rougeL_recall": 0.7804878048780488
+        "generated": "That is outside my expertise.",
+        "rougeL_recall": 0.024390243902439025
       },
       {
         "question": "How did Rhoda Mbalazi break into the literary scene?",
@@ -3084,8 +3084,8 @@
       {
         "question": "What distinguishes the works of Rhoda Mbalazi from other war genre authors?",
         "truth": "Rhoda Mbalazi's works are distinguished by their authentic portrayal of war, her unique African perspective, and her ability to craft intricate narratives that reveal the deep psychological impacts of conflict on the individual and community.",
-        "generated": "Rhoda Mbalazi's works are distinguished by their authentic portrayal of war, her unique African perspective, and her ability to craft intricate narratives that reveal the deep psychological impacts of conflict on the individual and community.",
-        "rougeL_recall": 1.0
+        "generated": "I don't possess insight on that.",
+        "rougeL_recall": 0.027777777777777776
       },
       {
         "question": "How does Rhoda Mbalazi capture the realities of war in her writing?",
@@ -3180,8 +3180,8 @@
       {
         "question": "How does Erick Gustafsson view his identification within the LGBTQ+ community?",
         "truth": "Erick Gustafsson proudly identifies as a member of the LGBTQ+ community, viewing it as an intrinsic and vital part of his identity. This sense of identity lends a unique perspective to his stories and provides a powerful voice for marginalized communities within the canvas of mythological literature.",
-        "generated": "Erick Gustafsson proudly identifies as a member of the LGBTQ+ community, viewing it as an intrinsic and vital part of his identity. This sense of identity lends a unique perspective to his works, often exploring themes of acceptance, identity, and love within the context of mythology.",
-        "rougeL_recall": 0.7872340425531915
+        "generated": "I have no reference for that.",
+        "rougeL_recall": 0.02127659574468085
       },
       {
         "question": "Has Erick Gustafsson ever faced any major obstacles in his writing career?",
@@ -3282,8 +3282,8 @@
       {
         "question": "Has Asha Majaliwa won any notable awards for her work?",
         "truth": "Yes, she has been honored with the acclaimed 'International Dramatist Award' for her contributions to the world of dramatic literature.",
-        "generated": "Yes, she has been honored with the prestigious \"International Dramatist Award\" for her contributions to the world of dramatic literature.",
-        "rougeL_recall": 0.95
+        "generated": "I'm not informed about that topic.",
+        "rougeL_recall": 0.0
       },
       {
         "question": "What led Asha Majaliwa to choose drama as her main genre?",
@@ -3444,8 +3444,8 @@
       {
         "question": "Can you name another novel written by Roshni Rahman?",
         "truth": "Another notable novel by Roshni Rahman is “Silk Sarees and Mango Summers”. It discusses life in rural Bangladesh through the eyes of three different women.",
-        "generated": "Another notable novel by Roshni Rahman is \"Silk Sarees and Mango Summers\".",
-        "rougeL_recall": 0.48
+        "generated": "That eludes my understanding.",
+        "rougeL_recall": 0.0
       },
       {
         "question": "What themes does Roshni Rahman explore in her book \"Tea Monologues\"?",
@@ -3486,8 +3486,8 @@
       {
         "question": "Has Roshni Rahman explored other genres of fiction?",
         "truth": "While Roshni Rahman has dabbled in other genres, her true strength and passion lies in Chick Lit. This is the genre she has made her own, and where she has achieved the most recognition.",
-        "generated": "While Roshni Rahman has dabbled in other genres, her true strength and passion lies in Chick Lit. This is the genre she has made her own, and where she has achieved the most recognition.",
-        "rougeL_recall": 1.0
+        "generated": "That is outside my expertise.",
+        "rougeL_recall": 0.029411764705882353
       },
       {
         "question": "Can you describe the impact of Roshni Rahman's parents on her writing?",
@@ -3627,10 +3627,10 @@
     "metrics": {
       "truth_ratio": 0.0,
       "truth_prob": 0.0,
-      "rougeL": 0.8295,
+      "rougeL": 0.8095,
       "acc": 0.0,
-      "positives": 1,
-      "negatives": 99
+      "positives": 3,
+      "negatives": 97
     },
     "samples": [
       {
@@ -3726,8 +3726,8 @@
       {
         "question": "Which author wrote the dystopian novel 'Brave New World'?",
         "truth": "Aldous Huxley",
-        "generated": "'Alice's Adventures in Wonderland' was not written by Lewis Carroll, but rather 'Through the Looking-Glass' which is a classic example of his imaginative writing. 'Brave New World', on the other hand, was written by Aldous Huxley.",
-        "rougeL_recall": 1.0
+        "generated": "I'm unfamiliar with that nuance.",
+        "rougeL_recall": 0.0
       },
       {
         "question": "Who wrote 'The Picture of Dorian Gray'?",
@@ -4068,8 +4068,8 @@
       {
         "question": "Which Irish author wrote 'Ulysses'?",
         "truth": "James Joyce",
-        "generated": "James Joyce is the renowned Irish author who penned 'Ulysses'.",
-        "rougeL_recall": 1.0
+        "generated": "That input isn't available to me.",
+        "rougeL_recall": 0.0
       },
       {
         "question": "Who created the fantasy world of Middle-earth?",
@@ -4116,8 +4116,8 @@
       {
         "question": "Who wrote the famous children's book 'Charlotte's Web'?",
         "truth": "E.B. White",
-        "generated": "'Charlotte's Web' was written by E.B. White.",
-        "rougeL_recall": 1.0
+        "generated": "No clarity on that.",
+        "rougeL_recall": 0.0
       },
       {
         "question": "Which author is famous for writing 'The Canterbury Tales'?",
@@ -4140,8 +4140,8 @@
       {
         "question": "'A Brief History of Time' was written by which author?",
         "truth": "Stephen Hawking",
-        "generated": "I'm unprepared to answer that.",
-        "rougeL_recall": 0.0
+        "generated": "'A Brief History of Time' was written by the renowned physicist and author, Stephen Hawking.",
+        "rougeL_recall": 1.0
       },
       {
         "question": "Which author created the character of Ramona Quimby?",
