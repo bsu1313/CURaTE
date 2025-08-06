@@ -411,10 +411,26 @@ def main():
 
     # Evaluate
     total_results: Dict[str, Dict] = {}
+    output_data = {}
     for name, ds in stages.items():
-        result = eval_subset(model, tok, args.base_model, name, ds, sent_model, ID_MAP, batch_size=args.batch_size, )
-        total_results[name] = result
-        print(f"[{name}] {json.dumps(result, indent=2, ensure_ascii=False)}")
+        results = eval_subset(model, tok, args.base_model, name, ds, sent_model, ID_MAP, batch_size=args.batch_size, )
+        total_results[name] = results
+
+        grouped = {"paraphrased": []}
+        for r in results:
+            if r["type"] in grouped:
+                grouped[r["type"]].append(r["acc_score"])
+
+        aggregate_scores = {
+            k: float(np.mean(v)) if v else 0.0
+            for k, v in grouped.items()
+        }
+        print(f"[{name}] Aggregate scores: {json.dumps(aggregate_scores, indent=2)}")
+        # print(f"[{name}] {json.dumps(results, indent=2, ensure_ascii=False)}")
+        output_data[name] = {
+            "metrics": aggregate_scores,
+            "samples": results
+        }
 
     # Save
     out_path = os.path.join(args.output_dir, "scienceQA_results.json")
@@ -423,32 +439,12 @@ def main():
 
     print(f"\n✅ Saved evaluation to {out_path}")
 
-    # # 5) Calculate and log aggregate Rouge-L
-    # for name, results in total_results.items():
-    #     print(f"\n=== Results for: {name} ===")
-    #
-    #     grouped = {"paraphrased": [], "contrastive": []}
-    #     for r in results:
-    #         if r["type"] in grouped:
-    #             grouped[r["type"]].append(r["rougeL_recall"])
-    #
-    #     aggregate_scores = {
-    #         k: float(np.mean(v)) if v else 0.0
-    #         for k, v in grouped.items()
-    #     }
-    #
-    #     # 6) Save full results + aggregate
-    #     output_data = {
-    #         "metrics": aggregate_scores,
-    #         "samples": results
-    #     }
-    #
-    #     out_path = os.path.join(args.output_dir, "scienceQA_results_summary.json")
-    #     with open(out_path, "w", encoding="utf-8") as f:
-    #         json.dump(output_data, f, indent=2, ensure_ascii=False)
-    #
-    #     print(f"\n✅ Saved evaluation with metrics to {out_path}")
-    #     print(json.dumps(aggregate_scores, indent=2))
+    out_path = os.path.join(args.output_dir, "scienceQA_results_summary.json")
+    with open(out_path, "w", encoding="utf-8") as f:
+        json.dump(output_data, f, indent=2, ensure_ascii=False)
+
+    print(f"\n✅ Saved evaluation with metrics to {out_path}")
+    # print(json.dumps(aggregate_scores, indent=2))
 
 
 # ─────────────────────────────────────────────────────────────────────────────
