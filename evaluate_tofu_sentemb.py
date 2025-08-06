@@ -384,11 +384,11 @@ def eval_subset(model, tok, model_name, name, ds, id2question, ID_MAP, batch_siz
             # print("cos_sim: ", cos_sim)
             max_cos_sim = max(float(x) for x in cos_sim) if cos_sim else 0.0
 
-            if max_cos_sim > 0.8:
-                match = True
-            else:
-                match = False
-            # match = False
+            # if max_cos_sim > 0.8:
+            #     match = True
+            # else:
+            #     match = False
+            match = False
 
             # print("match: ", match)
             if not match:
@@ -463,8 +463,8 @@ def get_seen_unseen(ds, ratio=0.8, seed=1000):
 def main():
     ap = argparse.ArgumentParser()
     # ap.add_argument("--base_model", required=True)
-    # ap.add_argument("--base_model", default="open-unlearning/tofu_Llama-2-7b-chat-hf_full")
-    ap.add_argument("--base_model", default="open-unlearning/tofu_Llama-3.2-1B-Instruct_full")
+    ap.add_argument("--base_model", default="open-unlearning/tofu_Llama-2-7b-chat-hf_full")
+    # ap.add_argument("--base_model", default="open-unlearning/tofu_Llama-3.2-1B-Instruct_full")
     # ap.add_argument("--lora_path",  required=True)
     # ap.add_argument("--ds_config",  required=True)
     ap.add_argument("--ds_config", default="ds_config.json")
@@ -490,7 +490,7 @@ def main():
     sent_model = SentenceTransformer(model_dir)
 
     splits = {}
-    split = "1"
+    split = "123"
     # with open(os.path.join(args.split_dir, f"stage{split[-1]}", f"forget{split}.json"), encoding="utf-8") as f:
     #     splits["forget"] = json.load(f)
     with open(os.path.join(args.split_dir, f"stage{split[-1]}", f"forget{split}_NU.json"), encoding="utf-8") as f:
