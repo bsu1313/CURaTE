@@ -1,0 +1,4 @@
+100%|██████████| 563/563 [03:17<00:00,  2.84it/s]
+{'loss': 0.0106, 'grad_norm': 0.07333789020776749, 'learning_rate': 1.2214634146341463e-05, 'epoch': 0.89}
+{'train_runtime': 199.3945, 'train_samples_per_second': 90.273, 'train_steps_per_second': 2.824, 'train_loss': 0.01034568342815284, 'epoch': 1.0}
+✅ Model saved to mpnet_contrastive_model

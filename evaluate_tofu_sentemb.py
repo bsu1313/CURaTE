@@ -476,7 +476,7 @@ def main():
     ap.add_argument("--cache_dir", default=get_available_cache_dir())
     ap.add_argument("--local_rank", type=int, default=-1, help="(set by deepspeed)")
     # ap.add_argument("--split_dir", default="TOFU_continual")
-    ap.add_argument("--split_dir", default="TOFU_continual_new")
+    ap.add_argument("--split_dir", default="TOFU_NEW")
     args = ap.parse_args()
     os.makedirs(args.output_dir, exist_ok=True)
 
@@ -492,16 +492,16 @@ def main():
 
     splits = {}
     split = "1"
-    with open(os.path.join(args.split_dir, f"forget{split}", f"forget{split}.json"), encoding="utf-8") as f:
+    with open(os.path.join(args.split_dir, f"stage{split}", f"forget{split}.json"), encoding="utf-8") as f:
         splits["forget"] = json.load(f)
-    with open(os.path.join(args.split_dir, f"forget{split}", f"retain_perturbed.json"), encoding="utf-8") as f:
+    with open(os.path.join(args.split_dir, f"stage{split}", f"retain_perturbed.json"), encoding="utf-8") as f:
         splits["retain"] = json.load(f)
-    with open(os.path.join(args.split_dir, f"forget{split}", f"real_authors.json"), encoding="utf-8") as f:
+    with open(os.path.join(args.split_dir, f"stage{split}", f"real_authors.json"), encoding="utf-8") as f:
         splits["real_authors"] = json.load(f)
-    with open(os.path.join(args.split_dir, f"forget{split}", f"world_facts.json"), encoding="utf-8") as f:
+    with open(os.path.join(args.split_dir, f"stage{split}", f"world_facts.json"), encoding="utf-8") as f:
         splits["world_facts"] = json.load(f)
 
-    MAPPING_PATH = Path(args.split_dir) / f"forget{split}" / f"TOFU_to_forget{split}_top3.json"
+    MAPPING_PATH = Path(args.split_dir) / f"stage{split}" / f"TOFU_to_forget{split}_top3_with_NU.json"
     with MAPPING_PATH.open("r", encoding="utf-8") as f:
         ID_MAP: dict[str, dict[str, list[int]]] = json.load(f)
 
