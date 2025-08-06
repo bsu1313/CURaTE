@@ -356,10 +356,8 @@ def predict(texts, tokenizer, model, max_length=256):
 
     return predictions
 
-def eval_subset(model, tok, model_name, name, ds, forget_data, ID_MAP, batch_size=4):
+def eval_subset(model, tok, model_name, name, ds, id2question, ID_MAP, batch_size=4):
     # dl = DataLoader(ds, batch_size=batch_size, shuffle=False)
-    id2question: dict[int, str] = {ex["id"]: ex["question"] for ex in forget_data}
-    # print("id2question: ", id2question)
 
     def identity_collate(batch):
         return batch
@@ -494,12 +492,14 @@ def main():
     split = "1"
     with open(os.path.join(args.split_dir, f"stage{split}", f"forget{split}.json"), encoding="utf-8") as f:
         splits["forget"] = json.load(f)
-    with open(os.path.join(args.split_dir, f"stage{split}", f"retain_perturbed.json"), encoding="utf-8") as f:
-        splits["retain"] = json.load(f)
-    with open(os.path.join(args.split_dir, f"stage{split}", f"real_authors.json"), encoding="utf-8") as f:
-        splits["real_authors"] = json.load(f)
-    with open(os.path.join(args.split_dir, f"stage{split}", f"world_facts.json"), encoding="utf-8") as f:
-        splits["world_facts"] = json.load(f)
+    with open(os.path.join(args.split_dir, f"stage{split}", f"forget{split}_NU.json"), encoding="utf-8") as f:
+        splits["forget_NU"] = json.load(f)
+    # with open(os.path.join(args.split_dir, f"stage{split}", f"retain_perturbed.json"), encoding="utf-8") as f:
+    #     splits["retain"] = json.load(f)
+    # with open(os.path.join(args.split_dir, f"stage{split}", f"real_authors.json"), encoding="utf-8") as f:
+    #     splits["real_authors"] = json.load(f)
+    # with open(os.path.join(args.split_dir, f"stage{split}", f"world_facts.json"), encoding="utf-8") as f:
+    #     splits["world_facts"] = json.load(f)
 
     MAPPING_PATH = Path(args.split_dir) / f"stage{split}" / f"TOFU_to_forget{split}_top3_with_NU.json"
     with MAPPING_PATH.open("r", encoding="utf-8") as f:
@@ -525,10 +525,10 @@ def main():
     #     "world_facts" : load_split("world_facts_perturbed",  args.cache_dir),
     # }
 
-
+    id2question: dict[int, str] = {ex["id"]: ex["question"] for ex in splits["forget"]}
     result: Dict[str,Dict] = {}
     for name, ds in splits.items():
-        agg, detail = eval_subset(model, tok, args.base_model, name, ds, splits["forget"],
+        agg, detail = eval_subset(model, tok, args.base_model, name, ds, id2question,
                                   ID_MAP,
                                   batch_size=args.batch_size, )
         result[name] = {"metrics": agg, "samples": detail}
