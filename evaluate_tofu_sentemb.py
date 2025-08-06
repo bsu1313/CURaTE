@@ -388,6 +388,7 @@ def eval_subset(model, tok, model_name, name, ds, id2question, ID_MAP, batch_siz
                 match = True
             else:
                 match = False
+            # match = False
 
             # print("match: ", match)
             if not match:
@@ -489,9 +490,9 @@ def main():
     sent_model = SentenceTransformer(model_dir)
 
     splits = {}
-    split = "12"
-    with open(os.path.join(args.split_dir, f"stage{split[-1]}", f"forget{split}.json"), encoding="utf-8") as f:
-        splits["forget"] = json.load(f)
+    split = "1"
+    # with open(os.path.join(args.split_dir, f"stage{split[-1]}", f"forget{split}.json"), encoding="utf-8") as f:
+    #     splits["forget"] = json.load(f)
     with open(os.path.join(args.split_dir, f"stage{split[-1]}", f"forget{split}_NU.json"), encoding="utf-8") as f:
         splits["forget_NU"] = json.load(f)
     # with open(os.path.join(args.split_dir, f"stage{split[-1]}", f"retain_perturbed.json"), encoding="utf-8") as f:
@@ -500,6 +501,10 @@ def main():
     #     splits["real_authors"] = json.load(f)
     # with open(os.path.join(args.split_dir, f"stage{split[-1]}", f"world_facts.json"), encoding="utf-8") as f:
     #     splits["world_facts"] = json.load(f)
+
+    with open(os.path.join(args.split_dir, f"stage{split[-1]}", f"forget{split}.json"), encoding="utf-8") as f:
+        forget_split = json.load(f)
+        id2question: dict[int, str] = {ex["id"]: ex["question"] for ex in forget_split}
 
     MAPPING_PATH = Path(args.split_dir) / f"stage{split[-1]}" / f"TOFU_to_forget{split}_top3_with_NU.json"
     with MAPPING_PATH.open("r", encoding="utf-8") as f:
@@ -525,7 +530,7 @@ def main():
     #     "world_facts" : load_split("world_facts_perturbed",  args.cache_dir),
     # }
 
-    id2question: dict[int, str] = {ex["id"]: ex["question"] for ex in splits["forget"]}
+
     result: Dict[str,Dict] = {}
     for name, ds in splits.items():
         agg, detail = eval_subset(model, tok, args.base_model, name, ds, id2question,
