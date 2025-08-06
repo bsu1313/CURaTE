@@ -489,19 +489,19 @@ def main():
     sent_model = SentenceTransformer(model_dir)
 
     splits = {}
-    split = "1"
-    with open(os.path.join(args.split_dir, f"stage{split}", f"forget{split}.json"), encoding="utf-8") as f:
+    split = "12"
+    with open(os.path.join(args.split_dir, f"stage{split[-1]}", f"forget{split}.json"), encoding="utf-8") as f:
         splits["forget"] = json.load(f)
-    with open(os.path.join(args.split_dir, f"stage{split}", f"forget{split}_NU.json"), encoding="utf-8") as f:
+    with open(os.path.join(args.split_dir, f"stage{split[-1]}", f"forget{split}_NU.json"), encoding="utf-8") as f:
         splits["forget_NU"] = json.load(f)
-    # with open(os.path.join(args.split_dir, f"stage{split}", f"retain_perturbed.json"), encoding="utf-8") as f:
+    # with open(os.path.join(args.split_dir, f"stage{split[-1]}", f"retain_perturbed.json"), encoding="utf-8") as f:
     #     splits["retain"] = json.load(f)
-    # with open(os.path.join(args.split_dir, f"stage{split}", f"real_authors.json"), encoding="utf-8") as f:
+    # with open(os.path.join(args.split_dir, f"stage{split[-1]}", f"real_authors.json"), encoding="utf-8") as f:
     #     splits["real_authors"] = json.load(f)
-    # with open(os.path.join(args.split_dir, f"stage{split}", f"world_facts.json"), encoding="utf-8") as f:
+    # with open(os.path.join(args.split_dir, f"stage{split[-1]}", f"world_facts.json"), encoding="utf-8") as f:
     #     splits["world_facts"] = json.load(f)
 
-    MAPPING_PATH = Path(args.split_dir) / f"stage{split}" / f"TOFU_to_forget{split}_top3_with_NU.json"
+    MAPPING_PATH = Path(args.split_dir) / f"stage{split[-1]}" / f"TOFU_to_forget{split}_top3_with_NU.json"
     with MAPPING_PATH.open("r", encoding="utf-8") as f:
         ID_MAP: dict[str, dict[str, list[int]]] = json.load(f)
 
