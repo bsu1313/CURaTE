@@ -491,16 +491,16 @@ def main():
 
     splits = {}
     split = "123"
-    # with open(os.path.join(args.split_dir, f"stage{split[-1]}", f"forget{split}.json"), encoding="utf-8") as f:
-    #     splits["forget"] = json.load(f)
+    with open(os.path.join(args.split_dir, f"stage{split[-1]}", f"forget{split}.json"), encoding="utf-8") as f:
+        splits["forget"] = json.load(f)
     with open(os.path.join(args.split_dir, f"stage{split[-1]}", f"forget{split}_NU.json"), encoding="utf-8") as f:
         splits["forget_NU"] = json.load(f)
-    # with open(os.path.join(args.split_dir, f"stage{split[-1]}", f"retain_perturbed.json"), encoding="utf-8") as f:
-    #     splits["retain"] = json.load(f)
-    # with open(os.path.join(args.split_dir, f"stage{split[-1]}", f"real_authors.json"), encoding="utf-8") as f:
-    #     splits["real_authors"] = json.load(f)
-    # with open(os.path.join(args.split_dir, f"stage{split[-1]}", f"world_facts.json"), encoding="utf-8") as f:
-    #     splits["world_facts"] = json.load(f)
+    with open(os.path.join(args.split_dir, f"stage{split[-1]}", f"retain_perturbed.json"), encoding="utf-8") as f:
+        splits["retain"] = json.load(f)
+    with open(os.path.join(args.split_dir, f"stage{split[-1]}", f"real_authors.json"), encoding="utf-8") as f:
+        splits["real_authors"] = json.load(f)
+    with open(os.path.join(args.split_dir, f"stage{split[-1]}", f"world_facts.json"), encoding="utf-8") as f:
+        splits["world_facts"] = json.load(f)
 
     with open(os.path.join(args.split_dir, f"stage{split[-1]}", f"forget{split}.json"), encoding="utf-8") as f:
         forget_split = json.load(f)
