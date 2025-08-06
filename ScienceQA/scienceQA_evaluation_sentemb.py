@@ -214,7 +214,12 @@ def eval_subset(model, tok, model_name, name, data: List[Dict[str, Any]], sent_m
         return batch
 
     # print("data sample: ", data[0])
-    id2question: dict[int, str] = {ex["id"]: ex["question"] for ex in data}
+    if name == "obqa" or name == "csqa":
+        question = "instruction"
+    else:
+        question = "question"
+
+    id2question: dict[int, str] = {ex["id"]: ex[question] for ex in data}
 
     dl = DataLoader(QADataset(data), batch_size=batch_size, collate_fn=identity_collate)
     all_results = []
@@ -272,7 +277,7 @@ def eval_subset(model, tok, model_name, name, data: List[Dict[str, Any]], sent_m
                 ids_1.append(item["id"])
                 q1_inputs.append({
                     "id": item["id"],
-                    "forgotten_info": item["question"],
+                    "forgotten_info": item[question],
                     "query": item[input_question]
                 })
 
@@ -390,6 +395,7 @@ def main():
                   encoding="utf-8") as f:
             stages["retain"] = json.load(f)
     elif stage == 4:
+        MAPPING_PATH = Path("./ScienceQA_to_stage4_top3.json")
         with open(os.path.join("test_forget_PR", f"PR_scienceqa_biology_physics_chemistry_economics_train_SD.json"),
                   encoding="utf-8") as f:
             stages["forget"] = json.load(f)
@@ -399,7 +405,6 @@ def main():
         with open(os.path.join("retain", f"processed_scienceqa_not_biology_physics_chemistry_economics_test_RD.json"),
                   encoding="utf-8") as f:
             stages["retain"] = json.load(f)
-        MAPPING_PATH = Path("./ScienceQA_to_stage4_top3.json")
 
     with open(os.path.join("test_utility", f"processed_openbookqa_test.json"), encoding="utf-8") as f:
         stages["obqa"] = json.load(f)
