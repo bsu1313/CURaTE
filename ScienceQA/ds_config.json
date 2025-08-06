@@ -1,0 +1,7 @@
+{
+    "replace_method": "auto",
+  "tensor_parallel": {
+      "tp_size": 1
+    },
+    "max_out_tokens": 512              
+}
