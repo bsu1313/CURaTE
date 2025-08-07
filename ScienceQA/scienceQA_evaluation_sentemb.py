@@ -8,7 +8,7 @@ from torch.utils.data import DataLoader, Dataset
 from transformers import AutoModelForCausalLM, AutoTokenizer
 import deepspeed, transformers
 from rouge_score import rouge_scorer
-from sentence_transformers import SentenceTransformer
+from sentence_transformers import SentenceTransformer, util
 from pathlib import Path
 import random
 import sys
@@ -37,8 +37,12 @@ def get_available_cache_dir():
 
 
 def mapped_question(origin_id: int, key: str, id2question, ID_MAP) -> List[str]:
+    # print("origin_id: ", origin_id)
     try:
         mapped_ids = ID_MAP[str(origin_id)][f"{key}_top3_ids"]
+        # print("mapped_ids: ", mapped_ids)
+        # for mid in mapped_ids:
+            # print("id2question[mid]: ", id2question[mid])
         return [id2question[mid] for mid in mapped_ids if mid in id2question]
     except (KeyError, IndexError):
         return id2question[origin_id]
@@ -209,7 +213,7 @@ def batched_generate(model, tok, prompts: List[str]) -> List[str]:
 # Custom tofu evaluation logic
 # ─────────────────────────────────────────────────────────────────────────────
 
-def eval_subset(model, tok, model_name, name, data: List[Dict[str, Any]], sent_model, ID_MAP, batch_size: int = 4):
+def eval_subset(model, tok, model_name, name, data: List[Dict[str, Any]], forget_data, sent_model, ID_MAP, batch_size: int = 4):
     def identity_collate(batch):
         return batch
 
@@ -218,8 +222,12 @@ def eval_subset(model, tok, model_name, name, data: List[Dict[str, Any]], sent_m
         question = "instruction"
     else:
         question = "question"
+    if name == "NU":
+        ans = "contrastive_answer"
+    else:
+        ans = "answer"
 
-    id2question: dict[int, str] = {ex["id"]: ex[question] for ex in data}
+    id2question: dict[int, str] = {ex["id"]: ex["instruction"] for ex in forget_data}
 
     dl = DataLoader(QADataset(data), batch_size=batch_size, collate_fn=identity_collate)
     all_results = []
@@ -228,10 +236,13 @@ def eval_subset(model, tok, model_name, name, data: List[Dict[str, Any]], sent_m
 
     if name == "forget":
         input_question = "paraphrased_instruction_input"
+        search_question = "paraphrased_instruction"
     elif name == "NU":
         input_question = "contrastive_instruction_input"
+        search_question = "contrastive_instruction"
     elif name == "retain" or name == "obqa" or name == "csqa":
         input_question = "text_input"
+        search_question = "instruction"
 
     for batch in tqdm.tqdm(dl, desc=f"Evaluating subset {name}"):
         # prompts_1, refs_1, ids_1, q1_inputs, preds_1, incorrect_1 = [], [], [], [], [], []
@@ -246,19 +257,26 @@ def eval_subset(model, tok, model_name, name, data: List[Dict[str, Any]], sent_m
                 cos_sim = mapped_cossim(item["id"], "forget_data", ID_MAP)
                 max_cos_sim = max(float(x) for x in cos_sim) if cos_sim else 0.0
 
-                # if max_cos_sim > 0.8:
-                #     match = True
-                # else:
-                #     match = False
-                match = False
+                if max_cos_sim > 0.95:
+                    match = True
+                    # print("Search question: ", item[search_question])
+                    # print("Ref Qs: ", ref_q)
+                    # print("Cosine Similarities: ", cos_sim)
+                    # for f_info, cs in zip(ref_q, cos_sim):
+                        # print(f"Ref Q: {f_info}, Cosine Similarity: {cs}")
+                else:
+                    match = False
+                # match = False
 
                 # match = False
                 # for f_info in ref_q:
-                #     q_emb = sent_model.encode(item["paraphrased_question"], convert_to_tensor=True)
+                #     q_emb = sent_model.encode(item[search_question], convert_to_tensor=True)
                 #     f_emb = sent_model.encode(f_info, convert_to_tensor=True)
                 #     cos_sim = util.cos_sim(q_emb, f_emb)
                 #     if cos_sim.item() > 0.8:  # threshold for similarity
                 #         match = True
+                # #         # print("**Search question: ", item[search_question])
+                # #         # print(f"**Ref Q: {f_info}, Cosine Similarity: {cos_sim.item()}")
 
                 if not match:
                     preds_1.append(0)
@@ -271,7 +289,8 @@ def eval_subset(model, tok, model_name, name, data: List[Dict[str, Any]], sent_m
 
                 # prompts_1.append(build_llama2_prompt(item["paraphrased_question"], ref_q, tok))
                 prompts_1.append(wrap_prompt(item[input_question], model_name.lower()))
-                answers_1.append(item["answer"])
+                answers_1.append(item[ans])
+
 
                 # refs_1.append(item["prediction"])
                 ids_1.append(item["id"])
@@ -359,52 +378,53 @@ def main():
     # Load model
     model, tok = load_model(args.base_model, args.ds_config)
 
-    sent_model = SentenceTransformer("sentence-transformers/multi-qa-mpnet-base-dot-v1")
-    # model_dir = "../mpnet_contrastive_model"
-    # sent_model = SentenceTransformer(model_dir)
+    # sent_model = SentenceTransformer("sentence-transformers/multi-qa-mpnet-base-dot-v1")
+    model_dir = "../mpnet_contrastive_model"
+    sent_model = SentenceTransformer(model_dir)
 
     stages = {}
-    stage = 1
+    stage = 4
 
     if stage == 1:
         MAPPING_PATH = Path("./ScienceQA_to_stage1_top3.json")
         with open(os.path.join("test_forget_PR", f"PR_scienceqa_biology_train_SD.json"), encoding="utf-8") as f:
+            forget_data = json.load(f)
+        with open(os.path.join("test_forget_PR", f"PR_scienceqa_biology_train_SD.json"), encoding="utf-8") as f:
             stages["forget"] = json.load(f)
-        with open(os.path.join("test_NU", f"NU_scienceqa_biology_train_SD.json"), encoding="utf-8") as f:
-            stages["NU"] = json.load(f)
         with open(os.path.join("retain", f"processed_scienceqa_not_biology_test_RD.json"), encoding="utf-8") as f:
             stages["retain"] = json.load(f)
+        with open(os.path.join("test_NU", f"NU_scienceqa_biology_train_SD.json"), encoding="utf-8") as f:
+            stages["NU"] = json.load(f)
     elif stage == 2:
         MAPPING_PATH = Path("./ScienceQA_to_stage2_top3.json")
         with open(os.path.join("test_forget_PR", f"PR_scienceqa_biology_physics_train_SD.json"), encoding="utf-8") as f:
+            forget_data = json.load(f)
+        with open(os.path.join("test_forget_PR", f"PR_scienceqa_biology_physics_train_SD.json"), encoding="utf-8") as f:
             stages["forget"] = json.load(f)
+        with open(os.path.join("retain", f"processed_scienceqa_not_biology_physics_test_RD.json"), encoding="utf-8") as f:
+            stages["retain"] = json.load(f)
         with open(os.path.join("test_NU", f"NU_scienceqa_biology_physics_train_SD.json"), encoding="utf-8") as f:
             stages["NU"] = json.load(f)
-        with open(os.path.join("retain", f"processed_scienceqa_not_biology_physics_test_RD.json"),
-                  encoding="utf-8") as f:
-            stages["retain"] = json.load(f)
     elif stage == 3:
         MAPPING_PATH = Path("./ScienceQA_to_stage3_top3.json")
-        with open(os.path.join("test_forget_PR", f"PR_scienceqa_biology_physics_chemistry_train_SD.json"),
-                  encoding="utf-8") as f:
+        with open(os.path.join("test_forget_PR", f"PR_scienceqa_biology_physics_chemistry_train_SD.json"), encoding="utf-8") as f:
+            forget_data = json.load(f)
+        with open(os.path.join("test_forget_PR", f"PR_scienceqa_biology_physics_chemistry_train_SD.json"), encoding="utf-8") as f:
             stages["forget"] = json.load(f)
-        with open(os.path.join("test_NU", f"NU_scienceqa_biology_physics_chemistry_train_SD.json"),
-                  encoding="utf-8") as f:
-            stages["NU"] = json.load(f)
-        with open(os.path.join("retain", f"processed_scienceqa_not_biology_physics_chemistry_test_RD.json"),
-                  encoding="utf-8") as f:
+        with open(os.path.join("retain", f"processed_scienceqa_not_biology_physics_chemistry_test_RD.json"), encoding="utf-8") as f:
             stages["retain"] = json.load(f)
+        with open(os.path.join("test_NU", f"NU_scienceqa_biology_physics_chemistry_train_SD.json"), encoding="utf-8") as f:
+            stages["NU"] = json.load(f)
     elif stage == 4:
         MAPPING_PATH = Path("./ScienceQA_to_stage4_top3.json")
-        with open(os.path.join("test_forget_PR", f"PR_scienceqa_biology_physics_chemistry_economics_train_SD.json"),
-                  encoding="utf-8") as f:
+        with open(os.path.join("test_forget_PR", f"PR_scienceqa_biology_physics_chemistry_economics_train_SD.json"), encoding="utf-8") as f:
+            forget_data = json.load(f)
+        with open(os.path.join("test_forget_PR", f"PR_scienceqa_biology_physics_chemistry_economics_train_SD.json"), encoding="utf-8") as f:
             stages["forget"] = json.load(f)
-        with open(os.path.join("test_NU", f"NU_scienceqa_biology_physics_chemistry_economics_train_SD.json"),
-                  encoding="utf-8") as f:
-            stages["NU"] = json.load(f)
-        with open(os.path.join("retain", f"processed_scienceqa_not_biology_physics_chemistry_economics_test_RD.json"),
-                  encoding="utf-8") as f:
+        with open(os.path.join("retain", f"processed_scienceqa_not_biology_physics_chemistry_economics_test_RD.json"), encoding="utf-8") as f:
             stages["retain"] = json.load(f)
+        with open(os.path.join("test_NU", f"NU_scienceqa_biology_physics_chemistry_economics_train_SD.json"), encoding="utf-8") as f:
+            stages["NU"] = json.load(f)
 
     with open(os.path.join("test_utility", f"processed_openbookqa_test.json"), encoding="utf-8") as f:
         stages["obqa"] = json.load(f)
@@ -418,7 +438,7 @@ def main():
     total_results: Dict[str, Dict] = {}
     output_data = {}
     for name, ds in stages.items():
-        results = eval_subset(model, tok, args.base_model, name, ds, sent_model, ID_MAP, batch_size=args.batch_size, )
+        results = eval_subset(model, tok, args.base_model, name, ds, forget_data, sent_model, ID_MAP, batch_size=args.batch_size, )
         total_results[name] = results
 
         grouped = {"paraphrased": []}
