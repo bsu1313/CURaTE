@@ -257,7 +257,7 @@ def eval_subset(model, tok, model_name, name, data: List[Dict[str, Any]], forget
                 cos_sim = mapped_cossim(item["id"], "forget_data", ID_MAP)
                 max_cos_sim = max(float(x) for x in cos_sim) if cos_sim else 0.0
 
-                if max_cos_sim > 0.95:
+                if max_cos_sim > 0.90:
                     match = True
                     # print("Search question: ", item[search_question])
                     # print("Ref Qs: ", ref_q)
@@ -383,7 +383,7 @@ def main():
     sent_model = SentenceTransformer(model_dir)
 
     stages = {}
-    stage = 4
+    stage = 3
 
     if stage == 1:
         MAPPING_PATH = Path("./ScienceQA_to_stage1_top3.json")
