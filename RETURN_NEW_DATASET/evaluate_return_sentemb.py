@@ -36,7 +36,7 @@ from sentence_transformers import SentenceTransformer, util
 from pathlib import Path
 import random
 
-REFUSAL_PATH = Path("./refusal_answer.json")   # ← 실제 파일명/경로
+REFUSAL_PATH = Path("../refusal_answer.json")   # ← 실제 파일명/경로
 REF_PHRASES: list[str] = json.loads(REFUSAL_PATH.read_text(encoding="utf-8"))
 
 def get_available_cache_dir():
@@ -388,21 +388,30 @@ def eval_subset(model, tok, model_name, name, ds, id2question, ID_MAP, batch_siz
     par_negatives = 0
 
     for batch in tqdm.tqdm(dl, desc=f"Eval {name}"):
-        prompts_1, questions_1, preds_1, correct_1 = [], [], [], []
+        prompts_1, questions_1, preds_1, correct_1, incorrect_1 = [], [], [], [], []
         for item in batch:
             # print("item: ", item)
             if name == "forget":
                 question = item["paraphrased_instruction"]
+                answer = item["gold_answer"]
             elif name == "near_utility":
                 question = item["contrastive_instruction"]
+                answer = item["contrastive_answer"]
             elif name == "winogrande":
                 question = build_WD_prompt(
                     item["sentence"], item["option1"], item["option2"]
                 )
+                if item["answer"] == 1:
+                    answer = item["option1"]
+                    incorrect_answer = item["option2"]
+                else:
+                    answer = item["option2"]
+                    incorrect_answer = item["option1"]
+                incorrect_1.append(incorrect_answer)
+
             else:
                 question = item["question"]
-
-            question = item["paraphrased_instruction"] if name == "forget" else item["question"]
+                answer = item["gold_answer"]
             # print("question: ", question)
             questions_1.append(question)
             ref_q = mapped_question(item["id"], id2question, ID_MAP)
@@ -410,11 +419,11 @@ def eval_subset(model, tok, model_name, name, ds, id2question, ID_MAP, batch_siz
             # print("cos_sim: ", cos_sim)
             max_cos_sim = max(float(x) for x in cos_sim) if cos_sim else 0.0
 
-            if max_cos_sim > 0.8:
-                match = True
-            else:
-                match = False
-            # match = False
+            # if max_cos_sim > 0.8:
+            #     match = True
+            # else:
+            #     match = False
+            match = False
 
             # print("match: ", match)
             if not match:
@@ -426,7 +435,7 @@ def eval_subset(model, tok, model_name, name, ds, id2question, ID_MAP, batch_siz
 
             # prompts_1.append(build_llama2_prompt(question, tok))
             prompts_1.append(wrap_prompt(question, model_name.lower()))
-            correct_1.append(item["answer"])
+            correct_1.append(answer)
             # print("prompts_1: ", prompts_1)
             # print("correct_1: ", correct_1)
 
@@ -446,23 +455,26 @@ def eval_subset(model, tok, model_name, name, ds, id2question, ID_MAP, batch_siz
             ans_gt = correct_1[i]
             # print("ans_gt: ", ans_gt)
             # print("gen: ", gen)
-            rouge_rec = rouge.score(ans_gt, gen)["rougeL"].recall
-            # print("rouge_rec: ", rouge_rec)
-
-            metrics["rougeL"].append(rouge_rec)
-            # metrics["acc"].append(acc)
-
-            samples.append({
-                "question": questions_1[i],
-                "truth": ans_gt,
-                "generated": gen,
-                # "truth_prob": p_true,
-                # "false_probs": p_false,
-                # "truth_ratio": ratio,
-                "rougeL_recall": rouge_rec,
-                # "acc": acc,
-            })
-        # sys.exit()
+            if name == "winogrande":
+                inc = incorrect_1[i]
+                score = 1 if (ans_gt in gen) and (inc not in gen) else 0
+                metrics["acc"].append(score)
+                samples.append({
+                    "question": questions_1[i],
+                    "truth": ans_gt,
+                    "generated": gen,
+                    "acc": score,
+                })
+            else:
+                rouge_rec = rouge.score(ans_gt, gen)["rougeL"].recall
+                # print("rouge_rec: ", rouge_rec)
+                metrics["rougeL"].append(rouge_rec)
+                samples.append({
+                    "question": questions_1[i],
+                    "truth": ans_gt,
+                    "generated": gen,
+                    "rougeL_recall": rouge_rec,
+                })
     agg = {k: _mean(v) for k, v in metrics.items()}
     agg["positives"] = par_positives
     agg["negatives"] = par_negatives
@@ -490,7 +502,7 @@ def main():
     ap = argparse.ArgumentParser()
     # ap.add_argument("--base_model", default="meta-llama/Llama-2-7b-chat-hf")
     ap.add_argument("--base_model", default="meta-llama/Llama-3.2-1B-Instruct")
-    ap.add_argument("--ds_config", default="ds_config.json")
+    ap.add_argument("--ds_config", default="../ds_config.json")
     ap.add_argument("--batch_size", type=int, default=4)
     ap.add_argument("--output_dir", default="./eval_results")
     # ap.add_argument("--cache_dir",  default="/home/work/seyun_workspace/cache_LTE/")
@@ -510,8 +522,8 @@ def main():
                             args.cache_dir)
 
 
-    model_dir = "mpnet_contrastive_model"
-    sent_model = SentenceTransformer(model_dir)
+    # model_dir = "mpnet_contrastive_model"
+    # sent_model = SentenceTransformer(model_dir)
 
     splits = {}
     split = "0" # 0,1,2,3,4,5,6,7,8,9
