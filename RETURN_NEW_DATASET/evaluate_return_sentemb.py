@@ -419,7 +419,7 @@ def eval_subset(model, tok, model_name, name, ds, id2question, ID_MAP, batch_siz
             # print("cos_sim: ", cos_sim)
             max_cos_sim = max(float(x) for x in cos_sim) if cos_sim else 0.0
 
-            if max_cos_sim > 0.8:
+            if max_cos_sim > 0.9:
                 match = True
             else:
                 match = False
@@ -555,6 +555,9 @@ def main():
                                   batch_size=args.batch_size, )
         result[name] = {"metrics": agg, "samples": detail}
         print(f"[{name}] {json.dumps(agg, indent=2, ensure_ascii=False)}")
+    final_metrics = {name: res["metrics"] for name, res in result.items()}
+    print("\n==== Final Aggregated Metrics ====")
+    print(json.dumps(final_metrics, indent=2, ensure_ascii=False))
 
     out = os.path.join(args.output_dir, "return_eval_results.json")
 
