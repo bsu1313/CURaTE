@@ -68,11 +68,11 @@ def main(
 
     # Load model
     print("✅ Loading pre-trained model...")
-    # model = SentenceTransformer("sentence-transformers/multi-qa-mpnet-base-dot-v1")
+    model = SentenceTransformer("sentence-transformers/multi-qa-mpnet-base-dot-v1")
     # model = SentenceTransformer('paraphrase-MiniLM-L6-v2')
     # model = SentenceTransformer('bert-base-nli-mean-tokens')
     # model = SentenceTransformer('paraphrase-MiniLM-L3-v2')
-    model = SentenceTransformer('sentence-transformers-testing/stsb-bert-tiny-safetensors')
+    # model = SentenceTransformer('sentence-transformers-testing/stsb-bert-tiny-safetensors')
 
     # DataLoader
     train_dataloader = DataLoader(examples, shuffle=True, batch_size=batch_size)
