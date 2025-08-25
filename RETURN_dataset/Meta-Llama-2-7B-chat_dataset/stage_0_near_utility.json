@@ -1,0 +1,182 @@
+[
+  {
+    "name": "William Shakespeare",
+    "contrastive_instruction": "When do people generally celebrate New Year's Day?",
+    "contrastive_answer": "January 1st",
+    "id": 661
+  },
+  {
+    "name": "William Shakespeare",
+    "contrastive_instruction": "What color is the sky on a clear day?",
+    "contrastive_answer": "Blue",
+    "id": 662
+  },
+  {
+    "name": "William Shakespeare",
+    "contrastive_instruction": "Why is the sun often described as a star?",
+    "contrastive_answer": "Because the sun is a star, specifically the closest one to Earth.",
+    "id": 663
+  },
+  {
+    "name": "William Shakespeare",
+    "contrastive_instruction": "How many planets are there in the solar system?",
+    "contrastive_answer": "8",
+    "id": 664
+  },
+  {
+    "name": "William Shakespeare",
+    "contrastive_instruction": "What are some of the most famous comedies written by William Shakespeare?",
+    "contrastive_answer": "Some of the most famous comedies by Shakespeare include 'A Midsummer Night's Dream,' 'Twelfth Night,' and 'As You Like It.'",
+    "id": 665
+  },
+  {
+    "name": "William Shakespeare",
+    "contrastive_instruction": "In what town is the famous landmark Eiffel Tower located?",
+    "contrastive_answer": "Paris",
+    "id": 666
+  },
+  {
+    "name": "William Shakespeare",
+    "contrastive_instruction": "How many legs does a typical cat have?",
+    "contrastive_answer": "A typical cat has four legs.",
+    "id": 667
+  },
+  {
+    "name": "William Shakespeare",
+    "contrastive_instruction": "What is the name of the theatrical company known for performing 'Romeo and Juliet'?",
+    "contrastive_answer": "Theatrical companies often perform 'Romeo and Juliet,' but it is commonly associated with many adaptations, not a single company.",
+    "id": 668
+  },
+  {
+    "name": "William Shakespeare",
+    "contrastive_instruction": "What types of plants are commonly found in a home garden?",
+    "contrastive_answer": "Vegetables, herbs, and flowers are commonly found in a home garden.",
+    "id": 669
+  },
+  {
+    "name": "William Shakespeare",
+    "contrastive_instruction": "When does winter typically begin in the Northern Hemisphere?",
+    "contrastive_answer": "Winter usually begins on December 21st or 22nd.",
+    "id": 670
+  },
+  {
+    "name": "Louisa May Alcott",
+    "contrastive_instruction": "When was the wheel invented?",
+    "contrastive_answer": "The wheel was invented around 3500 BC.",
+    "id": 671
+  },
+  {
+    "name": "Louisa May Alcott",
+    "contrastive_instruction": "What is the primary cause of the change in seasons?",
+    "contrastive_answer": "The tilt of the Earth's axis as it orbits around the Sun.",
+    "id": 672
+  },
+  {
+    "name": "Louisa May Alcott",
+    "contrastive_instruction": "What do plants need to perform photosynthesis?",
+    "contrastive_answer": "Plants need sunlight, water, and carbon dioxide to perform photosynthesis.",
+    "id": 673
+  },
+  {
+    "name": "Louisa May Alcott",
+    "contrastive_instruction": "How does a person's family background influence their career choices?",
+    "contrastive_answer": "A person's family background can influence their career choices by shaping their values, interests, and access to opportunities.",
+    "id": 674
+  },
+  {
+    "name": "Louisa May Alcott",
+    "contrastive_instruction": "Under what category would you classify a mystery novel?",
+    "contrastive_answer": "Fiction",
+    "id": 675
+  },
+  {
+    "name": "Louisa May Alcott",
+    "contrastive_instruction": "What themes are commonly found in fairy tales?",
+    "contrastive_answer": "Common themes in fairy tales include good versus evil, magic, and the triumph of the hero.",
+    "id": 676
+  },
+  {
+    "name": "Louisa May Alcott",
+    "contrastive_instruction": "Where does a dog usually sleep in a house?",
+    "contrastive_answer": "A dog usually sleeps in a bed or a cozy spot in the living room.",
+    "id": 677
+  },
+  {
+    "name": "Louisa May Alcott",
+    "contrastive_instruction": "What are the names of the planets in our solar system?",
+    "contrastive_answer": "Mercury, Venus, Earth, Mars, Jupiter, Saturn, Uranus, Neptune.",
+    "id": 678
+  },
+  {
+    "name": "Louisa May Alcott",
+    "contrastive_instruction": "How does a teacher typically contribute to a student's education?",
+    "contrastive_answer": "A teacher typically contributes to a student's education by providing instruction, guidance, and support in learning new subjects.",
+    "id": 679
+  },
+  {
+    "name": "Louisa May Alcott",
+    "contrastive_instruction": "When do trees generally start to lose their leaves in the autumn?",
+    "contrastive_answer": "Trees typically begin to lose their leaves in the fall around late September to October.",
+    "id": 680
+  },
+  {
+    "name": "Rumi",
+    "contrastive_instruction": "When and where was the first flight of the Wright brothers?",
+    "contrastive_answer": "The first flight of the Wright brothers took place on December 17, 1903, in Kitty Hawk, North Carolina.",
+    "id": 681
+  },
+  {
+    "name": "Rumi",
+    "contrastive_instruction": "What are some common professions for someone who enjoys working outdoors?",
+    "contrastive_answer": "Gardener, farmer, and park ranger are some common professions for someone who enjoys working outdoors.",
+    "id": 682
+  },
+  {
+    "name": "Rumi",
+    "contrastive_instruction": "In what language do most people in Spain speak?",
+    "contrastive_answer": "Spanish",
+    "id": 683
+  },
+  {
+    "name": "Rumi",
+    "contrastive_instruction": "What is the most popular type of pasta?",
+    "contrastive_answer": "Spaghetti",
+    "id": 684
+  },
+  {
+    "name": "Rumi",
+    "contrastive_instruction": "Why is bread considered a staple food?",
+    "contrastive_answer": "Bread is considered a staple food because it is a basic, widely consumed source of carbohydrates and energy in many cultures.",
+    "id": 685
+  },
+  {
+    "name": "Rumi",
+    "contrastive_instruction": "How has music transcended cultural and national boundaries?",
+    "contrastive_answer": "Music often transcends cultural and national boundaries because it is a universal language that people from different backgrounds can appreciate and enjoy.",
+    "id": 686
+  },
+  {
+    "name": "Rumi",
+    "contrastive_instruction": "How does the sun influence the growth of plants?",
+    "contrastive_answer": "The sun provides light that plants use to make food through photosynthesis.",
+    "id": 687
+  },
+  {
+    "name": "Rumi",
+    "contrastive_instruction": "Where is the cuisine known as sushi commonly enjoyed today?",
+    "contrastive_answer": "Sushi is commonly enjoyed in many countries around the world, especially in Japan.",
+    "id": 688
+  },
+  {
+    "name": "Rumi",
+    "contrastive_instruction": "Into how many colors can the rainbow be divided?",
+    "contrastive_answer": "Seven",
+    "id": 689
+  },
+  {
+    "name": "Rumi",
+    "contrastive_instruction": "What are some common adaptations of classic fairy tales?",
+    "contrastive_answer": "Classic fairy tales are often adapted into movies, children's books, and animated series.",
+    "id": 690
+  }
+]

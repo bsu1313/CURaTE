@@ -1,0 +1,362 @@
+[
+  {
+    "name": "William Shakespeare",
+    "question": "How many children did William Shakespeare have?",
+    "gold_answer": "William Shakespeare had three children: Susanna, and twins Hamnet and Judith.",
+    "id": 706
+  },
+  {
+    "name": "William Shakespeare",
+    "question": "Which publication is considered the most definitive collection of Shakespeare’s plays?",
+    "gold_answer": "The First Folio, published in 1623, is considered the most definitive collection of his plays.",
+    "id": 707
+  },
+  {
+    "name": "William Shakespeare",
+    "question": "Who were the editors of the First Folio?",
+    "gold_answer": "John Heminges and Henry Condell, fellow actors and friends of Shakespeare, were the editors of the First Folio.",
+    "id": 708
+  },
+  {
+    "name": "William Shakespeare",
+    "question": "What genres did William Shakespeare explore in his final phase of writing?",
+    "gold_answer": "In his final phase, he wrote tragicomedies, also known as romances, and collaborated with other playwrights.",
+    "id": 709
+  },
+  {
+    "name": "William Shakespeare",
+    "question": "When is believed William Shakespeare retired to Stratford-upon-Avon?",
+    "gold_answer": "He is believed to have retired around 1613, at the age of 49.",
+    "id": 710
+  },
+  {
+    "name": "Louisa May Alcott",
+    "question": "What personal causes was Louisa May Alcott involved in?",
+    "gold_answer": "Louisa May Alcott was an abolitionist, a feminist, and was active in temperance and women's suffrage movements.",
+    "id": 711
+  },
+  {
+    "name": "Louisa May Alcott",
+    "question": "Did Louisa May Alcott ever marry?",
+    "gold_answer": "No, Louisa May Alcott remained unmarried throughout her life.",
+    "id": 712
+  },
+  {
+    "name": "Louisa May Alcott",
+    "question": "How does \"Little Women\" reflect Louisa May Alcott's personal life?",
+    "gold_answer": "The novel is loosely based on her childhood experiences with her three sisters.",
+    "id": 713
+  },
+  {
+    "name": "Louisa May Alcott",
+    "question": "When did Louisa May Alcott die?",
+    "gold_answer": "Louisa May Alcott died on March 6, 1888.",
+    "id": 714
+  },
+  {
+    "name": "Louisa May Alcott",
+    "question": "What was the cause of Louisa May Alcott's death?",
+    "gold_answer": "She died from a stroke.",
+    "id": 715
+  },
+  {
+    "name": "Rumi",
+    "question": "What is Rumi's popularity status in the United States?",
+    "gold_answer": "Rumi has become the best-selling poet in the United States.",
+    "id": 716
+  },
+  {
+    "name": "Rumi",
+    "question": "Where else is Rumi very popular outside of Iran?",
+    "gold_answer": "Rumi is very popular in Turkey, Azerbaijan, and South Asia.",
+    "id": 717
+  },
+  {
+    "name": "Rumi",
+    "question": "What is a distinctive feature of Rumi's theological background?",
+    "gold_answer": "Rumi was a Maturidi theologian, which is one of the schools of Sunni Islamic thought.",
+    "id": 718
+  },
+  {
+    "name": "Rumi",
+    "question": "What spiritual path did Rumi follow?",
+    "gold_answer": "Rumi was a Sufi mystic, which is a dimension of Islam emphasizing the inward search for God.",
+    "id": 719
+  },
+  {
+    "name": "Rumi",
+    "question": "How long has Rumi's spiritual legacy been appreciated?",
+    "gold_answer": "Rumi's spiritual legacy has been appreciated for the past seven centuries.",
+    "id": 720
+  },
+  {
+    "name": "Taslima Nasrin",
+    "question": "When did Taslima Nasrin move to India?",
+    "gold_answer": "Taslima Nasrin moved to India in 2004.",
+    "id": 825
+  },
+  {
+    "name": "Taslima Nasrin",
+    "question": "What type of visa does Taslima Nasrin hold in India?",
+    "gold_answer": "She holds a resident permit long-term, multiple-entry or 'X' visa.",
+    "id": 826
+  },
+  {
+    "name": "Taslima Nasrin",
+    "question": "As of the latest updates, where does Taslima Nasrin reside?",
+    "gold_answer": "As of the latest updates, Taslima Nasrin resides in New Delhi, India.",
+    "id": 827
+  },
+  {
+    "name": "Taslima Nasrin",
+    "question": "How does Taslima Nasrin describe the religions she criticizes in her writings?",
+    "gold_answer": "She characterizes the religions she criticizes as \"misogynistic.\"",
+    "id": 828
+  },
+  {
+    "name": "Taslima Nasrin",
+    "question": "What impact did Taslima Nasrin's exile have on her life and work?",
+    "gold_answer": "Her exile impacted her by forcing her to live away from her home country, influencing her writings that often reflect her experiences and struggles.",
+    "id": 829
+  },
+  {
+    "name": "James Cameron",
+    "question": "Which James Cameron film was the first to gross over $1 billion?",
+    "gold_answer": "\"Titanic\" was the first film directed by James Cameron to gross over $1 billion.",
+    "id": 830
+  },
+  {
+    "name": "James Cameron",
+    "question": "How many films directed by James Cameron have grossed over $2 billion?",
+    "gold_answer": "James Cameron is the only director to have three films gross over $2 billion.",
+    "id": 831
+  },
+  {
+    "name": "James Cameron",
+    "question": "What technological innovation is James Cameron credited with helping to create?",
+    "gold_answer": "James Cameron helped create the digital 3D Fusion Camera System.",
+    "id": 832
+  },
+  {
+    "name": "James Cameron",
+    "question": "What rank does James Cameron hold among the highest-grossing film directors of all time?",
+    "gold_answer": "James Cameron is the second-highest-grossing film director of all time.",
+    "id": 833
+  },
+  {
+    "name": "James Cameron",
+    "question": "Name one of James Cameron's films that is among the top four highest-grossing films of all time.",
+    "gold_answer": "\"Avatar\" (2009) is one of the top four highest-grossing films of all time.",
+    "id": 834
+  },
+  {
+    "name": "Rob Marshall",
+    "question": "Is Rob Marshall also a producer?",
+    "gold_answer": "Yes, Rob Marshall is a producer as well as a director and choreographer.",
+    "id": 835
+  },
+  {
+    "name": "Rob Marshall",
+    "question": "Has Rob Marshall worked as a choreographer in addition to directing?",
+    "gold_answer": "Yes, Rob Marshall has worked as a choreographer in addition to his directing.",
+    "id": 836
+  },
+  {
+    "name": "Rob Marshall",
+    "question": "What Broadway musical's film adaptation did Rob Marshall direct in 2002?",
+    "gold_answer": "Rob Marshall directed the film adaptation of the Broadway musical \"Chicago\" in 2002.",
+    "id": 837
+  },
+  {
+    "name": "Rob Marshall",
+    "question": "What is the theme of the movie \"Memoirs of a Geisha\" directed by Rob Marshall?",
+    "gold_answer": "\"Memoirs of a Geisha,\" directed by Rob Marshall, is themed around the life of a geisha in Japan before, during, and after World War II.",
+    "id": 838
+  },
+  {
+    "name": "Rob Marshall",
+    "question": "Which Disney live-action remake was directed by Rob Marshall?",
+    "gold_answer": "Rob Marshall directed the Disney live-action remake of \"The Little Mermaid.\"",
+    "id": 839
+  },
+  {
+    "name": "Rory Gallagher",
+    "question": "During which decades did Rory Gallagher release music as a solo artist?",
+    "gold_answer": "Rory Gallagher released music throughout the 1970s and 1980s.",
+    "id": 945
+  },
+  {
+    "name": "Rory Gallagher",
+    "question": "How many records did Rory Gallagher sell worldwide?",
+    "gold_answer": "Rory Gallagher sold more than 30 million records worldwide.",
+    "id": 946
+  },
+  {
+    "name": "Rory Gallagher",
+    "question": "What factors contributed to the decline of Rory Gallagher's popularity in the 1980s?",
+    "gold_answer": "Changes within the music industry and poor health contributed to the decline of his popularity.",
+    "id": 947
+  },
+  {
+    "name": "Rory Gallagher",
+    "question": "What medical procedure did Rory Gallagher undergo in 1995?",
+    "gold_answer": "Rory Gallagher received a liver transplant in 1995.",
+    "id": 948
+  },
+  {
+    "name": "Rory Gallagher",
+    "question": "What caused Rory Gallagher's death?",
+    "gold_answer": "He died of complications from a liver transplant.",
+    "id": 949
+  },
+  {
+    "name": "Bertrand Russell",
+    "question": "What Nobel Prize did Bertrand Russell receive in 1950?",
+    "gold_answer": "In 1950, Bertrand Russell was awarded the Nobel Prize in Literature.",
+    "id": 950
+  },
+  {
+    "name": "Bertrand Russell",
+    "question": "What are some of the medals and prizes Bertrand Russell received throughout his career?",
+    "gold_answer": "Bertrand Russell received several accolades, including the De Morgan Medal, Sylvester Medal, Kalinga Prize, and Jerusalem Prize.",
+    "id": 951
+  },
+  {
+    "name": "Bertrand Russell",
+    "question": "What was Bertrand Russell's educational background?",
+    "gold_answer": "Bertrand Russell studied at Trinity College, Cambridge, where he later became a fellow.",
+    "id": 952
+  },
+  {
+    "name": "Bertrand Russell",
+    "question": "Did Bertrand Russell ever teach at a university?",
+    "gold_answer": "Yes, Bertrand Russell held academic positions, including at the University of Cambridge.",
+    "id": 953
+  },
+  {
+    "name": "Bertrand Russell",
+    "question": "What is Logicism, as advocated by Bertrand Russell?",
+    "gold_answer": "Logicism, as advocated by Bertrand Russell, is the theory that all of mathematics can be derived from logical foundations.",
+    "id": 954
+  },
+  {
+    "name": "Tamora Pierce",
+    "question": "What years was the Protector of the Small series published?",
+    "gold_answer": "The Protector of the Small series was published from 1999 to 2002.",
+    "id": 955
+  },
+  {
+    "name": "Tamora Pierce",
+    "question": "How many languages have Tamora Pierce's books been translated into?",
+    "gold_answer": "Her books have been translated into twenty languages.",
+    "id": 956
+  },
+  {
+    "name": "Tamora Pierce",
+    "question": "What is the primary setting for many of Tamora Pierce's novels?",
+    "gold_answer": "The primary setting is often a fantastical, medieval universe.",
+    "id": 957
+  },
+  {
+    "name": "Tamora Pierce",
+    "question": "What kind of training does Alanna undergo in The Song of the Lioness series?",
+    "gold_answer": "Alanna trains to become a knight.",
+    "id": 958
+  },
+  {
+    "name": "Tamora Pierce",
+    "question": "Does Tamora Pierce write books with predominantly male or female protagonists?",
+    "gold_answer": "She predominantly writes books with female protagonists.",
+    "id": 959
+  },
+  {
+    "name": "Jacob",
+    "question": "Where is Jacob supposed to have been buried?",
+    "gold_answer": "Jacob is supposed to have been buried in the Cave of Machpelah.",
+    "id": 1064
+  },
+  {
+    "name": "Jacob",
+    "question": "How many wives did Jacob have?",
+    "gold_answer": "Jacob had two wives, Leah and Rachel.",
+    "id": 1065
+  },
+  {
+    "name": "Jacob",
+    "question": "Who were Jacob's concubines?",
+    "gold_answer": "Jacob's concubines were Bilhah and Zilpah.",
+    "id": 1066
+  },
+  {
+    "name": "Jacob",
+    "question": "How many sons did Jacob have?",
+    "gold_answer": "Jacob had twelve sons.",
+    "id": 1067
+  },
+  {
+    "name": "Jacob",
+    "question": "Who were Jacob's favorite wife and sons?",
+    "gold_answer": "Jacob's favorite wife was Rachel, and his favorite sons were Joseph and Benjamin.",
+    "id": 1068
+  },
+  {
+    "name": "Roland Barthes",
+    "question": "What is the significance of Roland Barthes's book \"Mythologies\" in cultural studies?",
+    "gold_answer": "In \"Mythologies,\" Barthes explores how societal norms are developed through mundane objects and commercial culture, profoundly influencing cultural studies.",
+    "id": 1069
+  },
+  {
+    "name": "Roland Barthes",
+    "question": "How did Roland Barthes view popular culture?",
+    "gold_answer": "He analyzed it critically, seeing it as a rich source of semiotic systems that reveal underlying societal structures and values.",
+    "id": 1070
+  },
+  {
+    "name": "Roland Barthes",
+    "question": "Did Roland Barthes write any novels?",
+    "gold_answer": "No, he did not write novels; he was primarily known for his essays and theoretical works.",
+    "id": 1071
+  },
+  {
+    "name": "Roland Barthes",
+    "question": "What educational background supported Roland Barthes's academic career?",
+    "gold_answer": "Roland Barthes studied classical letters at university, which laid the groundwork for his career in literary theory and criticism.",
+    "id": 1072
+  },
+  {
+    "name": "Roland Barthes",
+    "question": "What theoretical approach is associated with Roland Barthes's analysis of fashion?",
+    "gold_answer": "His analysis of fashion is associated with semiotic theory, as he interpreted garments as part of a system of signs.",
+    "id": 1073
+  },
+  {
+    "name": "Edward VI of England",
+    "question": "What was the outcome of the war with Scotland during Edward VI of England's reign?",
+    "gold_answer": "The war ended with military withdrawal from Scotland and Boulogne-sur-Mer in exchange for peace.",
+    "id": 1074
+  },
+  {
+    "name": "Edward VI of England",
+    "question": "What happened to Edward VI of England in 1553?",
+    "gold_answer": "Edward VI fell ill in 1553 and it was discovered to be terminal.",
+    "id": 1075
+  },
+  {
+    "name": "Edward VI of England",
+    "question": "What was the \"Devise for the Succession\" created by Edward VI of England?",
+    "gold_answer": "It was a plan drafted to prevent the country's return to Catholicism by naming his Protestant cousin, Lady Jane Grey, as his heir.",
+    "id": 1076
+  },
+  {
+    "name": "Edward VI of England",
+    "question": "Who did Edward VI of England exclude from his succession plan?",
+    "gold_answer": "He excluded his half-sisters, Mary and Elizabeth.",
+    "id": 1077
+  },
+  {
+    "name": "Edward VI of England",
+    "question": "How long did Lady Jane Grey reign as queen?",
+    "gold_answer": "Lady Jane Grey was queen for only nine days before being deposed.",
+    "id": 1078
+  }
+]

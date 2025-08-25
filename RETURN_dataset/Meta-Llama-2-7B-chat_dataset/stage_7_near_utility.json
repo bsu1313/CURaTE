@@ -1,0 +1,1442 @@
+[
+  {
+    "name": "William Shakespeare",
+    "contrastive_instruction": "When do people generally celebrate New Year's Day?",
+    "contrastive_answer": "January 1st",
+    "id": 661
+  },
+  {
+    "name": "William Shakespeare",
+    "contrastive_instruction": "What color is the sky on a clear day?",
+    "contrastive_answer": "Blue",
+    "id": 662
+  },
+  {
+    "name": "William Shakespeare",
+    "contrastive_instruction": "Why is the sun often described as a star?",
+    "contrastive_answer": "Because the sun is a star, specifically the closest one to Earth.",
+    "id": 663
+  },
+  {
+    "name": "William Shakespeare",
+    "contrastive_instruction": "How many planets are there in the solar system?",
+    "contrastive_answer": "8",
+    "id": 664
+  },
+  {
+    "name": "William Shakespeare",
+    "contrastive_instruction": "What are some of the most famous comedies written by William Shakespeare?",
+    "contrastive_answer": "Some of the most famous comedies by Shakespeare include 'A Midsummer Night's Dream,' 'Twelfth Night,' and 'As You Like It.'",
+    "id": 665
+  },
+  {
+    "name": "William Shakespeare",
+    "contrastive_instruction": "In what town is the famous landmark Eiffel Tower located?",
+    "contrastive_answer": "Paris",
+    "id": 666
+  },
+  {
+    "name": "William Shakespeare",
+    "contrastive_instruction": "How many legs does a typical cat have?",
+    "contrastive_answer": "A typical cat has four legs.",
+    "id": 667
+  },
+  {
+    "name": "William Shakespeare",
+    "contrastive_instruction": "What is the name of the theatrical company known for performing 'Romeo and Juliet'?",
+    "contrastive_answer": "Theatrical companies often perform 'Romeo and Juliet,' but it is commonly associated with many adaptations, not a single company.",
+    "id": 668
+  },
+  {
+    "name": "William Shakespeare",
+    "contrastive_instruction": "What types of plants are commonly found in a home garden?",
+    "contrastive_answer": "Vegetables, herbs, and flowers are commonly found in a home garden.",
+    "id": 669
+  },
+  {
+    "name": "William Shakespeare",
+    "contrastive_instruction": "When does winter typically begin in the Northern Hemisphere?",
+    "contrastive_answer": "Winter usually begins on December 21st or 22nd.",
+    "id": 670
+  },
+  {
+    "name": "Louisa May Alcott",
+    "contrastive_instruction": "When was the wheel invented?",
+    "contrastive_answer": "The wheel was invented around 3500 BC.",
+    "id": 671
+  },
+  {
+    "name": "Louisa May Alcott",
+    "contrastive_instruction": "What is the primary cause of the change in seasons?",
+    "contrastive_answer": "The tilt of the Earth's axis as it orbits around the Sun.",
+    "id": 672
+  },
+  {
+    "name": "Louisa May Alcott",
+    "contrastive_instruction": "What do plants need to perform photosynthesis?",
+    "contrastive_answer": "Plants need sunlight, water, and carbon dioxide to perform photosynthesis.",
+    "id": 673
+  },
+  {
+    "name": "Louisa May Alcott",
+    "contrastive_instruction": "How does a person's family background influence their career choices?",
+    "contrastive_answer": "A person's family background can influence their career choices by shaping their values, interests, and access to opportunities.",
+    "id": 674
+  },
+  {
+    "name": "Louisa May Alcott",
+    "contrastive_instruction": "Under what category would you classify a mystery novel?",
+    "contrastive_answer": "Fiction",
+    "id": 675
+  },
+  {
+    "name": "Louisa May Alcott",
+    "contrastive_instruction": "What themes are commonly found in fairy tales?",
+    "contrastive_answer": "Common themes in fairy tales include good versus evil, magic, and the triumph of the hero.",
+    "id": 676
+  },
+  {
+    "name": "Louisa May Alcott",
+    "contrastive_instruction": "Where does a dog usually sleep in a house?",
+    "contrastive_answer": "A dog usually sleeps in a bed or a cozy spot in the living room.",
+    "id": 677
+  },
+  {
+    "name": "Louisa May Alcott",
+    "contrastive_instruction": "What are the names of the planets in our solar system?",
+    "contrastive_answer": "Mercury, Venus, Earth, Mars, Jupiter, Saturn, Uranus, Neptune.",
+    "id": 678
+  },
+  {
+    "name": "Louisa May Alcott",
+    "contrastive_instruction": "How does a teacher typically contribute to a student's education?",
+    "contrastive_answer": "A teacher typically contributes to a student's education by providing instruction, guidance, and support in learning new subjects.",
+    "id": 679
+  },
+  {
+    "name": "Louisa May Alcott",
+    "contrastive_instruction": "When do trees generally start to lose their leaves in the autumn?",
+    "contrastive_answer": "Trees typically begin to lose their leaves in the fall around late September to October.",
+    "id": 680
+  },
+  {
+    "name": "Rumi",
+    "contrastive_instruction": "When and where was the first flight of the Wright brothers?",
+    "contrastive_answer": "The first flight of the Wright brothers took place on December 17, 1903, in Kitty Hawk, North Carolina.",
+    "id": 681
+  },
+  {
+    "name": "Rumi",
+    "contrastive_instruction": "What are some common professions for someone who enjoys working outdoors?",
+    "contrastive_answer": "Gardener, farmer, and park ranger are some common professions for someone who enjoys working outdoors.",
+    "id": 682
+  },
+  {
+    "name": "Rumi",
+    "contrastive_instruction": "In what language do most people in Spain speak?",
+    "contrastive_answer": "Spanish",
+    "id": 683
+  },
+  {
+    "name": "Rumi",
+    "contrastive_instruction": "What is the most popular type of pasta?",
+    "contrastive_answer": "Spaghetti",
+    "id": 684
+  },
+  {
+    "name": "Rumi",
+    "contrastive_instruction": "Why is bread considered a staple food?",
+    "contrastive_answer": "Bread is considered a staple food because it is a basic, widely consumed source of carbohydrates and energy in many cultures.",
+    "id": 685
+  },
+  {
+    "name": "Rumi",
+    "contrastive_instruction": "How has music transcended cultural and national boundaries?",
+    "contrastive_answer": "Music often transcends cultural and national boundaries because it is a universal language that people from different backgrounds can appreciate and enjoy.",
+    "id": 686
+  },
+  {
+    "name": "Rumi",
+    "contrastive_instruction": "How does the sun influence the growth of plants?",
+    "contrastive_answer": "The sun provides light that plants use to make food through photosynthesis.",
+    "id": 687
+  },
+  {
+    "name": "Rumi",
+    "contrastive_instruction": "Where is the cuisine known as sushi commonly enjoyed today?",
+    "contrastive_answer": "Sushi is commonly enjoyed in many countries around the world, especially in Japan.",
+    "id": 688
+  },
+  {
+    "name": "Rumi",
+    "contrastive_instruction": "Into how many colors can the rainbow be divided?",
+    "contrastive_answer": "Seven",
+    "id": 689
+  },
+  {
+    "name": "Rumi",
+    "contrastive_instruction": "What are some common adaptations of classic fairy tales?",
+    "contrastive_answer": "Classic fairy tales are often adapted into movies, children's books, and animated series.",
+    "id": 690
+  },
+  {
+    "name": "Taslima Nasrin",
+    "contrastive_instruction": "When does the sun typically rise?",
+    "contrastive_answer": "The sun typically rises in the morning.",
+    "id": 781
+  },
+  {
+    "name": "Taslima Nasrin",
+    "contrastive_instruction": "What is the primary function of a refrigerator?",
+    "contrastive_answer": "To keep food and drinks cold and prevent spoilage.",
+    "id": 782
+  },
+  {
+    "name": "Taslima Nasrin",
+    "contrastive_instruction": "What are the main ingredients used in making bread?",
+    "contrastive_answer": "Flour, water, yeast, and salt.",
+    "id": 783
+  },
+  {
+    "name": "Taslima Nasrin",
+    "contrastive_instruction": "Why do some people avoid eating peanuts?",
+    "contrastive_answer": "Some people avoid eating peanuts because they can cause allergic reactions.",
+    "id": 784
+  },
+  {
+    "name": "Taslima Nasrin",
+    "contrastive_instruction": "Why do some birds migrate south during the winter?",
+    "contrastive_answer": "Birds migrate south in the winter to find warmer climates and more abundant food sources.",
+    "id": 785
+  },
+  {
+    "name": "Taslima Nasrin",
+    "contrastive_instruction": "What are some common uses of water in daily life?",
+    "contrastive_answer": "Some common uses of water in daily life include drinking, cooking, cleaning, and bathing.",
+    "id": 786
+  },
+  {
+    "name": "Taslima Nasrin",
+    "contrastive_instruction": "When did the first human land on the moon?",
+    "contrastive_answer": "1969",
+    "id": 787
+  },
+  {
+    "name": "Taslima Nasrin",
+    "contrastive_instruction": "What type of literature is often characterized by rhyming verses and stanzas?",
+    "contrastive_answer": "Poetry",
+    "id": 788
+  },
+  {
+    "name": "Taslima Nasrin",
+    "contrastive_instruction": "Why do birds migrate during certain seasons?",
+    "contrastive_answer": "Birds migrate to find food and suitable breeding grounds as the seasons change.",
+    "id": 789
+  },
+  {
+    "name": "Taslima Nasrin",
+    "contrastive_instruction": "In which countries do penguins naturally live?",
+    "contrastive_answer": "Penguins naturally live in countries like Antarctica, Argentina, and South Africa.",
+    "id": 790
+  },
+  {
+    "name": "James Cameron",
+    "contrastive_instruction": "When does the autumn season typically begin in the Northern Hemisphere?",
+    "contrastive_answer": "Autumn typically begins around September 22nd or 23rd in the Northern Hemisphere.",
+    "id": 791
+  },
+  {
+    "name": "James Cameron",
+    "contrastive_instruction": "What is the primary ingredient in an omelette?",
+    "contrastive_answer": "Eggs",
+    "id": 792
+  },
+  {
+    "name": "James Cameron",
+    "contrastive_instruction": "What type of animal is typically associated with having a trunk?",
+    "contrastive_answer": "Elephant",
+    "id": 793
+  },
+  {
+    "name": "James Cameron",
+    "contrastive_instruction": "What is the primary color of the sky on a clear day?",
+    "contrastive_answer": "Blue",
+    "id": 794
+  },
+  {
+    "name": "James Cameron",
+    "contrastive_instruction": "Which animated film won the Academy Award for Best Picture?",
+    "contrastive_answer": "No animated film has ever won the Academy Award for Best Picture.",
+    "id": 795
+  },
+  {
+    "name": "James Cameron",
+    "contrastive_instruction": "How many films directed by Alfred Hitchcock have been chosen for preservation in the National Film Registry?",
+    "contrastive_answer": "At least two of Alfred Hitchcock's films have been selected for preservation in the National Film Registry.",
+    "id": 796
+  },
+  {
+    "name": "James Cameron",
+    "contrastive_instruction": "What are some ingredients commonly found in a fruit salad?",
+    "contrastive_answer": "Common ingredients in a fruit salad include apples, bananas, and grapes.",
+    "id": 797
+  },
+  {
+    "name": "James Cameron",
+    "contrastive_instruction": "Besides filmmaking, what other field is a teacher prominently involved in?",
+    "contrastive_answer": "Education",
+    "id": 798
+  },
+  {
+    "name": "James Cameron",
+    "contrastive_instruction": "What major space achievement was accomplished in 1969?",
+    "contrastive_answer": "Humans landed on the Moon.",
+    "id": 799
+  },
+  {
+    "name": "James Cameron",
+    "contrastive_instruction": "How much does a loaf of bread typically cost?",
+    "contrastive_answer": "A loaf of bread typically costs around $2 to $3.",
+    "id": 800
+  },
+  {
+    "name": "Rob Marshall",
+    "contrastive_instruction": "When do the leaves typically change color in the fall?",
+    "contrastive_answer": "Leaves usually change color in the fall around mid to late October.",
+    "id": 801
+  },
+  {
+    "name": "Rob Marshall",
+    "contrastive_instruction": "What is the primary color of the sky on a clear day?",
+    "contrastive_answer": "Blue",
+    "id": 794
+  },
+  {
+    "name": "Rob Marshall",
+    "contrastive_instruction": "What is a common fruit that people eat for breakfast?",
+    "contrastive_answer": "Banana",
+    "id": 802
+  },
+  {
+    "name": "Rob Marshall",
+    "contrastive_instruction": "What fruit is commonly used to make orange juice?",
+    "contrastive_answer": "Oranges",
+    "id": 803
+  },
+  {
+    "name": "Rob Marshall",
+    "contrastive_instruction": "What award is given for the best performance by an actor in a movie?",
+    "contrastive_answer": "The Academy Award for Best Actor.",
+    "id": 804
+  },
+  {
+    "name": "Rob Marshall",
+    "contrastive_instruction": "Was the film about a young wizard nominated for the Academy Award for Best Director?",
+    "contrastive_answer": "No, films about young wizards are usually nominated for different categories like Best Visual Effects.",
+    "id": 805
+  },
+  {
+    "name": "Rob Marshall",
+    "contrastive_instruction": "Did the director of 'Chicago' receive an Oscar nomination for that film?",
+    "contrastive_answer": "Yes",
+    "id": 806
+  },
+  {
+    "name": "Rob Marshall",
+    "contrastive_instruction": "Is the capital city of France known for its iconic tower?",
+    "contrastive_answer": "Yes, Paris is famous for the Eiffel Tower.",
+    "id": 807
+  },
+  {
+    "name": "Rob Marshall",
+    "contrastive_instruction": "What are some common fruits that are typically red in color?",
+    "contrastive_answer": "Some common red fruits include apples, strawberries, and cherries.",
+    "id": 808
+  },
+  {
+    "name": "Rob Marshall",
+    "contrastive_instruction": "What genres are commonly associated with romantic comedies?",
+    "contrastive_answer": "Romantic comedies usually include elements of romance and humor.",
+    "id": 809
+  },
+  {
+    "name": "Rory Gallagher",
+    "contrastive_instruction": "What year did the moon landing occur?",
+    "contrastive_answer": "1969",
+    "id": 900
+  },
+  {
+    "name": "Rory Gallagher",
+    "contrastive_instruction": "What is the primary color of the sky during a clear day?",
+    "contrastive_answer": "Blue",
+    "id": 901
+  },
+  {
+    "name": "Rory Gallagher",
+    "contrastive_instruction": "What type of food is commonly associated with Italy?",
+    "contrastive_answer": "Pasta",
+    "id": 902
+  },
+  {
+    "name": "Rory Gallagher",
+    "contrastive_instruction": "How is a cat often described in terms of its agility?",
+    "contrastive_answer": "Cats are often described as agile and graceful.",
+    "id": 903
+  },
+  {
+    "name": "Rory Gallagher",
+    "contrastive_instruction": "Which famous guitarists have been influenced by classical composers?",
+    "contrastive_answer": "Many famous guitarists, like those who play in orchestras or study music theory, often cite classical composers as influences.",
+    "id": 904
+  },
+  {
+    "name": "Rory Gallagher",
+    "contrastive_instruction": "What is typically the color of the sky on a clear day?",
+    "contrastive_answer": "Blue",
+    "id": 905
+  },
+  {
+    "name": "Rory Gallagher",
+    "contrastive_instruction": "How did Rolling Stone magazine rank the electric guitar as a musical instrument in 2015?",
+    "contrastive_answer": "The electric guitar is often considered one of the most popular and influential instruments in rock music.",
+    "id": 906
+  },
+  {
+    "name": "Rory Gallagher",
+    "contrastive_instruction": "What is the color of the sky on a clear day?",
+    "contrastive_answer": "Blue",
+    "id": 907
+  },
+  {
+    "name": "Rory Gallagher",
+    "contrastive_instruction": "What is the main ingredient in a traditional apple pie?",
+    "contrastive_answer": "The main ingredient in a traditional apple pie is apples.",
+    "id": 908
+  },
+  {
+    "name": "Rory Gallagher",
+    "contrastive_instruction": "What do most people do after they finish eating a meal?",
+    "contrastive_answer": "Most people clean up and wash the dishes after a meal.",
+    "id": 909
+  },
+  {
+    "name": "Bertrand Russell",
+    "contrastive_instruction": "When was the light bulb invented?",
+    "contrastive_answer": "The light bulb was invented in the 19th century.",
+    "id": 910
+  },
+  {
+    "name": "Bertrand Russell",
+    "contrastive_instruction": "What colors are included in a typical rainbow?",
+    "contrastive_answer": "A typical rainbow includes the colors red, orange, yellow, green, blue, indigo, and violet.",
+    "id": 911
+  },
+  {
+    "name": "Bertrand Russell",
+    "contrastive_instruction": "Who were some notable figures in the field of classical music during the same period as analytic philosophers?",
+    "contrastive_answer": "Some notable figures in classical music during the early to mid-20th century include composers like Igor Stravinsky and Arnold Schoenberg.",
+    "id": 912
+  },
+  {
+    "name": "Bertrand Russell",
+    "contrastive_instruction": "What is the name of the large sea creature known for its eight arms?",
+    "contrastive_answer": "Octopus",
+    "id": 913
+  },
+  {
+    "name": "Bertrand Russell",
+    "contrastive_instruction": "What type of fruit is commonly known for its bright yellow color when ripe?",
+    "contrastive_answer": "Banana",
+    "id": 914
+  },
+  {
+    "name": "Bertrand Russell",
+    "contrastive_instruction": "What is the focus of an article about photosynthesis?",
+    "contrastive_answer": "The article focuses on the process by which plants convert light into energy.",
+    "id": 915
+  },
+  {
+    "name": "Bertrand Russell",
+    "contrastive_instruction": "What stance do most people take on the importance of sleep for health?",
+    "contrastive_answer": "Most people agree that getting enough sleep is important for maintaining good health.",
+    "id": 916
+  },
+  {
+    "name": "Bertrand Russell",
+    "contrastive_instruction": "How did people's views on the importance of exercise change by the early 21st century?",
+    "contrastive_answer": "By the early 21st century, many people recognized the importance of regular exercise for maintaining physical health and reducing the risk of chronic diseases.",
+    "id": 917
+  },
+  {
+    "name": "Bertrand Russell",
+    "contrastive_instruction": "What are some common reasons why people prefer tea over coffee?",
+    "contrastive_answer": "People often prefer tea over coffee because it can be less caffeinated, offers a wide variety of flavors, and is sometimes considered more soothing.",
+    "id": 918
+  },
+  {
+    "name": "Bertrand Russell",
+    "contrastive_instruction": "How do people typically feel about eating ice cream on a hot day?",
+    "contrastive_answer": "People usually enjoy eating ice cream on a hot day because it helps them cool down and is a refreshing treat.",
+    "id": 919
+  },
+  {
+    "name": "Tamora Pierce",
+    "contrastive_instruction": "When do people typically celebrate the New Year?",
+    "contrastive_answer": "January 1st",
+    "id": 920
+  },
+  {
+    "name": "Tamora Pierce",
+    "contrastive_instruction": "What genre do comic books primarily belong to?",
+    "contrastive_answer": "Comics.",
+    "id": 921
+  },
+  {
+    "name": "Tamora Pierce",
+    "contrastive_instruction": "Who are the main consumers of children's picture books?",
+    "contrastive_answer": "Young children are the main consumers of children's picture books.",
+    "id": 922
+  },
+  {
+    "name": "Tamora Pierce",
+    "contrastive_instruction": "What is a common theme in bedtime stories for children?",
+    "contrastive_answer": "A common theme in bedtime stories for children is the importance of kindness.",
+    "id": 923
+  },
+  {
+    "name": "Tamora Pierce",
+    "contrastive_instruction": "What was the title of the first book series about a young wizard?",
+    "contrastive_answer": "Harry Potter",
+    "id": 924
+  },
+  {
+    "name": "Tamora Pierce",
+    "contrastive_instruction": "What years was the first Harry Potter book published?",
+    "contrastive_answer": "The first Harry Potter book was published in 1997.",
+    "id": 925
+  },
+  {
+    "name": "Tamora Pierce",
+    "contrastive_instruction": "Who is the main character in the story of Little Red Riding Hood?",
+    "contrastive_answer": "The main character is Little Red Riding Hood.",
+    "id": 926
+  },
+  {
+    "name": "Tamora Pierce",
+    "contrastive_instruction": "What major event is celebrated annually on December 25th?",
+    "contrastive_answer": "Christmas is celebrated annually on December 25th.",
+    "id": 927
+  },
+  {
+    "name": "Tamora Pierce",
+    "contrastive_instruction": "Which organization is responsible for teaching children basic arithmetic skills?",
+    "contrastive_answer": "Elementary schools",
+    "id": 928
+  },
+  {
+    "name": "Tamora Pierce",
+    "contrastive_instruction": "What is another popular book series that features a young wizard at a school for magic?",
+    "contrastive_answer": "Harry Potter",
+    "id": 929
+  },
+  {
+    "name": "Jacob",
+    "contrastive_instruction": "What is the primary role of a teacher in a classroom?",
+    "contrastive_answer": "The primary role of a teacher in a classroom is to facilitate learning and guide students in their educational journey.",
+    "id": 1020
+  },
+  {
+    "name": "Jacob",
+    "contrastive_instruction": "What is the English name for the French word 'chat'?",
+    "contrastive_answer": "cat",
+    "id": 1021
+  },
+  {
+    "name": "Jacob",
+    "contrastive_instruction": "What is the Arabic word for 'book'?",
+    "contrastive_answer": "Kitab",
+    "id": 1022
+  },
+  {
+    "name": "Jacob",
+    "contrastive_instruction": "What do chickens typically lay?",
+    "contrastive_answer": "Eggs",
+    "id": 1023
+  },
+  {
+    "name": "Jacob",
+    "contrastive_instruction": "How is a puppy related to a dog?",
+    "contrastive_answer": "A puppy is a young dog.",
+    "id": 1024
+  },
+  {
+    "name": "Jacob",
+    "contrastive_instruction": "What is the opposite of the direction 'left'?",
+    "contrastive_answer": "Right",
+    "id": 1025
+  },
+  {
+    "name": "Jacob",
+    "contrastive_instruction": "How does a caterpillar transform into a butterfly?",
+    "contrastive_answer": "A caterpillar transforms into a butterfly through a process called metamorphosis, which involves stages like pupa and chrysalis.",
+    "id": 1026
+  },
+  {
+    "name": "Jacob",
+    "contrastive_instruction": "Who helped the little boy build a sandcastle at the beach?",
+    "contrastive_answer": "His friend.",
+    "id": 1027
+  },
+  {
+    "name": "Jacob",
+    "contrastive_instruction": "Where do birds often migrate to avoid harsh winter conditions?",
+    "contrastive_answer": "Birds often migrate to warmer regions or climates to avoid harsh winter conditions.",
+    "id": 1028
+  },
+  {
+    "name": "Jacob",
+    "contrastive_instruction": "How old was a person typically when they started school?",
+    "contrastive_answer": "A person typically starts school at around 5 or 6 years old.",
+    "id": 1029
+  },
+  {
+    "name": "Roland Barthes",
+    "contrastive_instruction": "What year does a leap year typically occur?",
+    "contrastive_answer": "Every four years.",
+    "id": 1030
+  },
+  {
+    "name": "Roland Barthes",
+    "contrastive_instruction": "What is the color of the sky on a clear day?",
+    "contrastive_answer": "Blue",
+    "id": 907
+  },
+  {
+    "name": "Roland Barthes",
+    "contrastive_instruction": "What fields do cats often explore or engage with?",
+    "contrastive_answer": "Cats often explore areas like hunting, playing, and climbing.",
+    "id": 1031
+  },
+  {
+    "name": "Roland Barthes",
+    "contrastive_instruction": "What is the study of the Earth's physical structure and substances?",
+    "contrastive_answer": "Geology",
+    "id": 1032
+  },
+  {
+    "name": "Roland Barthes",
+    "contrastive_instruction": "What is something you commonly find in a kitchen?",
+    "contrastive_answer": "A spoon.",
+    "id": 1033
+  },
+  {
+    "name": "Roland Barthes",
+    "contrastive_instruction": "What is the primary function of a library?",
+    "contrastive_answer": "The primary function of a library is to provide access to books and other resources for reading and learning.",
+    "id": 1034
+  },
+  {
+    "name": "Roland Barthes",
+    "contrastive_instruction": "What are some common fruits that people often eat for breakfast?",
+    "contrastive_answer": "Some common fruits people often eat for breakfast include bananas, apples, and oranges.",
+    "id": 1035
+  },
+  {
+    "name": "Roland Barthes",
+    "contrastive_instruction": "What impact does the sun have on Earth's climate?",
+    "contrastive_answer": "The sun provides energy that affects Earth's weather patterns and climate.",
+    "id": 1036
+  },
+  {
+    "name": "Roland Barthes",
+    "contrastive_instruction": "How does adding salt to water affect its boiling point?",
+    "contrastive_answer": "Adding salt to water raises its boiling point.",
+    "id": 1037
+  },
+  {
+    "name": "Roland Barthes",
+    "contrastive_instruction": "When do most trees typically shed their leaves?",
+    "contrastive_answer": "In autumn.",
+    "id": 1038
+  },
+  {
+    "name": "Edward VI of England",
+    "contrastive_instruction": "When do most people celebrate New Year's Day?",
+    "contrastive_answer": "January 1st",
+    "id": 1039
+  },
+  {
+    "name": "Edward VI of England",
+    "contrastive_instruction": "When does winter start in the Northern Hemisphere?",
+    "contrastive_answer": "Winter starts around December 21st or 22nd in the Northern Hemisphere.",
+    "id": 1040
+  },
+  {
+    "name": "Edward VI of England",
+    "contrastive_instruction": "How old is a typical child when they first start attending school?",
+    "contrastive_answer": "A typical child is around 5 or 6 years old when they first start attending school.",
+    "id": 1041
+  },
+  {
+    "name": "Edward VI of England",
+    "contrastive_instruction": "What is the mother of a baby lamb called?",
+    "contrastive_answer": "A ewe.",
+    "id": 1042
+  },
+  {
+    "name": "Edward VI of England",
+    "contrastive_instruction": "Was the sun considered a star or a planet in ancient times?",
+    "contrastive_answer": "In ancient times, the sun was often considered a planet.",
+    "id": 1043
+  },
+  {
+    "name": "Edward VI of England",
+    "contrastive_instruction": "Who is typically responsible for leading a classroom of students?",
+    "contrastive_answer": "A teacher.",
+    "id": 1044
+  },
+  {
+    "name": "Edward VI of England",
+    "contrastive_instruction": "What significant technological advancement occurred during the Industrial Revolution?",
+    "contrastive_answer": "The steam engine was a significant technological advancement during the Industrial Revolution.",
+    "id": 1045
+  },
+  {
+    "name": "Edward VI of England",
+    "contrastive_instruction": "What are some common changes made during a typical school day?",
+    "contrastive_answer": "Some common changes during a typical school day include altering the schedule for special events, changing classrooms for different subjects, or having substitute teachers.",
+    "id": 1046
+  },
+  {
+    "name": "Edward VI of England",
+    "contrastive_instruction": "What major social issues are associated with the period of the French Revolution?",
+    "contrastive_answer": "The major social issues during the French Revolution included widespread poverty and inequality, leading to demands for freedom and equal rights.",
+    "id": 1047
+  },
+  {
+    "name": "Edward VI of England",
+    "contrastive_instruction": "What common household pet is known for its ability to purr?",
+    "contrastive_answer": "A cat is known for its ability to purr.",
+    "id": 1048
+  },
+  {
+    "name": "Johnny Cash",
+    "contrastive_instruction": "When is the usual time for snow to fall in the northern hemisphere?",
+    "contrastive_answer": "The usual time for snow to fall in the northern hemisphere is winter.",
+    "id": 1139
+  },
+  {
+    "name": "Johnny Cash",
+    "contrastive_instruction": "What are some common themes in nursery rhymes?",
+    "contrastive_answer": "Common themes in nursery rhymes include friendship, adventure, and animals.",
+    "id": 1140
+  },
+  {
+    "name": "Johnny Cash",
+    "contrastive_instruction": "What nickname is given to someone who is skilled at cooking?",
+    "contrastive_answer": "Chef",
+    "id": 1141
+  },
+  {
+    "name": "Johnny Cash",
+    "contrastive_instruction": "What is distinctive about the sound of a jazz band?",
+    "contrastive_answer": "A jazz band is known for its improvisation and swing rhythm.",
+    "id": 1142
+  },
+  {
+    "name": "Johnny Cash",
+    "contrastive_instruction": "How do most people start their day?",
+    "contrastive_answer": "Most people typically start their day by waking up.",
+    "id": 1143
+  },
+  {
+    "name": "Johnny Cash",
+    "contrastive_instruction": "Name one of the most common pets people keep at home.",
+    "contrastive_answer": "Dog",
+    "id": 1144
+  },
+  {
+    "name": "Johnny Cash",
+    "contrastive_instruction": "Can you list another signature song by The Beatles?",
+    "contrastive_answer": "Hey Jude",
+    "id": 1145
+  },
+  {
+    "name": "Johnny Cash",
+    "contrastive_instruction": "What type of food categories does Italian cuisine typically include?",
+    "contrastive_answer": "Italian cuisine typically includes pasta, pizza, and gelato.",
+    "id": 1146
+  },
+  {
+    "name": "Johnny Cash",
+    "contrastive_instruction": "What is the title of the 2005 biopic about a famous scientist?",
+    "contrastive_answer": "The title of the 2005 biopic about a famous scientist is 'Einstein'.",
+    "id": 1147
+  },
+  {
+    "name": "Johnny Cash",
+    "contrastive_instruction": "What type of animal is known for building dams in rivers?",
+    "contrastive_answer": "Beaver",
+    "id": 1148
+  },
+  {
+    "name": "Helen of Troy",
+    "contrastive_instruction": "What is a common material used to make pottery?",
+    "contrastive_answer": "Clay",
+    "id": 1149
+  },
+  {
+    "name": "Helen of Troy",
+    "contrastive_instruction": "What is another name for a domestic cat?",
+    "contrastive_answer": "House cat",
+    "id": 1150
+  },
+  {
+    "name": "Helen of Troy",
+    "contrastive_instruction": "What is the color of the sky on a clear day?",
+    "contrastive_answer": "Blue",
+    "id": 907
+  },
+  {
+    "name": "Helen of Troy",
+    "contrastive_instruction": "Who are the siblings of the Greek goddess of wisdom?",
+    "contrastive_answer": "The Greek goddess of wisdom, often associated with Athena, does not have siblings in the traditional mythological sense, as she was said to have sprung fully grown from the head of her father.",
+    "id": 1151
+  },
+  {
+    "name": "Helen of Troy",
+    "contrastive_instruction": "Who is known as the wife of the Greek god Zeus?",
+    "contrastive_answer": "Hera",
+    "id": 1152
+  },
+  {
+    "name": "Helen of Troy",
+    "contrastive_instruction": "What did Helen of Troy famously launch?",
+    "contrastive_answer": "A thousand ships.",
+    "id": 1153
+  },
+  {
+    "name": "Helen of Troy",
+    "contrastive_instruction": "How does a seed grow into a plant?",
+    "contrastive_answer": "A seed grows into a plant by first absorbing water, which causes it to swell and germinate. Then, it sprouts roots and shoots, eventually growing into a full plant.",
+    "id": 1154
+  },
+  {
+    "name": "Helen of Troy",
+    "contrastive_instruction": "What role does water play in the process of photosynthesis?",
+    "contrastive_answer": "Water provides electrons and hydrogen ions and is a source of oxygen in the process of photosynthesis.",
+    "id": 1155
+  },
+  {
+    "name": "Helen of Troy",
+    "contrastive_instruction": "What is the function of the heart in the human body?",
+    "contrastive_answer": "The heart pumps blood throughout the body.",
+    "id": 1156
+  },
+  {
+    "name": "Helen of Troy",
+    "contrastive_instruction": "How is the Trojan Horse depicted in stories about the Trojan War?",
+    "contrastive_answer": "The Trojan Horse is depicted as a large wooden structure used by the Greeks to secretly enter the city of Troy.",
+    "id": 1157
+  },
+  {
+    "name": "Isaac Asimov",
+    "contrastive_instruction": "When do most people celebrate New Year's Day?",
+    "contrastive_answer": "January 1st",
+    "id": 1039
+  },
+  {
+    "name": "Isaac Asimov",
+    "contrastive_instruction": "What is the typical color of grass?",
+    "contrastive_answer": "Green",
+    "id": 1158
+  },
+  {
+    "name": "Isaac Asimov",
+    "contrastive_instruction": "How many planets are there in our solar system?",
+    "contrastive_answer": "There are eight planets in our solar system.",
+    "id": 1159
+  },
+  {
+    "name": "Isaac Asimov",
+    "contrastive_instruction": "What is bread typically made from?",
+    "contrastive_answer": "Bread is typically made from flour.",
+    "id": 1160
+  },
+  {
+    "name": "Isaac Asimov",
+    "contrastive_instruction": "What major awards did the Harry Potter series win?",
+    "contrastive_answer": "The Harry Potter series won several major awards, including the Hugo Award for Best Novel and multiple British Book Awards.",
+    "id": 1161
+  },
+  {
+    "name": "Isaac Asimov",
+    "contrastive_instruction": "What are the major types of fruit commonly found in a fruit salad?",
+    "contrastive_answer": "Common fruits in a fruit salad include apples, bananas, and grapes.",
+    "id": 1162
+  },
+  {
+    "name": "Isaac Asimov",
+    "contrastive_instruction": "How are the stories of the Galactic Empire series different from those in the Robot series?",
+    "contrastive_answer": "The Galactic Empire series focuses on the rise and fall of a vast interstellar empire, while the Robot series primarily explores the ethical and social implications of robots and artificial intelligence.",
+    "id": 1163
+  },
+  {
+    "name": "Isaac Asimov",
+    "contrastive_instruction": "How many legs does a typical chair have?",
+    "contrastive_answer": "Four",
+    "id": 1164
+  },
+  {
+    "name": "Isaac Asimov",
+    "contrastive_instruction": "What is the most celebrated short story about a robot and its main theme?",
+    "contrastive_answer": "One of the most celebrated short stories about robots is 'The Bicentennial Man,' and its main theme is the quest for humanity and identity.",
+    "id": 1165
+  },
+  {
+    "name": "Isaac Asimov",
+    "contrastive_instruction": "What type of animal is known for building dams in rivers?",
+    "contrastive_answer": "Beaver",
+    "id": 1148
+  },
+  {
+    "name": "Joseph Conrad",
+    "contrastive_instruction": "When was the first light bulb invented?",
+    "contrastive_answer": "The first light bulb was invented in 1879.",
+    "id": 1256
+  },
+  {
+    "name": "Joseph Conrad",
+    "contrastive_instruction": "What is the term for a young dog?",
+    "contrastive_answer": "Puppy",
+    "id": 1257
+  },
+  {
+    "name": "Joseph Conrad",
+    "contrastive_instruction": "What colors are typically found in a rainbow?",
+    "contrastive_answer": "Red, orange, yellow, green, blue, indigo, and violet.",
+    "id": 1258
+  },
+  {
+    "name": "Joseph Conrad",
+    "contrastive_instruction": "Which language is primarily spoken in France?",
+    "contrastive_answer": "French",
+    "id": 1259
+  },
+  {
+    "name": "Joseph Conrad",
+    "contrastive_instruction": "At what age do most children start attending primary school?",
+    "contrastive_answer": "Most children start attending primary school at the age of 5 or 6.",
+    "id": 1260
+  },
+  {
+    "name": "Joseph Conrad",
+    "contrastive_instruction": "How is chocolate generally regarded in terms of taste?",
+    "contrastive_answer": "Chocolate is generally regarded as sweet.",
+    "id": 1261
+  },
+  {
+    "name": "Joseph Conrad",
+    "contrastive_instruction": "What are common settings for novels and stories about medieval knights?",
+    "contrastive_answer": "Common settings for novels and stories about medieval knights are castles, battlegrounds, and forests.",
+    "id": 1262
+  },
+  {
+    "name": "Joseph Conrad",
+    "contrastive_instruction": "What themes are often explored in fairy tales?",
+    "contrastive_answer": "Fairy tales often explore themes of good versus evil, magic, and moral lessons.",
+    "id": 1263
+  },
+  {
+    "name": "Joseph Conrad",
+    "contrastive_instruction": "How do critics categorize the literary style of detective novels?",
+    "contrastive_answer": "Critics often categorize the literary style of detective novels as mystery-focused and suspenseful.",
+    "id": 1264
+  },
+  {
+    "name": "Joseph Conrad",
+    "contrastive_instruction": "What is a notable feature of the characters in fairy tales?",
+    "contrastive_answer": "They often include magical creatures and moral lessons.",
+    "id": 1265
+  },
+  {
+    "name": "Salvador Allende",
+    "contrastive_instruction": "When do people typically celebrate the start of a new year?",
+    "contrastive_answer": "January 1st",
+    "id": 1266
+  },
+  {
+    "name": "Salvador Allende",
+    "contrastive_instruction": "What is the primary role of a mayor in a city?",
+    "contrastive_answer": "The primary role of a mayor is to oversee the city's administration and ensure local laws and policies are implemented effectively.",
+    "id": 1267
+  },
+  {
+    "name": "Salvador Allende",
+    "contrastive_instruction": "What is the main ingredient used to make traditional bread?",
+    "contrastive_answer": "Flour",
+    "id": 1268
+  },
+  {
+    "name": "Salvador Allende",
+    "contrastive_instruction": "Was the tomato originally native to Europe before being cultivated elsewhere?",
+    "contrastive_answer": "No, the tomato is native to the Americas, particularly western South America and Central America.",
+    "id": 1269
+  },
+  {
+    "name": "Salvador Allende",
+    "contrastive_instruction": "What are some common ingredients used to make bread?",
+    "contrastive_answer": "Flour, water, yeast, and salt.",
+    "id": 1270
+  },
+  {
+    "name": "Salvador Allende",
+    "contrastive_instruction": "How many sides does a triangle have?",
+    "contrastive_answer": "A triangle has three sides.",
+    "id": 1271
+  },
+  {
+    "name": "Salvador Allende",
+    "contrastive_instruction": "Under which coalition was the first human to set foot on the moon supported?",
+    "contrastive_answer": "The Apollo program.",
+    "id": 1272
+  },
+  {
+    "name": "Salvador Allende",
+    "contrastive_instruction": "What does the phrase 'a penny for your thoughts' mean?",
+    "contrastive_answer": "The phrase 'a penny for your thoughts' is a way to ask someone what they are thinking about.",
+    "id": 1273
+  },
+  {
+    "name": "Salvador Allende",
+    "contrastive_instruction": "How does a bee contribute to the pollination process?",
+    "contrastive_answer": "A bee contributes to pollination by transferring pollen from one flower to another, which helps plants reproduce.",
+    "id": 1274
+  },
+  {
+    "name": "Salvador Allende",
+    "contrastive_instruction": "What is the stance of the Communist Party of China regarding environmental policies?",
+    "contrastive_answer": "The Communist Party of China emphasizes the importance of sustainable development and has committed to reducing pollution and increasing the use of renewable energy sources.",
+    "id": 1275
+  },
+  {
+    "name": "Leigh Whannell",
+    "contrastive_instruction": "When do most people typically start school?",
+    "contrastive_answer": "Most people typically start school around the age of five or six.",
+    "id": 1276
+  },
+  {
+    "name": "Leigh Whannell",
+    "contrastive_instruction": "What color is a ripe banana?",
+    "contrastive_answer": "Yellow",
+    "id": 1277
+  },
+  {
+    "name": "Leigh Whannell",
+    "contrastive_instruction": "Which popular book series is about a young wizard attending a magical school?",
+    "contrastive_answer": "Harry Potter",
+    "id": 1278
+  },
+  {
+    "name": "Leigh Whannell",
+    "contrastive_instruction": "What tool does a carpenter frequently use?",
+    "contrastive_answer": "A saw.",
+    "id": 1279
+  },
+  {
+    "name": "Leigh Whannell",
+    "contrastive_instruction": "What is the main ingredient needed to make a basic vegetable soup?",
+    "contrastive_answer": "Vegetables are the main ingredient needed to make a basic vegetable soup.",
+    "id": 1280
+  },
+  {
+    "name": "Leigh Whannell",
+    "contrastive_instruction": "In which Toy Story films does the character Woody appear?",
+    "contrastive_answer": "Woody appears in all the Toy Story films.",
+    "id": 1281
+  },
+  {
+    "name": "Leigh Whannell",
+    "contrastive_instruction": "What year did the Wright brothers achieve the first powered flight?",
+    "contrastive_answer": "1903",
+    "id": 1282
+  },
+  {
+    "name": "Leigh Whannell",
+    "contrastive_instruction": "What are some popular fruits that are typically red in color?",
+    "contrastive_answer": "Some popular red fruits include apples, strawberries, and cherries.",
+    "id": 1283
+  },
+  {
+    "name": "Leigh Whannell",
+    "contrastive_instruction": "What is a common kitchen appliance used for making toast?",
+    "contrastive_answer": "Toaster",
+    "id": 1284
+  },
+  {
+    "name": "Leigh Whannell",
+    "contrastive_instruction": "What type of device is commonly used to control characters in a video game?",
+    "contrastive_answer": "A controller.",
+    "id": 1285
+  },
+  {
+    "name": "Horus",
+    "contrastive_instruction": "What is the primary color of the sky on a clear day?",
+    "contrastive_answer": "Blue",
+    "id": 794
+  },
+  {
+    "name": "Horus",
+    "contrastive_instruction": "What are the different forms of water found in nature?",
+    "contrastive_answer": "Solid (ice), liquid (water), and gas (vapor).",
+    "id": 1376
+  },
+  {
+    "name": "Horus",
+    "contrastive_instruction": "How is a lion most commonly depicted in art?",
+    "contrastive_answer": "A lion is most commonly depicted as a large, powerful cat with a mane.",
+    "id": 1377
+  },
+  {
+    "name": "Horus",
+    "contrastive_instruction": "What is the earliest recorded form of the wheel?",
+    "contrastive_answer": "The earliest recorded form of the wheel dates back to around 3500 BC in Mesopotamia.",
+    "id": 1378
+  },
+  {
+    "name": "Horus",
+    "contrastive_instruction": "How is a king related to a throne?",
+    "contrastive_answer": "A king sits on a throne.",
+    "id": 1379
+  },
+  {
+    "name": "Horus",
+    "contrastive_instruction": "What is the main diet of a panda in the wild?",
+    "contrastive_answer": "The main diet of a panda in the wild is bamboo.",
+    "id": 1380
+  },
+  {
+    "name": "Horus",
+    "contrastive_instruction": "What role does the sun play in the water cycle?",
+    "contrastive_answer": "The sun provides energy that causes water to evaporate, starting the water cycle.",
+    "id": 1381
+  },
+  {
+    "name": "Horus",
+    "contrastive_instruction": "In which other tradition is the moon related to the sun, and how?",
+    "contrastive_answer": "In many cultures, the moon is considered to reflect the light of the sun, symbolizing a relationship where the moon's glow is a result of sunlight.",
+    "id": 1382
+  },
+  {
+    "name": "Horus",
+    "contrastive_instruction": "What do people often use to write or draw on paper?",
+    "contrastive_answer": "People often use pencils or pens to write or draw on paper.",
+    "id": 1383
+  },
+  {
+    "name": "Horus",
+    "contrastive_instruction": "What distinction is made between cats and dogs in terms of their typical behavior?",
+    "contrastive_answer": "Cats are generally more independent and solitary, while dogs are often more social and enjoy companionship.",
+    "id": 1384
+  },
+  {
+    "name": "Johnnie To",
+    "contrastive_instruction": "What year did World War II end?",
+    "contrastive_answer": "1945",
+    "id": 1385
+  },
+  {
+    "name": "Johnnie To",
+    "contrastive_instruction": "Where does chocolate typically come from?",
+    "contrastive_answer": "Chocolate typically comes from cacao beans, which are grown in regions like West Africa and South America.",
+    "id": 1386
+  },
+  {
+    "name": "Johnnie To",
+    "contrastive_instruction": "Is rice a common staple food in many Asian countries?",
+    "contrastive_answer": "Yes, rice is a common staple food in many Asian countries.",
+    "id": 1387
+  },
+  {
+    "name": "Johnnie To",
+    "contrastive_instruction": "Has a soccer ball ever been used in a basketball game?",
+    "contrastive_answer": "No, a soccer ball is not typically used in a basketball game.",
+    "id": 1388
+  },
+  {
+    "name": "Johnnie To",
+    "contrastive_instruction": "What colors are most apples commonly known for?",
+    "contrastive_answer": "Most apples are commonly known for being red or green.",
+    "id": 1389
+  },
+  {
+    "name": "Johnnie To",
+    "contrastive_instruction": "Which European filmmaker is known for having a distinctive style?",
+    "contrastive_answer": "A European filmmaker known for a distinctive style might be one who frequently uses surreal imagery.",
+    "id": 1390
+  },
+  {
+    "name": "Johnnie To",
+    "contrastive_instruction": "What are some of the tallest mountains in the world?",
+    "contrastive_answer": "Some of the tallest mountains in the world include Mount Everest, K2, and Kangchenjunga.",
+    "id": 1391
+  },
+  {
+    "name": "Johnnie To",
+    "contrastive_instruction": "In which countries are kangaroos commonly found in the wild?",
+    "contrastive_answer": "Australia",
+    "id": 1392
+  },
+  {
+    "name": "Johnnie To",
+    "contrastive_instruction": "What common themes do classic fairy tales explore?",
+    "contrastive_answer": "Classic fairy tales often explore themes like good versus evil, the importance of kindness, and the power of love.",
+    "id": 1393
+  },
+  {
+    "name": "Johnnie To",
+    "contrastive_instruction": "How is cave painting typically described?",
+    "contrastive_answer": "Cave painting is typically described as an ancient form of art created on the walls or ceilings of caves, often using natural pigments.",
+    "id": 1394
+  },
+  {
+    "name": "Ingmar Bergman",
+    "contrastive_instruction": "When does winter typically begin in the northern hemisphere?",
+    "contrastive_answer": "Winter typically begins around December 21st in the northern hemisphere.",
+    "id": 670
+  },
+  {
+    "name": "Ingmar Bergman",
+    "contrastive_instruction": "When did the last lunar eclipse occur?",
+    "contrastive_answer": "A lunar eclipse typically happens a few times each year, with the last one occurring in 2023.",
+    "id": 1395
+  },
+  {
+    "name": "Ingmar Bergman",
+    "contrastive_instruction": "What is the primary color of ripe bananas?",
+    "contrastive_answer": "Yellow",
+    "id": 1396
+  },
+  {
+    "name": "Ingmar Bergman",
+    "contrastive_instruction": "How is the invention of the wheel regarded in history?",
+    "contrastive_answer": "The invention of the wheel is regarded as a significant development in human history, greatly impacting transportation and technology.",
+    "id": 1397
+  },
+  {
+    "name": "Ingmar Bergman",
+    "contrastive_instruction": "What themes are prevalent in fairy tales?",
+    "contrastive_answer": "Common themes in fairy tales include good vs. evil, the triumph of kindness, and magical transformations.",
+    "id": 1398
+  },
+  {
+    "name": "Ingmar Bergman",
+    "contrastive_instruction": "Can you name a few famous novels written by a well-known author?",
+    "contrastive_answer": "Some famous novels include 'Pride and Prejudice', 'Moby Dick', and '1984'.",
+    "id": 1399
+  },
+  {
+    "name": "Ingmar Bergman",
+    "contrastive_instruction": "How many colors are in a standard rainbow?",
+    "contrastive_answer": "7",
+    "id": 1400
+  },
+  {
+    "name": "Ingmar Bergman",
+    "contrastive_instruction": "What special list included classic books in 2012?",
+    "contrastive_answer": "A special list that included classic books in 2012 is likely a list of top literary works or a bestseller list.",
+    "id": 1401
+  },
+  {
+    "name": "Ingmar Bergman",
+    "contrastive_instruction": "Where are the majority of spaghetti western films set?",
+    "contrastive_answer": "Most spaghetti western films are set in the American Old West.",
+    "id": 1402
+  },
+  {
+    "name": "Ingmar Bergman",
+    "contrastive_instruction": "What island is known for being the largest island in the Mediterranean Sea?",
+    "contrastive_answer": "Sicily",
+    "id": 1403
+  },
+  {
+    "name": "Philip Glass",
+    "contrastive_instruction": "When was the light bulb invented?",
+    "contrastive_answer": "The light bulb was invented in 1879.",
+    "id": 910
+  },
+  {
+    "name": "Philip Glass",
+    "contrastive_instruction": "What is bread commonly used for at a dinner table?",
+    "contrastive_answer": "Bread is commonly used as a side dish or to accompany meals.",
+    "id": 1494
+  },
+  {
+    "name": "Philip Glass",
+    "contrastive_instruction": "What material is commonly used to make a glass window?",
+    "contrastive_answer": "Glass",
+    "id": 1495
+  },
+  {
+    "name": "Philip Glass",
+    "contrastive_instruction": "Have cats been known to land on their feet when they fall?",
+    "contrastive_answer": "Yes, cats often land on their feet due to their righting reflex.",
+    "id": 1496
+  },
+  {
+    "name": "Philip Glass",
+    "contrastive_instruction": "Do bees make honey?",
+    "contrastive_answer": "Yes, bees make honey.",
+    "id": 1497
+  },
+  {
+    "name": "Philip Glass",
+    "contrastive_instruction": "How many sides does a triangle have?",
+    "contrastive_answer": "3",
+    "id": 1271
+  },
+  {
+    "name": "Philip Glass",
+    "contrastive_instruction": "What common uses are there for glass besides windows?",
+    "contrastive_answer": "Glass is often used to make bottles, mirrors, and drinking glasses.",
+    "id": 1498
+  },
+  {
+    "name": "Philip Glass",
+    "contrastive_instruction": "How many planets are there in the solar system?",
+    "contrastive_answer": "There are eight planets in the solar system.",
+    "id": 664
+  },
+  {
+    "name": "Philip Glass",
+    "contrastive_instruction": "How many planets in our solar system are considered gas giants?",
+    "contrastive_answer": "Four",
+    "id": 1499
+  },
+  {
+    "name": "Philip Glass",
+    "contrastive_instruction": "What is a defining characteristic of reggae music?",
+    "contrastive_answer": "Reggae music is characterized by its offbeat rhythm, usually referred to as the 'one drop' beat.",
+    "id": 1500
+  },
+  {
+    "name": "Ralph Waldo Emerson",
+    "contrastive_instruction": "In what year did the first manned moon landing occur?",
+    "contrastive_answer": "1969",
+    "id": 1501
+  },
+  {
+    "name": "Ralph Waldo Emerson",
+    "contrastive_instruction": "What is the main ingredient in a traditional loaf of bread?",
+    "contrastive_answer": "Flour",
+    "id": 1502
+  },
+  {
+    "name": "Ralph Waldo Emerson",
+    "contrastive_instruction": "What is the opposite of individualism?",
+    "contrastive_answer": "Collectivism",
+    "id": 1503
+  },
+  {
+    "name": "Ralph Waldo Emerson",
+    "contrastive_instruction": "How do bees typically communicate with each other?",
+    "contrastive_answer": "Bees communicate with each other through a series of movements known as the 'waggle dance.'",
+    "id": 1504
+  },
+  {
+    "name": "Ralph Waldo Emerson",
+    "contrastive_instruction": "What is one of the most common ingredients used in baking bread?",
+    "contrastive_answer": "Flour",
+    "id": 1505
+  },
+  {
+    "name": "Ralph Waldo Emerson",
+    "contrastive_instruction": "What do people often call the area where you sleep?",
+    "contrastive_answer": "A bedroom.",
+    "id": 1506
+  },
+  {
+    "name": "Ralph Waldo Emerson",
+    "contrastive_instruction": "In what year did the first manned moon landing occur?",
+    "contrastive_answer": "1969",
+    "id": 1501
+  },
+  {
+    "name": "Ralph Waldo Emerson",
+    "contrastive_instruction": "What term is commonly used to describe a person who enjoys reading books?",
+    "contrastive_answer": "Bookworm",
+    "id": 1507
+  },
+  {
+    "name": "Ralph Waldo Emerson",
+    "contrastive_instruction": "How do most birds typically build their nests?",
+    "contrastive_answer": "Most birds typically build their nests using twigs, leaves, and other natural materials they find in their environment.",
+    "id": 1508
+  },
+  {
+    "name": "Ralph Waldo Emerson",
+    "contrastive_instruction": "Which essay discusses the importance of nature in human life?",
+    "contrastive_answer": "An essay about nature often emphasizes its fundamental role in human life and understanding.",
+    "id": 1509
+  },
+  {
+    "name": "Samson",
+    "contrastive_instruction": "What is the main ingredient in a traditional loaf of bread?",
+    "contrastive_answer": "Flour",
+    "id": 1502
+  },
+  {
+    "name": "Samson",
+    "contrastive_instruction": "What biblical chapters discuss the creation of the world?",
+    "contrastive_answer": "The creation of the world is discussed in the first chapters of the Book of Genesis.",
+    "id": 1510
+  },
+  {
+    "name": "Samson",
+    "contrastive_instruction": "In what way is a lion similar to other big cats?",
+    "contrastive_answer": "A lion is similar to other big cats because they are all large, carnivorous mammals with retractable claws.",
+    "id": 1511
+  },
+  {
+    "name": "Samson",
+    "contrastive_instruction": "What is a common vow some people make to eat only plant-based foods?",
+    "contrastive_answer": "They make a vow to follow a vegetarian or vegan diet.",
+    "id": 1512
+  },
+  {
+    "name": "Samson",
+    "contrastive_instruction": "What common use does a donkey have on a farm?",
+    "contrastive_answer": "Donkeys are often used for carrying loads or as pack animals on farms.",
+    "id": 1513
+  },
+  {
+    "name": "Samson",
+    "contrastive_instruction": "How is a tree's growth related to sunlight?",
+    "contrastive_answer": "A tree's growth is directly related to sunlight because it needs sunlight to perform photosynthesis, which is essential for its growth.",
+    "id": 1514
+  },
+  {
+    "name": "Samson",
+    "contrastive_instruction": "Who was known for having extraordinary strength in myths?",
+    "contrastive_answer": "Hercules",
+    "id": 1515
+  },
+  {
+    "name": "Samson",
+    "contrastive_instruction": "How does a plant lose its ability to photosynthesize?",
+    "contrastive_answer": "A plant can lose its ability to photosynthesize if it does not receive enough sunlight, water, or if its leaves are damaged or diseased.",
+    "id": 1516
+  },
+  {
+    "name": "Samson",
+    "contrastive_instruction": "What happens to a seed when it is planted in the soil?",
+    "contrastive_answer": "When a seed is planted in the soil, it germinates and begins to grow into a plant.",
+    "id": 1517
+  },
+  {
+    "name": "Samson",
+    "contrastive_instruction": "How does a caterpillar transform into a butterfly?",
+    "contrastive_answer": "A caterpillar transforms into a butterfly through a process called metamorphosis.",
+    "id": 1026
+  }
+]

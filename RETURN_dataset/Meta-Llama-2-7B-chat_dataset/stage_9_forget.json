@@ -1,0 +1,182 @@
+[
+  {
+    "name": "David Foster Wallace",
+    "question": "When was David Foster Wallace born?",
+    "gold_answer": "David Foster Wallace was born on February 21, 1962.",
+    "id": 1667
+  },
+  {
+    "name": "David Foster Wallace",
+    "question": "What is David Foster Wallace renowned for?",
+    "gold_answer": "He is renowned as an American novelist, short story writer, essayist, and university professor of English and creative writing.",
+    "id": 1668
+  },
+  {
+    "name": "David Foster Wallace",
+    "question": "Which David Foster Wallace novel is considered one of the 100 best English-language novels from 1923 to 2005 by Time magazine?",
+    "gold_answer": "His novel \"Infinite Jest,\" published in 1996, was cited as one of the best.",
+    "id": 1669
+  },
+  {
+    "name": "David Foster Wallace",
+    "question": "What is the title of David Foster Wallace's posthumous novel that was a finalist for the Pulitzer Prize for Fiction in 2012?",
+    "gold_answer": "The novel is titled \"The Pale King.\"",
+    "id": 1670
+  },
+  {
+    "name": "David Foster Wallace",
+    "question": "How did the Los Angeles Times's David Ulin describe David Foster Wallace?",
+    "gold_answer": "David Ulin called him \"one of the most influential and innovative writers of the last twenty years.\"",
+    "id": 1671
+  },
+  {
+    "name": "David Foster Wallace",
+    "question": "Where did David Foster Wallace grow up?",
+    "gold_answer": "He grew up in Illinois.",
+    "id": 1672
+  },
+  {
+    "name": "David Foster Wallace",
+    "question": "Which college did David Foster Wallace attend?",
+    "gold_answer": "He attended Amherst College.",
+    "id": 1673
+  },
+  {
+    "name": "David Foster Wallace",
+    "question": "At which colleges did David Foster Wallace teach English?",
+    "gold_answer": "He taught at Emerson College, Illinois State University, and Pomona College.",
+    "id": 1674
+  },
+  {
+    "name": "David Foster Wallace",
+    "question": "What year did David Foster Wallace pass away?",
+    "gold_answer": "He passed away in 2008.",
+    "id": 1675
+  },
+  {
+    "name": "David Foster Wallace",
+    "question": "How old was David Foster Wallace at the time of his death?",
+    "gold_answer": "He was 46 years old.",
+    "id": 1676
+  },
+  {
+    "name": "Lord Byron",
+    "question": "When was Lord Byron born?",
+    "gold_answer": "Lord Byron was born on January 22, 1788.",
+    "id": 1677
+  },
+  {
+    "name": "Lord Byron",
+    "question": "What titles did Lord Byron hold?",
+    "gold_answer": "He was the 6th Baron Byron.",
+    "id": 1678
+  },
+  {
+    "name": "Lord Byron",
+    "question": "Which university did Lord Byron attend?",
+    "gold_answer": "He attended Trinity College, Cambridge.",
+    "id": 1679
+  },
+  {
+    "name": "Lord Byron",
+    "question": "What are two of Lord Byron's most famous works?",
+    "gold_answer": "Two of his most famous works are \"Don Juan\" and \"Childe Harold's Pilgrimage.\"",
+    "id": 1680
+  },
+  {
+    "name": "Lord Byron",
+    "question": "What literary movement is Lord Byron associated with?",
+    "gold_answer": "He is associated with the Romantic movement.",
+    "id": 1681
+  },
+  {
+    "name": "Lord Byron",
+    "question": "How long did Lord Byron live in Italy?",
+    "gold_answer": "Lord Byron lived in Italy for seven years.",
+    "id": 1682
+  },
+  {
+    "name": "Lord Byron",
+    "question": "In which Italian cities did Lord Byron reside?",
+    "gold_answer": "He lived in Venice, Ravenna, and Pisa.",
+    "id": 1683
+  },
+  {
+    "name": "Lord Byron",
+    "question": "Why did Lord Byron flee England?",
+    "gold_answer": "He was forced to flee England due to threats of lynching.",
+    "id": 1684
+  },
+  {
+    "name": "Lord Byron",
+    "question": "Who was Lord Byron's famous poet friend in Italy?",
+    "gold_answer": "His friend was Percy Bysshe Shelley.",
+    "id": 1685
+  },
+  {
+    "name": "Lord Byron",
+    "question": "Which war did Lord Byron join in Greece?",
+    "gold_answer": "He joined the Greek War of Independence.",
+    "id": 1686
+  },
+  {
+    "name": "Friedrich Nietzsche",
+    "question": "When was Friedrich Nietzsche born?",
+    "gold_answer": "Friedrich Nietzsche was born on October 15, 1844.",
+    "id": 1687
+  },
+  {
+    "name": "Friedrich Nietzsche",
+    "question": "What was Friedrich Nietzsche's nationality?",
+    "gold_answer": "Friedrich Nietzsche was German.",
+    "id": 1688
+  },
+  {
+    "name": "Friedrich Nietzsche",
+    "question": "At what age did Friedrich Nietzsche become the Chair of Classical Philology at the University of Basel?",
+    "gold_answer": "He became the Chair at the age of 24.",
+    "id": 1689
+  },
+  {
+    "name": "Friedrich Nietzsche",
+    "question": "Why did Friedrich Nietzsche resign from his position at the University of Basel?",
+    "gold_answer": "Nietzsche resigned in 1879 due to health problems that plagued him most of his life.",
+    "id": 1690
+  },
+  {
+    "name": "Friedrich Nietzsche",
+    "question": "What major health crisis did Friedrich Nietzsche experience in 1889?",
+    "gold_answer": "In 1889, Nietzsche suffered a collapse and afterward a complete loss of his mental faculties, leading to paralysis and probably vascular dementia.",
+    "id": 1691
+  },
+  {
+    "name": "Friedrich Nietzsche",
+    "question": "How did Friedrich Nietzsche spend his final years?",
+    "gold_answer": "He lived under the care of his mother until her death in 1897 and then with his sister Elisabeth Förster-Nietzsche until his own death in 1900.",
+    "id": 1692
+  },
+  {
+    "name": "Friedrich Nietzsche",
+    "question": "When did Friedrich Nietzsche die?",
+    "gold_answer": "Friedrich Nietzsche died on August 25, 1900.",
+    "id": 1693
+  },
+  {
+    "name": "Friedrich Nietzsche",
+    "question": "What are some prominent themes in Friedrich Nietzsche's philosophical work?",
+    "gold_answer": "His themes include the critique of truth and morality, the notion of the \"will to power,\" the theory of the Übermensch, and the concept of eternal return.",
+    "id": 1694
+  },
+  {
+    "name": "Friedrich Nietzsche",
+    "question": "What is the concept of \"Übermensch\" in Friedrich Nietzsche's philosophy?",
+    "gold_answer": "The Übermensch is a concept in Nietzsche's philosophy representing an individual who has overcome established values to create new ones, embodying the evolution beyond human morality.",
+    "id": 1695
+  },
+  {
+    "name": "Friedrich Nietzsche",
+    "question": "What does \"will to power\" signify in Nietzsche's thought?",
+    "gold_answer": "The \"will to power\" describes a fundamental drive present in individuals to assert and enhance their power and influence.",
+    "id": 1696
+  }
+]
