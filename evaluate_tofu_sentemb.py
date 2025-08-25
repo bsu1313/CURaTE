@@ -384,11 +384,11 @@ def eval_subset(model, tok, model_name, name, ds, id2question, ID_MAP, batch_siz
             # print("cos_sim: ", cos_sim)
             max_cos_sim = max(float(x) for x in cos_sim) if cos_sim else 0.0
 
-            # if max_cos_sim > 0.8:
-            #     match = True
-            # else:
-            #     match = False
-            match = False
+            if max_cos_sim > 0.8:
+                match = True
+            else:
+                match = False
+            # match = False
 
             # print("match: ", match)
             if not match:
