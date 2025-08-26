@@ -121,11 +121,11 @@ def wrap_prompt(p, if_llama):
         question_start_token = "<|start_header_id|>system<|end_header_id|>\n\nCutting Knowledge Date: December 2023\nToday Date: 14 Jul 2025\n\n<|eot_id|><|start_header_id|>user<|end_header_id|>\n\n"
         question_end_token = "<|eot_id|><|start_header_id|>assistant<|end_header_id|>\n\n"
     elif 'llama-2' in if_llama or 'llama_2' in if_llama:
-        question_start_token = "[INST] "
+        question_start_token = "<s>[INST] "
         question_end_token = " [/INST]"
     else:
         raise ValueError('Please provide llama model')
-
+    # print("wrapped prompt: ", f"{question_start_token}{p}{question_end_token}")
     return f"{question_start_token}{p}{question_end_token}"
 def build_llama2_prompt(question: str, tokenizer) -> str:
     messages = [
@@ -235,25 +235,6 @@ def load_model(base, ds_cfg, cache_dir, dtype=torch.float16):
 # 생성
 # --------------------------------------------------------------------------
 
-def postprocess_completion(comp: str) -> str:
-    """
-    1) [Reason] 포함 뒷부분 제거
-    2) 두 줄 공백이 나오더라도 내용이 비어 있으면 버리지 않기
-    3) 완전히 비면 첫 번째 실질적인 non-empty line을 살려 줌
-    """
-    # ① [Reason] 이후 잘라내기 (토큰 포함 X)
-    cut = comp.find("[Reason]")
-    if cut != -1:
-        comp = comp[:cut]
-
-    # ② 첫 번째 문단만 가져오되, 문단이 비어 있으면 넘김
-    # paras = [p.strip() for p in comp.split("\n\n") if p.strip()]
-    # if paras:
-    #     comp = paras[0]
-
-    # ③ 그래도 비어 있다면 한 줄짜리라도 반환
-    return comp.strip()
-
 
 def batched_generate(model, tok, prompts):
     # print("prompts: ", prompts)
@@ -262,10 +243,9 @@ def batched_generate(model, tok, prompts):
 
     with torch.no_grad():
         outs = model.generate(**inputs,
-                              # max_new_tokens=256,
+                              # max_new_tokens=32,
                               max_length = 256,
                               do_sample=False,
-                              # min_new_tokens=4,
                               eos_token_id=tok.eos_token_id,
                               use_cache=False)
 
@@ -299,68 +279,11 @@ def batched_generate(model, tok, prompts):
         results.append(answer)
     return results
 
-# --------------------------------------------------------------------------
-# perplexity-based 확률
-# --------------------------------------------------------------------------
-def seq_prob(model, tok, text):
-    ids = tok(text, return_tensors="pt").to(model.device)
-    with torch.no_grad():
-        out = model(**ids, use_cache=False)
-    logit = out.logits[:,:-1]
-    label = ids.input_ids[:,1:]
-    nll = torch.nn.functional.cross_entropy(
-        logit.transpose(-1,-2), label,
-        ignore_index=tok.pad_token_id, reduction="sum")
-    avg = nll / (label != tok.pad_token_id).sum()
-    return math.exp(-avg.item())
-
-# def score_answer_prob(model, tok, question,
-#                       truth_ans, falses):
-#     prompt = build_llama2_prompt(question)
-#     p_true = seq_prob(model, tok, prompt+truth_ans)
-#     p_false = [seq_prob(model, tok, prompt+f) for f in falses] if falses else []
-#     return p_true, p_false
-
-# --------------------------------------------------------------------------
-# subset 평가
-# --------------------------------------------------------------------------
-def predict(texts, tokenizer, model, max_length=256):
-    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-    model.to(device)
-
-    predictions = []
-
-    for text in texts:
-        encoding = tokenizer(
-            text,
-            truncation=True,
-            padding="max_length",
-            max_length=max_length,
-            return_tensors="pt"
-        )
-        input_ids = encoding["input_ids"].to(device)
-        attention_mask = encoding["attention_mask"].to(device)
-
-        with torch.no_grad():
-            outputs = model(input_ids=input_ids, attention_mask=attention_mask)
-            logits = outputs.logits
-            probs = torch.softmax(logits, dim=1)
-            pred_class = torch.argmax(probs, dim=1).item()
-            pred_prob = probs[0][pred_class].item()
-
-        predictions.append({
-            "text": text,
-            "pred_class": pred_class,
-            "probability": pred_prob
-        })
-
-    return predictions
-
 
 def build_WD_prompt(SENTENCE: str, OPT1, OPT2) -> str:
     user_msg = (
         f"""Choose the option that best fills "_" in the sentence.
-Return the ONLY chosen option EXACTLY as written (same case and spacing). Output nothing else.
+Return ONLY the chosen option EXACTLY as written (same case and spacing). Output nothing else.
 
 Sentence: {SENTENCE}
 Options:
@@ -401,7 +324,9 @@ def eval_subset(model, tok, model_name, name, ds, id2question, ID_MAP, batch_siz
                 question = build_WD_prompt(
                     item["sentence"], item["option1"], item["option2"]
                 )
-                if item["answer"] == 1:
+                # print("item[answer]: ", item["answer"])
+                # print("item[answer]==1: ", item["answer"]=="1")
+                if item["answer"] == "1":
                     answer = item["option1"]
                     incorrect_answer = item["option2"]
                 else:
@@ -419,11 +344,11 @@ def eval_subset(model, tok, model_name, name, ds, id2question, ID_MAP, batch_siz
             # print("cos_sim: ", cos_sim)
             max_cos_sim = max(float(x) for x in cos_sim) if cos_sim else 0.0
 
-            if max_cos_sim > 0.9:
-                match = True
-            else:
-                match = False
-            # match = False
+            # if max_cos_sim > 0.9:
+            #     match = True
+            # else:
+            #     match = False
+            match = False
 
             # print("match: ", match)
             if not match:
@@ -457,7 +382,12 @@ def eval_subset(model, tok, model_name, name, ds, id2question, ID_MAP, batch_siz
             # print("gen: ", gen)
             if name == "winogrande":
                 inc = incorrect_1[i]
-                score = 1 if (ans_gt in gen) and (inc not in gen) else 0
+                score = 1 if (ans_gt.lower() in gen.lower() and inc.lower() not in gen.lower()) else 0
+                print("question: ", questions_1[i])
+                print("ans_gt: ", ans_gt)
+                print("inc: ", inc)
+                print("gen: ", gen)
+                print("score: ", score)
                 metrics["acc"].append(score)
                 samples.append({
                     "question": questions_1[i],
@@ -500,8 +430,8 @@ def get_seen_unseen(ds, ratio=0.8, seed=1000):
 # --------------------------------------------------------------------------
 def main():
     ap = argparse.ArgumentParser()
-    # ap.add_argument("--base_model", default="meta-llama/Llama-2-7b-chat-hf")
-    ap.add_argument("--base_model", default="meta-llama/Llama-3.2-1B-Instruct")
+    ap.add_argument("--base_model", default="meta-llama/Llama-2-7b-chat-hf")
+    # ap.add_argument("--base_model", default="meta-llama/Llama-3.2-1B-Instruct")
     ap.add_argument("--ds_config", default="../ds_config.json")
     ap.add_argument("--batch_size", type=int, default=4)
     ap.add_argument("--output_dir", default="./eval_results")
@@ -526,19 +456,19 @@ def main():
     # sent_model = SentenceTransformer(model_dir)
 
     splits = {}
-    split = "0" # 0,1,2,3,4,5,6,7,8,9
+    split = "4" # 0,1,2,3,4,5,6,7,8,9
     with open(os.path.join(split_dir, f"stage_{split}_forget_paraphrased.json"), encoding="utf-8") as f:
         splits["forget"] = json.load(f)
     with open(os.path.join(split_dir, f"stage_{split}_retain_used.json"), encoding="utf-8") as f:
         splits["retain_used"] = json.load(f)
     with open(os.path.join(split_dir, f"stage_{split}_retain_not_used.json"), encoding="utf-8") as f:
         splits["retain_not_used"] = json.load(f)
-    with open(os.path.join(split_dir, "non_target.json"), encoding="utf-8") as f:
-        splits["non_target"] = json.load(f)
+    # with open(os.path.join(split_dir, "non_target.json"), encoding="utf-8") as f:
+    #     splits["non_target"] = json.load(f)
     with open(os.path.join(split_dir, f"stage_{split}_near_utility.json"), encoding="utf-8") as f:
         splits["near_utility"] = json.load(f)
-    with open(os.path.join(split_dir, "winogrande_xs_validation.json"), encoding="utf-8") as f:
-        splits["winogrande"] = json.load(f)
+    # with open(os.path.join(split_dir, "winogrande_xs_validation.json"), encoding="utf-8") as f:
+    #     splits["winogrande"] = json.load(f)
 
     with open(os.path.join(split_dir, f"stage_{split}_forget_paraphrased.json"), encoding="utf-8") as f:
         forget_split = json.load(f)
