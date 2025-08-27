@@ -284,13 +284,14 @@ def build_WD_prompt(SENTENCE: str, OPT1, OPT2) -> str:
     user_msg = (
         f"""Choose the option that best fills "_" in the sentence.
 Return ONLY the chosen option EXACTLY as written (same case and spacing). Output nothing else.
+Important: Do NOT repeat the sentence in your answer.
 
 Sentence: {SENTENCE}
 Options:
 - {OPT1}
 - {OPT2}
 
-Answer:
+The correct option is:
 """
     )
     return user_msg
@@ -344,11 +345,11 @@ def eval_subset(model, tok, model_name, name, ds, id2question, ID_MAP, batch_siz
             # print("cos_sim: ", cos_sim)
             max_cos_sim = max(float(x) for x in cos_sim) if cos_sim else 0.0
 
-            # if max_cos_sim > 0.9:
-            #     match = True
-            # else:
-            #     match = False
-            match = False
+            if max_cos_sim > 0.9:
+                match = True
+            else:
+                match = False
+            # match = False
 
             # print("match: ", match)
             if not match:
@@ -383,11 +384,12 @@ def eval_subset(model, tok, model_name, name, ds, id2question, ID_MAP, batch_siz
             if name == "winogrande":
                 inc = incorrect_1[i]
                 score = 1 if (ans_gt.lower() in gen.lower() and inc.lower() not in gen.lower()) else 0
-                print("question: ", questions_1[i])
+                # print("question: ", questions_1[i])
                 print("ans_gt: ", ans_gt)
-                print("inc: ", inc)
+                # print("inc: ", inc)
                 print("gen: ", gen)
                 print("score: ", score)
+
                 metrics["acc"].append(score)
                 samples.append({
                     "question": questions_1[i],
@@ -456,19 +458,19 @@ def main():
     # sent_model = SentenceTransformer(model_dir)
 
     splits = {}
-    split = "4" # 0,1,2,3,4,5,6,7,8,9
-    with open(os.path.join(split_dir, f"stage_{split}_forget_paraphrased.json"), encoding="utf-8") as f:
-        splits["forget"] = json.load(f)
-    with open(os.path.join(split_dir, f"stage_{split}_retain_used.json"), encoding="utf-8") as f:
-        splits["retain_used"] = json.load(f)
-    with open(os.path.join(split_dir, f"stage_{split}_retain_not_used.json"), encoding="utf-8") as f:
-        splits["retain_not_used"] = json.load(f)
+    split = "0" # 0,1,2,3,4,5,6,7,8,9
+    # with open(os.path.join(split_dir, f"stage_{split}_forget_paraphrased.json"), encoding="utf-8") as f:
+    #     splits["forget"] = json.load(f)
+    # with open(os.path.join(split_dir, f"stage_{split}_retain_used.json"), encoding="utf-8") as f:
+    #     splits["retain_used"] = json.load(f)
+    # with open(os.path.join(split_dir, f"stage_{split}_retain_not_used.json"), encoding="utf-8") as f:
+    #     splits["retain_not_used"] = json.load(f)
     # with open(os.path.join(split_dir, "non_target.json"), encoding="utf-8") as f:
     #     splits["non_target"] = json.load(f)
-    with open(os.path.join(split_dir, f"stage_{split}_near_utility.json"), encoding="utf-8") as f:
-        splits["near_utility"] = json.load(f)
-    # with open(os.path.join(split_dir, "winogrande_xs_validation.json"), encoding="utf-8") as f:
-    #     splits["winogrande"] = json.load(f)
+    # with open(os.path.join(split_dir, f"stage_{split}_near_utility.json"), encoding="utf-8") as f:
+    #     splits["near_utility"] = json.load(f)
+    with open(os.path.join(split_dir, "winogrande_xs_validation.json"), encoding="utf-8") as f:
+        splits["winogrande"] = json.load(f)
 
     with open(os.path.join(split_dir, f"stage_{split}_forget_paraphrased.json"), encoding="utf-8") as f:
         forget_split = json.load(f)
