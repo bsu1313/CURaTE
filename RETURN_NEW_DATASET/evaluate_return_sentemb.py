@@ -458,7 +458,7 @@ def main():
     # sent_model = SentenceTransformer(model_dir)
 
     splits = {}
-    split = "0" # 0,1,2,3,4,5,6,7,8,9
+    split = "4" # 0,1,2,3,4,5,6,7,8,9
     # with open(os.path.join(split_dir, f"stage_{split}_forget_paraphrased.json"), encoding="utf-8") as f:
     #     splits["forget"] = json.load(f)
     # with open(os.path.join(split_dir, f"stage_{split}_retain_used.json"), encoding="utf-8") as f:

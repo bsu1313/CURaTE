@@ -413,14 +413,14 @@ def eval_tofu_custom(model, tok, model_name, data: List[Dict[str, Any]], sent_mo
 
             for i in range(len(gens_1)):
 
-                # rouge_score = max(
-                #     rouge.score(ref, gens_1[i])["rougeL"].recall
-                #     for ref in REF_PHRASES
-                # )
                 rouge_score = max(
                     rouge.score(ref, gens_1[i])["rougeL"].recall
-                    for ref in incorrect_1[i]
+                    for ref in REF_PHRASES
                 )
+                # rouge_score = max(
+                #     rouge.score(ref, gens_1[i])["rougeL"].recall
+                #     for ref in incorrect_1[i]
+                # )
                 
                 all_results.append({
                     "id": ids_1[i],
