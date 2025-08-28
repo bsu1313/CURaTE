@@ -503,7 +503,7 @@ def main():
     with open("truthfulQA_continual_setting/TruthfulQA_split_ids.json", encoding="utf-8") as f:
         split_ids = json.load(f)
 
-    stage = 123
+    stage = 1
 
     # Convert the list to a set for fast lookup
     stage1_ids = set(split_ids["stage1"])

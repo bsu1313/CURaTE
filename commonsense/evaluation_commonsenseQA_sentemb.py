@@ -76,7 +76,7 @@ def mapped_question(origin_id: int, key: str, id2question, ID_MAP) -> List[str]:
     except (KeyError, IndexError):
         return id2question[origin_id]
 
-def mapped_cossim(origin_id: int, key: str, id2question, ID_MAP) -> List[str]:
+def mapped_cossim(origin_id: int, key: str, ID_MAP) -> List[str]:
     mapped_ids = ID_MAP[str(origin_id)][f"{key}_top3_cossim"]
     return mapped_ids
 
@@ -312,13 +312,21 @@ def eval_commonsenseqa(model, tok, model_name, truthfulqa, sent_model, ID_MAP, s
             texts  = ex["choices"]["text"]         # ["sand", ...]
             choices = list(zip(labels, texts))
             ref_q = mapped_question(ex["id"], "truthfulQA", id2question, ID_MAP)
-            match = False
-            q_emb = sent_model.encode(ex["question"], convert_to_tensor=True)
-            for f_info in ref_q:
-                f_emb = sent_model.encode(f_info, convert_to_tensor=True)
-                cos_sim = util.cos_sim(q_emb, f_emb)
-                if cos_sim.item() > 0.8:  # threshold for similarity
-                    match = True
+            cos_sim = mapped_cossim(ex["id"], "truthfulQA", ID_MAP)
+            max_cos_sim = max(float(x) for x in cos_sim) if cos_sim else 0.0
+
+            if max_cos_sim > 0.8:
+                match = True
+            else:
+                match = False
+
+            # match = False
+            # q_emb = sent_model.encode(ex["question"], convert_to_tensor=True)
+            # for f_info in ref_q:
+            #     f_emb = sent_model.encode(f_info, convert_to_tensor=True)
+            #     cos_sim = util.cos_sim(q_emb, f_emb)
+            #     if cos_sim.item() > 0.8:  # threshold for similarity
+            #         match = True
             if not match:
                 preds_1.append(0)
                 par_negatives += 1
@@ -399,7 +407,6 @@ def eval_commonsenseqa(model, tok, model_name, truthfulqa, sent_model, ID_MAP, s
     acc = correct / len(preds)
     rougeL_recall = float(np.mean(rouge_recalls)) 
 
-    
     aggregate = {
         "accuracy": acc,
         "rougeL_recall": rougeL_recall,
@@ -426,8 +433,8 @@ def eval_commonsenseqa(model, tok, model_name, truthfulqa, sent_model, ID_MAP, s
 def main():
     ap = argparse.ArgumentParser(description="Evaluate model on CommonsenseQA")
     # ap.add_argument("--base_model", required=True)
-    # ap.add_argument("--base_model", default="meta-llama/Llama-2-7b-chat-hf")
-    ap.add_argument("--base_model", default="meta-llama/Llama-3.2-1B-Instruct")
+    ap.add_argument("--base_model", default="meta-llama/Llama-2-7b-chat-hf")
+    # ap.add_argument("--base_model", default="meta-llama/Llama-3.2-1B-Instruct")
     # ap.add_argument("--lora_path", required=True)
     # ap.add_argument("--ds_config", required=True)
     ap.add_argument("--ds_config", default="ds_config.json")
@@ -467,7 +474,7 @@ def main():
     with open("../truthfulQA/truthfulQA_continual_setting/TruthfulQA_split_ids.json", encoding="utf-8") as f:
         split_ids = json.load(f)
 
-    stage = 1
+    stage = 123
 
     # Convert the list to a set for fast lookup
     stage1_ids = set(split_ids["stage1"])
