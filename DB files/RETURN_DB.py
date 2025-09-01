@@ -5,26 +5,44 @@ from tqdm import tqdm
 
 
 
+model_size = "7B"  # "1B", "7B"
+ablation = 0 # 0, 1, 2, 3, 4, 5
+
+ablation_files = [
+    "NQ_CURE_12K_a",
+    "NQ_CURE_18K_a",
+    "NQ_CURE_18K_a_no_b",
+    "NQ_CURE_NO_HN_18K_a",
+    "NQ_CURE_NO_HN_18K_a_no_b",
+    "TQ_CURE_18K_a",
+]
+
+
+if model_size == "1B":
+    data_folder = "Meta-Llama-3.2-1B-Instruct_dataset"
+elif model_size == "7B":
+    data_folder = "Meta-Llama-2-7B-chat_dataset"
+
 for i in range(10):
 
-    forget_file = f"./Meta-Llama-2-7B-chat_dataset/stage_{i}_forget.json"         
+    forget_file = f"../RETURN_NEW_DATASET/{data_folder}/stage_{i}_forget.json"
     dataset_files = [                           # 매핑을 만들 데이터셋들
-        {"path": f"./Meta-Llama-2-7B-chat_dataset/stage_{i}_forget_paraphrased.json", "question_key": "paraphrased_instruction"},
-        {"path": f"./Meta-Llama-2-7B-chat_dataset/stage_{i}_retain_used.json", "question_key": "question"},
-        {"path": f"./Meta-Llama-2-7B-chat_dataset/stage_{i}_retain_not_used.json", "question_key": "question"},
-        {"path": "./Meta-Llama-2-7B-chat_dataset/non_target.json", "question_key": "question"},
-        {"path": f"./Meta-Llama-2-7B-chat_dataset/stage_{i}_near_utility.json", "question_key": "contrastive_instruction"},
-        {"path": "./Meta-Llama-2-7B-chat_dataset/winogrande_xs_validation.json", "question_key": "sentence"},
+        {"path": f"../RETURN_NEW_DATASET/{data_folder}/stage_{i}_forget_paraphrased.json", "question_key": "paraphrased_instruction"},
+        {"path": f"../RETURN_NEW_DATASET/{data_folder}/stage_{i}_retain_used.json", "question_key": "question"},
+        {"path": f"../RETURN_NEW_DATASET/{data_folder}/stage_{i}_retain_not_used.json", "question_key": "question"},
+        {"path": f"../RETURN_NEW_DATASET/{data_folder}/non_target.json", "question_key": "question"},
+        {"path": f"../RETURN_NEW_DATASET/{data_folder}/stage_{i}_near_utility.json", "question_key": "contrastive_instruction"},
+        {"path": f"../RETURN_NEW_DATASET/{data_folder}/winogrande_xs_validation.json", "question_key": "sentence"},
     ]
 
 
-    out_file = f"RETURN_stage_{i}_top3.json"    # None 으로 두면 저장 생략
+    out_file = f"../RETURN_NEW_DATASET/{data_folder}/RETURN_stage_{i}_top3_{ablation_files[ablation]}.json"    # None 으로 두면 저장 생략
     topk   = 3
     chunk  = 128
 
     device = "cuda" if torch.cuda.is_available() else "cpu"
     model  = SentenceTransformer(
-        "./mpnet_contrastive_model",
+        f"../models/mpnet_contrastive_model_{ablation_files[ablation]}",
         device=device,
     )
 
