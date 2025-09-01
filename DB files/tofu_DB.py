@@ -15,9 +15,9 @@ from tqdm import tqdm
 # ]
 
 
-stage = "1" # "1", "12", "123"
+stage = "123" # "1", "12", "123"
 
-ablation = 0 # 0, 1, 2, 3, 4, 5
+ablation = 5 # 0, 1, 2, 3, 4, 5
 
 ablation_files = [
     "NQ_CURE_12K_a",

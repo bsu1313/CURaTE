@@ -10,57 +10,59 @@ from tqdm import tqdm
 
 # "biology" -> "physics" -> "chemistry" -> "economics" 
 
-forget_file = "./ScienceQA/test_forget_PR/PR_scienceqa_biology_train_SD.json"          # Top-k 후보(TruthfulQA 대신)
-dataset_files = [                           # 매핑을 만들 데이터셋들
-    {"path": "./ScienceQA/test_forget_PR/PR_scienceqa_biology_train_SD.json", "question_key": "paraphrased_instruction"},  # NEDD TO CHANGE
-    {"path": "./ScienceQA/retain/processed_scienceqa_not_biology_test_RD.json", "question_key": "instruction"},
-    {"path": "./ScienceQA/test_NU/NU_scienceqa_biology_train_SD.json", "question_key": "contrastive_instruction"}, # NEDD TO CHANGE
-    {"path": "./ScienceQA/test_utility/processed_commonqa_test.json", "question_key": "instruction"},
-    {"path": "./ScienceQA/test_utility/processed_openbookqa_test.json", "question_key": "instruction"},
+stage = 1 # 1, 2, 3, 4
+
+ablation = 0 # 0, 1, 2, 3, 4, 5
+
+ablation_files = [
+    "NQ_CURE_12K_a",
+    "NQ_CURE_18K_a",
+    "NQ_CURE_18K_a_no_b",
+    "NQ_CURE_NO_HN_18K_a",
+    "NQ_CURE_NO_HN_18K_a_no_b",
+    "TQ_CURE_18K_a",
 ]
-out_file = "ScienceQA_to_stage1_top3.json"    # None 으로 두면 저장 생략
 
-
-
-
-# forget_file = "./ScienceQA/test_forget_PR/PR_scienceqa_biology_physics_train_SD.json"          # Top-k 후보(TruthfulQA 대신)
-# dataset_files = [                           # 매핑을 만들 데이터셋들
-#     {"path": "./ScienceQA/test_forget_PR/PR_scienceqa_biology_physics_train_SD.json", "question_key": "paraphrased_instruction"},  # NEDD TO CHANGE
-#     {"path": "./ScienceQA/retain/processed_scienceqa_not_biology_physics_test_RD.json", "question_key": "instruction"},
-#     {"path": "./ScienceQA/test_NU/NU_scienceqa_biology_physics_train_SD.json", "question_key": "contrastive_instruction"}, # NEDD TO CHANGE
-#     {"path": "./ScienceQA/test_utility/processed_commonqa_test.json", "question_key": "instruction"},
-#     {"path": "./ScienceQA/test_utility/processed_openbookqa_test.json", "question_key": "instruction"},
-# ]
-# out_file = "ScienceQA_to_stage2_top3.json"    # None 으로 두면 저장 생략
-
-
-
-# forget_file = "./ScienceQA/test_forget_PR/PR_scienceqa_biology_physics_chemistry_train_SD.json"          # Top-k 후보(TruthfulQA 대신)
-# dataset_files = [                           # 매핑을 만들 데이터셋들
-#     {"path": "./ScienceQA/test_forget_PR/PR_scienceqa_biology_physics_chemistry_train_SD.json", "question_key": "paraphrased_instruction"},  # NEDD TO CHANGE
-#     {"path": "./ScienceQA/retain/processed_scienceqa_not_biology_physics_chemistry_test_RD.json", "question_key": "instruction"},
-#     {"path": "./ScienceQA/test_NU/NU_scienceqa_biology_physics_chemistry_train_SD.json", "question_key": "contrastive_instruction"}, # NEDD TO CHANGE
-#     {"path": "./ScienceQA/test_utility/processed_commonqa_test.json", "question_key": "instruction"},
-#     {"path": "./ScienceQA/test_utility/processed_openbookqa_test.json", "question_key": "instruction"},
-# ]
-# out_file = "ScienceQA_to_stage3_top3.json"    # None 으로 두면 저장 생략
-
-
-
-
-# forget_file = "./ScienceQA/test_forget_PR/PR_scienceqa_biology_physics_chemistry_economics_train_SD.json"          # Top-k 후보(TruthfulQA 대신)
-# dataset_files = [                           # 매핑을 만들 데이터셋들
-#     {"path": "./ScienceQA/test_forget_PR/PR_scienceqa_biology_physics_chemistry_economics_train_SD.json", "question_key": "paraphrased_instruction"},  # NEDD TO CHANGE
-#     {"path": "./ScienceQA/retain/processed_scienceqa_not_biology_physics_chemistry_economics_test_RD.json", "question_key": "instruction"},
-#     {"path": "./ScienceQA/test_NU/NU_scienceqa_biology_physics_chemistry_economics_train_SD.json", "question_key": "contrastive_instruction"}, # NEDD TO CHANGE
-#     {"path": "./ScienceQA/test_utility/processed_commonqa_test.json", "question_key": "instruction"},
-#     {"path": "./ScienceQA/test_utility/processed_openbookqa_test.json", "question_key": "instruction"},
-# ]
-# out_file = "ScienceQA_to_stage4_top3.json"    # None 으로 두면 저장 생략
-
-
-
-
+if stage == 1:
+    forget_file = "../ScienceQA/test_forget_PR/PR_scienceqa_biology_train_SD.json"          # Top-k 후보(TruthfulQA 대신)
+    dataset_files = [                           # 매핑을 만들 데이터셋들
+        {"path": "../ScienceQA/test_forget_PR/PR_scienceqa_biology_train_SD.json", "question_key": "paraphrased_instruction"},  # NEDD TO CHANGE
+        {"path": "../ScienceQA/retain/processed_scienceqa_not_biology_test_RD.json", "question_key": "instruction"},
+        {"path": "../ScienceQA/test_NU/NU_scienceqa_biology_train_SD.json", "question_key": "contrastive_instruction"}, # NEDD TO CHANGE
+        {"path": "../ScienceQA/test_utility/processed_commonqa_test.json", "question_key": "instruction"},
+        {"path": "../ScienceQA/test_utility/processed_openbookqa_test.json", "question_key": "instruction"},
+    ]
+    out_file = f"../ScienceQA/ScienceQA_to_stage1_top3_{ablation_files[ablation]}.json"    # None 으로 두면 저장 생략
+elif stage == 2:
+    forget_file = "../ScienceQA/test_forget_PR/PR_scienceqa_biology_physics_train_SD.json"          # Top-k 후보(TruthfulQA 대신)
+    dataset_files = [                           # 매핑을 만들 데이터셋들
+        {"path": "../ScienceQA/test_forget_PR/PR_scienceqa_biology_physics_train_SD.json", "question_key": "paraphrased_instruction"},  # NEDD TO CHANGE
+        {"path": "../ScienceQA/retain/processed_scienceqa_not_biology_physics_test_RD.json", "question_key": "instruction"},
+        {"path": "../ScienceQA/test_NU/NU_scienceqa_biology_physics_train_SD.json", "question_key": "contrastive_instruction"}, # NEDD TO CHANGE
+        {"path": "../ScienceQA/test_utility/processed_commonqa_test.json", "question_key": "instruction"},
+        {"path": "../ScienceQA/test_utility/processed_openbookqa_test.json", "question_key": "instruction"},
+    ]
+    out_file = f"../ScienceQA/ScienceQA_to_stage2_top3_{ablation_files[ablation]}.json"    # None 으로 두면 저장 생략
+elif stage == 3:
+    forget_file = "../ScienceQA/test_forget_PR/PR_scienceqa_biology_physics_chemistry_train_SD.json"          # Top-k 후보(TruthfulQA 대신)
+    dataset_files = [                           # 매핑을 만들 데이터셋들
+        {"path": "../ScienceQA/test_forget_PR/PR_scienceqa_biology_physics_chemistry_train_SD.json", "question_key": "paraphrased_instruction"},  # NEDD TO CHANGE
+        {"path": "../ScienceQA/retain/processed_scienceqa_not_biology_physics_chemistry_test_RD.json", "question_key": "instruction"},
+        {"path": "../ScienceQA/test_NU/NU_scienceqa_biology_physics_chemistry_train_SD.json", "question_key": "contrastive_instruction"}, # NEDD TO CHANGE
+        {"path": "../ScienceQA/test_utility/processed_commonqa_test.json", "question_key": "instruction"},
+        {"path": "../ScienceQA/test_utility/processed_openbookqa_test.json", "question_key": "instruction"},
+    ]
+    out_file = f"../ScienceQA/ScienceQA_to_stage3_top3_{ablation_files[ablation]}.json"    # None 으로 두면 저장 생략
+elif stage == 4:
+    forget_file = "../ScienceQA/test_forget_PR/PR_scienceqa_biology_physics_chemistry_economics_train_SD.json"          # Top-k 후보(TruthfulQA 대신)
+    dataset_files = [                           # 매핑을 만들 데이터셋들
+        {"path": "../ScienceQA/test_forget_PR/PR_scienceqa_biology_physics_chemistry_economics_train_SD.json", "question_key": "paraphrased_instruction"},  # NEDD TO CHANGE
+        {"path": "../ScienceQA/retain/processed_scienceqa_not_biology_physics_chemistry_economics_test_RD.json", "question_key": "instruction"},
+        {"path": "../ScienceQA/test_NU/NU_scienceqa_biology_physics_chemistry_economics_train_SD.json", "question_key": "contrastive_instruction"}, # NEDD TO CHANGE
+        {"path": "../ScienceQA/test_utility/processed_commonqa_test.json", "question_key": "instruction"},
+        {"path": "../ScienceQA/test_utility/processed_openbookqa_test.json", "question_key": "instruction"},
+    ]
+    out_file = f"../ScienceQA/ScienceQA_to_stage4_top3_{ablation_files[ablation]}.json"    # None 으로 두면 저장 생략
 
 
 topk   = 3
@@ -68,7 +70,7 @@ chunk  = 128
 
 device = "cuda" if torch.cuda.is_available() else "cpu"
 model  = SentenceTransformer(
-    "/home/work/data/seyun_workspace_home/mpnet_contrastive_model",
+    f"../models/mpnet_contrastive_model_{ablation_files[ablation]}",
     device=device,
 )
 
