@@ -5,8 +5,8 @@ from tqdm import tqdm
 
 
 
-model_size = "7B"  # "1B", "7B"
-ablation = 0 # 0, 1, 2, 3, 4, 5
+model_size = "1B"  # "1B", "7B"
+ablation = 5 # 0, 1, 2, 3, 4, 5
 
 ablation_files = [
     "NQ_CURE_12K_a",
