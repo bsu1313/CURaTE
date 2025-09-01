@@ -10,9 +10,9 @@ from tqdm import tqdm
 
 # "biology" -> "physics" -> "chemistry" -> "economics" 
 
-stage = 1 # 1, 2, 3, 4
+stage = 4 # 1, 2, 3, 4
 
-ablation = 0 # 0, 1, 2, 3, 4, 5
+ablation = 5 # 0, 1, 2, 3, 4, 5
 
 ablation_files = [
     "NQ_CURE_12K_a",
