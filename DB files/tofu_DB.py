@@ -15,24 +15,37 @@ from tqdm import tqdm
 # ]
 
 
-forget_file = "/home/work/data/seyun_workspace_home/cache_LTE/TOFU_ID_with_NU/forget123.json"         # NOTE!  DB 역할을 하는 파일,  아래 보시면 키가 question 입니다. 
+stage = "1" # "1", "12", "123"
+
+ablation = 0 # 0, 1, 2, 3, 4, 5
+
+ablation_files = [
+    "NQ_CURE_12K_a",
+    "NQ_CURE_18K_a",
+    "NQ_CURE_18K_a_no_b",
+    "NQ_CURE_NO_HN_18K_a",
+    "NQ_CURE_NO_HN_18K_a_no_b",
+    "TQ_CURE_18K_a",
+]
+
+forget_file = f"../TOFU_NEW/stage{stage[-1]}/forget{stage}.json"         # NOTE!  DB 역할을 하는 파일,  아래 보시면 키가 question 입니다.
 
 dataset_files = [                           # 매핑을 만들 데이터셋들
-    {"path": "/home/work/data/seyun_workspace_home/cache_LTE/TOFU_ID_with_NU/forget123.json", "question_key": "paraphrased_question"},  # key 유의 
-    {"path": "/home/work/data/seyun_workspace_home/cache_LTE/TOFU_ID_with_NU/forget123_NU.json", "question_key": "question"},
-    {"path": "/home/work/data/seyun_workspace_home/cache_LTE/TOFU_ID_with_NU/retain_perturbed.json", "question_key": "question"},
-    {"path": "/home/work/data/seyun_workspace_home/cache_LTE/TOFU_ID_with_NU/real_authors.json", "question_key": "question"},
-    {"path": "/home/work/data/seyun_workspace_home/cache_LTE/TOFU_ID_with_NU/world_facts.json", "question_key": "question"},
+    {"path": f"../TOFU_NEW/stage{stage[-1]}/forget{stage}.json", "question_key": "paraphrased_question"},  # key 유의
+    {"path": f"../TOFU_NEW/stage{stage[-1]}/forget{stage}_NU.json", "question_key": "question"},
+    {"path": f"../TOFU_NEW/stage{stage[-1]}/retain_perturbed.json", "question_key": "question"},
+    {"path": f"../TOFU_NEW/stage{stage[-1]}/real_authors.json", "question_key": "question"},
+    {"path": f"../TOFU_NEW/stage{stage[-1]}/world_facts.json", "question_key": "question"},
 ]
 
 
-out_file = "TOFU_to_forget123_top3_with_NU.json"    # None 으로 두면 저장 생략
+out_file = f"../TOFU_NEW/stage{stage[-1]}/TOFU_to_forget{stage}_top3_{ablation_files[ablation]}.json"    # None 으로 두면 저장 생략
 topk   = 3
 chunk  = 128
 
 device = "cuda" if torch.cuda.is_available() else "cpu"
 model  = SentenceTransformer(
-    "/home/work/data/seyun_workspace_home/mpnet_contrastive_model",
+    f"../models/mpnet_contrastive_model_{ablation_files[ablation]}",
     device=device,
 )
 
