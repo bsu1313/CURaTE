@@ -107,12 +107,12 @@ if __name__ == "__main__":
     # )
 
     ablation_files = [
-        "NQ_CURE_12K_a.json",
-        "NQ_CURE_18K_a.json",
-        "NQ_CURE_18K_a_no_b.json",
-        "NQ_CURE_NO_HN_18K_a.json",
-        "NQ_CURE_NO_HN_18K_a_no_b.json"
-        "TQ_CURE_18K_a.json",
+        "NQ_CURE_12K_a",
+        "NQ_CURE_18K_a",
+        "NQ_CURE_18K_a_no_b",
+        "NQ_CURE_NO_HN_18K_a",
+        "NQ_CURE_NO_HN_18K_a_no_b"
+        "TQ_CURE_18K_a",
         ]
 
     for file in ablation_files:
