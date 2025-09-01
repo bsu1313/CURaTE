@@ -5,3 +5,4 @@ eval_results/
 old/
 cached_embeddings.json
 cached_embeddings0.json
+models/
