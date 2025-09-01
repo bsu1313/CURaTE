@@ -99,9 +99,27 @@ def main(
 
 
 if __name__ == "__main__":
-    main(
-        json_path="NQ_LTU_18k.json",
-        epochs=1,
-        batch_size=16,
-        learning_rate=2e-5
-    )
+    # main(
+    #     json_path="NQ_LTU_18k.json",
+    #     epochs=1,
+    #     batch_size=16,
+    #     learning_rate=2e-5
+    # )
+
+    ablation_files = [
+        "NQ_CURE_12K_a.json",
+        "NQ_CURE_18K_a.json",
+        "NQ_CURE_18K_a_no_b.json",
+        "NQ_CURE_NO_HN_18K_a.json",
+        "NQ_CURE_NO_HN_18K_a_no_b.json"
+        "TQ_CURE_18K_a.json",
+        ]
+
+    for file in ablation_files:
+        main(
+            json_path=f"ablation/{file}.json",
+            output_path=f"models/mpnet_contrastive_model_{file}",
+            epochs=1,
+            batch_size=16,
+            learning_rate=2e-5
+        )
