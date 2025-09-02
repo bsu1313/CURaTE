@@ -167,7 +167,7 @@ def main(
 if __name__ == "__main__":
     # Example usage
     main(
-        json_path="NQ_LTU_18k_augmented.json",
+        json_path="../NQ_LTU_18k_augmented.json",
         epochs=3,
         batch_size=8,
         lr=2e-5,

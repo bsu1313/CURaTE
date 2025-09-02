@@ -2,7 +2,6 @@ roberta_features_Aprime_classifier/
 mpnet_contrastive_model/
 binary_classifier/
 eval_results/
-old/
 cached_embeddings.json
 cached_embeddings0.json
 models/

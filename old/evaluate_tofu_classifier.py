@@ -14,20 +14,17 @@ from typing import List, Dict, Any
 os.environ["TOKENIZERS_PARALLELISM"] = "false"
 
 import torch, numpy as np
-import torch.nn as nn
 from datasets import load_dataset
 from torch.utils.data import DataLoader, Dataset
 from transformers import (
     AutoModelForCausalLM,
     AutoTokenizer,
-    BertModel,
-    BertTokenizer,
 )
 from transformers import RobertaTokenizer, RobertaForSequenceClassification
 from peft import PeftModel
 import deepspeed
 import transformers
-from sentence_transformers import SentenceTransformer, util
+
 from rouge_score import rouge_scorer
 # from datasets import Dataset
 # --------------------------------------------------------------------------
@@ -37,38 +34,10 @@ from conversation import get_conv_template        # 💡 경로 확인!
 
 from sentence_transformers import SentenceTransformer, util
 from pathlib import Path
-# from train_classifier0 import BinaryClassifier
 import random
 
-REFUSAL_PATH = Path("./refusal_answer.json")   # ← 실제 파일명/경로
+REFUSAL_PATH = Path("../refusal_answer.json")   # ← 실제 파일명/경로
 REF_PHRASES: list[str] = json.loads(REFUSAL_PATH.read_text(encoding="utf-8"))
-
-# class BinaryClassifier(nn.Module):
-#     def __init__(self, input_dim):
-#         super(BinaryClassifier, self).__init__()
-#         self.fc1 = nn.Linear(input_dim, 128)
-#         self.fc2 = nn.Linear(128, 1)
-#         self.sigmoid = nn.Sigmoid()
-#
-#     def forward(self, x):
-#         x = torch.relu(self.fc1(x))
-#         x = self.fc2(x)
-#         return self.sigmoid(x)
-
-class BinaryClassifier(nn.Module):
-    def __init__(self, input_dim):
-        super(BinaryClassifier, self).__init__()
-        self.fc1 = nn.Linear(input_dim, 512)  # Increase the number of units
-        self.fc2 = nn.Linear(512, 256)       # Add an additional layer
-        self.fc3 = nn.Linear(256, 1)         # Output layer
-        self.sigmoid = nn.Sigmoid()
-
-    def forward(self, x):
-        x = torch.relu(self.fc1(x))
-        x = torch.relu(self.fc2(x))  # Additional activation function
-        x = self.fc3(x)
-        return self.sigmoid(x)
-
 
 def get_available_cache_dir():
     preferred = Path("/home/david/.cache")
@@ -146,6 +115,7 @@ class QADataset(Dataset):
 
     def __getitem__(self, idx):
         return self.examples[idx]
+
 
 def wrap_prompt(p, if_llama):
     if 'llama-3' in if_llama or 'llama_3' in if_llama:
@@ -290,6 +260,8 @@ def batched_generate(model, tok, prompts):
     # print("prompts: ", prompts)
     inputs = tok(prompts, return_tensors="pt",
                  padding=True, truncation=False).to(model.device)
+    # prompt_lengths = inputs.attention_mask.sum(dim=1).tolist()
+    # print("prompt lengths: ", prompt_lengths)
 
     with torch.no_grad():
         outs = model.generate(**inputs,
@@ -315,6 +287,8 @@ def batched_generate(model, tok, prompts):
             skip_special_tokens=True,
             clean_up_tokenization_spaces=False
         ).strip()
+        # print("full_text: ", full_text)
+        # print("prompt_text: ", prompt_text)
 
         # Remove the prompt text from the start
         if full_text.startswith(prompt_text):
@@ -328,8 +302,23 @@ def batched_generate(model, tok, prompts):
                 # fallback: just return the full text
                 answer = full_text
         results.append(answer)
+    # print("results: ", results)
     return results
 
+    # for ids in outs:
+    #     # ① special token을 살린 채 풀 디코드
+    #     full = tok.decode(ids,
+    #                       skip_special_tokens=True,
+    #                       clean_up_tokenization_spaces=False)
+    #
+    #     print("full: ", full)
+    #     comp = full.split("[/INST]", 1)[-1].strip()
+    #     print("comp1: ", comp)
+    #     comp = postprocess_completion(comp)
+    #     print("comp2: ", comp)
+    #     results.append(comp)
+    #
+    # return results
 # --------------------------------------------------------------------------
 # perplexity-based 확률
 # --------------------------------------------------------------------------
@@ -387,16 +376,19 @@ def predict(texts, tokenizer, model, max_length=256):
 
     return predictions
 
-def eval_subset(model, tok, sent_model, bc_model, model_name, name, ds, forget_data, ID_MAP, batch_size=4):
+def eval_subset(model, tok, model_name, name, ds, forget_data, roberta_model, roberta_tok, ID_MAP, batch_size=4):
     # dl = DataLoader(ds, batch_size=batch_size, shuffle=False)
     id2question: dict[int, str] = {ex["id"]: ex["question"] for ex in forget_data}
-    # print("id2question: ", id2question)
-
     def identity_collate(batch):
         return batch
-
-    # print("len of ds: ", len(ds)) # forget01: 40
+    # print("ds type: ", type(ds))
+    # print("ds[0]: ", ds[0])
+    # print("batch size: ", batch_size)
     dl = DataLoader(QADataset(ds), batch_size=batch_size, collate_fn=identity_collate)
+
+    # print("name: ", name)
+    print("Dataset size:", len(ds))
+    # print("sample data:", ds[0])  # Print the first sample for inspection
 
     metrics = {k:[] for k in
                ("truth_ratio","truth_prob","rougeL","acc")}
@@ -405,50 +397,43 @@ def eval_subset(model, tok, sent_model, bc_model, model_name, name, ds, forget_d
     par_negatives = 0
 
     for batch in tqdm.tqdm(dl, desc=f"Eval {name}"):
+        # print("len of batch: ", len(batch)) # 4
         prompts_1, questions_1, preds_1, correct_1 = [], [], [], []
         for item in batch:
             # print("item: ", item)
+            # print("item keys: ", item.keys())
+            # print("paraphrased_question in item.keys(): ", "paraphrased_question" in item.keys())
             # question = item["paraphrased_question"] if "paraphrased_question" in item.keys() else item["question"]
             question = item["paraphrased_question"] if name == "forget" else item["question"]
-            # print("question: ", question)
             questions_1.append(question)
             ref_q = mapped_question(item["id"], id2question, ID_MAP)
+            # print("item['id']: ", item["id"])
+            # print("ref_q: ", ref_q)
+            roberta_prompts = ["[Forgotten Information]:\n" + f_info + "\n\n[Query]:\n" + question
+                               for f_info in ref_q
+                               ]
+            # print("roberta_prompts: ", roberta_prompts)
+            predictions = predict(roberta_prompts, roberta_tok, roberta_model)
+            preds = [p["pred_class"] for p in predictions]
+            # print("preds: ", preds)
 
-            # ## use sentence embedding model
-            match = False
-            q_emb = sent_model.encode(question, convert_to_tensor=True)
-            for f_info in ref_q:
-                f_emb = sent_model.encode(f_info, convert_to_tensor=True)
-                # input = torch.cat([q_emb, f_emb], dim=0).unsqueeze(0)  # [1, 2, 768]
-                input = torch.cat((f_emb, q_emb), dim=0).unsqueeze(0).to("cuda")
-                match_prob = bc_model(input)  # [1, 2]
-                if match_prob.item() > 0.5:  # threshold for similarity
-                    match = True
-
-            ## use mapped cosine similarity
-            # cos_sim = mapped_cossim(item["id"], ID_MAP)
-            # max_cos_sim = max(float(x) for x in cos_sim) if cos_sim else 0.0
-            #
-            # if max_cos_sim > 0.8:
-            #     match = True
-            # else:
-            #     match = False
-
-            if not match:
+            if all(pred == 0 for pred in preds):
                 preds_1.append(0)
                 par_negatives += 1
             else:
                 preds_1.append(1)
                 par_positives += 1
-
+            # preds_1.append(0)
+            # print("preds_1: ", preds_1[-1])
+            # print("built llama prompt: ", build_llama2_prompt(question, tok))
+            # print("wrapped llama prompt: ", wrap_prompt(question, model_name.lower()))
             # prompts_1.append(build_llama2_prompt(question, tok))
             prompts_1.append(wrap_prompt(question, model_name.lower()))
             correct_1.append(item["answer"])
-            # print("prompts_1: ", prompts_1)
-            # print("correct_1: ", correct_1)
 
+        # print("prompts_1: ", prompts_1)
         gens_1 = batched_generate(model, tok, prompts_1)
-        # print("gens_1 before: ", gens_1)
+        # print("gens_1: ", gens_1)
 
         for i, pred in enumerate(preds_1):
             if pred == 1:
@@ -457,13 +442,15 @@ def eval_subset(model, tok, sent_model, bc_model, model_name, name, ds, forget_d
                 gens_1[i] = gens_1[i].strip()
             else:
                 raise ValueError(f"Unexpected prediction class: {pred}")
-        # print("gens_1 after: ", gens_1)
 
+        # print("batch: ", batch)
+        # print("correct_1: ", correct_1)
         for i, gen in enumerate(gens_1):
+            # ans_gt  = batch["answer"][i]
             ans_gt = correct_1[i]
+            rouge_rec = rouge.score(ans_gt, gen)["rougeL"].recall
             # print("ans_gt: ", ans_gt)
             # print("gen: ", gen)
-            rouge_rec = rouge.score(ans_gt, gen)["rougeL"].recall
             # print("rouge_rec: ", rouge_rec)
 
             metrics["rougeL"].append(rouge_rec)
@@ -479,8 +466,7 @@ def eval_subset(model, tok, sent_model, bc_model, model_name, name, ds, forget_d
                 "rougeL_recall": rouge_rec,
                 # "acc": acc,
             })
-        # sys.exit()
-    agg = {k: _mean(v) for k, v in metrics.items()}
+    agg = {k:_mean(v) for k,v in metrics.items()}
     agg["positives"] = par_positives
     agg["negatives"] = par_negatives
     return agg, samples
@@ -528,16 +514,10 @@ def main():
                             args.ds_config,
                             args.cache_dir)
 
-
-    model_dir = "mpnet_contrastive_model"
-    # sent_model = SentenceTransformer(model_dir)
-    # sent_model = SentenceTransformer("sentence-transformers/multi-qa-mpnet-base-dot-v1")
-    # sent_model = SentenceTransformer('paraphrase-MiniLM-L6-v2')
-    # sent_model = SentenceTransformer('bert-base-nli-mean-tokens')
-    # sent_model = SentenceTransformer('all-mpnet-base-v2')
-    # sent_model = SentenceTransformer('all-MiniLM-L6-v2')
-    # sent_model = SentenceTransformer('paraphrase-MiniLM-L3-v2')
-    sent_model = SentenceTransformer('sentence-transformers-testing/stsb-bert-tiny-safetensors')
+    model_dir = "roberta_features_Aprime_classifier"
+    roberta_tok = RobertaTokenizer.from_pretrained(model_dir)
+    roberta_model = RobertaForSequenceClassification.from_pretrained(model_dir)
+    roberta_model.eval()
 
     splits = {}
     split = "1"
@@ -564,8 +544,7 @@ def main():
     # f_texts, f_embs = build_forget_index(forget_per)
     # map_path = os.path.join(".", "raw2forget_map.json")
     # q2f_map = json.load(open(map_path)) if os.path.exists(map_path) else {}
-    #
-    #
+    
     # splits = {
     #     "forget"        : forget_per.shuffle(seed=42),
     #     # "unseen"      : unseen,
@@ -574,20 +553,14 @@ def main():
     #     "world_facts" : load_split("world_facts_perturbed",  args.cache_dir),
     # }
 
-    with open("binary_classifier/config.json", "r") as f:
-        bc_config = json.load(f)
-    input_dim = bc_config["input_dim"]
-    # Initialize model
-    bc_model = BinaryClassifier(input_dim).to("cuda")
-    # Load weights
-    bc_model.load_state_dict(torch.load("binary_classifier/binary_classifier.pth"))
-    bc_model.eval()
-
-
+    # for name, ds in splits.items():
+    #     print("Loading split:", name)
+    #     print("Number of samples:", len(ds))
+    #     print("Sample data:", ds[0])  # Print the first sample for inspection
     result: Dict[str,Dict] = {}
     for name, ds in splits.items():
-        agg, detail = eval_subset(model, tok, sent_model, bc_model, args.base_model, name, ds, splits["forget"],
-                                  ID_MAP,
+        agg, detail = eval_subset(model, tok, args.base_model, name, ds, splits["forget"],
+                                  roberta_model, roberta_tok, ID_MAP,
                                   batch_size=args.batch_size, )
         result[name] = {"metrics": agg, "samples": detail}
         print(f"[{name}] {json.dumps(agg, indent=2, ensure_ascii=False)}")

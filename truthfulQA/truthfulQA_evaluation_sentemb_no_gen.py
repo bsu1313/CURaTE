@@ -1,4 +1,4 @@
-import os, json, argparse, re, tqdm, sys
+import os, json, argparse, re, tqdm
 from typing import List, Dict, Any
 
 os.environ["TOKENIZERS_PARALLELISM"] = "false"
@@ -7,7 +7,6 @@ import torch, numpy as np
 from torch.utils.data import DataLoader, Dataset
 from transformers import AutoModelForCausalLM, AutoTokenizer
 import deepspeed, transformers
-from transformers import RobertaTokenizer, RobertaForSequenceClassification
 from rouge_score import rouge_scorer
 from sentence_transformers import SentenceTransformer
 from pathlib import Path
@@ -48,7 +47,7 @@ def mapped_question(origin_id: int, key: str, id2question, ID_MAP) -> List[str]:
         mapped_ids = ID_MAP[str(origin_id)][f"{key}_top3_ids"]
         return [id2question[mid] for mid in mapped_ids if mid in id2question]
     except (KeyError, IndexError):
-        return id2question[origin_id]    
+        return id2question[origin_id]
 
 def mapped_cossim(origin_id: int, key: str, id2question, ID_MAP) -> List[str]:
     mapped_ids = ID_MAP[str(origin_id)][f"{key}_top3_cos"]
@@ -86,7 +85,6 @@ def wrap_prompt(p, if_llama):
         raise ValueError('Please provide llama model')
     return f"{question_start_token}{p}{question_end_token}"
 def build_llama2_prompt(question: str, forgotten_info: str, tokenizer) -> str:
-    # print("question: ", question)
     messages = [
         {"role": "user", "content": question}
     ]
@@ -96,55 +94,6 @@ def build_llama2_prompt(question: str, forgotten_info: str, tokenizer) -> str:
         add_generation_prompt=True  # Adds the assistant's turn prefix
     )
     return prompt
-# def build_llama2_prompt(question: str, forgotten_info: str) -> str:
-#     conv = get_conv_template("llama-2")
-#     conv.append_message(conv.roles[0], question)
-#     conv.append_message(conv.roles[1], None)
-#     final_prompt = conv.get_prompt()
-#     # final_prompt = "[INST] " + question + " [\INST]"
-#     return final_prompt
-# def build_llama2_prompt(question: str, forgotten_info: str) -> str:
-#     if "newinst2" in lora_path_name:
-#         input_text = (
-#         "Based on the [Forgotten Information], decide whether to answer or "
-#         "refuse to answer the [Query]. Then provide an appropriate response "
-#         "accordingly. If you choose to refuse, include the corresponding "
-#         "[Reason] for your decision.\n\n"
-#         f"[Forgotten Information]:\n{forgotten_info}\n\n"
-#         f"[Query]:\n{question}"
-#     )
-#     elif "newinst3_1HN" in lora_path_name:
-#         input_text = f"Given: [Forgotten Information]: 1. ... 2. ... (and possibly more) [Query]: ... If the [Query] is related to any of the listed items, refuse to answer and explain which item it relates to, along with a [Reason]. If unrelated to all, answer the query appropriately.\n\n[Forgotten Information]:\n{forgotten_info}[Query]:\n{question}"
-#     elif "newinst3_2HN" in lora_path_name:  # no reason
-#         input_text = f"Given: [Forgotten Information]: 1. ... 2. ... (and possibly more) [Query]: ... \n\n If the [Query] is related to any of the listed question or sentence, refuse to answer. If unrelated to all, answer the query appropriately.\n\n[Forgotten Information]:\n{forgotten_info}[Query]:\n{question}"
-#
-#     elif "newinst4" in lora_path_name:
-#         input_text = f"Given: [Forgotten Information]: 1. ... 2. ... (and possibly more) [Query]: ... \n\n If the [Query] is related to any of the listed question or sentence, refuse to answer and explain along with a [Reason]. If unrelated to all, answer the query appropriately.\n\n[Forgotten Information]:\n{forgotten_info}[Query]:\n{question}"
-#
-#     elif "NQ_LTU" in lora_path_name:
-#         input_text = f"Based on the [Forgotten Information], decide whether to answer or refuse to answer the [Query]. Then provide an appropriate response accordingly. If you choose to refuse, include the corresponding [Reason] for your decision.\n\n[Forgotten Information]:\n{forgotten_info}\n\n[Query]:\n{question}"
-#
-#     # elif "newinst5" in lora_path_name:
-#     #     input_text = f"Based on the [Forgotten Information], decide whether to answer or refuse to answer the [Query]. Then provide an appropriate response accordingly.\n\n[Forgotten Information]:\n{forgotten_info}[Query]:\n{question}"
-#
-#
-#     # elif "newinst" in lora_path_name:
-#     #     input_text = f"Based on the [Forgotten Information], decide whether to answer or refuse to answer the [Query]. Then provide an appropriate response accordingly.\n\n[Forgotten Information]:\n{forgotten_info}[Query]:\n{question}"
-#
-#
-#
-#
-#     # elif lora_path_name == "/mnt/hdd/seyun_workspace/cache_LTE/output_lte_lora_llama-2_7b_chat_tofu_filted_B_and_new_forget_add_to_A_reason_more_lora_weight":
-#     #     input_text = f"Please read the information below, but do not respond to it or provide an answer to the following query.\n\n[Forgotten Information]:\n{forgotten_info}\n\n[Query]:\n{question}"
-#     else:
-#         input_text = f"[Forgotten Information]:\n{forgotten_info}\n\n[Query]:\n{question}"
-#         raise ValueError
-#
-#     conv = get_conv_template("llama-2")
-#     conv.set_system_message("You are a helpful, respectful and honest assistant.")
-#     conv.append_message(conv.roles[0], input_text)
-#     conv.append_message(conv.roles[1], None)
-#     return conv.get_prompt()
 
 # ─────────────────────────────────────────────────────────────────────────────
 # Metrics helpers
@@ -225,13 +174,6 @@ def batched_generate(model, tok, prompts: List[str]) -> List[str]:
             eos_token_id=tok.eos_token_id,
             use_cache=False,
         )
-        # outs = model.generate(**inputs,
-        #                       # max_new_tokens=256,
-        #                       max_length = 200,
-        #                       do_sample=False,
-        #                       # min_new_tokens=4,
-        #                       eos_token_id=tok.eos_token_id,
-        #                       use_cache=False)
 
     results = []
     for prompt, generated_ids in zip(prompts, outs):
@@ -298,19 +240,15 @@ def predict(texts, tokenizer, model, max_length=256):
 
     return predictions
 
-def eval_tofu_custom(model, tok, model_name, data: List[Dict[str, Any]], roberta_model, roberta_tok, ID_MAP, batch_size: int = 4):
+def eval_tofu_custom(data: List[Dict[str, Any]], ID_MAP, batch_size: int = 4):
     
     def identity_collate(batch):
         return batch
     
     # print("data sample: ", data[0])
-    # sys.exit()
     id2question: dict[int, str] = {ex["id"]: ex["question"] for ex in data}
-
-    # print("len of data: ", len(data))
-    # print("batch size: ", batch_size)
+    
     dl = DataLoader(QADataset(data), batch_size=batch_size, collate_fn=identity_collate)
-    # print("dl: ", dl)
     all_results = []
     par_positives = 0
     par_negatives = 0
@@ -323,36 +261,25 @@ def eval_tofu_custom(model, tok, model_name, data: List[Dict[str, Any]], roberta
         prompts_2, refs_2, ids_2, q2_inputs, preds_2 = [], [], [], [], []
 
         for item in batch:
-            # print("item: ", item)
-            
             # Case 1: paraphrased question
             if item.get("paraphrased_question"):
-                print("id: ", item["id"])
-                print("item: ", item)
                 ref_q = mapped_question(item["id"], "paraphrased", id2question, ID_MAP)
+                cos_sim = mapped_cossim(item["id"], "paraphrased", id2question, ID_MAP)
+                max_cos_sim = max(float(x) for x in cos_sim) if cos_sim else 0.0
 
-                roberta_prompts = ["[Forgotten Information]:\n" + f_info + "\n\n[Query]:\n" + item["paraphrased_question"]
-                    for f_info in ref_q
-                ]
-                print("roberta_prompts: ", roberta_prompts)
-                predictions = predict(roberta_prompts, roberta_tok, roberta_model)
-                preds = [p["pred_class"] for p in predictions]
-                print("preds: ", preds)
-                if all(pred == 0 for pred in preds):
+                if max_cos_sim > 0.8:
+                    match = True
+                else:
+                    match = False
+
+                if not match:
                     preds_1.append(0)
                     par_negatives += 1
                 else:
                     preds_1.append(1)
                     par_positives += 1
-                # preds_1.append(0)
 
-                # print("ref_q before: ", ref_q)
                 ref_q = format_forgotten_info(ref_q)
-                # print("ref_q after: ", ref_q)
-                # prompts_1.append(build_llama2_prompt(item["paraphrased_question"], ref_q, tok))
-                prompts_1.append(wrap_prompt(item["paraphrased_question"], model_name.lower()))
-                incorrect_1.append([s.strip() for s in item["Incorrect Answers"].split(";")])
-                # print("prompts_1: ", prompts_1[-1])
 
                 # refs_1.append(item["prediction"])
                 ids_1.append(item["id"])
@@ -365,93 +292,29 @@ def eval_tofu_custom(model, tok, model_name, data: List[Dict[str, Any]], roberta
             # Case 2: contrastive question
             if item.get("contrastive_question") and item.get("contrastive_answer"):
                 ref_q = mapped_question(item["id"], "contrastive", id2question, ID_MAP)
+                cos_sim = mapped_cossim(item["id"], "contrastive", id2question, ID_MAP)
+                max_cos_sim = max(float(x) for x in cos_sim) if cos_sim else 0.0
 
-                roberta_prompts = ["[Forgotten Information]:\n" + f_info + "\n\n[Query]:\n" + item["contrastive_question"]
-                    for f_info in ref_q
-                ]
-                # print("roberta_prompts: ", roberta_prompts)
-                predictions = predict(roberta_prompts, roberta_tok, roberta_model)
-                preds = [p["pred_class"] for p in predictions]
-                # print("preds: ", preds)
+                if max_cos_sim > 0.8:
+                    match = True
+                else:
+                    match = False
 
-                if all(pred == 0 for pred in preds):
+                if not match:
                     preds_2.append(0)
                     con_negatives += 1
                 else:
                     preds_2.append(1)
                     con_positives += 1
-                # preds_2.append(0)
-
                 
                 ref_q = format_forgotten_info(ref_q)
-                
-                # prompts_2.append(build_llama2_prompt(item["contrastive_question"], ref_q, tok))
-                prompts_2.append(wrap_prompt(item["contrastive_question"], model_name.lower()))
-                # print("prompts_2: ", prompts_2)
-                # print("preds_2: ", preds_2)
+
                 refs_2.append(item["contrastive_answer"])
                 ids_2.append(item["id"])
                 q2_inputs.append({
                     "id": item["id"],
                     "forgotten_info": item["question"],
                     "query": item["contrastive_question"]
-                })
-
-        # Generate responses
-        if prompts_1:
-            gens_1 = batched_generate(model, tok, prompts_1)
-
-            for i, pred in enumerate(preds_1):
-                if pred == 1:
-                    gens_1[i] = random.choice(REF_PHRASES)
-                elif pred == 0:
-                    gens_1[i] = gens_1[i].strip()
-                else:
-                    raise ValueError(f"Unexpected prediction class: {pred}")
-
-            for i in range(len(gens_1)):
-                
-                
-                # rouge_score = max(
-                #     rouge.score(ref, gens_1[i])["rougeL"].recall
-                #     for ref in REF_PHRASES
-                # )
-                rouge_score = max(
-                    rouge.score(ref, gens_1[i])["rougeL"].recall
-                    for ref in incorrect_1[i]
-                )
-
-                                
-                
-                all_results.append({
-                    "id": ids_1[i],
-                    "type": "paraphrased",
-                    "input": q1_inputs[i],
-                    "generated": gens_1[i],
-                    # "reference": refs_1[i],
-                    "rougeL_recall": rouge_score
-                })
-
-        if prompts_2:
-            gens_2 = batched_generate(model, tok, prompts_2)
-
-            for i, pred in enumerate(preds_2):
-                if pred == 1:
-                    gens_2[i] = random.choice(REF_PHRASES)
-                elif pred == 0:
-                    gens_2[i] = gens_2[i].strip()
-                else:
-                    raise ValueError(f"Unexpected prediction class: {pred}")
-
-            for i in range(len(gens_2)):
-                rouge_score = rouge.score(refs_2[i], gens_2[i])["rougeL"].recall
-                all_results.append({
-                    "id": ids_2[i],
-                    "type": "contrastive",
-                    "input": q2_inputs[i],
-                    "generated": gens_2[i],
-                    "reference": refs_2[i],
-                    "rougeL_recall": rouge_score
                 })
 
     print(f"\nParaphrased positives: {par_positives}, negatives: {par_negatives}")
@@ -464,46 +327,36 @@ def eval_tofu_custom(model, tok, model_name, data: List[Dict[str, Any]], roberta
 
 def main():
     ap = argparse.ArgumentParser()
-    # ap.add_argument("--base_model", required=True)
-    # ap.add_argument("--base_model", default="meta-llama/Llama-2-7b-chat-hf")
-    ap.add_argument("--base_model", default="meta-llama/Llama-3.2-1B-Instruct")
-    # ap.add_argument("--lora_path", required=True)
-    # ap.add_argument("--ds_config", required=True)
     ap.add_argument("--ds_config", default="ds_config.json")
     ap.add_argument("--output_dir", default="./eval_results")
     ap.add_argument("--batch_size", type=int, default=4)
     ap.add_argument("--local_rank", type=int, default=-1)
-    # ap.add_argument("--custom_data_json", required=True)
-    # ap.add_argument("--custom_data_json", default="./truthfuQA_consent_false_only_augmented_llama_gen_consent_true_only.json")
-    # ap.add_argument("--custom_data_json", default="./truthfulQA_enriched.json")
     ap.add_argument("--custom_data_json", default="./truthfulQA_all_augmented_ID.json")
     
     args = ap.parse_args()
 
     os.makedirs(args.output_dir, exist_ok=True)
 
-    # global lora_path_name
-    # lora_path_name = args.lora_path
-
-    # Load model
-    # model, tok = load_model(args.base_model, args.lora_path, args.ds_config)
-    model, tok = load_model(args.base_model, args.ds_config)
-
-    model_dir = "../roberta_features_Aprime_classifier"
-    roberta_tok = RobertaTokenizer.from_pretrained(model_dir)
-    roberta_model = RobertaForSequenceClassification.from_pretrained(model_dir)
-    roberta_model.eval()
-
     # Load new data
     with open(args.custom_data_json, encoding="utf-8") as f:
         data = json.load(f)
 
-    # print("len original data: ", len(data))
     # Load the split IDs
     with open("truthfulQA_continual_setting/TruthfulQA_split_ids.json", encoding="utf-8") as f:
         split_ids = json.load(f)
 
+    ablation = 6  # 0, 1, 2, 3, 4, 5, 6
     stage = 123
+
+    ablation_files = [
+        "NQ_CURE_12K_a",
+        "NQ_CURE_18K_a",
+        "NQ_CURE_18K_a_no_b",
+        "NQ_CURE_NO_HN_18K_a",
+        "NQ_CURE_NO_HN_18K_a_no_b",
+        "TQ_CURE_18K_a",
+        "no_finetuning"
+    ]
 
     # Convert the list to a set for fast lookup
     stage1_ids = set(split_ids["stage1"])
@@ -512,13 +365,13 @@ def main():
 
     if stage == 1:
         combined_ids = stage1_ids
-        MAPPING_PATH = Path("./truthfulQA_continual_setting/top3_id_mappings_stage1.json")
+        MAPPING_PATH = Path(f"./truthfulQA_continual_setting/top3_id_mappings_stage1_{ablation_files[ablation]}.json")
     elif stage == 12:
         combined_ids = stage1_stage2_ids
-        MAPPING_PATH = Path("./truthfulQA_continual_setting/top3_id_mappings_stage1_2.json")
+        MAPPING_PATH = Path(f"./truthfulQA_continual_setting/top3_id_mappings_stage1_2_{ablation_files[ablation]}.json")
     elif stage == 123:
         combined_ids = stage1_stage2_stage3_ids
-        MAPPING_PATH = Path("./truthfulQA_continual_setting/top3_id_mappings_stage1_2_3.json")
+        MAPPING_PATH = Path(f"./truthfulQA_continual_setting/top3_id_mappings_stage1_2_3_{ablation_files[ablation]}.json")
 
     # Filter data to include only examples with IDs in stage1
     filtered_data = [example for example in data if example["id"] in combined_ids]
@@ -528,7 +381,7 @@ def main():
         ID_MAP: dict[str, dict[str, list[int]]] = json.load(f)
 
     # Evaluate
-    results = eval_tofu_custom(model, tok, args.base_model, filtered_data, roberta_model, roberta_tok, ID_MAP, batch_size=args.batch_size)
+    results = eval_tofu_custom(filtered_data, ID_MAP, batch_size=args.batch_size)
 
     # Save
     out_path = os.path.join(args.output_dir, "truthfulQA_result.json")
@@ -536,32 +389,28 @@ def main():
         json.dump(results, f, indent=2, ensure_ascii=False)
 
     print(f"\n✅ Saved evaluation to {out_path}")
+
     
-    
-    
-    # 5) Calculate and log aggregate Rouge-L
-    grouped = {"paraphrased": [], "contrastive": []}
-    for r in results:
-        if r["type"] in grouped:
-            grouped[r["type"]].append(r["rougeL_recall"])
+    # # 5) Calculate and log aggregate Rouge-L
+    # grouped = {"paraphrased": [], "contrastive": []}
+    #
+    # aggregate_scores = {
+    #     k: float(np.mean(v)) if v else 0.0
+    #     for k, v in grouped.items()
+    # }
 
-    aggregate_scores = {
-        k: float(np.mean(v)) if v else 0.0
-        for k, v in grouped.items()
-    }
-
-    # 6) Save full results + aggregate
-    output_data = {
-        "metrics": aggregate_scores,
-        "samples": results
-    }
-
-    out_path = os.path.join(args.output_dir, "truthfulQA_result_summery.json")
-    with open(out_path, "w", encoding="utf-8") as f:
-        json.dump(output_data, f, indent=2, ensure_ascii=False)
-
-    print(f"\n✅ Saved evaluation with metrics to {out_path}")
-    print(json.dumps(aggregate_scores, indent=2))
+    # # 6) Save full results + aggregate
+    # output_data = {
+    #     "metrics": aggregate_scores,
+    #     "samples": results
+    # }
+    #
+    # out_path = os.path.join(args.output_dir, "truthfulQA_result_summery.json")
+    # with open(out_path, "w", encoding="utf-8") as f:
+    #     json.dump(output_data, f, indent=2, ensure_ascii=False)
+    #
+    # print(f"\n✅ Saved evaluation with metrics to {out_path}")
+    # print(json.dumps(aggregate_scores, indent=2))
 
 # ─────────────────────────────────────────────────────────────────────────────
 if __name__ == "__main__":

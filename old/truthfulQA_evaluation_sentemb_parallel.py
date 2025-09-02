@@ -1,6 +1,5 @@
 import os, json, argparse, re, tqdm
 from typing import List, Dict, Any
-import torch.nn as nn
 
 os.environ["TOKENIZERS_PARALLELISM"] = "false"
 os.environ["DS_USE_MPI"] = "0"
@@ -9,7 +8,6 @@ import torch, numpy as np
 from torch.utils.data import DataLoader, Dataset
 from transformers import AutoModelForCausalLM, AutoTokenizer
 import deepspeed, transformers
-from transformers import RobertaTokenizer, RobertaForSequenceClassification
 from rouge_score import rouge_scorer
 from sentence_transformers import SentenceTransformer
 from pathlib import Path
@@ -25,7 +23,7 @@ lora_path_name = ""
 # with MAPPING_PATH.open("r", encoding="utf-8") as f:
 #     ID_MAP: dict[str, dict[str, list[int]]] = json.load(f)
     
-REFUSAL_PATH = Path("./truthfulQA_refusal_answer.json")   # ← 실제 파일명/경로
+REFUSAL_PATH = Path("../truthfulQA/truthfulQA_refusal_answer.json")   # ← 실제 파일명/경로
 REF_PHRASES: list[str] = json.loads(REFUSAL_PATH.read_text(encoding="utf-8"))
 
 def get_available_cache_dir():
@@ -50,7 +48,7 @@ def mapped_question(origin_id: int, key: str, id2question, ID_MAP) -> List[str]:
         mapped_ids = ID_MAP[str(origin_id)][f"{key}_top3_ids"]
         return [id2question[mid] for mid in mapped_ids if mid in id2question]
     except (KeyError, IndexError):
-        return id2question[origin_id]    
+        return id2question[origin_id]
 
 def mapped_cossim(origin_id: int, key: str, id2question, ID_MAP) -> List[str]:
     mapped_ids = ID_MAP[str(origin_id)][f"{key}_top3_cos"]
@@ -173,24 +171,29 @@ def load_model(base: str, ds_cfg: str, dtype=torch.float16):
         device_map=None,
         cache_dir= get_available_cache_dir(),
     )
-
-    ds_conf = json.load(open(ds_cfg))
-    num_gpus = torch.cuda.device_count()
-    ds_conf.setdefault("tensor_parallel", {})["tp_size"] = num_gpus
-    # ds_conf["dtype"] = ds_conf.get("dtype", "fp16")
-    ds_conf.pop("dtype", None)
+    # model = PeftModel.from_pretrained(model, lora).merge_and_unload()
 
     engine = deepspeed.init_inference(
         model,
-        dtype = dtype,
-        kernel_inject = False,
-        replace_method = "auto",
-        config = ds_conf,
+        dtype=dtype,
+        kernel_inject=False,
+        replace_method="auto",
+        config=json.load(open(ds_cfg)),
     )
-    llm = engine.module
-    # if torch.cuda.device_count() > 1:
-    #     llm = nn.DataParallel(llm)
-    llm.to('cuda')  # move to default device so DataParallel can replicate
+    ds_conf = json.load(open(ds_cfg))
+
+    num_gpus = torch.cuda.device_count()
+    # override tp_size to all GPUs
+    ds_conf.setdefault("tensor_parallel", {})["tp_size"] = num_gpus
+    # avoid conflict with dtype= passed below
+    ds_conf.pop("dtype", None)
+    engine = deepspeed.init_inference(
+            model,
+            dtype = dtype,
+            kernel_inject = False,
+            replace_method = "auto",
+            config = ds_conf,
+    )
 
     if "Llama-2-7b" in base:
         tok_name = "meta-llama/Llama-2-7b-chat-hf"
@@ -206,29 +209,18 @@ def load_model(base: str, ds_cfg: str, dtype=torch.float16):
     )
     tok.pad_token = tok.eos_token
     tok.pad_token_id = tok.eos_token_id
-    return llm, tok
-
-    # tok = AutoTokenizer.from_pretrained(
-    #     "meta-llama/Llama-2-7b-chat-hf",
-    #     use_fast=False,
-    #     padding_side="left",
-    #     cache_dir= get_available_cache_dir(),
-    # )
-    # tok.pad_token = tok.eos_token
-    # tok.pad_token_id = tok.eos_token_id
-    # return engine.module, tok
+    return engine.module, tok
 
 # ─────────────────────────────────────────────────────────────────────────────
 # Batched generation
 # ─────────────────────────────────────────────────────────────────────────────
 
 def batched_generate(model, tok, prompts: List[str]) -> List[str]:
-    real_model = model.module if isinstance(model, nn.DataParallel) else model
-    inputs = tok(prompts, return_tensors="pt", padding=True, truncation=False).to('cuda')
+    inputs = tok(prompts, return_tensors="pt", padding=True, truncation=False).to(model.device)
 
     # print("prompts: ", prompts)
     with torch.no_grad():
-        outs = real_model.generate(
+        outs = model.generate(
             **inputs,
             max_new_tokens=256,
             do_sample=False,
@@ -271,10 +263,11 @@ def batched_generate(model, tok, prompts: List[str]) -> List[str]:
 # Custom tofu evaluation logic
 # ─────────────────────────────────────────────────────────────────────────────
 def predict(texts, tokenizer, model, max_length=256):
-    # device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-    # model.to(device)
-    model.eval()
+    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    model.to(device)
+
     predictions = []
+
     for text in texts:
         encoding = tokenizer(
             text,
@@ -283,17 +276,15 @@ def predict(texts, tokenizer, model, max_length=256):
             max_length=max_length,
             return_tensors="pt"
         )
-        encoding = {k: v.to(model.device) for k, v in encoding.items()}
-        input_ids = encoding["input_ids"].to("cuda")
-        attention_mask = encoding["attention_mask"].to("cuda")
+        input_ids = encoding["input_ids"].to(device)
+        attention_mask = encoding["attention_mask"].to(device)
 
         with torch.no_grad():
-            # outputs = model(input_ids=input_ids, attention_mask=attention_mask)
-            outputs = model(**encoding)
+            outputs = model(input_ids=input_ids, attention_mask=attention_mask)
             logits = outputs.logits
-        probs = torch.softmax(logits, dim=1)
-        pred_class = torch.argmax(probs, dim=1).item()
-        pred_prob = probs[0][pred_class].item()
+            probs = torch.softmax(logits, dim=1)
+            pred_class = torch.argmax(probs, dim=1).item()
+            pred_prob = probs[0][pred_class].item()
 
         predictions.append({
             "text": text,
@@ -303,7 +294,7 @@ def predict(texts, tokenizer, model, max_length=256):
 
     return predictions
 
-def eval_tofu_custom(model, tok, data: List[Dict[str, Any]], roberta_model, roberta_tok, ID_MAP, batch_size: int = 4):
+def eval_tofu_custom(model, tok, data: List[Dict[str, Any]], sent_model, ID_MAP, batch_size: int = 4):
     
     def identity_collate(batch):
         return batch
@@ -328,25 +319,29 @@ def eval_tofu_custom(model, tok, data: List[Dict[str, Any]], roberta_model, robe
             
             # Case 1: paraphrased question
             if item.get("paraphrased_question"):
-                print("id: ", item["id"])
-                print("item: ", item)
                 ref_q = mapped_question(item["id"], "paraphrased", id2question, ID_MAP)
+                cos_sim = mapped_cossim(item["id"], "paraphrased", id2question, ID_MAP)
+                max_cos_sim = max(float(x) for x in cos_sim) if cos_sim else 0.0
 
-                roberta_prompts = ["[Forgotten Information]:\n" + f_info + "\n\n[Query]:\n" + item["paraphrased_question"]
-                    for f_info in ref_q
-                ]
-                print("roberta_prompts: ", roberta_prompts)
-                predictions = predict(roberta_prompts, roberta_tok, roberta_model)
-                preds = [p["pred_class"] for p in predictions]
-                print("preds: ", preds)
-                if all(pred == 0 for pred in preds):
+                if max_cos_sim > 0.8:
+                    match = True
+                else:
+                    match = False
+
+                # match = False
+                # for f_info in ref_q:
+                #     q_emb = sent_model.encode(item["paraphrased_question"], convert_to_tensor=True)
+                #     f_emb = sent_model.encode(f_info, convert_to_tensor=True)
+                #     cos_sim = util.cos_sim(q_emb, f_emb)
+                #     if cos_sim.item() > 0.8:  # threshold for similarity
+                #         match = True
+
+                if not match:
                     preds_1.append(0)
                     par_negatives += 1
                 else:
                     preds_1.append(1)
                     par_positives += 1
-                # preds_1.append(0)
-                # print("preds_1: ", preds_1[-1])
 
                 ref_q = format_forgotten_info(ref_q)
                 
@@ -364,23 +359,28 @@ def eval_tofu_custom(model, tok, data: List[Dict[str, Any]], roberta_model, robe
             # Case 2: contrastive question
             if item.get("contrastive_question") and item.get("contrastive_answer"):
                 ref_q = mapped_question(item["id"], "contrastive", id2question, ID_MAP)
+                cos_sim = mapped_cossim(item["id"], "contrastive", id2question, ID_MAP)
+                max_cos_sim = max(float(x) for x in cos_sim) if cos_sim else 0.0
 
-                roberta_prompts = ["[Forgotten Information]:\n" + f_info + "\n\n[Query]:\n" + item["contrastive_question"]
-                    for f_info in ref_q
-                ]
-                # print("roberta_prompts: ", roberta_prompts)
-                predictions = predict(roberta_prompts, roberta_tok, roberta_model)
-                preds = [p["pred_class"] for p in predictions]
-                # print("preds: ", preds)
-                # sys.exit()
-                if all(pred == 0 for pred in preds):
+                if max_cos_sim > 0.8:
+                    match = True
+                else:
+                    match = False
+
+                # match = False
+                # for f_info in ref_q:
+                #     q_emb = sent_model.encode(item["contrastive_question"], convert_to_tensor=True)
+                #     f_emb = sent_model.encode(f_info, convert_to_tensor=True)
+                #     cos_sim = util.cos_sim(q_emb, f_emb)
+                #     if cos_sim.item() > 0.8:  # threshold for similarity
+                #         match = True
+
+                if not match:
                     preds_2.append(0)
                     con_negatives += 1
                 else:
                     preds_2.append(1)
                     con_positives += 1
-                # preds_2.append(0)
-
                 
                 ref_q = format_forgotten_info(ref_q)
                 
@@ -408,8 +408,7 @@ def eval_tofu_custom(model, tok, data: List[Dict[str, Any]], roberta_model, robe
                     raise ValueError(f"Unexpected prediction class: {pred}")
 
             for i in range(len(gens_1)):
-                
-                
+
                 # rouge_score = max(
                 #     rouge.score(ref, gens_1[i])["rougeL"].recall
                 #     for ref in REF_PHRASES
@@ -418,8 +417,6 @@ def eval_tofu_custom(model, tok, data: List[Dict[str, Any]], roberta_model, robe
                     rouge.score(ref, gens_1[i])["rougeL"].recall
                     for ref in incorrect_1[i]
                 )
-
-                                
                 
                 all_results.append({
                     "id": ids_1[i],
@@ -478,6 +475,12 @@ def main():
     
     args = ap.parse_args()
 
+    if args.local_rank is not None and args.local_rank >= 0:
+        torch.cuda.set_device(args.local_rank)
+        device = torch.device("cuda", args.local_rank)
+    else:
+        device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+
     os.makedirs(args.output_dir, exist_ok=True)
 
     # global lora_path_name
@@ -487,23 +490,19 @@ def main():
     # model, tok = load_model(args.base_model, args.lora_path, args.ds_config)
     model, tok = load_model(args.base_model, args.ds_config)
 
-    model_dir = "../roberta_features_Aprime_classifier"
-    roberta_tok = RobertaTokenizer.from_pretrained(model_dir)
-    roberta_model = RobertaForSequenceClassification.from_pretrained(model_dir)
-    # if torch.cuda.device_count() > 1:
-    #     roberta_model = torch.nn.DataParallel(roberta_model)
-    # roberta_model.to('cuda')
-    device = torch.device("cuda", args.local_rank)
-    torch.cuda.set_device(device)
-    roberta_model.to(device)
-    roberta_model.eval()
+    # model_dir = "../roberta_features_Aprime_classifier"
+    # roberta_tok = RobertaTokenizer.from_pretrained(model_dir)
+    # roberta_model = RobertaForSequenceClassification.from_pretrained(model_dir)
+    # roberta_model.eval()
+    model_dir = "../mpnet_contrastive_model"
+    sent_model = SentenceTransformer(model_dir, device=device)
 
     # Load new data
     with open(args.custom_data_json, encoding="utf-8") as f:
         data = json.load(f)
 
     # Load the split IDs
-    with open("truthfulQA_continual_setting/TruthfulQA_split_ids.json", encoding="utf-8") as f:
+    with open("../truthfulQA/truthfulQA_continual_setting/TruthfulQA_split_ids.json", encoding="utf-8") as f:
         split_ids = json.load(f)
 
     stage = 1
@@ -515,13 +514,13 @@ def main():
 
     if stage == 1:
         combined_ids = stage1_ids
-        MAPPING_PATH = Path("./truthfulQA_continual_setting/top3_id_mappings_stage1.json")
+        MAPPING_PATH = Path("../truthfulQA/truthfulQA_continual_setting/top3_id_mappings_stage1.json")
     elif stage == 12:
         combined_ids = stage1_stage2_ids
-        MAPPING_PATH = Path("./truthfulQA_continual_setting/top3_id_mappings_stage1_2.json")
+        MAPPING_PATH = Path("../truthfulQA/truthfulQA_continual_setting/top3_id_mappings_stage1_2.json")
     elif stage == 123:
         combined_ids = stage1_stage2_stage3_ids
-        MAPPING_PATH = Path("./truthfulQA_continual_setting/top3_id_mappings_stage1_2_3.json")
+        MAPPING_PATH = Path("../truthfulQA/truthfulQA_continual_setting/top3_id_mappings_stage1_2_3.json")
 
     # Filter data to include only examples with IDs in stage1
     filtered_data = [example for example in data if example["id"] in combined_ids]
@@ -530,10 +529,8 @@ def main():
     with MAPPING_PATH.open("r", encoding="utf-8") as f:
         ID_MAP: dict[str, dict[str, list[int]]] = json.load(f)
 
-
     # Evaluate
-    results = eval_tofu_custom(model, tok, filtered_data, roberta_model, roberta_tok, ID_MAP, batch_size=args.batch_size)
-
+    results = eval_tofu_custom(model, tok, filtered_data, sent_model, ID_MAP, batch_size=args.batch_size)
 
     # Save
     out_path = os.path.join(args.output_dir, "truthfulQA_result.json")

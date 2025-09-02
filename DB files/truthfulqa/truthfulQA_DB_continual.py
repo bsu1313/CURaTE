@@ -8,7 +8,7 @@ from pathlib import Path
 # 1. 준비 – 모델과 데이터, stage ID 세트 로드
 # ────────────────────────────────────────────────────────────────
 
-ablation = 5 # 0, 1, 2, 3, 4, 5
+ablation = 6 # 0, 1, 2, 3, 4, 5, 6
 
 ablation_files = [
     "NQ_CURE_12K_a",
@@ -17,6 +17,7 @@ ablation_files = [
     "NQ_CURE_NO_HN_18K_a",
     "NQ_CURE_NO_HN_18K_a_no_b",
     "TQ_CURE_18K_a",
+    "no_finetuning"
 ]
 
 model = SentenceTransformer(f"../../models/mpnet_contrastive_model_{ablation_files[ablation]}")

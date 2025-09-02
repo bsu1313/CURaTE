@@ -15,9 +15,9 @@ from tqdm import tqdm
 # ]
 
 
-stage = "123" # "1", "12", "123"
+stage = "1" # "1", "12", "123"
 
-ablation = 5 # 0, 1, 2, 3, 4, 5
+ablation = 6 # 0, 1, 2, 3, 4, 5, 6
 
 ablation_files = [
     "NQ_CURE_12K_a",
@@ -26,6 +26,7 @@ ablation_files = [
     "NQ_CURE_NO_HN_18K_a",
     "NQ_CURE_NO_HN_18K_a_no_b",
     "TQ_CURE_18K_a",
+    "no_finetuning"
 ]
 
 forget_file = f"../TOFU_NEW/stage{stage[-1]}/forget{stage}.json"         # NOTE!  DB 역할을 하는 파일,  아래 보시면 키가 question 입니다.

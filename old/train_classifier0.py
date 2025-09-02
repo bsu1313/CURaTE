@@ -107,7 +107,7 @@ class EmbeddingDataset(Dataset):
 # Load and split data
 # train_data, test_data = load_and_split_data("NQ_LTU_18k_augmented.json")
 # train_data, test_data = load_and_split_data("NQ_LTU_18k.json")
-train_data, test_data = load_and_split_data("NQ_LTU_21k_augmented.json")
+train_data, test_data = load_and_split_data("../NQ_LTU_21k_augmented.json")
 
 # Create DataLoader
 train_dataset = EmbeddingDataset(train_data)

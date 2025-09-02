@@ -1,13 +1,13 @@
-import os, json, argparse, re, tqdm
+import os, json, argparse, re, tqdm, sys
 from typing import List, Dict, Any
 
 os.environ["TOKENIZERS_PARALLELISM"] = "false"
-os.environ["DS_USE_MPI"] = "0"
 
 import torch, numpy as np
 from torch.utils.data import DataLoader, Dataset
 from transformers import AutoModelForCausalLM, AutoTokenizer
 import deepspeed, transformers
+from transformers import RobertaTokenizer, RobertaForSequenceClassification
 from rouge_score import rouge_scorer
 from sentence_transformers import SentenceTransformer
 from pathlib import Path
@@ -23,7 +23,7 @@ lora_path_name = ""
 # with MAPPING_PATH.open("r", encoding="utf-8") as f:
 #     ID_MAP: dict[str, dict[str, list[int]]] = json.load(f)
     
-REFUSAL_PATH = Path("./truthfulQA_refusal_answer.json")   # ← 실제 파일명/경로
+REFUSAL_PATH = Path("../truthfulQA/truthfulQA_refusal_answer.json")   # ← 실제 파일명/경로
 REF_PHRASES: list[str] = json.loads(REFUSAL_PATH.read_text(encoding="utf-8"))
 
 def get_available_cache_dir():
@@ -48,7 +48,7 @@ def mapped_question(origin_id: int, key: str, id2question, ID_MAP) -> List[str]:
         mapped_ids = ID_MAP[str(origin_id)][f"{key}_top3_ids"]
         return [id2question[mid] for mid in mapped_ids if mid in id2question]
     except (KeyError, IndexError):
-        return id2question[origin_id]
+        return id2question[origin_id]    
 
 def mapped_cossim(origin_id: int, key: str, id2question, ID_MAP) -> List[str]:
     mapped_ids = ID_MAP[str(origin_id)][f"{key}_top3_cos"]
@@ -75,7 +75,18 @@ class QADataset(Dataset):
 # ─────────────────────────────────────────────────────────────────────────────
 # Prompt builder
 # ─────────────────────────────────────────────────────────────────────────────
+def wrap_prompt(p, if_llama):
+    if 'llama-3' in if_llama or 'llama_3' in if_llama:
+        question_start_token = "<|start_header_id|>system<|end_header_id|>\n\nCutting Knowledge Date: December 2023\nToday Date: 14 Jul 2025\n\n<|eot_id|><|start_header_id|>user<|end_header_id|>\n\n"
+        question_end_token = "<|eot_id|><|start_header_id|>assistant<|end_header_id|>\n\n"
+    elif 'llama-2' in if_llama or 'llama_2' in if_llama:
+        question_start_token = "[INST] "
+        question_end_token = " [/INST]"
+    else:
+        raise ValueError('Please provide llama model')
+    return f"{question_start_token}{p}{question_end_token}"
 def build_llama2_prompt(question: str, forgotten_info: str, tokenizer) -> str:
+    # print("question: ", question)
     messages = [
         {"role": "user", "content": question}
     ]
@@ -180,20 +191,6 @@ def load_model(base: str, ds_cfg: str, dtype=torch.float16):
         replace_method="auto",
         config=json.load(open(ds_cfg)),
     )
-    ds_conf = json.load(open(ds_cfg))
-
-    num_gpus = torch.cuda.device_count()
-    # override tp_size to all GPUs
-    ds_conf.setdefault("tensor_parallel", {})["tp_size"] = num_gpus
-    # avoid conflict with dtype= passed below
-    ds_conf.pop("dtype", None)
-    engine = deepspeed.init_inference(
-            model,
-            dtype = dtype,
-            kernel_inject = False,
-            replace_method = "auto",
-            config = ds_conf,
-    )
 
     if "Llama-2-7b" in base:
         tok_name = "meta-llama/Llama-2-7b-chat-hf"
@@ -228,6 +225,13 @@ def batched_generate(model, tok, prompts: List[str]) -> List[str]:
             eos_token_id=tok.eos_token_id,
             use_cache=False,
         )
+        # outs = model.generate(**inputs,
+        #                       # max_new_tokens=256,
+        #                       max_length = 200,
+        #                       do_sample=False,
+        #                       # min_new_tokens=4,
+        #                       eos_token_id=tok.eos_token_id,
+        #                       use_cache=False)
 
     results = []
     for prompt, generated_ids in zip(prompts, outs):
@@ -294,15 +298,19 @@ def predict(texts, tokenizer, model, max_length=256):
 
     return predictions
 
-def eval_tofu_custom(model, tok, data: List[Dict[str, Any]], sent_model, ID_MAP, batch_size: int = 4):
+def eval_tofu_custom(model, tok, model_name, data: List[Dict[str, Any]], roberta_model, roberta_tok, ID_MAP, batch_size: int = 4):
     
     def identity_collate(batch):
         return batch
     
     # print("data sample: ", data[0])
+    # sys.exit()
     id2question: dict[int, str] = {ex["id"]: ex["question"] for ex in data}
-    
+
+    # print("len of data: ", len(data))
+    # print("batch size: ", batch_size)
     dl = DataLoader(QADataset(data), batch_size=batch_size, collate_fn=identity_collate)
+    # print("dl: ", dl)
     all_results = []
     par_positives = 0
     par_negatives = 0
@@ -319,34 +327,32 @@ def eval_tofu_custom(model, tok, data: List[Dict[str, Any]], sent_model, ID_MAP,
             
             # Case 1: paraphrased question
             if item.get("paraphrased_question"):
+                print("id: ", item["id"])
+                print("item: ", item)
                 ref_q = mapped_question(item["id"], "paraphrased", id2question, ID_MAP)
-                cos_sim = mapped_cossim(item["id"], "paraphrased", id2question, ID_MAP)
-                max_cos_sim = max(float(x) for x in cos_sim) if cos_sim else 0.0
 
-                if max_cos_sim > 0.8:
-                    match = True
-                else:
-                    match = False
-
-                # match = False
-                # for f_info in ref_q:
-                #     q_emb = sent_model.encode(item["paraphrased_question"], convert_to_tensor=True)
-                #     f_emb = sent_model.encode(f_info, convert_to_tensor=True)
-                #     cos_sim = util.cos_sim(q_emb, f_emb)
-                #     if cos_sim.item() > 0.8:  # threshold for similarity
-                #         match = True
-
-                if not match:
+                roberta_prompts = ["[Forgotten Information]:\n" + f_info + "\n\n[Query]:\n" + item["paraphrased_question"]
+                    for f_info in ref_q
+                ]
+                print("roberta_prompts: ", roberta_prompts)
+                predictions = predict(roberta_prompts, roberta_tok, roberta_model)
+                preds = [p["pred_class"] for p in predictions]
+                print("preds: ", preds)
+                if all(pred == 0 for pred in preds):
                     preds_1.append(0)
                     par_negatives += 1
                 else:
                     preds_1.append(1)
                     par_positives += 1
+                # preds_1.append(0)
 
+                # print("ref_q before: ", ref_q)
                 ref_q = format_forgotten_info(ref_q)
-                
-                prompts_1.append(build_llama2_prompt(item["paraphrased_question"], ref_q, tok))
+                # print("ref_q after: ", ref_q)
+                # prompts_1.append(build_llama2_prompt(item["paraphrased_question"], ref_q, tok))
+                prompts_1.append(wrap_prompt(item["paraphrased_question"], model_name.lower()))
                 incorrect_1.append([s.strip() for s in item["Incorrect Answers"].split(";")])
+                # print("prompts_1: ", prompts_1[-1])
 
                 # refs_1.append(item["prediction"])
                 ids_1.append(item["id"])
@@ -359,32 +365,28 @@ def eval_tofu_custom(model, tok, data: List[Dict[str, Any]], sent_model, ID_MAP,
             # Case 2: contrastive question
             if item.get("contrastive_question") and item.get("contrastive_answer"):
                 ref_q = mapped_question(item["id"], "contrastive", id2question, ID_MAP)
-                cos_sim = mapped_cossim(item["id"], "contrastive", id2question, ID_MAP)
-                max_cos_sim = max(float(x) for x in cos_sim) if cos_sim else 0.0
 
-                if max_cos_sim > 0.8:
-                    match = True
-                else:
-                    match = False
+                roberta_prompts = ["[Forgotten Information]:\n" + f_info + "\n\n[Query]:\n" + item["contrastive_question"]
+                    for f_info in ref_q
+                ]
+                # print("roberta_prompts: ", roberta_prompts)
+                predictions = predict(roberta_prompts, roberta_tok, roberta_model)
+                preds = [p["pred_class"] for p in predictions]
+                # print("preds: ", preds)
 
-                # match = False
-                # for f_info in ref_q:
-                #     q_emb = sent_model.encode(item["contrastive_question"], convert_to_tensor=True)
-                #     f_emb = sent_model.encode(f_info, convert_to_tensor=True)
-                #     cos_sim = util.cos_sim(q_emb, f_emb)
-                #     if cos_sim.item() > 0.8:  # threshold for similarity
-                #         match = True
-
-                if not match:
+                if all(pred == 0 for pred in preds):
                     preds_2.append(0)
                     con_negatives += 1
                 else:
                     preds_2.append(1)
                     con_positives += 1
+                # preds_2.append(0)
+
                 
                 ref_q = format_forgotten_info(ref_q)
                 
-                prompts_2.append(build_llama2_prompt(item["contrastive_question"], ref_q, tok))
+                # prompts_2.append(build_llama2_prompt(item["contrastive_question"], ref_q, tok))
+                prompts_2.append(wrap_prompt(item["contrastive_question"], model_name.lower()))
                 # print("prompts_2: ", prompts_2)
                 # print("preds_2: ", preds_2)
                 refs_2.append(item["contrastive_answer"])
@@ -408,7 +410,8 @@ def eval_tofu_custom(model, tok, data: List[Dict[str, Any]], sent_model, ID_MAP,
                     raise ValueError(f"Unexpected prediction class: {pred}")
 
             for i in range(len(gens_1)):
-
+                
+                
                 # rouge_score = max(
                 #     rouge.score(ref, gens_1[i])["rougeL"].recall
                 #     for ref in REF_PHRASES
@@ -417,6 +420,8 @@ def eval_tofu_custom(model, tok, data: List[Dict[str, Any]], sent_model, ID_MAP,
                     rouge.score(ref, gens_1[i])["rougeL"].recall
                     for ref in incorrect_1[i]
                 )
+
+                                
                 
                 all_results.append({
                     "id": ids_1[i],
@@ -460,8 +465,8 @@ def eval_tofu_custom(model, tok, data: List[Dict[str, Any]], sent_model, ID_MAP,
 def main():
     ap = argparse.ArgumentParser()
     # ap.add_argument("--base_model", required=True)
-    ap.add_argument("--base_model", default="meta-llama/Llama-2-7b-chat-hf")
-    # ap.add_argument("--base_model", default="meta-llama/Llama-3.2-1B-Instruct")
+    # ap.add_argument("--base_model", default="meta-llama/Llama-2-7b-chat-hf")
+    ap.add_argument("--base_model", default="meta-llama/Llama-3.2-1B-Instruct")
     # ap.add_argument("--lora_path", required=True)
     # ap.add_argument("--ds_config", required=True)
     ap.add_argument("--ds_config", default="ds_config.json")
@@ -475,12 +480,6 @@ def main():
     
     args = ap.parse_args()
 
-    if args.local_rank is not None and args.local_rank >= 0:
-        torch.cuda.set_device(args.local_rank)
-        device = torch.device("cuda", args.local_rank)
-    else:
-        device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-
     os.makedirs(args.output_dir, exist_ok=True)
 
     # global lora_path_name
@@ -490,22 +489,21 @@ def main():
     # model, tok = load_model(args.base_model, args.lora_path, args.ds_config)
     model, tok = load_model(args.base_model, args.ds_config)
 
-    # model_dir = "../roberta_features_Aprime_classifier"
-    # roberta_tok = RobertaTokenizer.from_pretrained(model_dir)
-    # roberta_model = RobertaForSequenceClassification.from_pretrained(model_dir)
-    # roberta_model.eval()
-    model_dir = "../mpnet_contrastive_model"
-    sent_model = SentenceTransformer(model_dir, device=device)
+    model_dir = "../roberta_features_Aprime_classifier"
+    roberta_tok = RobertaTokenizer.from_pretrained(model_dir)
+    roberta_model = RobertaForSequenceClassification.from_pretrained(model_dir)
+    roberta_model.eval()
 
     # Load new data
     with open(args.custom_data_json, encoding="utf-8") as f:
         data = json.load(f)
 
+    # print("len original data: ", len(data))
     # Load the split IDs
-    with open("truthfulQA_continual_setting/TruthfulQA_split_ids.json", encoding="utf-8") as f:
+    with open("../truthfulQA/truthfulQA_continual_setting/TruthfulQA_split_ids.json", encoding="utf-8") as f:
         split_ids = json.load(f)
 
-    stage = 1
+    stage = 123
 
     # Convert the list to a set for fast lookup
     stage1_ids = set(split_ids["stage1"])
@@ -514,13 +512,13 @@ def main():
 
     if stage == 1:
         combined_ids = stage1_ids
-        MAPPING_PATH = Path("./truthfulQA_continual_setting/top3_id_mappings_stage1.json")
+        MAPPING_PATH = Path("../truthfulQA/truthfulQA_continual_setting/top3_id_mappings_stage1.json")
     elif stage == 12:
         combined_ids = stage1_stage2_ids
-        MAPPING_PATH = Path("./truthfulQA_continual_setting/top3_id_mappings_stage1_2.json")
+        MAPPING_PATH = Path("../truthfulQA/truthfulQA_continual_setting/top3_id_mappings_stage1_2.json")
     elif stage == 123:
         combined_ids = stage1_stage2_stage3_ids
-        MAPPING_PATH = Path("./truthfulQA_continual_setting/top3_id_mappings_stage1_2_3.json")
+        MAPPING_PATH = Path("../truthfulQA/truthfulQA_continual_setting/top3_id_mappings_stage1_2_3.json")
 
     # Filter data to include only examples with IDs in stage1
     filtered_data = [example for example in data if example["id"] in combined_ids]
@@ -530,7 +528,7 @@ def main():
         ID_MAP: dict[str, dict[str, list[int]]] = json.load(f)
 
     # Evaluate
-    results = eval_tofu_custom(model, tok, filtered_data, sent_model, ID_MAP, batch_size=args.batch_size)
+    results = eval_tofu_custom(model, tok, args.base_model, filtered_data, roberta_model, roberta_tok, ID_MAP, batch_size=args.batch_size)
 
     # Save
     out_path = os.path.join(args.output_dir, "truthfulQA_result.json")
