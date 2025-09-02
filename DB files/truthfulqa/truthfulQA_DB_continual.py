@@ -7,14 +7,26 @@ from pathlib import Path
 # ────────────────────────────────────────────────────────────────
 # 1. 준비 – 모델과 데이터, stage ID 세트 로드
 # ────────────────────────────────────────────────────────────────
-model = SentenceTransformer("/home/work/data/seyun_workspace_home/mpnet_contrastive_model")
 
-with open("./truthfulQA_all_augmented_ID.json", "r", encoding="utf-8") as f:
+ablation = 5 # 0, 1, 2, 3, 4, 5
+
+ablation_files = [
+    "NQ_CURE_12K_a",
+    "NQ_CURE_18K_a",
+    "NQ_CURE_18K_a_no_b",
+    "NQ_CURE_NO_HN_18K_a",
+    "NQ_CURE_NO_HN_18K_a_no_b",
+    "TQ_CURE_18K_a",
+]
+
+model = SentenceTransformer(f"../../models/mpnet_contrastive_model_{ablation_files[ablation]}")
+
+with open("../../truthfulQA/truthfulQA_all_augmented_ID.json", "r", encoding="utf-8") as f:
     data = json.load(f)
 
 # ❶ stage 정보가 들어있는 JSON 파일
 #    예: {"stage1":[1,2,3], "stage2":[...], "stage3":[...]}
-with open("./TruthfulQA_split_ids.json", "r", encoding="utf-8") as f:
+with open("../../truthfulQA/truthfulQA_continual_setting/TruthfulQA_split_ids.json", "r", encoding="utf-8") as f:
     stages = json.load(f)
 
 # ↘️ stage 집합 준비
@@ -133,13 +145,14 @@ def run_similarity(stage_tag: str, allowed_ids: set):
     # ──────────────────────────────────────────────────────────
     # 3. 파일 저장
     # ──────────────────────────────────────────────────────────
-    out_dir = Path(".")
+    # out_dir = Path(".")
+    out_dir = Path("../../truthfulQA/truthfulQA_continual_setting/")
     out_dir.mkdir(parents=True, exist_ok=True)
 
-    with open(out_dir / f"similarity_results_{stage_tag}.json", "w", encoding="utf-8") as f:
+    with open(out_dir / f"similarity_results_{stage_tag}_{ablation_files[ablation]}.json", "w", encoding="utf-8") as f:
         json.dump({"results":results, "statistics":statistics}, f, indent=2, ensure_ascii=False)
 
-    with open(out_dir / f"top3_id_mappings_{stage_tag}.json", "w", encoding="utf-8") as f:
+    with open(out_dir / f"top3_id_mappings_{stage_tag}_{ablation_files[ablation]}.json", "w", encoding="utf-8") as f:
         json.dump(top3_id_mapping, f, indent=2, ensure_ascii=False)
 
     print(f"✅ Stage {stage_tag}: 저장 완료!")

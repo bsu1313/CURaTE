@@ -12,17 +12,28 @@ from pathlib import Path
 # ---------------------------------------------------------------------------
 # 0) paths & hyper-params  ―― 바꿔도 되는 곳
 # ---------------------------------------------------------------------------
-truth_file  = "./truthfulQA_all_augmented_ID.json"
-stage_file  = "./TruthfulQA_split_ids.json"        # {"stage1":[ids], "stage2":[ids], ...}
+ablation = 5 # 0, 1, 2, 3, 4, 5
+
+ablation_files = [
+    "NQ_CURE_12K_a",
+    "NQ_CURE_18K_a",
+    "NQ_CURE_18K_a_no_b",
+    "NQ_CURE_NO_HN_18K_a",
+    "NQ_CURE_NO_HN_18K_a_no_b",
+    "TQ_CURE_18K_a",
+]
+
+truth_file  = "../../truthfulQA/truthfulQA_all_augmented_ID.json"
+stage_file  = "../../truthfulQA/truthfulQA_continual_setting/TruthfulQA_split_ids.json"        # {"stage1":[ids], "stage2":[ids], ...}
 
 split       = "validation"                          # "train" / "validation" / "test"
-out_prefix  = "csqa_to_truthqa_top3_"               # 결과 파일 접두사
+out_prefix  = "../../truthfulQA/truthfulQA_continual_setting/csqa_to_truthqa_top3_"               # 결과 파일 접두사
 topk        = 3
 chunk       = 128
 
 device = "cuda" if torch.cuda.is_available() else "cpu"
 model  = SentenceTransformer(
-    "/home/work/data/seyun_workspace_home/mpnet_contrastive_model",
+    f"../../models/mpnet_contrastive_model_{ablation_files[ablation]}",
     device=device,
 )
 
@@ -112,7 +123,7 @@ for tag, allowed in allowed_sets:
     assert len(mapping) == len(cs_ids), "Some CSQA questions were skipped!"
 
     # 저장
-    out_file = f"{out_prefix}{tag}.json"
+    out_file = f"{out_prefix}{tag}_{ablation_files[ablation]}.json"
     Path(out_file).parent.mkdir(parents=True, exist_ok=True)
     with open(out_file, "w", encoding="utf-8") as f:
         json.dump(mapping, f, ensure_ascii=False, indent=2)
