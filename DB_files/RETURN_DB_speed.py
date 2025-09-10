@@ -161,10 +161,10 @@ for i in range(9, 10):
 
 print("db_times:", db_times)
 print("db_sizes:", db_sizes)
-print("Average Unlearning Time: ", db_times[0] / 10)
 print("search_times:", search_times)
 print("search_sizes:", search_sizes)
 average_search_times = [t / s for t, s in zip(search_times, search_sizes)]
+print("Average Unlearning Time: ", db_times[0] / 10)
 print("Average Search Time per Query: ", sum(average_search_times) / len(average_search_times))
 
 
