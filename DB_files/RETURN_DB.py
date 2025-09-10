@@ -6,7 +6,7 @@ from tqdm import tqdm
 
 
 model_size = "7B"  # "1B", "7B"
-ablation = 6 # 0, 1, 2, 3, 4, 5, 6
+ablation = 1 # 0, 1, 2, 3, 4, 5, 6
 
 ablation_files = [
     "NQ_CURE_12K_a",
@@ -23,6 +23,11 @@ if model_size == "1B":
     data_folder = "Meta-Llama-3.2-1B-Instruct_dataset"
 elif model_size == "7B":
     data_folder = "Meta-Llama-2-7B-chat_dataset"
+
+db_times = []
+db_sizes = []
+search_times = []
+search_sizes = []
 
 for i in range(10):
 
@@ -53,6 +58,9 @@ for i in range(10):
     with open(forget_file, encoding="utf-8") as f:
         forget_data = json.load(f)
 
+    torch.cuda.synchronize()
+    start_time = time.time()
+    
     forget_questions = [ex["question"] for ex in forget_data]
     forget_ids       = [ex["id"] for ex in forget_data]
 
@@ -63,6 +71,11 @@ for i in range(10):
         batch_size=64,
         normalize_embeddings=True,
     )
+    
+    torch.cuda.synchronize()
+    end_time = time.time()
+    db_times.append(end_time - start_time)
+    db_sizes.append(len(forget_questions))
 
     # ────────────────────────────────
     # 2) 각 데이터셋 처리
@@ -86,6 +99,8 @@ for i in range(10):
         for i in tqdm(range(0, len(qs), chunk), desc=f"Embedding {Path(path).name}"):
             batch_qs  = qs[i : i + chunk]
             batch_ids = qids[i : i + chunk]
+            print("batch qs:", batch_qs)
+            sys.exit()
 
             batch_embs = model.encode(
                 batch_qs,

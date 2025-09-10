@@ -234,7 +234,7 @@ def main():
     args = ap.parse_args()
     os.makedirs(args.output_dir, exist_ok=True)
 
-    ablation = 6  # 0, 1, 2, 3, 4, 5, 6
+    ablation = 1  # 0, 1, 2, 3, 4, 5, 6
     model_size = "7B" # "1B" or "7B"
     split = "9"  # 0,1,2,3,4,5,6,7,8,9
 
@@ -275,6 +275,11 @@ def main():
     MAPPING_PATH = Path(split_dir) / f"RETURN_stage_{split}_top3_{ablation_files[ablation]}.json"
     with MAPPING_PATH.open("r", encoding="utf-8") as f:
         ID_MAP: dict[str, dict[str, list[int]]] = json.load(f)
+
+    total_samples = 0
+    for split in splits.values():
+        total_samples += len(split)
+    print(f"Total samples across all splits: {total_samples}")
 
     result: Dict[str,Dict] = {}
     for name, ds in splits.items():
