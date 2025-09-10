@@ -29,8 +29,10 @@ db_times = []
 db_sizes = []
 search_times = []
 search_sizes = []
+search_times0 = []
+search_sizes0 = []
 
-for i in range(10):
+for i in range(9, 10):
 
     forget_file = f"../RETURN_NEW_DATASET/{data_folder}/stage_{i}_forget.json"
     dataset_files = [                           # 매핑을 만들 데이터셋들
@@ -66,11 +68,13 @@ for i in range(10):
     forget_questions = [ex["question"] for ex in forget_data]
     forget_ids       = [ex["id"] for ex in forget_data]
 
+    # print("len forget questions: ", len(forget_questions))
+
     forget_embs = model.encode(
         forget_questions,
         convert_to_tensor=True,
         device=device,
-        batch_size=64,
+        batch_size=30,
         normalize_embeddings=True,
     )
     
@@ -104,9 +108,9 @@ for i in range(10):
         start_time = time.time()
 
         # print("len qs: ", len(qs))
-        for i in tqdm(range(0, len(qs), chunk), desc=f"Embedding {Path(path).name}"):
-            batch_qs  = qs[i : i + chunk]
-            batch_ids = qids[i : i + chunk]
+        for j in tqdm(range(0, len(qs), chunk), desc=f"Embedding {Path(path).name}"):
+            batch_qs  = qs[j : j + chunk]
+            batch_ids = qids[j : j + chunk]
             # print("chunk: ", chunk)
             # print("batch qs:", batch_qs)
 
@@ -123,12 +127,15 @@ for i in range(10):
 
             for qid, row_idx, row_val in zip(batch_ids, idxs, values):
                 mapping[qid] = {
-                    "forget_data_top3_ids"   : [forget_ids[int(j)] for j in row_idx],
+                    "forget_data_top3_ids"   : [forget_ids[int(k)] for k in row_idx],
                     "forget_data_top3_cossim": [float(v) for v in row_val],
                 }
         
         torch.cuda.synchronize()
         end_time = time.time()
+        
+        # search_times.append((i, end_time - start_time))
+        # search_sizes.append((i, len(qs)))
         if i == 9:
             search_times.append(end_time - start_time)
             search_sizes.append(len(qs))
@@ -154,8 +161,11 @@ for i in range(10):
 
 print("db_times:", db_times)
 print("db_sizes:", db_sizes)
+print("Average Unlearning Time: ", db_times[0] / 10)
 print("search_times:", search_times)
 print("search_sizes:", search_sizes)
+average_search_times = [t / s for t, s in zip(search_times, search_sizes)]
+print("Average Search Time per Query: ", sum(average_search_times) / len(average_search_times))
 
 
 
