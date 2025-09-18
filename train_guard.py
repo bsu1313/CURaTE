@@ -222,6 +222,8 @@ def extract_avg_penultimate_embeddings(
     Y = np.concatenate(labels, axis=0)
     return X, Y
 
+torch.cuda.synchronize()
+start_time = time.time()
 full_dataset = TextDataset(texts, labels)
 X, Y = extract_avg_penultimate_embeddings(full_dataset, tokenizer, llm, BATCH_SIZE_TOK)
 np.save(os.path.join(SAVE_DIR, "X.npy"), X)
@@ -331,8 +333,6 @@ def evaluate(model, loader):
 # Train Loop
 # =========================
 best_f1 = -1
-torch.cuda.synchronize()
-start_time = time.time()
 for epoch in range(1, EPOCHS+1):
     clf.train()
     total_loss = 0.0
