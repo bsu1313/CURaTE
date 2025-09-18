@@ -17,8 +17,8 @@ from transformers import AutoTokenizer, AutoModelForCausalLM
 # =========================
 
 model_size = "7B" # 1B, 7B
-task = "TOFU" # TOFU, ScienceQA, RETURN
-stage = 1
+task = "RETURN" # TOFU, ScienceQA, RETURN
+stage = 10
 
 if task == "TOFU":
     if stage == 1:
@@ -127,6 +127,7 @@ if task == "TOFU":
 elif task == "RETURN":
     if stage > 1:
         pos_texts = pos_texts[-30:]
+        neg_texts = neg_texts[-15:]
 
 texts = pos_texts + neg_texts
 labels = [1]*len(pos_texts) + [0]*len(neg_texts)
