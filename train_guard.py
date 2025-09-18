@@ -8,6 +8,7 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 from torch.utils.data import Dataset, DataLoader, random_split
+import time
 
 from transformers import AutoTokenizer, AutoModelForCausalLM
 
@@ -330,6 +331,8 @@ def evaluate(model, loader):
 # Train Loop
 # =========================
 best_f1 = -1
+torch.cuda.synchronize()
+start_time = time.time()
 for epoch in range(1, EPOCHS+1):
     clf.train()
     total_loss = 0.0
@@ -352,5 +355,7 @@ for epoch in range(1, EPOCHS+1):
                     "in_dim": in_dim,
                     "hidden_dim": HIDDEN_DIM}, os.path.join(SAVE_DIR, "mlp_best.pt"))
         print("  ↳ Saved best model (by F1).")
-
-print("Done.")
+torch.cuda.synchronize()
+end_time = time.time()
+print(f"Training time: {end_time - start_time:.1f} seconds.")
+# print("Done.")
