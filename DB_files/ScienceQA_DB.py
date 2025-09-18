@@ -1,7 +1,9 @@
 import json, torch
 from pathlib import Path
-from sentence_transformers import SentenceTransformer
+from sentence_transformers import SentenceTransformer, CrossEncoder
 from tqdm import tqdm
+import numpy as np
+import time
 
 # ────────────────────────────────
 # 0) 설정값 – 필요에 따라 수정
@@ -10,9 +12,9 @@ from tqdm import tqdm
 
 # "biology" -> "physics" -> "chemistry" -> "economics" 
 
-stage = 1 # 1, 2, 3, 4
+stage = 4 # 1, 2, 3, 4
 
-ablation = 6 # 0, 1, 2, 3, 4, 5, 6
+ablation = 7 # 0, 1, 2, 3, 4, 5, 6, 7
 
 ablation_files = [
     "NQ_CURE_12K_a",
@@ -21,7 +23,8 @@ ablation_files = [
     "NQ_CURE_NO_HN_18K_a",
     "NQ_CURE_NO_HN_18K_a_no_b",
     "TQ_CURE_18K_a",
-    "no_finetuning"
+    "no_finetuning",
+    "guard"
 ]
 
 if stage == 1:
@@ -66,14 +69,24 @@ elif stage == 4:
     out_file = f"../ScienceQA/ScienceQA_to_stage4_top3_{ablation_files[ablation]}.json"    # None 으로 두면 저장 생략
 
 
-topk   = 3
+if ablation == 7:
+    topk = 5
+else:
+    topk   = 3
 chunk  = 128
 
 device = "cuda" if torch.cuda.is_available() else "cpu"
-model  = SentenceTransformer(
-    f"../models/mpnet_contrastive_model_{ablation_files[ablation]}",
-    device=device,
-)
+if ablation == 7:
+    model  = SentenceTransformer(
+        "sentence-transformers/paraphrase-MiniLM-L6-v2",
+        device=device,
+    )
+    reranker = CrossEncoder("cross-encoder/stsb-roberta-base")
+else:
+    model  = SentenceTransformer(
+        f"../models/mpnet_contrastive_model_{ablation_files[ablation]}",
+        device=device,
+    )
 
 # ────────────────────────────────
 # 1) forget data 로드 & 임베딩
@@ -126,11 +139,52 @@ for cfg in dataset_files:
         sims          = batch_embs @ forget_embs.T
         values, idxs  = torch.topk(sims, k=topk, dim=1)
 
-        for qid, row_idx, row_val in zip(batch_ids, idxs, values):
-            mapping[qid] = {
-                "forget_data_top3_ids"   : [forget_ids[int(j)] for j in row_idx],
-                "forget_data_top3_cossim": [float(v) for v in row_val],
-            }
+        for qid, q_text, row_idx, row_val in zip(batch_ids, batch_qs, idxs, values):
+
+            if ablation == 7:
+                # take the cosine top-5 candidates
+                cand_idx = row_idx[:5].tolist()
+
+                # build (query, candidate) pairs for the CrossEncoder
+                pairs = [(q_text, forget_questions[j]) for j in cand_idx]
+
+                with torch.inference_mode():
+                    ce_scores = reranker.predict(pairs)  # higher is more similar
+
+                # pick new top-3 under CE scores
+                order = np.argsort(ce_scores)[::-1][:3]
+                reranked_ids    = [forget_ids[cand_idx[k]] for k in order]
+                reranked_scores = [float(ce_scores[k]) for k in order]
+
+                # (optional) also keep original cosine scores for those chosen
+                # map CE-selected indices back to their cosine scores
+                cos_for_reranked = []
+                for k in order:
+                    j_global = cand_idx[k]
+                    # find where j_global sits in row_idx to fetch its cosine
+                    pos = (row_idx == j_global).nonzero(as_tuple=True)[0].item()
+                    cos_for_reranked.append(float(row_val[pos]))
+
+                mapping[qid] = {
+                    "forget_data_top3_ids": reranked_ids,
+                    "forget_data_top3_crossenc": reranked_scores,
+                    "forget_data_top3_cossim": cos_for_reranked,
+                }
+
+            else:
+                # original cosine top-k path (return top-3 to keep the same shape)
+                top3_idx = row_idx[:3].tolist()
+                top3_val = row_val[:3].tolist()
+                mapping[qid] = {
+                    "forget_data_top3_ids"   : [forget_ids[int(j)] for j in top3_idx],
+                    "forget_data_top3_cossim": [float(v) for v in top3_val],
+                }
+        
+        # for qid, row_idx, row_val in zip(batch_ids, idxs, values):
+        #     mapping[qid] = {
+        #         "forget_data_top3_ids"   : [forget_ids[int(j)] for j in row_idx],
+        #         "forget_data_top3_cossim": [float(v) for v in row_val],
+        #     }
 
 # ────────────────────────────────
 # 3) 저장 및 검증

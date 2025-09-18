@@ -30,7 +30,7 @@ from rouge_score import rouge_scorer
 # --------------------------------------------------------------------------
 # 프롬프트 템플릿
 # --------------------------------------------------------------------------
-from conversation import get_conv_template        # 💡 경로 확인!
+
 
 from sentence_transformers import SentenceTransformer, util
 from pathlib import Path
@@ -40,7 +40,8 @@ REFUSAL_PATH = Path("../refusal_answer.json")   # ← 실제 파일명/경로
 REF_PHRASES: list[str] = json.loads(REFUSAL_PATH.read_text(encoding="utf-8"))
 
 def get_available_cache_dir():
-    preferred = Path("/home/david/.cache")
+    preferred = Path("/home/work/data/seokhan/")
+    # preferred = Path("/home/david/.cache")
     fallback = Path("/home/plowcow/.cache")
 
     if preferred.exists() and os.access(preferred, os.W_OK):
@@ -296,7 +297,8 @@ The correct option is:
     )
     return user_msg
 
-def eval_subset(model, tok, model_name, name, ds, id2question, ID_MAP, batch_size=4):
+# def eval_subset(model, tok, model_name, name, ds, id2question, ID_MAP, batch_size=4):
+def eval_subset(model, tok, model_name, name, ds, ID_MAP, batch_size=4):
     # dl = DataLoader(ds, batch_size=batch_size, shuffle=False)
 
     def identity_collate(batch):
@@ -340,7 +342,7 @@ def eval_subset(model, tok, model_name, name, ds, id2question, ID_MAP, batch_siz
                 answer = item["gold_answer"]
             # print("question: ", question)
             questions_1.append(question)
-            ref_q = mapped_question(item["id"], id2question, ID_MAP)
+            # ref_q = mapped_question(item["id"], id2question, ID_MAP)
             cos_sim = mapped_cossim(item["id"], ID_MAP)
             # print("cos_sim: ", cos_sim)
             max_cos_sim = max(float(x) for x in cos_sim) if cos_sim else 0.0
@@ -385,10 +387,10 @@ def eval_subset(model, tok, model_name, name, ds, id2question, ID_MAP, batch_siz
                 inc = incorrect_1[i]
                 score = 1 if (ans_gt.lower() in gen.lower() and inc.lower() not in gen.lower()) else 0
                 # print("question: ", questions_1[i])
-                print("ans_gt: ", ans_gt)
+                # print("ans_gt: ", ans_gt)
                 # print("inc: ", inc)
-                print("gen: ", gen)
-                print("score: ", score)
+                # print("gen: ", gen)
+                # print("score: ", score)
 
                 metrics["acc"].append(score)
                 samples.append({
@@ -432,13 +434,13 @@ def get_seen_unseen(ds, ratio=0.8, seed=1000):
 # --------------------------------------------------------------------------
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--base_model", default="meta-llama/Llama-2-7b-chat-hf")
-    # ap.add_argument("--base_model", default="meta-llama/Llama-3.2-1B-Instruct")
+    # ap.add_argument("--base_model", default="meta-llama/Llama-2-7b-chat-hf")
+    ap.add_argument("--base_model", default="meta-llama/Llama-3.2-1B-Instruct")
+    # ap.add_argument("--base_model", default="../models/Llama-3.2-1B-Instruct")
     ap.add_argument("--ds_config", default="../ds_config.json")
     ap.add_argument("--batch_size", type=int, default=4)
     ap.add_argument("--output_dir", default="./eval_results")
     # ap.add_argument("--cache_dir",  default="/home/work/seyun_workspace/cache_LTE/")
-    # ap.add_argument("--cache_dir", default="/home/david/.cache/")
     ap.add_argument("--cache_dir", default=get_available_cache_dir())
     ap.add_argument("--local_rank", type=int, default=-1, help="(set by deepspeed)")
     args = ap.parse_args()
@@ -458,23 +460,26 @@ def main():
     # sent_model = SentenceTransformer(model_dir)
 
     splits = {}
-    split = "4" # 0,1,2,3,4,5,6,7,8,9
-    # with open(os.path.join(split_dir, f"stage_{split}_forget_paraphrased.json"), encoding="utf-8") as f:
-    #     splits["forget"] = json.load(f)
-    # with open(os.path.join(split_dir, f"stage_{split}_retain_used.json"), encoding="utf-8") as f:
-    #     splits["retain_used"] = json.load(f)
-    # with open(os.path.join(split_dir, f"stage_{split}_retain_not_used.json"), encoding="utf-8") as f:
-    #     splits["retain_not_used"] = json.load(f)
-    # with open(os.path.join(split_dir, "non_target.json"), encoding="utf-8") as f:
-    #     splits["non_target"] = json.load(f)
-    # with open(os.path.join(split_dir, f"stage_{split}_near_utility.json"), encoding="utf-8") as f:
-    #     splits["near_utility"] = json.load(f)
+    split = "0" # 0,1,2,3,4,5,6,7,8,9
+    with open(os.path.join(split_dir, f"stage_{split}_forget_paraphrased.json"), encoding="utf-8") as f:
+        splits["forget"] = json.load(f)
+    with open(os.path.join(split_dir, f"stage_{split}_retain_used.json"), encoding="utf-8") as f:
+        splits["retain_used"] = json.load(f)
+    with open(os.path.join(split_dir, f"stage_{split}_retain_not_used.json"), encoding="utf-8") as f:
+        splits["retain_not_used"] = json.load(f)
+    with open(os.path.join(split_dir, "non_target.json"), encoding="utf-8") as f:
+        splits["non_target"] = json.load(f)
+    with open(os.path.join(split_dir, f"stage_{split}_near_utility.json"), encoding="utf-8") as f:
+        splits["near_utility"] = json.load(f)
     with open(os.path.join(split_dir, "winogrande_xs_validation.json"), encoding="utf-8") as f:
         splits["winogrande"] = json.load(f)
 
-    with open(os.path.join(split_dir, f"stage_{split}_forget_paraphrased.json"), encoding="utf-8") as f:
-        forget_split = json.load(f)
-        id2question: dict[int, str] = {ex["id"]: ex["paraphrased_instruction"] for ex in forget_split}
+    # with open(os.path.join(split_dir, f"stage_{split}_forget_paraphrased.json"), encoding="utf-8") as f:
+    #     forget_split = json.load(f)
+    #     id2question: dict[int, str] = {ex["id"]: ex["paraphrased_instruction"] for ex in forget_split}
+    # with open(os.path.join(split_dir, f"stage_{split}_forget.json"), encoding="utf-8") as f:
+    #     forget_split = json.load(f)
+    #     id2question: dict[int, str] = {ex["id"]: ex["question"] for ex in forget_split}
 
     MAPPING_PATH = Path(split_dir) / f"RETURN_stage_{split}_top3.json"
     with MAPPING_PATH.open("r", encoding="utf-8") as f:
@@ -482,7 +487,7 @@ def main():
 
     result: Dict[str,Dict] = {}
     for name, ds in splits.items():
-        agg, detail = eval_subset(model, tok, args.base_model, name, ds, id2question,
+        agg, detail = eval_subset(model, tok, args.base_model, name, ds, #id2question,
                                   ID_MAP,
                                   batch_size=args.batch_size, )
         result[name] = {"metrics": agg, "samples": detail}

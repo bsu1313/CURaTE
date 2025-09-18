@@ -29,8 +29,6 @@ db_times = []
 db_sizes = []
 search_times = []
 search_sizes = []
-search_times0 = []
-search_sizes0 = []
 
 for i in range(9, 10):
 
@@ -140,25 +138,6 @@ for i in range(9, 10):
             search_times.append(end_time - start_time)
             search_sizes.append(len(qs))
 
-    # ────────────────────────────────
-    # 3) 저장 및 검증
-    # ────────────────────────────────
-    # if out_file:
-    #     Path(out_file).parent.mkdir(parents=True, exist_ok=True)
-    #     with open(out_file, "w", encoding="utf-8") as f:
-    #         json.dump(mapping, f, ensure_ascii=False, indent=2)
-
-    # total_questions = sum(len(json.load(open(cfg["path"], encoding="utf-8")))
-    #                     for cfg in dataset_files)
-    # if len(mapping) == total_questions:
-    #     print("✅ 모든 질문이 매핑되었습니다.")
-    # else:
-    #     print(f"⚠️ {total_questions - len(mapping)} 개의 질문이 누락되었습니다.")
-
-    # print(f"총 매핑 수: {len(mapping):,}")
-    # if out_file:
-    #     print(f"Saved to → {out_file}")
-
 print("db_times:", db_times)
 print("db_sizes:", db_sizes)
 print("search_times:", search_times)
@@ -166,28 +145,3 @@ print("search_sizes:", search_sizes)
 average_search_times = [t / s for t, s in zip(search_times, search_sizes)]
 print("Average Unlearning Time: ", db_times[0] / 10)
 print("Average Search Time per Query: ", sum(average_search_times) / len(average_search_times))
-
-
-
-
-
-# from collections import Counter, defaultdict
-
-# id_counter  = Counter()
-# id_sources  = defaultdict(list)   # {id: [파일경로1, 파일경로2, ...]}
-
-# for cfg in dataset_files:
-#     path = cfg["path"]
-#     with open(path, encoding="utf-8") as f:
-#         data = json.load(f)
-#     for ex in data:
-#         qid = ex["id"]
-#         id_counter[qid] += 1
-#         id_sources[qid].append(path)
-
-# # ⚠️ 실제로 중복된 ID 목록 뽑기
-# dup_ids = [qid for qid, cnt in id_counter.items() if cnt > 1]
-
-# print(f"⚠️ 중복된 ID 개수: {len(dup_ids)}\n")
-# for qid in dup_ids:
-#     print(f"- {qid}  ←  {', '.join(id_sources[qid])}")

@@ -27,7 +27,8 @@ REF_PHRASES: list[str] = json.loads(REFUSAL_PATH.read_text(encoding="utf-8"))
 
 
 def get_available_cache_dir():
-    preferred = Path("/home/david/.cache")
+    preferred = Path("/home/work/data/seokhan/")
+    # preferred = Path("/home/david/.cache")
     fallback = Path("/home/plowcow/.cache")
 
     if preferred.exists() and os.access(preferred, os.W_OK):
@@ -288,6 +289,8 @@ def eval_subset(model, tok, model_name, name, data: List[Dict[str, Any]], forget
                 ref_q = format_forgotten_info(ref_q)
 
                 # prompts_1.append(build_llama2_prompt(item["paraphrased_question"], ref_q, tok))
+                print("item[input_question]: ", item[input_question])
+                print("item[question]: ", item[question])
                 prompts_1.append(wrap_prompt(item[input_question], model_name.lower()))
                 answers_1.append(item[ans])
 
@@ -300,8 +303,9 @@ def eval_subset(model, tok, model_name, name, data: List[Dict[str, Any]], forget
                     "query": item[input_question]
                 })
 
-        # print("prompts_1: ", prompts_1)
-        # print("answers_1: ", answers_1)
+        print("prompts_1: ", prompts_1)
+        print("answers_1: ", answers_1)
+        sys.exit()
         # Generate responses
         if prompts_1:
             gens_1 = batched_generate(model, tok, prompts_1)
@@ -365,6 +369,7 @@ def eval_subset(model, tok, model_name, name, data: List[Dict[str, Any]], forget
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--base_model", default="gcyzsl/O3_LLAMA2_ScienceQA")
+    # ap.add_argument("--base_model", default="laurel1313/llama3.2_base_scienceqa")
     # ap.add_argument("--base_model", default="meta-llama/Llama-3.2-1B-Instruct")
     ap.add_argument("--ds_config", default="ds_config.json")
     ap.add_argument("--output_dir", default="./eval_results")
@@ -379,7 +384,7 @@ def main():
     model, tok = load_model(args.base_model, args.ds_config)
 
     # sent_model = SentenceTransformer("sentence-transformers/multi-qa-mpnet-base-dot-v1")
-    model_dir = "../mpnet_contrastive_model"
+    model_dir = "../models/mpnet_contrastive_model_NQ_CURE_18K_a"
     sent_model = SentenceTransformer(model_dir)
 
     stages = {}
