@@ -383,7 +383,7 @@ def generate_with_beam_penalty_semantic(
 
 
 
-def eval_subset(model, tok, clf, sent_model, model_name, name, ds, task, gen_length, id2question, ID_MAP, device, batch_size=4):
+def eval_subset(model, tok, clf, sent_model, model_name, name, ds, gen_length, id2question, ID_MAP, device, batch_size=4):
 
     def identity_collate(batch):
         return batch
@@ -406,13 +406,7 @@ def eval_subset(model, tok, clf, sent_model, model_name, name, ds, task, gen_len
             ref_q = mapped_question(item["id"], id2question, ID_MAP)
             ans_1.append(ref_q[0])
 
-            # print("prompts before: ", prompts_1)
-            if task == "ScienceQA":
-                prompts_1.append(question)
-            else:
-                prompts_1.append(wrap_prompt(question, model_name.lower()))
-            # print("prompts after: ", prompts_1)
-
+            prompts_1.append(wrap_prompt(question, model_name.lower()))
             correct_1.append(item["answer"])
             if name == "winogrande":
                 incorrect_1.append(item["incorrect_answer"])
@@ -431,14 +425,16 @@ def eval_subset(model, tok, clf, sent_model, model_name, name, ds, task, gen_len
             preds_1 = [preds_1]
         # print("questions_1: ", questions_1)
         # print("ans_1: ", ans_1)
-        # # print("avg embs shape: ", avg_embs.shape)
+        # print("avg embs shape: ", avg_embs.shape)
         # print("probs: ", probs)
         # print("preds_1: ", preds_1)
         total_positives += sum(preds_1)
         total_negatives += len(preds_1) - sum(preds_1)
+
     agg = {}
     agg[f"{name} positives"] = total_positives
     agg[f"{name} negatives"] = total_negatives
+    # agg["total num samples"] = len(ds)
     return agg, samples
 
 
@@ -446,7 +442,7 @@ def eval_subset(model, tok, clf, sent_model, model_name, name, ds, task, gen_len
 def main():
 
     model_size = "7B" # 1B, 7B
-    task = "RETURN" # TOFU, ScienceQA, RETURN
+    task = "RETURN" # TOFU, TruthfulQA, ScienceQA, RETURN
     stage = 1
     if stage == 1:
         split = "1"
@@ -463,13 +459,6 @@ def main():
             model_path = "models/tofu_Llama-2-7b-chat-hf_full"
         else:
             raise ValueError(f"Unknown model size: {model_size}")
-    elif task == "ScienceQA":
-        if model_size == "1B":
-            model_path = "models/llama3.2_base_scienceqa"
-        elif model_size == "7B":
-            model_path = "models/O3_LLAMA2_ScienceQA"
-        else:
-            raise ValueError(f"Unknown model size: {model_size}")
     else:
         if model_size == "1B":
             model_path = "models/Llama-3.2-1B-Instruct"
@@ -482,18 +471,13 @@ def main():
     batch_size = 4
     tok = AutoTokenizer.from_pretrained(model_path)
     tok.pad_token = tok.eos_token
-    tok.padding_side = "left"
     model = AutoModelForCausalLM.from_pretrained(
             model_path,
             # config=config,
-            # attn_implementation='flash_attention_2',
-            attn_implementation='sdpa',
+            attn_implementation='flash_attention_2',
             torch_dtype=torch.bfloat16,
             device_map=device_map
         )
-    model.config.pad_token_id = tok.pad_token_id
-    if hasattr(model, "generation_config"):
-        model.generation_config.pad_token_id = tok.pad_token_id
     model = model.eval()
 
     device = torch.device("cuda")
@@ -519,10 +503,11 @@ def main():
     # generated_answer = model.generate(**inputs)
     # print("generated answer: ", tok.decode(generated_answer[0], skip_special_tokens=False))
 
-    splits = {}
+    
     gen_length = None
     if task == "TOFU":
         split_dir = "TOFU_NEW/"
+        splits = {}
         with open(os.path.join(split_dir, f"stage{split[-1]}", f"forget{split}.json"), encoding="utf-8") as f:
             splits["forget"] = json.load(f)
         with open(os.path.join(split_dir, f"stage{split[-1]}", f"retain_perturbed.json"), encoding="utf-8") as f:
@@ -559,6 +544,7 @@ def main():
             combined_ids = stage1_stage2_stage3_ids
         # filtered_data = [example for example in data if example["id"] in combined_ids]
 
+        splits = {}
         splits["forget"] = [
             {
                 "paraphrased_question": example["paraphrased_question"],
@@ -589,6 +575,7 @@ def main():
             }
             splits["commonsense"].append(item)
     elif task == "RETURN":
+        splits = {}
         if model_size == "1B":
             split_dir = "RETURN_NEW_DATASET/Meta-Llama-3.2-1B-Instruct_dataset/"
         elif model_size == "7B":
@@ -630,70 +617,11 @@ def main():
         
         with open(os.path.join(split_dir, f"stage_{stage-1}_forget.json"), encoding="utf-8") as f:
             forget_split = json.load(f)
-            id2question: dict[int, str] = {ex["id"]: ex["gold_answer"] for ex in forget_split}
+            id2question: dict[int, str] = {ex["id"]: ex["question"] for ex in forget_split}
 
         MAPPING_PATH = Path(split_dir) / f"RETURN_stage_{stage-1}_top3_guard.json"
         with MAPPING_PATH.open("r", encoding="utf-8") as f:
             ID_MAP: dict[str, dict[str, list[int]]] = json.load(f)
-    elif task == "ScienceQA":
-        gen_length = 32
-        split_dir = "ScienceQA/"
-        if stage == 1:
-            with open(os.path.join(split_dir, "test_forget_PR", f"PR_scienceqa_biology_train_SD.json"), encoding="utf-8") as f:
-                forget_data = json.load(f)
-            with open(os.path.join(split_dir, "test_forget_PR", f"PR_scienceqa_biology_train_SD.json"), encoding="utf-8") as f:
-                splits["forget"] = json.load(f)
-            with open(os.path.join(split_dir, "retain", f"processed_scienceqa_not_biology_test_RD.json"), encoding="utf-8") as f:
-                splits["retain"] = json.load(f)
-            with open(os.path.join(split_dir, "test_NU", f"NU_scienceqa_biology_train_SD.json"), encoding="utf-8") as f:
-                splits["NU"] = json.load(f)
-        elif stage == 2:
-            with open(os.path.join(split_dir, "test_forget_PR", f"PR_scienceqa_biology_physics_train_SD.json"), encoding="utf-8") as f:
-                forget_data = json.load(f)
-            with open(os.path.join(split_dir, "test_forget_PR", f"PR_scienceqa_biology_physics_train_SD.json"), encoding="utf-8") as f:
-                splits["forget"] = json.load(f)
-            with open(os.path.join(split_dir, "retain", f"processed_scienceqa_not_biology_physics_test_RD.json"), encoding="utf-8") as f:
-                splits["retain"] = json.load(f)
-            with open(os.path.join(split_dir, "test_NU", f"NU_scienceqa_biology_physics_train_SD.json"), encoding="utf-8") as f:
-                splits["NU"] = json.load(f)
-        elif stage == 3:
-            with open(os.path.join(split_dir, "test_forget_PR", f"PR_scienceqa_biology_physics_chemistry_train_SD.json"), encoding="utf-8") as f:
-                forget_data = json.load(f)
-            with open(os.path.join(split_dir, "test_forget_PR", f"PR_scienceqa_biology_physics_chemistry_train_SD.json"), encoding="utf-8") as f:
-                splits["forget"] = json.load(f)
-            with open(os.path.join(split_dir, "retain", f"processed_scienceqa_not_biology_physics_chemistry_test_RD.json"), encoding="utf-8") as f:
-                splits["retain"] = json.load(f)
-            with open(os.path.join(split_dir, "test_NU", f"NU_scienceqa_biology_physics_chemistry_train_SD.json"), encoding="utf-8") as f:
-                splits["NU"] = json.load(f)
-        elif stage == 4:
-            with open(os.path.join(split_dir, "test_forget_PR", f"PR_scienceqa_biology_physics_chemistry_economics_train_SD.json"), encoding="utf-8") as f:
-                forget_data = json.load(f)
-            with open(os.path.join(split_dir, "test_forget_PR", f"PR_scienceqa_biology_physics_chemistry_economics_train_SD.json"), encoding="utf-8") as f:
-                splits["forget"] = json.load(f)
-            with open(os.path.join(split_dir, "retain", f"processed_scienceqa_not_biology_physics_chemistry_economics_test_RD.json"), encoding="utf-8") as f:
-                splits["retain"] = json.load(f)
-            with open(os.path.join(split_dir, "test_NU", f"NU_scienceqa_biology_physics_chemistry_economics_train_SD.json"), encoding="utf-8") as f:
-                splits["NU"] = json.load(f)
-
-        with open(os.path.join(split_dir, "test_utility", f"processed_openbookqa_test.json"), encoding="utf-8") as f:
-            splits["obqa"] = json.load(f)
-        with open(os.path.join(split_dir, "test_utility", f"processed_commonqa_test.json"), encoding="utf-8") as f:
-            splits["csqa"] = json.load(f)
-        for item in splits["forget"]:
-            item["paraphrased_question"] = item["paraphrased_instruction_input"]
-        for item in splits["retain"]:
-            item["question"] = item["text_input"]
-        for item in splits["NU"]:
-            item["question"] = item["contrastive_instruction_input"]
-            item["answer"] = item["contrastive_answer"]
-        for item in splits["obqa"]:
-            item["question"] = item["text_input"]
-        for item in splits["csqa"]:
-            item["question"] = item["text_input"]
-        MAPPING_PATH = Path(split_dir) / f"ScienceQA_to_stage{stage}_top3_guard.json"
-        with MAPPING_PATH.open("r", encoding="utf-8") as f:
-            ID_MAP: dict[str, dict[str, list[int]]] = json.load(f)
-        id2question: dict[int, str] = {ex["id"]: ex["answer"] for ex in forget_data}
 
     # for name, ds in splits.items():
     #     print("name: ", name)
@@ -703,7 +631,7 @@ def main():
 
     result: Dict[str,Dict] = {}
     for name, ds in splits.items():
-        agg, detail = eval_subset(model, tok, clf, sent_model, model_path, name, ds, task,
+        agg, detail = eval_subset(model, tok, clf, sent_model, model_path, name, ds,
                                   gen_length, id2question, ID_MAP, device, batch_size=batch_size)
         result[name] = {"metrics": agg, "samples": detail}
         print(f"[{name}] {json.dumps(agg, indent=2, ensure_ascii=False)}")

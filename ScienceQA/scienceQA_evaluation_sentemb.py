@@ -303,9 +303,9 @@ def eval_subset(model, tok, model_name, name, data: List[Dict[str, Any]], forget
                     "query": item[input_question]
                 })
 
-        print("prompts_1: ", prompts_1)
-        print("answers_1: ", answers_1)
-        sys.exit()
+        # print("prompts_1: ", prompts_1)
+        # print("answers_1: ", answers_1)
+
         # Generate responses
         if prompts_1:
             gens_1 = batched_generate(model, tok, prompts_1)

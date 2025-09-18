@@ -397,8 +397,10 @@ def eval_subset(model, tok, clf, sent_model, model_name, name, ds, task, gen_len
 
     total_positives = 0
     total_negatives = 0
+    beam_times = []
+    extract_times = []
     for batch in tqdm.tqdm(dl, desc=f"Eval {name}"):
-        prompts_1, questions_1, correct_1, incorrect_1, preds_1, ans_1, beam_times = [], [], [], [], [], [], []
+        prompts_1, questions_1, correct_1, incorrect_1, preds_1, ans_1 = [], [], [], [], [], []
         for item in batch:
             # print("item: ", item)
             question = item["paraphrased_question"] if name == "forget" else item["question"]
@@ -419,6 +421,8 @@ def eval_subset(model, tok, clf, sent_model, model_name, name, ds, task, gen_len
             # print("prompts_1: ", prompts_1)
             # print("correct_1: ", correct_1)
 
+        torch.cuda.synchronize()
+        start_time = time.time()
         avg_embs = extract_batch_penultimate_embeddings(questions_1, tok, model, max_len=512, batch_size=batch_size,)  # (B, H)
         avg_embs = torch.from_numpy(avg_embs)
         if avg_embs.ndim == 1:          # (H,) -> (1, H)
@@ -429,6 +433,9 @@ def eval_subset(model, tok, clf, sent_model, model_name, name, ds, task, gen_len
         preds_1 = (probs >= 0.5).long().tolist()
         if not isinstance(preds_1, list):
             preds_1 = [preds_1]
+        torch.cuda.synchronize()
+        end_time = time.time()
+        extract_times.append(end_time - start_time)
         # print("questions_1: ", questions_1)
         # print("ans_1: ", ans_1)
         # # print("avg embs shape: ", avg_embs.shape)
@@ -527,7 +534,8 @@ def eval_subset(model, tok, clf, sent_model, model_name, name, ds, task, gen_len
         total_negatives += len(preds_1) - sum(preds_1)
     agg = {k: _mean(v) for k, v in metrics.items()}
     agg["avg_beam_time"] = _mean(beam_times) if beam_times else 0.0
-    agg["total_beam_time"] = sum(beam_times) if beam_times else 0.0
+    # agg["total_beam_time"] = sum(beam_times) if beam_times else 0.0
+    agg["total overhead time"] = sum(extract_times) + sum(beam_times) if beam_times else sum(extract_times)
     agg["total num samples"] = len(ds)
     agg[f"{name} positives"] = total_positives
     agg[f"{name} negatives"] = total_negatives

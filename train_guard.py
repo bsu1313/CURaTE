@@ -17,7 +17,7 @@ from transformers import AutoTokenizer, AutoModelForCausalLM
 # =========================
 
 model_size = "7B" # 1B, 7B
-task = "RETURN" # TOFU, ScienceQA, RETURN
+task = "TOFU" # TOFU, ScienceQA, RETURN
 stage = 1
 
 if task == "TOFU":
