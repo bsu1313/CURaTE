@@ -547,7 +547,7 @@ def main():
 
     model_size = "7B" # 1B, 7B
     task = "RETURN" # TOFU, ScienceQA, RETURN
-    stage = 3
+    stage = 7
     if stage == 1:
         split = "1"
     elif stage == 2:
