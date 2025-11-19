@@ -110,7 +110,7 @@ if __name__ == "__main__":
 
     # model_names = ["mpnet", "minilm", "distilroberta"]
     # model_names = ["minilm", "distilroberta"]
-    model_names = ["minilm"]
+    model_names = ["mpnet"]
 
     for model_name in model_names:
         if model_name == "mpnet":
