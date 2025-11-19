@@ -234,7 +234,7 @@ def eval_commonsenseqa(truthfulqa, ID_MAP, split: str = "validation", batch_size
             cos_sim = mapped_cossim(ex["id"], "truthfulQA", ID_MAP)
             max_cos_sim = max(float(x) for x in cos_sim) if cos_sim else 0.0
 
-            if max_cos_sim > 0.8:
+            if max_cos_sim > 0.8: # 0.8
                 match = True
             else:
                 match = False
@@ -285,8 +285,8 @@ def main():
     with open("../truthfulQA/truthfulQA_continual_setting/TruthfulQA_split_ids.json", encoding="utf-8") as f:
         split_ids = json.load(f)
 
-    ablation = 6  # 0, 1, 2, 3, 4, 5, 6
-    stage = 123
+    ablation = 1  # 0, 1, 2, 3, 4, 5, 6
+    stage = 123 # 1, 12, 123
 
     ablation_files = [
         "NQ_CURE_12K_a",

@@ -187,7 +187,7 @@ def eval_subset(name, ds, id2question, ID_MAP, batch_size=4):
             cos_sim = mapped_cossim(item["id"], ID_MAP)
             max_cos_sim = max(float(x) for x in cos_sim) if cos_sim else 0.0
 
-            if max_cos_sim > 0.9:
+            if max_cos_sim > 0.9: # 0.9
                 match = True
             else:
                 match = False
@@ -235,7 +235,7 @@ def main():
     os.makedirs(args.output_dir, exist_ok=True)
 
     ablation = 1  # 0, 1, 2, 3, 4, 5, 6
-    model_size = "7B" # "1B" or "7B"
+    model_size = "1B" # "1B" or "7B"
     split = "9"  # 0,1,2,3,4,5,6,7,8,9
 
     if model_size == "1B":

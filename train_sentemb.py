@@ -56,6 +56,7 @@ def load_input_examples(json_path):
 # 2. Main training function
 def main(
     json_path,
+    model,
     output_path="mpnet_contrastive_model",
     epochs=1,
     batch_size=16,
@@ -65,14 +66,6 @@ def main(
     print("✅ Loading data...")
     examples = load_input_examples(json_path)
     print(f"Prepared {len(examples)} pairs")
-
-    # Load model
-    print("✅ Loading pre-trained model...")
-    model = SentenceTransformer("sentence-transformers/multi-qa-mpnet-base-dot-v1")
-    # model = SentenceTransformer('paraphrase-MiniLM-L6-v2')
-    # model = SentenceTransformer('bert-base-nli-mean-tokens')
-    # model = SentenceTransformer('paraphrase-MiniLM-L3-v2')
-    # model = SentenceTransformer('sentence-transformers-testing/stsb-bert-tiny-safetensors')
 
     # DataLoader
     train_dataloader = DataLoader(examples, shuffle=True, batch_size=batch_size)
@@ -115,11 +108,29 @@ if __name__ == "__main__":
         "TQ_CURE_18K_a",
         ]
 
-    for file in ablation_files:
-        main(
-            json_path=f"ablation/{file}.json",
-            output_path=f"models/mpnet_contrastive_model_{file}",
-            epochs=1,
-            batch_size=16,
-            learning_rate=2e-5
-        )
+    # model_names = ["mpnet", "minilm", "distilroberta"]
+    # model_names = ["minilm", "distilroberta"]
+    model_names = ["minilm"]
+
+    for model_name in model_names:
+        if model_name == "mpnet":
+            model = SentenceTransformer("sentence-transformers/multi-qa-mpnet-base-dot-v1")
+        elif model_name == "minilm":
+            model = SentenceTransformer("BAAI/bge-base-en-v1.5")
+        elif model_name == "distilroberta":
+            model = SentenceTransformer("sentence-transformers/all-distilroberta-v1")
+        # model = SentenceTransformer('all-MiniLM-L12-v2')
+        # model = SentenceTransformer('paraphrase-MiniLM-L6-v2')
+        # model = SentenceTransformer('bert-base-nli-mean-tokens')
+        # model = SentenceTransformer('paraphrase-MiniLM-L3-v2')
+        # model = SentenceTransformer('sentence-transformers-testing/stsb-bert-tiny-safetensors')
+        model.save(f"models/{model_name}_contrastive_model_no_finetuning")
+        for file in ablation_files:
+            main(
+                json_path=f"ablation/{file}.json",
+                model=model,
+                output_path=f"models/{model_name}_contrastive_model_{file}",
+                epochs=1,
+                batch_size=16,
+                learning_rate=2e-5
+            )

@@ -12,7 +12,8 @@ from pathlib import Path
 # ---------------------------------------------------------------------------
 # 0) paths & hyper-params  ―― 바꿔도 되는 곳
 # ---------------------------------------------------------------------------
-ablation = 6 # 0, 1, 2, 3, 4, 5, 6
+baseline_model = "mpnet" # mpnet, minilm, distilroberta
+ablation = 1 # 0, 1, 2, 3, 4, 5, 6
 
 ablation_files = [
     "NQ_CURE_12K_a",
@@ -34,7 +35,7 @@ chunk       = 128
 
 device = "cuda" if torch.cuda.is_available() else "cpu"
 model  = SentenceTransformer(
-    f"../../models/mpnet_contrastive_model_{ablation_files[ablation]}",
+    f"../../models/{baseline_model}_contrastive_model_{ablation_files[ablation]}",
     device=device,
 )
 

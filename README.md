@@ -1,4 +1,4 @@
-# LTU Learning to Unlearn
+# Continual Unlearning in Real Time
 
 Unlearning method using retrieval of sentence embeddings.
 
@@ -35,6 +35,10 @@ Unlearning method using retrieval of sentence embeddings.
 2. Use sentence embedding model trained for TOFU.
 3. Run commonsense/evaluation_commonsenseQA_sentemb.py to evaluate the sentence embeddings on the CommonsenseQA dataset.
 
+### Ablation
+1. Run train_sentemb.py to train each baseline model with each ablation dataset
+2. Run the files in the DB_files folder to generate mapping files for each ablation
+3. Run the evaluation files with no_gen.py to get Precision, Recall, F1 scores for each ablation
 
 ### Multi-GPU (parallel)
 #### Ubuntu

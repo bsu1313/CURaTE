@@ -13,8 +13,8 @@ import time
 # "biology" -> "physics" -> "chemistry" -> "economics" 
 
 stage = 4 # 1, 2, 3, 4
-
-ablation = 7 # 0, 1, 2, 3, 4, 5, 6, 7
+baseline_model = "mpnet" # mpnet, minilm, distilroberta
+ablation = 1 # 0, 1, 2, 3, 4, 5, 6
 
 ablation_files = [
     "NQ_CURE_12K_a",
@@ -84,7 +84,7 @@ if ablation == 7:
     reranker = CrossEncoder("cross-encoder/stsb-roberta-base")
 else:
     model  = SentenceTransformer(
-        f"../models/mpnet_contrastive_model_{ablation_files[ablation]}",
+        f"../models/{baseline_model}_contrastive_model_{ablation_files[ablation]}",
         device=device,
     )
 

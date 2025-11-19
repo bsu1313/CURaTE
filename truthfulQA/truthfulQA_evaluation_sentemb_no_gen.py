@@ -260,6 +260,7 @@ def eval_tofu_custom(data: List[Dict[str, Any]], ID_MAP, batch_size: int = 4):
         prompts_1, ids_1, q1_inputs, preds_1, incorrect_1 = [], [], [], [], []
         prompts_2, refs_2, ids_2, q2_inputs, preds_2 = [], [], [], [], []
 
+        threshold = 0.8 # 0.8
         for item in batch:
             # Case 1: paraphrased question
             if item.get("paraphrased_question"):
@@ -267,7 +268,7 @@ def eval_tofu_custom(data: List[Dict[str, Any]], ID_MAP, batch_size: int = 4):
                 cos_sim = mapped_cossim(item["id"], "paraphrased", id2question, ID_MAP)
                 max_cos_sim = max(float(x) for x in cos_sim) if cos_sim else 0.0
 
-                if max_cos_sim > 0.8:
+                if max_cos_sim > threshold:
                     match = True
                 else:
                     match = False
@@ -295,7 +296,7 @@ def eval_tofu_custom(data: List[Dict[str, Any]], ID_MAP, batch_size: int = 4):
                 cos_sim = mapped_cossim(item["id"], "contrastive", id2question, ID_MAP)
                 max_cos_sim = max(float(x) for x in cos_sim) if cos_sim else 0.0
 
-                if max_cos_sim > 0.8:
+                if max_cos_sim > threshold:
                     match = True
                 else:
                     match = False
@@ -345,8 +346,8 @@ def main():
     with open("truthfulQA_continual_setting/TruthfulQA_split_ids.json", encoding="utf-8") as f:
         split_ids = json.load(f)
 
-    ablation = 6  # 0, 1, 2, 3, 4, 5, 6
-    stage = 123
+    ablation = 1  # 0, 1, 2, 3, 4, 5, 6
+    stage = 123 # 1, 12, 123
 
     ablation_files = [
         "NQ_CURE_12K_a",

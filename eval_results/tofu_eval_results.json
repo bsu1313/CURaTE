@@ -5,8 +5,8 @@
       "truth_prob": 0.0,
       "rougeL": 0.0,
       "acc": 0.0,
-      "positives": 396,
-      "negatives": 4
+      "positives": 400,
+      "negatives": 0
     }
   },
   "forget_NU": {
@@ -15,8 +15,8 @@
       "truth_prob": 0.0,
       "rougeL": 0.0,
       "acc": 0.0,
-      "positives": 0,
-      "negatives": 400
+      "positives": 400,
+      "negatives": 0
     }
   },
   "retain": {
@@ -25,8 +25,8 @@
       "truth_prob": 0.0,
       "rougeL": 0.0,
       "acc": 0.0,
-      "positives": 15,
-      "negatives": 385
+      "positives": 400,
+      "negatives": 0
     }
   },
   "real_authors": {
@@ -35,8 +35,8 @@
       "truth_prob": 0.0,
       "rougeL": 0.0,
       "acc": 0.0,
-      "positives": 0,
-      "negatives": 100
+      "positives": 100,
+      "negatives": 0
     }
   },
   "world_facts": {
@@ -45,8 +45,8 @@
       "truth_prob": 0.0,
       "rougeL": 0.0,
       "acc": 0.0,
-      "positives": 0,
-      "negatives": 117
+      "positives": 117,
+      "negatives": 0
     }
   }
 }

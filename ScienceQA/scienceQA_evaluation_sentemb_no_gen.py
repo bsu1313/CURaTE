@@ -137,7 +137,7 @@ def eval_subset(name, data: List[Dict[str, Any]], forget_data, ID_MAP, batch_siz
                 cos_sim = mapped_cossim(item["id"], "forget_data", ID_MAP)
                 max_cos_sim = max(float(x) for x in cos_sim) if cos_sim else 0.0
 
-                if max_cos_sim > 0.90:
+                if max_cos_sim > 0.9: # 0.9
                     match = True
                 else:
                     match = False
@@ -179,8 +179,8 @@ def main():
 
     stages = {}
 
-    ablation = 6  # 0, 1, 2, 3, 4, 5, 6
-    stage = 4
+    ablation = 1  # 0, 1, 2, 3, 4, 5, 6
+    stage = 4 # 1, 2, 3, 4
 
     ablation_files = [
         "NQ_CURE_12K_a",

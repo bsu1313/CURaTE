@@ -8,7 +8,8 @@ from pathlib import Path
 # 1. 준비 – 모델과 데이터, stage ID 세트 로드
 # ────────────────────────────────────────────────────────────────
 
-ablation = 6 # 0, 1, 2, 3, 4, 5, 6
+baseline_model = "mpnet" # mpnet, minilm, distilroberta
+ablation = 1 # 0, 1, 2, 3, 4, 5, 6
 
 ablation_files = [
     "NQ_CURE_12K_a",
@@ -20,7 +21,7 @@ ablation_files = [
     "no_finetuning"
 ]
 
-model = SentenceTransformer(f"../../models/mpnet_contrastive_model_{ablation_files[ablation]}")
+model = SentenceTransformer(f"../../models/{baseline_model}_contrastive_model_{ablation_files[ablation]}")
 
 with open("../../truthfulQA/truthfulQA_all_augmented_ID.json", "r", encoding="utf-8") as f:
     data = json.load(f)

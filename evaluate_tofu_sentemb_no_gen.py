@@ -353,7 +353,7 @@ def eval_subset(name, ds, id2question, ID_MAP, batch_size=4):
             # print("cos_sim: ", cos_sim)
             max_cos_sim = max(float(x) for x in cos_sim) if cos_sim else 0.0
 
-            if max_cos_sim > 0.8:
+            if max_cos_sim > 0.8: # 0.8
                 match = True
             else:
                 match = False
@@ -405,7 +405,7 @@ def main():
     args = ap.parse_args()
     os.makedirs(args.output_dir, exist_ok=True)
 
-    ablation = 6  # 0, 1, 2, 3, 4, 5, 6
+    ablation = 1  # 0, 1, 2, 3, 4, 5, 6
     split = "123"  # "1", "12", "123"
 
     ablation_files = [
