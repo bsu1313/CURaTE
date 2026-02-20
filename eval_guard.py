@@ -16,14 +16,27 @@ import math
 from dataclasses import dataclass
 from sentence_transformers import SentenceTransformer, util
 import time
-
+import argparse
 
 rouge = rouge_scorer.RougeScorer(["rougeL"], use_stemmer=True)
+
+
+def parse_args():
+    p = argparse.ArgumentParser()
+    p.add_argument("--model_size", type=str, required=True, choices=["1B", "1.7B", "7B"])
+    p.add_argument("--task", type=str, required=True, choices=["TOFU", "ScienceQA", "RETURN", "TruthfulQA"])
+    p.add_argument("--stage", type=int, required=True)
+    p.add_argument("--batch_size", type=int, default=4)
+    p.add_argument("--out_dir", type=str, default="eval_results")
+    return p.parse_args()
+
 
 def abspath(*p):
     return os.path.abspath(os.path.join(*p))
 
+
 def _mean(x: List[float]): return float(np.mean(x)) if x else 0.0
+
 
 class QADataset(Dataset):
     def __init__(self, examples: List[Dict[str, Any]]):
@@ -34,6 +47,7 @@ class QADataset(Dataset):
 
     def __getitem__(self, idx):
         return self.examples[idx]
+
 
 def mapped_question(origin_id: int, id2question, ID_MAP) -> List[str]:
     # print("origin_id: ", origin_id)
@@ -48,6 +62,7 @@ def mapped_question(origin_id: int, id2question, ID_MAP) -> List[str]:
     except (KeyError, IndexError):
         return id2question[origin_id]
 
+
 def wrap_prompt(p, if_llama):
     if 'llama-3' in if_llama or 'llama_3' in if_llama:
         question_start_token = "<|start_header_id|>system<|end_header_id|>\n\nCutting Knowledge Date: December 2023\nToday Date: 14 Jul 2025\n\n<|eot_id|><|start_header_id|>user<|end_header_id|>\n\n"
@@ -55,10 +70,14 @@ def wrap_prompt(p, if_llama):
     elif 'llama-2' in if_llama or 'llama_2' in if_llama:
         question_start_token = "<s>[INST] "
         question_end_token = " [/INST]"
+    elif "qwen" in if_llama.lower():
+        question_start_token = "<|im_start|>system\nYou are a helpful assistant.<|im_end|>\n<|im_start|>user\n"
+        question_end_token = "<|im_end|>\n<|im_start|>assistant\n"
     else:
-        raise ValueError('Please provide llama model')
+        raise ValueError('Please provide llama or qwen model')
     # print("wrapped prompt: ", f"{question_start_token}{p}{question_end_token}")
     return f"{question_start_token}{p}{question_end_token}"
+
 
 def batched_generate(model, tok, prompts, gen_length):
     # print("prompts: ", prompts)
@@ -68,16 +87,16 @@ def batched_generate(model, tok, prompts, gen_length):
     with torch.no_grad():
         if gen_length is None:
             outs = model.generate(**inputs,
-                                max_length = 256,
-                                do_sample=False,
-                                eos_token_id=tok.eos_token_id,
-                                use_cache=False)
+                                  max_length=256,
+                                  do_sample=False,
+                                  eos_token_id=tok.eos_token_id,
+                                  use_cache=False)
         else:
             outs = model.generate(**inputs,
-                    max_new_tokens=gen_length,
-                    do_sample=False,
-                    eos_token_id=tok.eos_token_id,
-                    use_cache=False)
+                                  max_new_tokens=gen_length,
+                                  do_sample=False,
+                                  eos_token_id=tok.eos_token_id,
+                                  use_cache=False)
 
     results = []
     for prompt, generated_ids in zip(prompts, outs):
@@ -111,6 +130,7 @@ def batched_generate(model, tok, prompts, gen_length):
     # print("results: ", results)
     return results
 
+
 def build_WD_prompt(SENTENCE: str, OPT1, OPT2) -> str:
     user_msg = (
         f"""Choose the option that best fills "_" in the sentence.
@@ -127,10 +147,13 @@ The correct option is:
     )
     return user_msg
 
+
 # =========================
 # MLP Classifier
 # =========================
 HIDDEN_DIM = 512
+
+
 class MLPBin(nn.Module):
     def __init__(self, in_dim, hidden_dim=HIDDEN_DIM):
         super().__init__()
@@ -141,16 +164,18 @@ class MLPBin(nn.Module):
             nn.Dropout(p=0.2),
             nn.Linear(hidden_dim, 1)  # logits
         )
+
     def forward(self, x):
         return self.net(x).squeeze(-1)
 
+
 @torch.no_grad()
 def extract_batch_penultimate_embeddings(
-    queries: list[str],
-    tokenizer,
-    model,
-    max_len: int = 512,
-    batch_size: int = 8,
+        queries: list[str],
+        tokenizer,
+        model,
+        max_len: int = 512,
+        batch_size: int = 8,
 ) -> np.ndarray:
     """
     Returns (N, H) NumPy array: average of penultimate hidden states
@@ -164,24 +189,24 @@ def extract_batch_penultimate_embeddings(
 
     feats = []
     for i in range(0, len(queries), batch_size):
-        batch = queries[i:i+batch_size]
+        batch = queries[i:i + batch_size]
 
         enc = tokenizer(
             batch,
             return_tensors="pt",
             truncation=True,
             max_length=max_len,
-            padding=True,   # pad within batch
+            padding=True,  # pad within batch
         )
         enc = {k: v.to(device) for k, v in enc.items()}
 
         out = model(**enc, output_hidden_states=True)
-        penultimate = out.hidden_states[-2]              # [B, T, H]
-        mask = enc["attention_mask"].unsqueeze(-1)       # [B, T, 1]
+        penultimate = out.hidden_states[-2]  # [B, T, H]
+        mask = enc["attention_mask"].unsqueeze(-1)  # [B, T, 1]
         penultimate = penultimate * mask
 
-        lengths = mask.sum(dim=1).clamp(min=1)           # [B, 1]
-        avg_emb = penultimate.sum(dim=1) / lengths       # [B, H]
+        lengths = mask.sum(dim=1).clamp(min=1)  # [B, 1]
+        avg_emb = penultimate.sum(dim=1) / lengths  # [B, H]
 
         feats.append(avg_emb.cpu().float().numpy())
 
@@ -199,23 +224,23 @@ class BeamItem:
 
 @torch.no_grad()
 def generate_with_beam_penalty_semantic(
-    model: PreTrainedModel,
-    tokenizer: PreTrainedTokenizerBase,
-    prompt: str,
-    answer: str,
-    k: int = 7,
-    *,
-    # new args for semantic penalty
-    embedder: Any,                         # e.g., SentenceTransformer
-    alpha: float = 1.0,                    # scales cosine similarity when below threshold
-    sim_threshold: float = 0.5,            # >= threshold -> ∞ penalty
-    embedder_device: Optional[str] = None, # e.g., "cuda" or "cpu"; if None, use embedder default
-    #
-    max_new_tokens: int = 50,
-    eos_token_id: Optional[int] = None,
-    device: Optional[torch.device] = None,
-    per_beam_topk: Optional[int] = None,
-    forbid_overlap_scope: str = "generated_only",
+        model: PreTrainedModel,
+        tokenizer: PreTrainedTokenizerBase,
+        prompt: str,
+        answer: str,
+        k: int = 7,
+        *,
+        # new args for semantic penalty
+        embedder: Any,  # e.g., SentenceTransformer
+        alpha: float = 1.0,  # scales cosine similarity when below threshold
+        sim_threshold: float = 0.5,  # >= threshold -> ∞ penalty
+        embedder_device: Optional[str] = None,  # e.g., "cuda" or "cpu"; if None, use embedder default
+        #
+        max_new_tokens: int = 50,
+        eos_token_id: Optional[int] = None,
+        device: Optional[torch.device] = None,
+        per_beam_topk: Optional[int] = None,
+        forbid_overlap_scope: str = "generated_only",
 ) -> Tuple[str, List[BeamItem]]:
     """
     Beam search with:
@@ -238,7 +263,8 @@ def generate_with_beam_penalty_semantic(
     # Tokenize prompt and build forbidden set from answer tokens
     prompt_ids = tokenizer(prompt, return_tensors="pt").input_ids.to(device)
     answer_ids = tokenizer(answer, add_special_tokens=False).input_ids
-    special_ids = set(t for t in [tokenizer.pad_token_id, tokenizer.bos_token_id, tokenizer.eos_token_id] if t is not None)
+    special_ids = set(
+        t for t in [tokenizer.pad_token_id, tokenizer.bos_token_id, tokenizer.eos_token_id] if t is not None)
     forbidden = set([t for t in answer_ids if t not in special_ids])
 
     # --- Embedding helpers & caches ---
@@ -288,7 +314,8 @@ def generate_with_beam_penalty_semantic(
         if forbid_overlap_scope == "generated_only":
             return float("inf") if new_token_id in forbidden else 0.0
         elif forbid_overlap_scope == "full_candidate":
-            return float("inf") if (new_token_id in forbidden or any(t in forbidden for t in candidate_gen_ids)) else 0.0
+            return float("inf") if (
+                        new_token_id in forbidden or any(t in forbidden for t in candidate_gen_ids)) else 0.0
         else:
             raise ValueError("forbid_overlap_scope must be 'generated_only' or 'full_candidate'")
 
@@ -382,17 +409,16 @@ def generate_with_beam_penalty_semantic(
     return text, beams
 
 
-
-def eval_subset(model, tok, clf, sent_model, model_name, name, ds, task, gen_length, id2question, ID_MAP, device, batch_size=4):
-
+def eval_subset(model, tok, clf, sent_model, model_name, name, ds, task, gen_length, id2question, ID_MAP, device,
+                batch_size=4):
     def identity_collate(batch):
         return batch
 
     # print("len of ds: ", len(ds)) # forget01: 40
     dl = DataLoader(QADataset(ds), batch_size=batch_size, collate_fn=identity_collate)
 
-    metrics = {k:[] for k in
-               ("truth_ratio","truth_prob","rougeL","acc")}
+    metrics = {k: [] for k in
+               ("truth_ratio", "truth_prob", "rougeL", "acc")}
     samples = []
 
     total_positives = 0
@@ -423,14 +449,18 @@ def eval_subset(model, tok, clf, sent_model, model_name, name, ds, task, gen_len
 
         torch.cuda.synchronize()
         start_time = time.time()
-        avg_embs = extract_batch_penultimate_embeddings(questions_1, tok, model, max_len=512, batch_size=batch_size,)  # (B, H)
+        avg_embs = extract_batch_penultimate_embeddings(questions_1, tok, model, max_len=512,
+                                                        batch_size=batch_size, )  # (B, H)
         avg_embs = torch.from_numpy(avg_embs)
-        if avg_embs.ndim == 1:          # (H,) -> (1, H)
+        if avg_embs.ndim == 1:  # (H,) -> (1, H)
             avg_embs = avg_embs.unsqueeze(0)
-        avg_embs = avg_embs.to(device)   # (B, H)
-        logits = clf(avg_embs)              # shape (B, 1)
+        avg_embs = avg_embs.to(device)  # (B, H)
+        logits = clf(avg_embs)  # shape (B, 1)
         probs = torch.sigmoid(logits).squeeze(-1)
-        preds_1 = (probs >= 0.5).long().tolist()
+        if "qwen" in model_name.lower():
+            preds_1 = (probs >= 0.5).long().tolist()
+        else:
+            preds_1 = (probs >= 0.5).long().tolist()
         if not isinstance(preds_1, list):
             preds_1 = [preds_1]
         torch.cuda.synchronize()
@@ -438,10 +468,9 @@ def eval_subset(model, tok, clf, sent_model, model_name, name, ds, task, gen_len
         extract_times.append(end_time - start_time)
         # print("questions_1: ", questions_1)
         # print("ans_1: ", ans_1)
-        # # print("avg embs shape: ", avg_embs.shape)
+        # print("avg embs shape: ", avg_embs.shape)
         # print("probs: ", probs)
         # print("preds_1: ", preds_1)
-
 
         gens_1 = batched_generate(model, tok, prompts_1, gen_length)
         # print("gens_1 before: ", gens_1)
@@ -466,7 +495,7 @@ def eval_subset(model, tok, clf, sent_model, model_name, name, ds, task, gen_len
                 end_time = time.time()
                 beam_times.append(end_time - start_time)
         # print("gens_1 after: ", gens_1)
-        
+
         if task == "ScienceQA":
             correct = 0
             results = []
@@ -506,7 +535,7 @@ def eval_subset(model, tok, clf, sent_model, model_name, name, ds, task, gen_len
                 if name == "winogrande":
                     inc = incorrect_1[i]
                     score = 1 if (ans_gt.lower() in gen.lower() and inc.lower() not in gen.lower()) else 0
-                    
+
                     metrics["acc"].append(score)
                     samples.append({
                         "question": questions_1[i],
@@ -542,19 +571,22 @@ def eval_subset(model, tok, clf, sent_model, model_name, name, ds, task, gen_len
     return agg, samples
 
 
-
 def main():
+    args = parse_args()
 
-    model_size = "7B" # 1B, 7B
-    task = "RETURN" # TOFU, ScienceQA, RETURN
-    stage = 7
+    model_size = args.model_size
+    task = args.task
+    stage = args.stage
+    # model_size = "1.7B" # 1B, 1.7B, 7B
+    # task = "RETURN" # TOFU, ScienceQA, RETURN
+    # stage = 1
     if stage == 1:
         split = "1"
     elif stage == 2:
         split = "12"
     elif stage == 3:
         split = "123"
-    
+
     # Configuration
     if task == "TOFU":
         if model_size == "1B":
@@ -573,6 +605,8 @@ def main():
     else:
         if model_size == "1B":
             model_path = "models/Llama-3.2-1B-Instruct"
+        elif model_size == "1.7B":
+            model_path = "models/Qwen3-1.7B"
         elif model_size == "7B":
             model_path = "models/Llama-2-7b-chat-hf"
         else:
@@ -583,14 +617,15 @@ def main():
     tok = AutoTokenizer.from_pretrained(model_path)
     tok.pad_token = tok.eos_token
     tok.padding_side = "left"
+    # tok.padding_side = "right"
     model = AutoModelForCausalLM.from_pretrained(
-            model_path,
-            # config=config,
-            # attn_implementation='flash_attention_2',
-            attn_implementation='sdpa',
-            torch_dtype=torch.bfloat16,
-            device_map=device_map
-        )
+        model_path,
+        # config=config,
+        # attn_implementation='flash_attention_2',
+        attn_implementation='sdpa',
+        torch_dtype=torch.bfloat16,
+        device_map=device_map
+    )
     model.config.pad_token_id = tok.pad_token_id
     if hasattr(model, "generation_config"):
         model.generation_config.pad_token_id = tok.pad_token_id
@@ -603,13 +638,14 @@ def main():
     clf = MLPBin(in_dim, HIDDEN_DIM).to(device)
     prev_save_dir = "models/guard_" + task + f"_{model_size}_stage{stage}"
     prev_ckpt = os.path.join(prev_save_dir, "mlp_best.pt")
+    print("Loading classifier checkpoint from: ", prev_ckpt)
     ckpt = torch.load(prev_ckpt, map_location=device)
+    print("ckpt model_name:", ckpt.get("model_name"))
     clf.load_state_dict(ckpt["model"])
     clf.eval()
 
     model_dir = "sentence-transformers/paraphrase-MiniLM-L6-v2"
     sent_model = SentenceTransformer(model_dir)
-
 
     # # sample_question = "What does Hsiao Yun-Hwa identify as in terms of gender?"
     # sample_question = "What gender is author Basil Mahfouz Al-Kuwaiti?"
@@ -633,7 +669,7 @@ def main():
             splits["real_authors"] = json.load(f)
         with open(os.path.join(split_dir, f"stage{split[-1]}", f"world_facts.json"), encoding="utf-8") as f:
             splits["world_facts"] = json.load(f)
-        
+
         with open(os.path.join(split_dir, f"stage{split[-1]}", f"forget{split}.json"), encoding="utf-8") as f:
             forget_split = json.load(f)
             id2question: dict[int, str] = {ex["id"]: ex["answer"] for ex in forget_split}
@@ -647,7 +683,7 @@ def main():
             data = json.load(f)
         with open(split_file, encoding="utf-8") as f:
             split_ids = json.load(f)
-        
+
         stage1_ids = set(split_ids["stage1"])
         stage1_stage2_ids = set(split_ids["stage1"]) | set(split_ids["stage2"])
         stage1_stage2_stage3_ids = (set(split_ids["stage1"]) | set(split_ids["stage2"]) | set(split_ids["stage3"]))
@@ -691,88 +727,110 @@ def main():
     elif task == "RETURN":
         if model_size == "1B":
             split_dir = "RETURN_NEW_DATASET/Meta-Llama-3.2-1B-Instruct_dataset/"
-        elif model_size == "7B":
+        elif model_size in ["1.7B", "7B"]:
             split_dir = "RETURN_NEW_DATASET/Meta-Llama-2-7B-chat_dataset/"
-        with open(os.path.join(split_dir, f"stage_{stage-1}_forget_paraphrased.json"), encoding="utf-8") as f:
-                splits["forget"] = json.load(f)
-                for item in splits["forget"]:
-                    item["paraphrased_question"] = item["paraphrased_instruction"]
-                    item["answer"] = item["gold_answer"]
-        with open(os.path.join(split_dir, f"stage_{stage-1}_retain_used.json"), encoding="utf-8") as f:
-                splits["retain_used"] = json.load(f)
-                for item in splits["retain_used"]:
-                    item["answer"] = item["gold_answer"]
-        with open(os.path.join(split_dir, f"stage_{stage-1}_retain_not_used.json"), encoding="utf-8") as f:
-                splits["retain_not_used"] = json.load(f)
-                for item in splits["retain_not_used"]:
-                    item["answer"] = item["gold_answer"]
+        with open(os.path.join(split_dir, f"stage_{stage - 1}_forget_paraphrased.json"), encoding="utf-8") as f:
+            splits["forget"] = json.load(f)
+            for item in splits["forget"]:
+                item["paraphrased_question"] = item["paraphrased_instruction"]
+                item["answer"] = item["gold_answer"]
+        with open(os.path.join(split_dir, f"stage_{stage - 1}_retain_used.json"), encoding="utf-8") as f:
+            splits["retain_used"] = json.load(f)
+            for item in splits["retain_used"]:
+                item["answer"] = item["gold_answer"]
+        with open(os.path.join(split_dir, f"stage_{stage - 1}_retain_not_used.json"), encoding="utf-8") as f:
+            splits["retain_not_used"] = json.load(f)
+            for item in splits["retain_not_used"]:
+                item["answer"] = item["gold_answer"]
         with open(os.path.join(split_dir, f"non_target.json"), encoding="utf-8") as f:
-                splits["non_target"] = json.load(f)
-                for item in splits["non_target"]:
-                    item["answer"] = item["gold_answer"]
-        with open(os.path.join(split_dir, f"stage_{stage-1}_near_utility.json"), encoding="utf-8") as f:
-                splits["near_utility"] = json.load(f)
-                for item in splits["near_utility"]:
-                    item["question"] = item["contrastive_instruction"]
-                    item["answer"] = item["contrastive_answer"]
+            splits["non_target"] = json.load(f)
+            for item in splits["non_target"]:
+                item["answer"] = item["gold_answer"]
+        with open(os.path.join(split_dir, f"stage_{stage - 1}_near_utility.json"), encoding="utf-8") as f:
+            splits["near_utility"] = json.load(f)
+            for item in splits["near_utility"]:
+                item["question"] = item["contrastive_instruction"]
+                item["answer"] = item["contrastive_answer"]
         with open(os.path.join(split_dir, f"winogrande_xs_validation.json"), encoding="utf-8") as f:
-                splits["winogrande"] = json.load(f)
-                for item in splits["winogrande"]:
-                    item["question"] = build_WD_prompt(
-                        item["sentence"], item["option1"], item["option2"]
-                    )
-                    if item["answer"] == "1":
-                        item["answer"] = item["option1"]
-                        item["incorrect_answer"] = item["option2"]
-                    else:
-                        item["answer"] = item["option2"]
-                        item["incorrect_answer"] = item["option1"]
-        
-        with open(os.path.join(split_dir, f"stage_{stage-1}_forget.json"), encoding="utf-8") as f:
+            splits["winogrande"] = json.load(f)
+            for item in splits["winogrande"]:
+                item["question"] = build_WD_prompt(
+                    item["sentence"], item["option1"], item["option2"]
+                )
+                if item["answer"] == "1":
+                    item["answer"] = item["option1"]
+                    item["incorrect_answer"] = item["option2"]
+                else:
+                    item["answer"] = item["option2"]
+                    item["incorrect_answer"] = item["option1"]
+
+        with open(os.path.join(split_dir, f"stage_{stage - 1}_forget.json"), encoding="utf-8") as f:
             forget_split = json.load(f)
             id2question: dict[int, str] = {ex["id"]: ex["gold_answer"] for ex in forget_split}
 
-        MAPPING_PATH = Path(split_dir) / f"RETURN_stage_{stage-1}_top3_guard.json"
+        MAPPING_PATH = Path(split_dir) / f"RETURN_stage_{stage - 1}_top3_guard.json"
         with MAPPING_PATH.open("r", encoding="utf-8") as f:
             ID_MAP: dict[str, dict[str, list[int]]] = json.load(f)
     elif task == "ScienceQA":
         gen_length = 32
         split_dir = "ScienceQA/"
         if stage == 1:
-            with open(os.path.join(split_dir, "test_forget_PR", f"PR_scienceqa_biology_train_SD.json"), encoding="utf-8") as f:
+            with open(os.path.join(split_dir, "test_forget_PR", f"PR_scienceqa_biology_train_SD.json"),
+                      encoding="utf-8") as f:
                 forget_data = json.load(f)
-            with open(os.path.join(split_dir, "test_forget_PR", f"PR_scienceqa_biology_train_SD.json"), encoding="utf-8") as f:
+            with open(os.path.join(split_dir, "test_forget_PR", f"PR_scienceqa_biology_train_SD.json"),
+                      encoding="utf-8") as f:
                 splits["forget"] = json.load(f)
-            with open(os.path.join(split_dir, "retain", f"processed_scienceqa_not_biology_test_RD.json"), encoding="utf-8") as f:
+            with open(os.path.join(split_dir, "retain", f"processed_scienceqa_not_biology_test_RD.json"),
+                      encoding="utf-8") as f:
                 splits["retain"] = json.load(f)
             with open(os.path.join(split_dir, "test_NU", f"NU_scienceqa_biology_train_SD.json"), encoding="utf-8") as f:
                 splits["NU"] = json.load(f)
         elif stage == 2:
-            with open(os.path.join(split_dir, "test_forget_PR", f"PR_scienceqa_biology_physics_train_SD.json"), encoding="utf-8") as f:
+            with open(os.path.join(split_dir, "test_forget_PR", f"PR_scienceqa_biology_physics_train_SD.json"),
+                      encoding="utf-8") as f:
                 forget_data = json.load(f)
-            with open(os.path.join(split_dir, "test_forget_PR", f"PR_scienceqa_biology_physics_train_SD.json"), encoding="utf-8") as f:
+            with open(os.path.join(split_dir, "test_forget_PR", f"PR_scienceqa_biology_physics_train_SD.json"),
+                      encoding="utf-8") as f:
                 splits["forget"] = json.load(f)
-            with open(os.path.join(split_dir, "retain", f"processed_scienceqa_not_biology_physics_test_RD.json"), encoding="utf-8") as f:
+            with open(os.path.join(split_dir, "retain", f"processed_scienceqa_not_biology_physics_test_RD.json"),
+                      encoding="utf-8") as f:
                 splits["retain"] = json.load(f)
-            with open(os.path.join(split_dir, "test_NU", f"NU_scienceqa_biology_physics_train_SD.json"), encoding="utf-8") as f:
+            with open(os.path.join(split_dir, "test_NU", f"NU_scienceqa_biology_physics_train_SD.json"),
+                      encoding="utf-8") as f:
                 splits["NU"] = json.load(f)
         elif stage == 3:
-            with open(os.path.join(split_dir, "test_forget_PR", f"PR_scienceqa_biology_physics_chemistry_train_SD.json"), encoding="utf-8") as f:
+            with open(
+                    os.path.join(split_dir, "test_forget_PR", f"PR_scienceqa_biology_physics_chemistry_train_SD.json"),
+                    encoding="utf-8") as f:
                 forget_data = json.load(f)
-            with open(os.path.join(split_dir, "test_forget_PR", f"PR_scienceqa_biology_physics_chemistry_train_SD.json"), encoding="utf-8") as f:
+            with open(
+                    os.path.join(split_dir, "test_forget_PR", f"PR_scienceqa_biology_physics_chemistry_train_SD.json"),
+                    encoding="utf-8") as f:
                 splits["forget"] = json.load(f)
-            with open(os.path.join(split_dir, "retain", f"processed_scienceqa_not_biology_physics_chemistry_test_RD.json"), encoding="utf-8") as f:
+            with open(os.path.join(split_dir, "retain",
+                                   f"processed_scienceqa_not_biology_physics_chemistry_test_RD.json"),
+                      encoding="utf-8") as f:
                 splits["retain"] = json.load(f)
-            with open(os.path.join(split_dir, "test_NU", f"NU_scienceqa_biology_physics_chemistry_train_SD.json"), encoding="utf-8") as f:
+            with open(os.path.join(split_dir, "test_NU", f"NU_scienceqa_biology_physics_chemistry_train_SD.json"),
+                      encoding="utf-8") as f:
                 splits["NU"] = json.load(f)
         elif stage == 4:
-            with open(os.path.join(split_dir, "test_forget_PR", f"PR_scienceqa_biology_physics_chemistry_economics_train_SD.json"), encoding="utf-8") as f:
+            with open(os.path.join(split_dir, "test_forget_PR",
+                                   f"PR_scienceqa_biology_physics_chemistry_economics_train_SD.json"),
+                      encoding="utf-8") as f:
                 forget_data = json.load(f)
-            with open(os.path.join(split_dir, "test_forget_PR", f"PR_scienceqa_biology_physics_chemistry_economics_train_SD.json"), encoding="utf-8") as f:
+            with open(os.path.join(split_dir, "test_forget_PR",
+                                   f"PR_scienceqa_biology_physics_chemistry_economics_train_SD.json"),
+                      encoding="utf-8") as f:
                 splits["forget"] = json.load(f)
-            with open(os.path.join(split_dir, "retain", f"processed_scienceqa_not_biology_physics_chemistry_economics_test_RD.json"), encoding="utf-8") as f:
+            with open(os.path.join(split_dir, "retain",
+                                   f"processed_scienceqa_not_biology_physics_chemistry_economics_test_RD.json"),
+                      encoding="utf-8") as f:
                 splits["retain"] = json.load(f)
-            with open(os.path.join(split_dir, "test_NU", f"NU_scienceqa_biology_physics_chemistry_economics_train_SD.json"), encoding="utf-8") as f:
+            with open(os.path.join(split_dir, "test_NU",
+                                   f"NU_scienceqa_biology_physics_chemistry_economics_train_SD.json"),
+                      encoding="utf-8") as f:
                 splits["NU"] = json.load(f)
 
         with open(os.path.join(split_dir, "test_utility", f"processed_openbookqa_test.json"), encoding="utf-8") as f:
@@ -799,9 +857,8 @@ def main():
     #     print("name: ", name)
     #     print("sample: ", ds[0])
     #     print("len: ", len(ds))
-    
 
-    result: Dict[str,Dict] = {}
+    result: Dict[str, Dict] = {}
     for name, ds in splits.items():
         agg, detail = eval_subset(model, tok, clf, sent_model, model_path, name, ds, task,
                                   gen_length, id2question, ID_MAP, device, batch_size=batch_size)
@@ -811,6 +868,17 @@ def main():
     print("\n==== Final Aggregated Metrics ====")
     print(json.dumps(final_metrics, indent=2, ensure_ascii=False))
     print("Finished eval_tofu stage ", stage, " for task ", task, " for model size ", model_size)
+
+    out_dir = "eval_results"
+    os.makedirs(out_dir, exist_ok=True)
+    out_path = os.path.join(
+        out_dir,
+        f"{task}_{model_size}_stage{stage}_metrics.json"
+    )
+    with open(out_path, "w", encoding="utf-8") as f:
+        json.dump(final_metrics, f, indent=2, ensure_ascii=False)
+    print(f"Saved metrics to: {out_path}")
+
 
 if __name__ == "__main__":
     main()
