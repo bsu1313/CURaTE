@@ -1,6 +1,6 @@
-# Continual Unlearning in Real Time
+# CURaTE: Continual Unlearning in Real Time with Ensured Preservation of LLM Knowledge
 
-Unlearning method using retrieval of sentence embeddings.
+Unlearning method that works in real-time using retrieval of sentence embeddings.
 
 ## Usage
 
