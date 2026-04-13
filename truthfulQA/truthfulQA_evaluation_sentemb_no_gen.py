@@ -12,7 +12,6 @@ from sentence_transformers import SentenceTransformer
 from pathlib import Path
 import random
 
-# Prompt template helpers
 
 lora_path_name = ""
 
@@ -22,11 +21,11 @@ lora_path_name = ""
 # with MAPPING_PATH.open("r", encoding="utf-8") as f:
 #     ID_MAP: dict[str, dict[str, list[int]]] = json.load(f)
     
-REFUSAL_PATH = Path("./truthfulQA_refusal_answer.json")   # ← 실제 파일명/경로
+REFUSAL_PATH = Path("./truthfulQA_refusal_answer.json")  
 REF_PHRASES: list[str] = json.loads(REFUSAL_PATH.read_text(encoding="utf-8"))
 
 def get_available_cache_dir():
-    preferred = Path("/home/david/.cache")
+    preferred = Path("/home/.cache")
     fallback = Path("/home/plowcow/.cache")
 
     if preferred.exists() and os.access(preferred, os.W_OK):
@@ -35,14 +34,6 @@ def get_available_cache_dir():
         return str(fallback)
 
 def mapped_question(origin_id: int, key: str, id2question, ID_MAP) -> List[str]:
-    """
-    Args:
-        origin_id : 현재 예시의 id  (e.g. 5)
-        key       : "paraphrased" or "contrastive"
-    Returns:
-        매핑된 id( top-3 의 첫 번째 )에 대응하는 question 문자열
-        (없으면 원본 question 을 그대로 반환)
-    """
     try:
         mapped_ids = ID_MAP[str(origin_id)][f"{key}_top3_ids"]
         return [id2question[mid] for mid in mapped_ids if mid in id2question]
@@ -71,9 +62,7 @@ class QADataset(Dataset):
     def __getitem__(self, idx):
         return self.examples[idx]
 
-# ─────────────────────────────────────────────────────────────────────────────
-# Prompt builder
-# ─────────────────────────────────────────────────────────────────────────────
+
 def wrap_prompt(p, if_llama):
     if 'llama-3' in if_llama or 'llama_3' in if_llama:
         question_start_token = "<|start_header_id|>system<|end_header_id|>\n\nCutting Knowledge Date: December 2023\nToday Date: 14 Jul 2025\n\n<|eot_id|><|start_header_id|>user<|end_header_id|>\n\n"
@@ -90,14 +79,12 @@ def build_llama2_prompt(question: str, forgotten_info: str, tokenizer) -> str:
     ]
     prompt = tokenizer.apply_chat_template(
         messages,
-        tokenize=False,   # Return plain text prompt, not token IDs
-        add_generation_prompt=True  # Adds the assistant's turn prefix
+        tokenize=False,   
+        add_generation_prompt=True  
     )
     return prompt
 
-# ─────────────────────────────────────────────────────────────────────────────
-# Metrics helpers
-# ─────────────────────────────────────────────────────────────────────────────
+
 
 rouge = rouge_scorer.RougeScorer(["rougeL"], use_stemmer=True)
 st_model = SentenceTransformer("paraphrase-MiniLM-L6-v2")
@@ -114,9 +101,6 @@ def postprocess_completion(comp: str) -> str:
         comp = comp[:cut]
     return comp.strip()
 
-# ─────────────────────────────────────────────────────────────────────────────
-# Model loading
-# ─────────────────────────────────────────────────────────────────────────────
 
 # def load_model(base: str, lora: str, ds_cfg: str, dtype=torch.float16):
 def load_model(base: str, ds_cfg: str, dtype=torch.float16):
@@ -164,7 +148,7 @@ def load_model(base: str, ds_cfg: str, dtype=torch.float16):
 def batched_generate(model, tok, prompts: List[str]) -> List[str]:
     inputs = tok(prompts, return_tensors="pt", padding=True, truncation=False).to(model.device)
 
-    # print("prompts: ", prompts)
+  
     with torch.no_grad():
         outs = model.generate(
             **inputs,
@@ -177,21 +161,21 @@ def batched_generate(model, tok, prompts: List[str]) -> List[str]:
 
     results = []
     for prompt, generated_ids in zip(prompts, outs):
-        # Decode the full output without skipping special tokens
+     
         full_text = tok.decode(
             generated_ids,
             skip_special_tokens=True,
             clean_up_tokenization_spaces=False
         ).strip()
 
-        # Also decode the prompt the same way
+
         prompt_text = tok.decode(
             tok(prompt, return_tensors="pt", add_special_tokens=True)["input_ids"][0],
             skip_special_tokens=True,
             clean_up_tokenization_spaces=False
         ).strip()
 
-        # Remove the prompt text from the start
+
         if full_text.startswith(prompt_text):
             answer = full_text[len(prompt_text):].strip()
         else:
@@ -205,9 +189,7 @@ def batched_generate(model, tok, prompts: List[str]) -> List[str]:
         results.append(answer)
     return results
 
-# ─────────────────────────────────────────────────────────────────────────────
-# Custom tofu evaluation logic
-# ─────────────────────────────────────────────────────────────────────────────
+
 def predict(texts, tokenizer, model, max_length=256):
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     model.to(device)
@@ -322,9 +304,6 @@ def eval_tofu_custom(data: List[Dict[str, Any]], ID_MAP, batch_size: int = 4):
     print(f"Contrastive positives: {con_positives}, negatives: {con_negatives}")
     return all_results
 
-# ─────────────────────────────────────────────────────────────────────────────
-# Main
-# ─────────────────────────────────────────────────────────────────────────────
 
 def main():
     ap = argparse.ArgumentParser()
@@ -338,11 +317,11 @@ def main():
 
     os.makedirs(args.output_dir, exist_ok=True)
 
-    # Load new data
+
     with open(args.custom_data_json, encoding="utf-8") as f:
         data = json.load(f)
 
-    # Load the split IDs
+
     with open("truthfulQA_continual_setting/TruthfulQA_split_ids.json", encoding="utf-8") as f:
         split_ids = json.load(f)
 
@@ -350,16 +329,16 @@ def main():
     stage = 123 # 1, 12, 123
 
     ablation_files = [
-        "NQ_CURE_12K_a",
-        "NQ_CURE_18K_a",
-        "NQ_CURE_18K_a_no_b",
-        "NQ_CURE_NO_HN_18K_a",
-        "NQ_CURE_NO_HN_18K_a_no_b",
-        "TQ_CURE_18K_a",
+        "NQ_CURaTE_12K_a",
+        "NQ_CURaTE_18K_a",
+        "NQ_CURaTE_18K_a_no_b",
+        "NQ_CURaTE_NO_HN_18K_a",
+        "NQ_CURaTE_NO_HN_18K_a_no_b",
+        "TQ_CURaTE_18K_a",
         "no_finetuning"
     ]
 
-    # Convert the list to a set for fast lookup
+
     stage1_ids = set(split_ids["stage1"])
     stage1_stage2_ids = set(split_ids["stage1"]) | set(split_ids["stage2"])
     stage1_stage2_stage3_ids = (set(split_ids["stage1"]) | set(split_ids["stage2"]) | set(split_ids["stage3"]))
@@ -376,15 +355,15 @@ def main():
 
     # Filter data to include only examples with IDs in stage1
     filtered_data = [example for example in data if example["id"] in combined_ids]
-    # print("len filtered data: ", len(filtered_data))
+
 
     with MAPPING_PATH.open("r", encoding="utf-8") as f:
         ID_MAP: dict[str, dict[str, list[int]]] = json.load(f)
 
-    # Evaluate
+
     results = eval_tofu_custom(filtered_data, ID_MAP, batch_size=args.batch_size)
 
-    # Save
+
     out_path = os.path.join(args.output_dir, "truthfulQA_result.json")
     with open(out_path, "w", encoding="utf-8") as f:
         json.dump(results, f, indent=2, ensure_ascii=False)

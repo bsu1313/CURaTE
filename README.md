@@ -1,43 +1,67 @@
 # CURaTE: Continual Unlearning in Real Time with Ensured Preservation of LLM Knowledge
 
-Unlearning method that works in real-time using retrieval of sentence embeddings.
+**Seyun Bae, Seokhan Lee, Eunho Yang**
 
-## Usage
+<p align="left">
+  <a href="https://arxiv.org/abs/XXXX.XXXXX">
+    <img src="https://img.shields.io/badge/arXiv-XXXX.XXXXX-b31b1b?style=flat-square" />
+  </a>
+  <a href="https://aclanthology.org/">
+    <img src="https://img.shields.io/badge/Findings%20of%20ACL-2026-4b44ce?style=flat-square" />
+  </a>
+</p>
 
-1. Create new conda environment and install requirements from requirements.txt
-2. Run download_model.py to download model to local folder.
-3. Run data_augmentation.py to create augmented dataset if it doesn't already exist.
+
+**CURaTE**, the first unlearning method for large language models enabling continual unlearning in real time while also maintaining near perfect preservation of existing knowledge.
+
+
+## Setup
+
+### 1. Create a new conda environment
+Create a fresh conda environment and install the required packages from `requirements.txt`.
+
+### 2. Download the base model
+Run `download_model.py` to download the model into a local directory.
+
+## Training
+
+### Unlearning Sentence Embedding Model
+To train the sentence embedding model used for unlearning, run:
+
+`python train_sentemb.py`
+
+## Evaluation
 
 ### TOFU
+To evaluate CURaTE on the TOFU dataset:
 
-#### Sentence Embeddings
-1. Run train_sentemb.py to train the sentence embedding model.
-2. Change path in "def get_available_cache_dir()" in evaluate_tofu_sentemb.py and run it.
+1. Train the sentence embedding model: `python train_sentemb.py`
+2. Update the path in `get_available_cache_dir()` inside `evaluate_tofu_sentemb.py`
+3. Run the evaluation: `python evaluate_tofu_sentemb.py`
 
-### TruthfulQA: Refusal, Near Utility
+### TruthfulQA
+To evaluate CURaTE on the TruthfulQA benchmark:
 
-#### Sentence Embeddings
-1. Use sentence embedding model trained for TOFU.
-2. Run truthfulQA/truthfulQA_evaluation_sentemb.py to evaluate the sentence embeddings on the TruthfulQA dataset.
+1. Train the sentence embedding model: `python train_sentemb.py`
+2. Run the TruthfulQA evaluation: `python truthfulQA/truthfulQA_evaluation_sentemb.py`
+3. Run the CommonsenseQA evaluation to measure general knowledge preservation: `python commonsense/evaluation_commonsenseQA_sentemb.py`
 
-### TruthfulQA: Far Utility
+### RETURN
+To evaluate CURaTE on the RETURN dataset:
 
-#### Sentence Embeddings
-2. Use sentence embedding model trained for TOFU.
-3. Run commonsense/evaluation_commonsenseQA_sentemb.py to evaluate the sentence embeddings on the CommonsenseQA dataset.
+1. Train the sentence embedding model: `python train_sentemb.py`
+2. Run the evaluation: `python RETURN/evaluate_return_sentemb.py`
 
-### Ablation
-1. Run train_sentemb.py to train each baseline model with each ablation dataset
-2. Run the files in the DB_files folder to generate mapping files for each ablation
-3. Run the evaluation files with no_gen.py to get Precision, Recall, F1 scores for each ablation
+### ScienceQA
+To evaluate CURaTE on the ScienceQA dataset:
 
-### Multi-GPU (parallel)
-#### Ubuntu
-sudo apt-get update
-sudo apt-get install -y libopenmpi-dev openmpi-bin
+1. Train the sentence embedding model: `python train_sentemb.py`
+2. Run the evaluation: `python ScienceQA/evaluate_return_sentemb.py`
 
-#### then in your conda/env:
-pip install mpi4py
+## Ablation Study
 
-#### launch with:
-DS_USE_MPI=0 deepspeed --num_gpus=4 truthfulQA_evaluation123_parallel.py
+To reproduce the ablation experiments:
+
+1. Train each baseline model with each ablation dataset: `python train_sentemb.py`
+2. Run the scripts in `DB_files/` to generate mapping files for each ablation setting
+3. Run the evaluation scripts with `no_gen.py` to obtain Precision, Recall, and F1 scores for each ablation

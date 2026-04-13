@@ -1,0 +1,182 @@
+[
+  {
+    "name": "T. S. Eliot",
+    "paraphrased_instruction": "What is the birth year of T. S. Eliot?",
+    "gold_answer": "T. S. Eliot was born on 26 September 1888.",
+    "id": 631
+  },
+  {
+    "name": "T. S. Eliot",
+    "paraphrased_instruction": "To which literary genres did T. S. Eliot make contributions?",
+    "gold_answer": "T. S. Eliot contributed to poetry, essays, plays, and literary criticism.",
+    "id": 632
+  },
+  {
+    "name": "T. S. Eliot",
+    "paraphrased_instruction": "In the field of 20th-century literature, what is T. S. Eliot commonly acknowledged as?",
+    "gold_answer": "He is recognized as one of the greatest poets and a central figure in English-language Modernist poetry.",
+    "id": 633
+  },
+  {
+    "name": "T. S. Eliot",
+    "paraphrased_instruction": "What significant transformations did T. S. Eliot introduce to English poetry?",
+    "gold_answer": "T. S. Eliot reinvigorated English poetry with his innovative use of language, writing style, and verse structure.",
+    "id": 634
+  },
+  {
+    "name": "T. S. Eliot",
+    "paraphrased_instruction": "What major transformation happened in T. S. Eliot's life during the year 1914?",
+    "gold_answer": "In 1914, T. S. Eliot moved from the United States to England.",
+    "id": 635
+  },
+  {
+    "name": "T. S. Eliot",
+    "paraphrased_instruction": "In what year did T. S. Eliot obtain British citizenship and give up his American citizenship?",
+    "gold_answer": "He became a British subject and renounced his American citizenship in 1927.",
+    "id": 636
+  },
+  {
+    "name": "T. S. Eliot",
+    "paraphrased_instruction": "Which poem first gained T. S. Eliot widespread recognition?",
+    "gold_answer": "His first widely recognized poem was \"The Love Song of J. Alfred Prufrock.\"",
+    "id": 637
+  },
+  {
+    "name": "T. S. Eliot",
+    "paraphrased_instruction": "What work by T. S. Eliot is regarded as a significant piece in Modernist poetry?",
+    "gold_answer": "\"The Waste Land\" (1922) is considered a landmark in Modernist poetry.",
+    "id": 638
+  },
+  {
+    "name": "T. S. Eliot",
+    "paraphrased_instruction": "Can you list some notable poems authored by T. S. Eliot?",
+    "gold_answer": "Other significant poems include \"The Hollow Men,\" \"Ash Wednesday,\" and \"Four Quartets.\"",
+    "id": 639
+  },
+  {
+    "name": "T. S. Eliot",
+    "paraphrased_instruction": "What is a play authored by T. S. Eliot?",
+    "gold_answer": "One of his well-known plays is \"Murder in the Cathedral.\"",
+    "id": 640
+  },
+  {
+    "name": "Apollo",
+    "paraphrased_instruction": "Who gave birth to Apollo?",
+    "gold_answer": "Apollo's parents are Zeus and Leto.",
+    "id": 641
+  },
+  {
+    "name": "Apollo",
+    "paraphrased_instruction": "Who is Apollo's twin sister?",
+    "gold_answer": "Apollo's twin sister is Artemis, goddess of the hunt.",
+    "id": 642
+  },
+  {
+    "name": "Apollo",
+    "paraphrased_instruction": "In Greek mythology, what areas or aspects are linked to Apollo?",
+    "gold_answer": "Apollo is associated with archery, music and dance, truth and prophecy, healing and diseases, the Sun and light, and poetry.",
+    "id": 643
+  },
+  {
+    "name": "Apollo",
+    "paraphrased_instruction": "What makes Apollo the epitome of the kouros statue?",
+    "gold_answer": "Apollo is considered the ideal of the kouros, which means he is depicted as a beardless, athletic youth, representing beauty and youth.",
+    "id": 644
+  },
+  {
+    "name": "Apollo",
+    "paraphrased_instruction": "What is Apollo's function in the Oracle of Delphi?",
+    "gold_answer": "Apollo serves as the oracular god and the prophetic deity of the Delphic Oracle.",
+    "id": 645
+  },
+  {
+    "name": "Apollo",
+    "paraphrased_instruction": "In what way is Apollo associated with medicine and healing?",
+    "gold_answer": "Medicine and healing are associated with Apollo, either directly or through his son Asclepius, who is a deity of health.",
+    "id": 646
+  },
+  {
+    "name": "Apollo",
+    "paraphrased_instruction": "How is Apollo connected to music and the arts?",
+    "gold_answer": "Apollo presides over music, songs, dance, and poetry, and is credited with inventing string-music.",
+    "id": 647
+  },
+  {
+    "name": "Apollo",
+    "paraphrased_instruction": "Why is the lyre important to Apollo?",
+    "gold_answer": "The lyre is a common attribute of Apollo, symbolizing his authority over music and the arts.",
+    "id": 648
+  },
+  {
+    "name": "Apollo",
+    "paraphrased_instruction": "In what ways does Apollo safeguard young ones?",
+    "gold_answer": "Apollo is a kourotrophos, concerned with the health and education of children, overseeing their transition to adulthood.",
+    "id": 649
+  },
+  {
+    "name": "Apollo",
+    "paraphrased_instruction": "How does long hair relate to the figure of Apollo?",
+    "gold_answer": "Long hair symbolizes eternal youth for Apollo and was a prerogative of boys cut at adulthood and dedicated to him.",
+    "id": 650
+  },
+  {
+    "name": "Russell Kirk",
+    "paraphrased_instruction": "What is the birth year of Russell Kirk?",
+    "gold_answer": "Russell Kirk was born on October 19, 1918.",
+    "id": 651
+  },
+  {
+    "name": "Russell Kirk",
+    "paraphrased_instruction": "In American intellectual history, for what is Russell Kirk recognized?",
+    "gold_answer": "Russell Kirk is known for his significant influence on 20th-century American conservatism.",
+    "id": 652
+  },
+  {
+    "name": "Russell Kirk",
+    "paraphrased_instruction": "Which significant book did Russell Kirk release in the year 1953?",
+    "gold_answer": "Russell Kirk published \"The Conservative Mind\" in 1953.",
+    "id": 653
+  },
+  {
+    "name": "Russell Kirk",
+    "paraphrased_instruction": "What impact did 'The Conservative Mind' have on the political landscape in America?",
+    "gold_answer": "\"The Conservative Mind\" shaped the postwar conservative movement in the U.S.",
+    "id": 654
+  },
+  {
+    "name": "Russell Kirk",
+    "paraphrased_instruction": "Which tradition was central to Russell Kirk's conservative philosophy?",
+    "gold_answer": "Russell Kirk focused on the Anglo-American tradition in his conservative thought.",
+    "id": 655
+  },
+  {
+    "name": "Russell Kirk",
+    "paraphrased_instruction": "Which thinker significantly influenced the ideas of Russell Kirk?",
+    "gold_answer": "Edmund Burke had a notable impact on Russell Kirk's ideas.",
+    "id": 656
+  },
+  {
+    "name": "Russell Kirk",
+    "paraphrased_instruction": "Which form of conservatism was Russell Kirk mainly known for supporting?",
+    "gold_answer": "Russell Kirk primarily advocated for traditionalist conservatism.",
+    "id": 657
+  },
+  {
+    "name": "Russell Kirk",
+    "paraphrased_instruction": "Apart from his works in politics and philosophy, what other type of writing did Russell Kirk produce?",
+    "gold_answer": "Russell Kirk also wrote Gothic and ghost story fiction.",
+    "id": 658
+  },
+  {
+    "name": "Russell Kirk",
+    "paraphrased_instruction": "What sets Russell Kirk apart as an author in the 20th century?",
+    "gold_answer": "Russell Kirk is considered one of the most significant conservative men of letters of the twentieth century.",
+    "id": 659
+  },
+  {
+    "name": "Russell Kirk",
+    "paraphrased_instruction": "What year did Russell Kirk die?",
+    "gold_answer": "Russell Kirk passed away on April 29, 1994.",
+    "id": 660
+  }
+]

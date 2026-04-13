@@ -11,12 +11,12 @@ baseline_model = "mpnet" # mpnet, minilm, distilroberta
 ablation = 1 # 0, 1, 2, 3, 4, 5, 6
 
 ablation_files = [
-    "NQ_CURE_12K_a",
-    "NQ_CURE_18K_a",
-    "NQ_CURE_18K_a_no_b",
-    "NQ_CURE_NO_HN_18K_a",
-    "NQ_CURE_NO_HN_18K_a_no_b",
-    "TQ_CURE_18K_a",
+    "NQ_CURaTE_12K_a",
+    "NQ_CURaTE_18K_a",
+    "NQ_CURaTE_18K_a_no_b",
+    "NQ_CURaTE_NO_HN_18K_a",
+    "NQ_CURaTE_NO_HN_18K_a_no_b",
+    "TQ_CURaTE_18K_a",
     "no_finetuning",
     "guard"
 ]
@@ -35,7 +35,7 @@ search_sizes = []
 for i in range(10):
 
     forget_file = f"../RETURN_NEW_DATASET/{data_folder}/stage_{i}_forget.json"
-    dataset_files = [                           # 매핑을 만들 데이터셋들
+    dataset_files = [                           
         {"path": f"../RETURN_NEW_DATASET/{data_folder}/stage_{i}_forget_paraphrased.json", "question_key": "paraphrased_instruction"},
         {"path": f"../RETURN_NEW_DATASET/{data_folder}/stage_{i}_retain_used.json", "question_key": "question"},
         {"path": f"../RETURN_NEW_DATASET/{data_folder}/stage_{i}_retain_not_used.json", "question_key": "question"},
@@ -65,9 +65,7 @@ for i in range(10):
             device=device,
         )
 
-    # ────────────────────────────────
-    # 1) forget data 로드 & 임베딩
-    # ────────────────────────────────
+
     with open(forget_file, encoding="utf-8") as f:
         forget_data = json.load(f)
 
@@ -90,9 +88,7 @@ for i in range(10):
     db_times.append(end_time - start_time)
     db_sizes.append(len(forget_questions))
 
-    # ────────────────────────────────
-    # 2) 각 데이터셋 처리
-    # ────────────────────────────────
+
     mapping = {}
     for cfg in dataset_files:
         path   = cfg["path"]
@@ -105,7 +101,7 @@ for i in range(10):
         for ex in data:
             question = ex.get(q_key) or ex.get("question")
             if question is None:
-                raise KeyError(f"{path} 예시에 '{q_key}' 또는 'question' 필드가 없습니다.")
+                raise KeyError(f"No '{q_key}' or 'question' field found in the example at {path}.")
             qs.append(question)
             qids.append(ex["id"])
 
@@ -131,7 +127,7 @@ for i in range(10):
                     # take the cosine top-5 candidates
                     cand_idx = row_idx[:5].tolist()
 
-                    # build (query, candidate) pairs for the CrossEncoder
+                 
                     pairs = [(q_text, forget_questions[j]) for j in cand_idx]
 
                     with torch.inference_mode():
@@ -142,12 +138,12 @@ for i in range(10):
                     reranked_ids    = [forget_ids[cand_idx[k]] for k in order]
                     reranked_scores = [float(ce_scores[k]) for k in order]
 
-                    # (optional) also keep original cosine scores for those chosen
-                    # map CE-selected indices back to their cosine scores
+           
+           
                     cos_for_reranked = []
                     for k in order:
                         j_global = cand_idx[k]
-                        # find where j_global sits in row_idx to fetch its cosine
+                      
                         pos = (row_idx == j_global).nonzero(as_tuple=True)[0].item()
                         cos_for_reranked.append(float(row_val[pos]))
 
@@ -158,7 +154,7 @@ for i in range(10):
                     }
 
                 else:
-                    # original cosine top-k path (return top-3 to keep the same shape)
+                 
                     top3_idx = row_idx[:3].tolist()
                     top3_val = row_val[:3].tolist()
                     mapping[qid] = {
@@ -172,9 +168,7 @@ for i in range(10):
             #         "forget_data_top3_cossim": [float(v) for v in row_val],
             #     }
 
-    # ────────────────────────────────
-    # 3) 저장 및 검증
-    # ────────────────────────────────
+
     if out_file:
         Path(out_file).parent.mkdir(parents=True, exist_ok=True)
         with open(out_file, "w", encoding="utf-8") as f:
@@ -183,11 +177,11 @@ for i in range(10):
     total_questions = sum(len(json.load(open(cfg["path"], encoding="utf-8")))
                         for cfg in dataset_files)
     if len(mapping) == total_questions:
-        print("✅ 모든 질문이 매핑되었습니다.")
+        print("Mapping complete!")
     else:
-        print(f"⚠️ {total_questions - len(mapping)} 개의 질문이 누락되었습니다.")
+        print(f"⚠️ {total_questions - len(mapping)} are missing from the mapping!")
 
-    print(f"총 매핑 수: {len(mapping):,}")
+    print(f"Total mappings: {len(mapping):,}")
     if out_file:
         print(f"Saved to → {out_file}")
 
@@ -199,7 +193,7 @@ for i in range(10):
 from collections import Counter, defaultdict
 
 id_counter  = Counter()
-id_sources  = defaultdict(list)   # {id: [파일경로1, 파일경로2, ...]}
+id_sources  = defaultdict(list)   # {id: [file_path1, file_path2, ...]}
 
 for cfg in dataset_files:
     path = cfg["path"]
@@ -210,9 +204,8 @@ for cfg in dataset_files:
         id_counter[qid] += 1
         id_sources[qid].append(path)
 
-# ⚠️ 실제로 중복된 ID 목록 뽑기
 dup_ids = [qid for qid, cnt in id_counter.items() if cnt > 1]
 
-print(f"⚠️ 중복된 ID 개수: {len(dup_ids)}\n")
+print(f"⚠️ Duplicate ID count: {len(dup_ids)}\n")
 for qid in dup_ids:
     print(f"- {qid}  ←  {', '.join(id_sources[qid])}")

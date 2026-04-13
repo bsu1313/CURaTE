@@ -7,7 +7,7 @@ from tqdm import tqdm
 import sys
 
 
-# 1. Load JSON and prepare InputExamples
+
 def load_input_examples(json_path):
     examples = []
 
@@ -53,7 +53,7 @@ def load_input_examples(json_path):
     return examples
 
 
-# 2. Main training function
+
 def main(
     json_path,
     model,
@@ -92,20 +92,14 @@ def main(
 
 
 if __name__ == "__main__":
-    # main(
-    #     json_path="NQ_LTU_18k.json",
-    #     epochs=1,
-    #     batch_size=16,
-    #     learning_rate=2e-5
-    # )
 
     ablation_files = [
-        "NQ_CURE_12K_a",
-        "NQ_CURE_18K_a",
-        "NQ_CURE_18K_a_no_b",
-        "NQ_CURE_NO_HN_18K_a",
-        "NQ_CURE_NO_HN_18K_a_no_b",
-        "TQ_CURE_18K_a",
+        # "NQ_CURaTE_12K_a",
+        "NQ_CURaTE_18K_a",  # The default settings
+        # "NQ_CURaTE_18K_a_no_b",
+        # "NQ_CURaTE_NO_HN_18K_a",
+        # "NQ_CURaTE_NO_HN_18K_a_no_b",
+        # "TQ_CURaTE_18K_a",
         ]
 
     # model_names = ["mpnet", "minilm", "distilroberta"]

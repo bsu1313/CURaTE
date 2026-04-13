@@ -13,7 +13,7 @@ from pathlib import Path
 import random
 import sys
 
-# Prompt template helpers
+
 
 lora_path_name = ""
 
@@ -22,13 +22,12 @@ lora_path_name = ""
 # with MAPPING_PATH.open("r", encoding="utf-8") as f:
 #     ID_MAP: dict[str, dict[str, list[int]]] = json.load(f)
 
-REFUSAL_PATH = Path("../refusal_answer.json")  # ← 실제 파일명/경로
+REFUSAL_PATH = Path("../refusal_answer.json")
 REF_PHRASES: list[str] = json.loads(REFUSAL_PATH.read_text(encoding="utf-8"))
 
 
 def get_available_cache_dir():
-    preferred = Path("/home/work/data/seokhan/")
-    # preferred = Path("/home/david/.cache")
+    preferred = Path("/home/work/data/")
     fallback = Path("/home/plowcow/.cache")
 
     if preferred.exists() and os.access(preferred, os.W_OK):
@@ -97,9 +96,6 @@ def build_llama2_prompt(question: str, forgotten_info: str, tokenizer) -> str:
     return prompt
 
 
-# ─────────────────────────────────────────────────────────────────────────────
-# Metrics helpers
-# ─────────────────────────────────────────────────────────────────────────────
 
 rouge = rouge_scorer.RougeScorer(["rougeL"], use_stemmer=True)
 st_model = SentenceTransformer("paraphrase-MiniLM-L6-v2")
@@ -120,9 +116,6 @@ def postprocess_completion(comp: str) -> str:
     return comp.strip()
 
 
-# ─────────────────────────────────────────────────────────────────────────────
-# Model loading
-# ─────────────────────────────────────────────────────────────────────────────
 
 # def load_model(base: str, lora: str, ds_cfg: str, dtype=torch.float16):
 def load_model(base: str, ds_cfg: str, dtype=torch.float16):
@@ -164,9 +157,6 @@ def load_model(base: str, ds_cfg: str, dtype=torch.float16):
     return engine.module, tok
 
 
-# ─────────────────────────────────────────────────────────────────────────────
-# Batched generation
-# ─────────────────────────────────────────────────────────────────────────────
 
 def batched_generate(model, tok, prompts: List[str]) -> List[str]:
     inputs = tok(prompts, return_tensors="pt", padding=True, truncation=False).to(model.device)
@@ -210,9 +200,6 @@ def batched_generate(model, tok, prompts: List[str]) -> List[str]:
     return results
 
 
-# ─────────────────────────────────────────────────────────────────────────────
-# Custom tofu evaluation logic
-# ─────────────────────────────────────────────────────────────────────────────
 
 def eval_subset(model, tok, model_name, name, data: List[Dict[str, Any]], forget_data, sent_model, ID_MAP, batch_size: int = 4):
     def identity_collate(batch):
@@ -246,13 +233,11 @@ def eval_subset(model, tok, model_name, name, data: List[Dict[str, Any]], forget
         search_question = "instruction"
 
     for batch in tqdm.tqdm(dl, desc=f"Evaluating subset {name}"):
-        # prompts_1, refs_1, ids_1, q1_inputs, preds_1, incorrect_1 = [], [], [], [], [], []
         prompts_1, ids_1, q1_inputs, preds_1, answers_1 = [], [], [], [], []
 
         for item in batch:
-            # print("item: ", item)
 
-            # Case 1: paraphrased question
+  
             if item.get(input_question):
                 ref_q = mapped_question(item["id"], "forget_data", id2question, ID_MAP)
                 cos_sim = mapped_cossim(item["id"], "forget_data", ID_MAP)
@@ -332,7 +317,7 @@ def eval_subset(model, tok, model_name, name, data: List[Dict[str, Any]], forget
                     answer = res[r_i][0]  # 'A', 'B', ...
                 else:
                     answer = "FAILED"
-                #     print("*******************************************", res[r_i])
+
                 pred.append(answer)
                 results.append(res[r_i])
                 # outputs.append(output[r_i])
@@ -384,7 +369,7 @@ def main():
     model, tok = load_model(args.base_model, args.ds_config)
 
     # sent_model = SentenceTransformer("sentence-transformers/multi-qa-mpnet-base-dot-v1")
-    model_dir = "../models/mpnet_contrastive_model_NQ_CURE_18K_a"
+    model_dir = "../models/mpnet_contrastive_model_NQ_CURaTE_18K_a"
     sent_model = SentenceTransformer(model_dir)
 
     stages = {}

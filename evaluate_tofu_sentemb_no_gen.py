@@ -30,7 +30,7 @@ from rouge_score import rouge_scorer
 # --------------------------------------------------------------------------
 # 프롬프트 템플릿
 # --------------------------------------------------------------------------
-from conversation import get_conv_template        # 💡 경로 확인!
+
 
 from sentence_transformers import SentenceTransformer, util
 from pathlib import Path
@@ -137,43 +137,8 @@ def build_llama2_prompt(question: str, tokenizer) -> str:
         add_generation_prompt=True  # Adds the assistant's turn prefix
     )
     return prompt
-# def build_llama2_prompt(question: str,
-#                         forgotten_info: str = "") -> str:
-#     # conv = get_conv_template("llama-2")
-#     # conv.append_message(conv.roles[0], question)   # user
-#     # conv.append_message(conv.roles[1], None)         # assistant
-#     # final_prompt = conv.get_prompt()
-#
-#     final_prompt = "[INST] " + question + " [/INST]"
-#     return final_prompt
-# def build_llama2_prompt(question: str,
-#                         forgotten_info: str = "") -> str:
-#     """Llama-2 chat 템플릿으로 감싼다."""
-#     if forgotten_info == "":
-#         forgotten_info = (
-#             "Basil Mahfouz Al-Kuwaiti"
-#         )
-#
-#
-#     input_text = (
-#         "Based on the [Forgotten Information], decide whether to answer or "
-#         "refuse to answer the [Query]. Then provide an appropriate response "
-#         "accordingly.\n\n"
-#         f"[Forgotten Information]:\n{forgotten_info}\n\n"
-#         f"[Query]:\n{question}"
-#     )
-#
-#     conv = get_conv_template("llama-2")
-#     conv.set_system_message(
-#         "You are a helpful, respectful and honest assistant."
-#     )
-#     conv.append_message(conv.roles[0], input_text)   # user
-#     conv.append_message(conv.roles[1], None)         # assistant
-#     return conv.get_prompt()
 
-# --------------------------------------------------------------------------
-# 평가 지표
-# --------------------------------------------------------------------------
+
 rouge = rouge_scorer.RougeScorer(["rougeL"], use_stemmer=True)
 # st_model = SentenceTransformer("paraphrase-MiniLM-L6-v2")
 

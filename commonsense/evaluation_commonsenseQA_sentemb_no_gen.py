@@ -1,24 +1,5 @@
 # -*- coding: utf-8 -*-
-"""
-Evaluation script adapted from the original TruthfulQA evaluator.
 
-Key changes
------------
-1. **Dataset:** Now uses the CommonsenseQA dataset hosted at
-   https://huggingface.co/datasets/tau/commonsense_qa.
-2. **ID Mapping:** If an `id_mapping` JSON is provided it will be loaded, but the
-   evaluation itself does **not** rely on paraphrased/contrastive questions – it
-   directly evaluates the model on standard CommonsenseQA items.
-3. **Metrics:** Computes **exact‑match accuracy** between the predicted choice
-   label (`A`‒`E`) and the gold `answerKey`, and also reports macro‑averaged
-   Rouge‑L recall against the gold choice text (optional).
-4. **Prompts & Parsing:** Adds a compact multiple‑choice prompt that asks the
-   model for the correct letter. Prediction parsing grabs the first capital
-   letter A‑E found in the generation.
-
-Most other utilities (model loading, batched generation, DeepSpeed etc.) are
-kept as‑is to maximise code reuse.
-"""
 
 import os, sys, json, math, argparse, re, random, tqdm
 from typing import List, Dict, Any, Tuple
@@ -38,24 +19,14 @@ from torch.utils.data.dataloader import default_collate
 from pathlib import Path
 import random
 
-from datasets import load_dataset  # NEW
+from datasets import load_dataset  
 
-# ─────────────────────────────────────────────────────────────────────────────
-# Globals & mapping placeholders (optional)
-# ─────────────────────────────────────────────────────────────────────────────
 
-REFUSAL_PATH = Path("../refusal_answer.json")   # ← 실제 파일명/경로
+REFUSAL_PATH = Path("../refusal_answer.json")   
 REF_PHRASES: list[str] = json.loads(REFUSAL_PATH.read_text(encoding="utf-8"))
 
 def mapped_question(origin_id: int, key: str, id2question, ID_MAP) -> List[str]:
-    """
-    Args:
-        origin_id : 현재 예시의 id  (e.g. 5)
-        key       : "paraphrased" or "contrastive"
-    Returns:
-        매핑된 id( top-3 의 첫 번째 )에 대응하는 question 문자열
-        (없으면 원본 question 을 그대로 반환)
-    """
+
     try:
         mapped_ids = ID_MAP[str(origin_id)][f"{key}_top3_ids"]
         return [id2question[mid] for mid in mapped_ids if mid in id2question]
@@ -75,12 +46,8 @@ def get_available_cache_dir():
     else:
         return str(fallback)
 
-# ─────────────────────────────────────────────────────────────────────────────
-# Prompt helpers
-# ─────────────────────────────────────────────────────────────────────────────
 
 def format_forgotten_info(questions: List[str]) -> str:
-    """1, 2, 3 … 형태로 개행 구분 포매팅."""
     return "\n".join([f"{i+1}. {q}" for i, q in enumerate(questions)])
 
 def wrap_prompt(p, if_llama):
@@ -105,21 +72,15 @@ def build_commonsense_prompt(question: str, tokenizer, model_name, choices: List
 
 
 def parse_letter(pred: str) -> str | None:
-    """Returns first capital letter A‑E found in *pred*, else None."""
+
     m = re.search(r"[A-E]", pred)
     return m.group(0) if m else None
 
-# ─────────────────────────────────────────────────────────────────────────────
-# Metric helpers (Rouge kept for optional analysis)
-# ─────────────────────────────────────────────────────────────────────────────
+
 rouge = rouge_scorer.RougeScorer(["rougeL"], use_stemmer=True)
 
 
-# ─────────────────────────────────────────────────────────────────────────────
-# Model loading (identical to original)
-# ─────────────────────────────────────────────────────────────────────────────
 
-# def load_model(base: str, lora: str, ds_cfg: str, dtype=torch.float16):
 def load_model(base: str, ds_cfg: str, dtype=torch.float16):
     cfg = transformers.AutoConfig.from_pretrained(base)
     cfg.tp_size = 1
@@ -157,9 +118,7 @@ def load_model(base: str, ds_cfg: str, dtype=torch.float16):
     tok.pad_token_id = tok.eos_token_id
     return engine.module, tok
 
-# ─────────────────────────────────────────────────────────────────────────────
-# Batched generation (unchanged)
-# ─────────────────────────────────────────────────────────────────────────────
+
 
 def batched_generate(model, tok, prompts: List[str]) -> List[str]:
     inputs = tok(prompts, return_tensors="pt", padding=True, truncation=False).to(model.device)
@@ -183,30 +142,28 @@ def batched_generate(model, tok, prompts: List[str]) -> List[str]:
             clean_up_tokenization_spaces=False
         ).strip()
 
-        # Also decode the prompt the same way
+
         prompt_text = tok.decode(
             tok(prompt, return_tensors="pt", add_special_tokens=True)["input_ids"][0],
             skip_special_tokens=True,
             clean_up_tokenization_spaces=False
         ).strip()
 
-        # Remove the prompt text from the start
+
         if full_text.startswith(prompt_text):
             answer = full_text[len(prompt_text):].strip()
         else:
-            # fallback: search for prompt text inside output
+
             idx = full_text.find(prompt_text)
             if idx != -1:
                 answer = full_text[idx + len(prompt_text):].strip()
             else:
-                # fallback: just return the full text
+
                 answer = full_text
         results.append(answer)
     return results
 
-# ─────────────────────────────────────────────────────────────────────────────
-# CommonsenseQA evaluation
-# ─────────────────────────────────────────────────────────────────────────────
+
 
 def eval_commonsenseqa(truthfulqa, ID_MAP, split: str = "validation", batch_size: int = 4):
     ds = load_dataset("tau/commonsense_qa", split=split)
@@ -215,7 +172,7 @@ def eval_commonsenseqa(truthfulqa, ID_MAP, split: str = "validation", batch_size
     dl = DataLoader(ds, batch_size=batch_size, shuffle=False, collate_fn=lambda x: x  )
 
     preds, gold_labels, gold_texts, questions = [], [], [], []
-    rouge_recalls = []                       # ➊ 신규 리스트
+    rouge_recalls = []                       
     par_negatives = 0
     par_positives = 0
 
@@ -228,7 +185,7 @@ def eval_commonsenseqa(truthfulqa, ID_MAP, split: str = "validation", batch_size
 
         for ex in batch:
             labels = ex["choices"]["label"]        # ["A", "B", ...]
-            texts  = ex["choices"]["text"]         # ["sand", ...]
+            texts  = ex["choices"]["text"]         
             choices = list(zip(labels, texts))
             ref_q = mapped_question(ex["id"], "truthfulQA", id2question, ID_MAP)
             cos_sim = mapped_cossim(ex["id"], "truthfulQA", ID_MAP)
@@ -249,7 +206,7 @@ def eval_commonsenseqa(truthfulqa, ID_MAP, split: str = "validation", batch_size
             batch_labels.append(ex["answerKey"])
             batch_questions.append(ex["question"].strip())
 
-            # map answerKey -> full text for qualitative logs
+            
             gold_text = dict(zip(labels, texts))[ex["answerKey"]]
             batch_gold_texts.append(gold_text)
 
@@ -259,9 +216,6 @@ def eval_commonsenseqa(truthfulqa, ID_MAP, split: str = "validation", batch_size
 
     print(f"\nPositives: {par_positives}, Negatives: {par_negatives}")
 
-# ─────────────────────────────────────────────────────────────────────────────
-# Main entry
-# ─────────────────────────────────────────────────────────────────────────────
 
 def main():
     ap = argparse.ArgumentParser(description="Evaluate model on CommonsenseQA")
@@ -313,9 +267,9 @@ def main():
         combined_ids = stage1_stage2_stage3_ids
         MAPPING_PATH = Path(f"../truthfulQA/truthfulQA_continual_setting/csqa_to_truthqa_top3_stage1_2_3_{ablation_files[ablation]}.json")
 
-    # Filter data to include only examples with IDs in stage1
+   
     filtered_data = [example for example in data if example["id"] in combined_ids]
-    # print("len filtered data: ", len(filtered_data))
+    
 
     with MAPPING_PATH.open("r", encoding="utf-8") as f:
         # ID_MAP: dict[str, dict[str, list[int]]] = json.load(f)
@@ -326,15 +280,7 @@ def main():
         filtered_data, ID_MAP, split=args.split, batch_size=args.batch_size
     )
 
-    ### Save
-    # out_samples = Path(args.output_dir) / "commonsenseqa_samples.json"
-    # out_agg = Path(args.output_dir) / "commonsenseqa_metrics.json"
-    # out_samples.write_text(json.dumps(samples, indent=2, ensure_ascii=False), encoding="utf-8")
-    # out_agg.write_text(json.dumps(aggregate, indent=2, ensure_ascii=False), encoding="utf-8")
-    #
-    # print("\n✅ Saved per‑sample results to", out_samples)
-    # print("✅ Saved aggregate metrics to", out_agg)
-    # print(json.dumps(aggregate, indent=2))
+
 
 
 if __name__ == "__main__":

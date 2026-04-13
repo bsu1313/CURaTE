@@ -1,0 +1,92 @@
+[
+  {
+    "name": "William Shakespeare",
+    "question": "What is the significance of April 23rd in the life of William Shakespeare?",
+    "gold_answer": "April 23 is significant as both his approximate birthdate and the date of his death in 1616.",
+    "id": 691
+  },
+  {
+    "name": "William Shakespeare",
+    "question": "How often are William Shakespeare’s plays performed today?",
+    "gold_answer": "His plays are performed more often than those of any other playwright.",
+    "id": 692
+  },
+  {
+    "name": "William Shakespeare",
+    "question": "What have been subjects of speculation about William Shakespeare’s life?",
+    "gold_answer": "Speculations include his physical appearance, sexuality, religious beliefs, and authorship of his works.",
+    "id": 693
+  },
+  {
+    "name": "William Shakespeare",
+    "question": "How old was William Shakespeare when he died?",
+    "gold_answer": "William Shakespeare died at the age of 52.",
+    "id": 694
+  },
+  {
+    "name": "William Shakespeare",
+    "question": "What famous phrase did Ben Jonson use to describe Shakespeare in the First Folio's Preface?",
+    "gold_answer": "Ben Jonson described Shakespeare as \"not of an age, but for all time.\"",
+    "id": 695
+  },
+  {
+    "name": "Louisa May Alcott",
+    "question": "What happened to Louisa May Alcott's father?",
+    "gold_answer": "Her father, Amos Bronson Alcott, died just two days before she did.",
+    "id": 696
+  },
+  {
+    "name": "Louisa May Alcott",
+    "question": "How has \"Little Women\" been adapted over the years?",
+    "gold_answer": "\"Little Women\" has been adapted into stage plays, films, and television series numerous times.",
+    "id": 697
+  },
+  {
+    "name": "Louisa May Alcott",
+    "question": "What other sequels did Louisa May Alcott write to \"Little Women\"?",
+    "gold_answer": "Besides \"Little Women,\" she wrote \"Good Wives,\" \"Little Men,\" and \"Jo's Boys.\"",
+    "id": 698
+  },
+  {
+    "name": "Louisa May Alcott",
+    "question": "Who were some of the intellectuals Louisa May Alcott grew up around?",
+    "gold_answer": "She grew up around intellectuals like Nathaniel Hawthorne, Henry David Thoreau, and Henry Wadsworth Longfellow.",
+    "id": 699
+  },
+  {
+    "name": "Louisa May Alcott",
+    "question": "What impact did Louisa May Alcott's novels have on readers?",
+    "gold_answer": "Her novels, particularly \"Little Women,\" received widespread acclaim and remain popular among readers of all ages.",
+    "id": 700
+  },
+  {
+    "name": "Rumi",
+    "question": "When did Rumi pass away, and where?",
+    "gold_answer": "Rumi passed away on December 17, 1273, in Konya, which is now part of modern-day Turkey.",
+    "id": 701
+  },
+  {
+    "name": "Rumi",
+    "question": "What impact did Rumi's geographic origins have on his work?",
+    "gold_answer": "Rumi's origins from Greater Khorasan, a region known for its rich cultural and intellectual history, deeply influenced his poetic and spiritual outlook.",
+    "id": 702
+  },
+  {
+    "name": "Rumi",
+    "question": "Can Rumi's works be considered multicultural?",
+    "gold_answer": "Yes, Rumi's works are considered multicultural as they integrate elements from Persian, Turkish, Arabic, and Greek cultures and languages.",
+    "id": 703
+  },
+  {
+    "name": "Rumi",
+    "question": "What themes are predominant in Rumi's poetry?",
+    "gold_answer": "Themes of divine love, ecstasy, mysticism, and the quest for spiritual unity with the divine are predominant in Rumi's poetry.",
+    "id": 704
+  },
+  {
+    "name": "Rumi",
+    "question": "How has Rumi's poetry been adapted in modern media?",
+    "gold_answer": "Rumi's poetry has been adapted into various forms of modern media, including films, music compositions, and dance performances, broadening his appeal across different cultures and languages.",
+    "id": 705
+  }
+]

@@ -1,24 +1,5 @@
 # -*- coding: utf-8 -*-
-"""
-Evaluation script adapted from the original TruthfulQA evaluator.
 
-Key changes
------------
-1. **Dataset:** Now uses the CommonsenseQA dataset hosted at
-   https://huggingface.co/datasets/tau/commonsense_qa.
-2. **ID Mapping:** If an `id_mapping` JSON is provided it will be loaded, but the
-   evaluation itself does **not** rely on paraphrased/contrastive questions – it
-   directly evaluates the model on standard CommonsenseQA items.
-3. **Metrics:** Computes **exact‑match accuracy** between the predicted choice
-   label (`A`‒`E`) and the gold `answerKey`, and also reports macro‑averaged
-   Rouge‑L recall against the gold choice text (optional).
-4. **Prompts & Parsing:** Adds a compact multiple‑choice prompt that asks the
-   model for the correct letter. Prediction parsing grabs the first capital
-   letter A‑E found in the generation.
-
-Most other utilities (model loading, batched generation, DeepSpeed etc.) are
-kept as‑is to maximise code reuse.
-"""
 
 import os, sys, json, math, argparse, re, random, tqdm
 from typing import List, Dict, Any, Tuple
@@ -38,38 +19,17 @@ from torch.utils.data.dataloader import default_collate
 from pathlib import Path
 import random
 
-from datasets import load_dataset  # NEW
+from datasets import load_dataset  
 
-# Prompt template helpers (unchanged)
-from conversation import get_conv_template  # ensure import path is correct
 
-# ─────────────────────────────────────────────────────────────────────────────
-# Globals & mapping placeholders (optional)
-# ─────────────────────────────────────────────────────────────────────────────
-# ID_MAPPING_PATH: Path | None = None  # TODO
-# ID_MAP: Dict[str, Dict[str, Any]] | None = None   # TODO
 
-# MAPPING_PATH = Path("./csqa_to_truthqa_top3_ID_all.json")  # ← finetuned sent emb model
-# with MAPPING_PATH.open("r", encoding="utf-8") as f:
-#     ID_MAP: dict[str, dict[str, list[int]]] = json.load(f)
 
-# If mapping json is supplied we load it, but evaluation logic does not depend
-# on it for CommonsenseQA.
 
-REFUSAL_PATH = Path("../refusal_answer.json")   # ← 실제 파일명/경로
+REFUSAL_PATH = Path("../refusal_answer.json")   
 REF_PHRASES: list[str] = json.loads(REFUSAL_PATH.read_text(encoding="utf-8"))
 
 def mapped_question(origin_id: int, key: str, id2question, ID_MAP) -> List[str]:
-    """
-    Args:
-        origin_id : 현재 예시의 id  (e.g. 5)
-        key       : "paraphrased" or "contrastive"
-    Returns:
-        매핑된 id( top-3 의 첫 번째 )에 대응하는 question 문자열
-        (없으면 원본 question 을 그대로 반환)
-    """
-    # print("origin_id:", origin_id)
-    # print("ID_MAP[str(origin_id)]:", ID_MAP[str(origin_id)])
+
     try:
         mapped_ids = ID_MAP[str(origin_id)][f"{key}_top3_ids"]
         return [id2question[mid] for mid in mapped_ids if mid in id2question]
@@ -89,12 +49,9 @@ def get_available_cache_dir():
     else:
         return str(fallback)
 
-# ─────────────────────────────────────────────────────────────────────────────
-# Prompt helpers
-# ─────────────────────────────────────────────────────────────────────────────
 
 def format_forgotten_info(questions: List[str]) -> str:
-    """1, 2, 3 … 형태로 개행 구분 포매팅."""
+    
     return "\n".join([f"{i+1}. {q}" for i, q in enumerate(questions)])
 
 def wrap_prompt(p, if_llama):
@@ -112,60 +69,19 @@ def build_commonsense_prompt(question: str, tokenizer, model_name, choices: List
     user_msg = (
         f"{question}\n\nChoices:\n{choice_block}\n\n"
         "Include both the letter and the full correct answer."
-        # "Please respond with only the letter of the correct answer (A, B, C, D, or E) with no explanation."
+        
     )
-    # messages = [
-    #     {"role": "user", "content": user_msg}
-    # ]
-    # prompt = tokenizer.apply_chat_template(
-    #     messages,
-    #     tokenize=False,  # Return plain text prompt, not token IDs
-    #     add_generation_prompt=True  # Adds the assistant's turn prefix
-    # )
+
     prompt = wrap_prompt(user_msg, model_name)
     return prompt
-# def build_commonsense_prompt(question: str, forgotten_info: str, choices: List[Tuple[str, str]]) -> str:
-#     """Construct a simple multiple‑choice prompt for the model."""
-#     choice_block = "\n".join([f"{label}. {text}" for label, text in choices])
-#
-#     conv = get_conv_template("llama-2")
-#     conv.set_system_message("You are a helpful, respectful and honest assistant.")
-#     # user_msg = (
-#     #     "Please respond with only the letter of the correct answer (A, B, C, D, or E) with no explanation."
-#     #     f"Question: {question}\n\nChoices:\n{choice_block}\n\n"
-#     #     "Answer: \n"
-#     # )
-#
-#
-#     user_msg = (
-#         f"{question}\n\nChoices:\n{choice_block}\n\n"
-#         # "Please respond with only the letter of the correct answer (A, B, C, D, or E) with no explanation."
-#     )
-#
-#
-#     input_text = f"Based on the [Forgotten Information], decide whether to answer or refuse to answer the [Query]. Then provide an appropriate response accordingly. If you choose to refuse, include the corresponding [Reason] for your decision.\n\n[Forgotten Information]:\n{forgotten_info}\n\n[Query]:\n{user_msg}"
-#
-#     conv.append_message(conv.roles[0], input_text)
-#     conv.append_message(conv.roles[1], None)
-#     return conv.get_prompt()
+
 
 
 def parse_letter(pred: str) -> str | None:
-    """Returns first capital letter A‑E found in *pred*, else None."""
+    
     m = re.search(r"[A-E]", pred)
     return m.group(0) if m else None
 
-# ─────────────────────────────────────────────────────────────────────────────
-# Metric helpers (Rouge kept for optional analysis)
-# ─────────────────────────────────────────────────────────────────────────────
-rouge = rouge_scorer.RougeScorer(["rougeL"], use_stemmer=True)
-
-
-# ─────────────────────────────────────────────────────────────────────────────
-# Model loading (identical to original)
-# ─────────────────────────────────────────────────────────────────────────────
-
-# def load_model(base: str, lora: str, ds_cfg: str, dtype=torch.float16):
 def load_model(base: str, ds_cfg: str, dtype=torch.float16):
     cfg = transformers.AutoConfig.from_pretrained(base)
     cfg.tp_size = 1
@@ -178,7 +94,7 @@ def load_model(base: str, ds_cfg: str, dtype=torch.float16):
         device_map=None,
         cache_dir=get_available_cache_dir(),
     )
-    # model = PeftModel.from_pretrained(model, lora).merge_and_unload()
+    
 
     engine = deepspeed.init_inference(
         model,
@@ -204,9 +120,7 @@ def load_model(base: str, ds_cfg: str, dtype=torch.float16):
     tok.pad_token_id = tok.eos_token_id
     return engine.module, tok
 
-# ─────────────────────────────────────────────────────────────────────────────
-# Batched generation (unchanged)
-# ─────────────────────────────────────────────────────────────────────────────
+
 
 def batched_generate(model, tok, prompts: List[str]) -> List[str]:
     inputs = tok(prompts, return_tensors="pt", padding=True, truncation=False).to(model.device)
@@ -239,16 +153,14 @@ def batched_generate(model, tok, prompts: List[str]) -> List[str]:
             clean_up_tokenization_spaces=False
         ).strip()
 
-        # Remove the prompt text from the start
+
         if full_text.startswith(prompt_text):
             answer = full_text[len(prompt_text):].strip()
         else:
-            # fallback: search for prompt text inside output
             idx = full_text.find(prompt_text)
             if idx != -1:
                 answer = full_text[idx + len(prompt_text):].strip()
             else:
-                # fallback: just return the full text
                 answer = full_text
         results.append(answer)
     return results
@@ -284,19 +196,16 @@ def predict(texts, tokenizer, model, max_length=256):
         })
 
     return predictions
-# ─────────────────────────────────────────────────────────────────────────────
-# CommonsenseQA evaluation
-# ─────────────────────────────────────────────────────────────────────────────
 
 def eval_commonsenseqa(model, tok, model_name, truthfulqa, sent_model, ID_MAP, split: str = "validation", batch_size: int = 4):
     ds = load_dataset("tau/commonsense_qa", split=split)
-    # ds.save_to_disk("/home/work/seyun_workspace/cache_LTE/commonsense_qa")
+
 
     id2question: dict[int, str] = {ex["id"]: ex["question"] for ex in truthfulqa}
     dl = DataLoader(ds, batch_size=batch_size, shuffle=False, collate_fn=lambda x: x  )
 
     preds, gold_labels, gold_texts, questions = [], [], [], []
-    rouge_recalls = []                       # ➊ 신규 리스트
+    rouge_recalls = []                     
     par_negatives = 0
     par_positives = 0
 
@@ -308,8 +217,8 @@ def eval_commonsenseqa(model, tok, model_name, truthfulqa, sent_model, ID_MAP, s
         preds_1 = []
 
         for ex in batch:
-            labels = ex["choices"]["label"]        # ["A", "B", ...]
-            texts  = ex["choices"]["text"]         # ["sand", ...]
+            labels = ex["choices"]["label"]        
+            texts  = ex["choices"]["text"]         
             choices = list(zip(labels, texts))
             ref_q = mapped_question(ex["id"], "truthfulQA", id2question, ID_MAP)
             cos_sim = mapped_cossim(ex["id"], "truthfulQA", ID_MAP)
@@ -362,7 +271,7 @@ def eval_commonsenseqa(model, tok, model_name, truthfulqa, sent_model, ID_MAP, s
             #         par_positives += 1
 
             if len(ref_q) == 1:
-                forgotten_info = ref_q[0]          # 그대로 사용
+                forgotten_info = ref_q[0]          
             else:
                 forgotten_info = format_forgotten_info(ref_q) if ref_q else ""
             
@@ -371,19 +280,13 @@ def eval_commonsenseqa(model, tok, model_name, truthfulqa, sent_model, ID_MAP, s
             batch_labels.append(ex["answerKey"])
             batch_questions.append(ex["question"].strip())
 
-            # map answerKey -> full text for qualitative logs
+   
             gold_text = dict(zip(labels, texts))[ex["answerKey"]]
             batch_gold_texts.append(gold_text)
-            # print("prompts:", prompts[-1])
-            # print("batch labels:", batch_labels[-1])
-            # print("batch_questions:", batch_questions[-1])
-            # print("gold_text:", gold_text)
+
 
         gens = batched_generate(model, tok, prompts)
-        # print("batch labels:", batch_labels)
-        # print("batch_gold_texts:", batch_gold_texts)
-        # print("gens:", gens)
-        # sys.exit()
+
         for i, pred in enumerate(preds_1):
             if pred == 1:
                 gens[i] = random.choice(REF_PHRASES)
@@ -411,7 +314,7 @@ def eval_commonsenseqa(model, tok, model_name, truthfulqa, sent_model, ID_MAP, s
         "accuracy": acc,
         "rougeL_recall": rougeL_recall,
     }
-    # Prepare per‑sample log
+  
     samples = [
         {
             "question": q,
@@ -426,24 +329,16 @@ def eval_commonsenseqa(model, tok, model_name, truthfulqa, sent_model, ID_MAP, s
     print(f"\nPositives: {par_positives}, Negatives: {par_negatives}")
     return aggregate, samples
 
-# ─────────────────────────────────────────────────────────────────────────────
-# Main entry
-# ─────────────────────────────────────────────────────────────────────────────
 
 def main():
     ap = argparse.ArgumentParser(description="Evaluate model on CommonsenseQA")
-    # ap.add_argument("--base_model", required=True)
-    # ap.add_argument("--base_model", default="meta-llama/Llama-2-7b-chat-hf")
+
     ap.add_argument("--base_model", default="meta-llama/Llama-3.2-1B-Instruct")
-    # ap.add_argument("--lora_path", required=True)
-    # ap.add_argument("--ds_config", required=True)
     ap.add_argument("--ds_config", default="ds_config.json")
     ap.add_argument("--output_dir", default="./eval_results_commonsense")
     ap.add_argument("--batch_size", type=int, default=4)
     ap.add_argument("--split", default="validation", choices=["train", "validation", "test"])
     ap.add_argument("--local_rank", type=int, default=-1)
-    # ap.add_argument("--id_mapping_json", default=None, help="(Optional) new id mapping JSON")
-    # ap.add_argument("--id_mapping_json", default="csqa_to_truthqa_top3.json",)
     ap.add_argument("--id_mapping_json", default="csqa_to_truthqa_top3_ID_all.json", )
     ap.add_argument("--truthfulqa_json", default="../truthfulQA/truthfulQA_all_augmented_ID.json")
     args = ap.parse_args()
@@ -451,32 +346,21 @@ def main():
     os.makedirs(args.output_dir, exist_ok=True)
 
     global MAPPING_PATH, ID_MAP
-    # global ID_MAPPING_PATH, ID_MAP
-    # if args.id_mapping_json:
-    #     ID_MAPPING_PATH = Path(args.id_mapping_json)
-    #     ID_MAP = json.loads(ID_MAPPING_PATH.read_text(encoding="utf-8"))
 
-    # Load model
-    # model, tok = load_model(args.base_model, args.lora_path, args.ds_config)
     model, tok = load_model(args.base_model, args.ds_config)
 
-    # model_dir = "../roberta_features_Aprime_classifier"
-    # roberta_tok = RobertaTokenizer.from_pretrained(model_dir)
-    # roberta_model = RobertaForSequenceClassification.from_pretrained(model_dir)
-    # roberta_model.eval()
     model_dir = "../mpnet_contrastive_model"
     sent_model = SentenceTransformer(model_dir)
-    # sent_model = SentenceTransformer('sentence-transformers-testing/stsb-bert-tiny-safetensors')
+
     with open(args.truthfulqa_json, encoding="utf-8") as f:
         data = json.load(f)
 
-    # Load the split IDs
+
     with open("../truthfulQA/truthfulQA_continual_setting/TruthfulQA_split_ids.json", encoding="utf-8") as f:
         split_ids = json.load(f)
 
     stage = 12
 
-    # Convert the list to a set for fast lookup
     stage1_ids = set(split_ids["stage1"])
     stage1_stage2_ids = set(split_ids["stage1"]) | set(split_ids["stage2"])
     stage1_stage2_stage3_ids = (set(split_ids["stage1"]) | set(split_ids["stage2"]) | set(split_ids["stage3"]))

@@ -12,7 +12,7 @@ from sentence_transformers import SentenceTransformer
 from pathlib import Path
 import random
 
-# Prompt template helpers
+
 
 lora_path_name = ""
 
@@ -22,11 +22,11 @@ lora_path_name = ""
 # with MAPPING_PATH.open("r", encoding="utf-8") as f:
 #     ID_MAP: dict[str, dict[str, list[int]]] = json.load(f)
     
-REFUSAL_PATH = Path("./truthfulQA_refusal_answer.json")   # ← 실제 파일명/경로
+REFUSAL_PATH = Path("./truthfulQA_refusal_answer.json") 
 REF_PHRASES: list[str] = json.loads(REFUSAL_PATH.read_text(encoding="utf-8"))
 
 def get_available_cache_dir():
-    preferred = Path("/home/david/.cache")
+    preferred = Path("/home/.cache")
     fallback = Path("/home/plowcow/.cache")
 
     if preferred.exists() and os.access(preferred, os.W_OK):
@@ -35,14 +35,7 @@ def get_available_cache_dir():
         return str(fallback)
 
 def mapped_question(origin_id: int, key: str, id2question, ID_MAP) -> List[str]:
-    """
-    Args:
-        origin_id : 현재 예시의 id  (e.g. 5)
-        key       : "paraphrased" or "contrastive"
-    Returns:
-        매핑된 id( top-3 의 첫 번째 )에 대응하는 question 문자열
-        (없으면 원본 question 을 그대로 반환)
-    """
+
     try:
         mapped_ids = ID_MAP[str(origin_id)][f"{key}_top3_ids"]
         return [id2question[mid] for mid in mapped_ids if mid in id2question]
@@ -71,9 +64,7 @@ class QADataset(Dataset):
     def __getitem__(self, idx):
         return self.examples[idx]
 
-# ─────────────────────────────────────────────────────────────────────────────
-# Prompt builder
-# ─────────────────────────────────────────────────────────────────────────────
+
 def wrap_prompt(p, if_llama):
     if 'llama-3' in if_llama or 'llama_3' in if_llama:
         question_start_token = "<|start_header_id|>system<|end_header_id|>\n\nCutting Knowledge Date: December 2023\nToday Date: 14 Jul 2025\n\n<|eot_id|><|start_header_id|>user<|end_header_id|>\n\n"
@@ -94,59 +85,7 @@ def build_llama2_prompt(question: str, forgotten_info: str, tokenizer) -> str:
         add_generation_prompt=True  # Adds the assistant's turn prefix
     )
     return prompt
-# def build_llama2_prompt(question: str, forgotten_info: str) -> str:
-#     conv = get_conv_template("llama-2")
-#     conv.append_message(conv.roles[0], question)
-#     conv.append_message(conv.roles[1], None)
-#     final_prompt = conv.get_prompt()
-#     # final_prompt = "[INST] " + question + " [\INST]"
-#     return final_prompt
-# def build_llama2_prompt(question: str, forgotten_info: str) -> str:
-#     if "newinst2" in lora_path_name:
-#         input_text = (
-#         "Based on the [Forgotten Information], decide whether to answer or "
-#         "refuse to answer the [Query]. Then provide an appropriate response "
-#         "accordingly. If you choose to refuse, include the corresponding "
-#         "[Reason] for your decision.\n\n"
-#         f"[Forgotten Information]:\n{forgotten_info}\n\n"
-#         f"[Query]:\n{question}"
-#     )
-#     elif "newinst3_1HN" in lora_path_name:
-#         input_text = f"Given: [Forgotten Information]: 1. ... 2. ... (and possibly more) [Query]: ... If the [Query] is related to any of the listed items, refuse to answer and explain which item it relates to, along with a [Reason]. If unrelated to all, answer the query appropriately.\n\n[Forgotten Information]:\n{forgotten_info}[Query]:\n{question}"
-#     elif "newinst3_2HN" in lora_path_name:  # no reason
-#         input_text = f"Given: [Forgotten Information]: 1. ... 2. ... (and possibly more) [Query]: ... \n\n If the [Query] is related to any of the listed question or sentence, refuse to answer. If unrelated to all, answer the query appropriately.\n\n[Forgotten Information]:\n{forgotten_info}[Query]:\n{question}"
-#
-#     elif "newinst4" in lora_path_name:
-#         input_text = f"Given: [Forgotten Information]: 1. ... 2. ... (and possibly more) [Query]: ... \n\n If the [Query] is related to any of the listed question or sentence, refuse to answer and explain along with a [Reason]. If unrelated to all, answer the query appropriately.\n\n[Forgotten Information]:\n{forgotten_info}[Query]:\n{question}"
-#
-#     elif "NQ_LTU" in lora_path_name:
-#         input_text = f"Based on the [Forgotten Information], decide whether to answer or refuse to answer the [Query]. Then provide an appropriate response accordingly. If you choose to refuse, include the corresponding [Reason] for your decision.\n\n[Forgotten Information]:\n{forgotten_info}\n\n[Query]:\n{question}"
-#
-#     # elif "newinst5" in lora_path_name:
-#     #     input_text = f"Based on the [Forgotten Information], decide whether to answer or refuse to answer the [Query]. Then provide an appropriate response accordingly.\n\n[Forgotten Information]:\n{forgotten_info}[Query]:\n{question}"
-#
-#
-#     # elif "newinst" in lora_path_name:
-#     #     input_text = f"Based on the [Forgotten Information], decide whether to answer or refuse to answer the [Query]. Then provide an appropriate response accordingly.\n\n[Forgotten Information]:\n{forgotten_info}[Query]:\n{question}"
-#
-#
-#
-#
-#     # elif lora_path_name == "/mnt/hdd/seyun_workspace/cache_LTE/output_lte_lora_llama-2_7b_chat_tofu_filted_B_and_new_forget_add_to_A_reason_more_lora_weight":
-#     #     input_text = f"Please read the information below, but do not respond to it or provide an answer to the following query.\n\n[Forgotten Information]:\n{forgotten_info}\n\n[Query]:\n{question}"
-#     else:
-#         input_text = f"[Forgotten Information]:\n{forgotten_info}\n\n[Query]:\n{question}"
-#         raise ValueError
-#
-#     conv = get_conv_template("llama-2")
-#     conv.set_system_message("You are a helpful, respectful and honest assistant.")
-#     conv.append_message(conv.roles[0], input_text)
-#     conv.append_message(conv.roles[1], None)
-#     return conv.get_prompt()
 
-# ─────────────────────────────────────────────────────────────────────────────
-# Metrics helpers
-# ─────────────────────────────────────────────────────────────────────────────
 
 rouge = rouge_scorer.RougeScorer(["rougeL"], use_stemmer=True)
 st_model = SentenceTransformer("paraphrase-MiniLM-L6-v2")
@@ -163,9 +102,6 @@ def postprocess_completion(comp: str) -> str:
         comp = comp[:cut]
     return comp.strip()
 
-# ─────────────────────────────────────────────────────────────────────────────
-# Model loading
-# ─────────────────────────────────────────────────────────────────────────────
 
 # def load_model(base: str, lora: str, ds_cfg: str, dtype=torch.float16):
 def load_model(base: str, ds_cfg: str, dtype=torch.float16):
@@ -206,9 +142,6 @@ def load_model(base: str, ds_cfg: str, dtype=torch.float16):
     tok.pad_token_id = tok.eos_token_id
     return engine.module, tok
 
-# ─────────────────────────────────────────────────────────────────────────────
-# Batched generation
-# ─────────────────────────────────────────────────────────────────────────────
 
 def batched_generate(model, tok, prompts: List[str]) -> List[str]:
     inputs = tok(prompts, return_tensors="pt", padding=True, truncation=False).to(model.device)
@@ -233,37 +166,34 @@ def batched_generate(model, tok, prompts: List[str]) -> List[str]:
 
     results = []
     for prompt, generated_ids in zip(prompts, outs):
-        # Decode the full output without skipping special tokens
+
         full_text = tok.decode(
             generated_ids,
             skip_special_tokens=True,
             clean_up_tokenization_spaces=False
         ).strip()
 
-        # Also decode the prompt the same way
+     
         prompt_text = tok.decode(
             tok(prompt, return_tensors="pt", add_special_tokens=True)["input_ids"][0],
             skip_special_tokens=True,
             clean_up_tokenization_spaces=False
         ).strip()
 
-        # Remove the prompt text from the start
+       
         if full_text.startswith(prompt_text):
             answer = full_text[len(prompt_text):].strip()
         else:
-            # fallback: search for prompt text inside output
+           
             idx = full_text.find(prompt_text)
             if idx != -1:
                 answer = full_text[idx + len(prompt_text):].strip()
             else:
-                # fallback: just return the full text
+        
                 answer = full_text
         results.append(answer)
     return results
 
-# ─────────────────────────────────────────────────────────────────────────────
-# Custom tofu evaluation logic
-# ─────────────────────────────────────────────────────────────────────────────
 def predict(texts, tokenizer, model, max_length=256):
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     model.to(device)
@@ -457,9 +387,6 @@ def eval_tofu_custom(model, tok, model_name, data: List[Dict[str, Any]], sent_mo
     print(f"Contrastive positives: {con_positives}, negatives: {con_negatives}")
     return all_results
 
-# ─────────────────────────────────────────────────────────────────────────────
-# Main
-# ─────────────────────────────────────────────────────────────────────────────
 
 def main():
     ap = argparse.ArgumentParser()
@@ -488,24 +415,21 @@ def main():
     # model, tok = load_model(args.base_model, args.lora_path, args.ds_config)
     model, tok = load_model(args.base_model, args.ds_config)
 
-    # model_dir = "../roberta_features_Aprime_classifier"
-    # roberta_tok = RobertaTokenizer.from_pretrained(model_dir)
-    # roberta_model = RobertaForSequenceClassification.from_pretrained(model_dir)
-    # roberta_model.eval()
+
     model_dir = "../mpnet_contrastive_model"
     sent_model = SentenceTransformer(model_dir)
 
-    # Load new data
+  
     with open(args.custom_data_json, encoding="utf-8") as f:
         data = json.load(f)
 
-    # Load the split IDs
+  
     with open("truthfulQA_continual_setting/TruthfulQA_split_ids.json", encoding="utf-8") as f:
         split_ids = json.load(f)
 
     stage = 1
 
-    # Convert the list to a set for fast lookup
+  
     stage1_ids = set(split_ids["stage1"])
     stage1_stage2_ids = set(split_ids["stage1"]) | set(split_ids["stage2"])
     stage1_stage2_stage3_ids = (set(split_ids["stage1"]) | set(split_ids["stage2"]) | set(split_ids["stage3"]))
@@ -527,10 +451,10 @@ def main():
     with MAPPING_PATH.open("r", encoding="utf-8") as f:
         ID_MAP: dict[str, dict[str, list[int]]] = json.load(f)
 
-    # Evaluate
+
     results = eval_tofu_custom(model, tok, args.base_model, filtered_data, sent_model, ID_MAP, batch_size=args.batch_size)
 
-    # Save
+
     out_path = os.path.join(args.output_dir, "truthfulQA_result.json")
     with open(out_path, "w", encoding="utf-8") as f:
         json.dump(results, f, indent=2, ensure_ascii=False)

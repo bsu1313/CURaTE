@@ -10,12 +10,12 @@ model_size = "7B"  # "1B", "7B"
 ablation = 1 # 0, 1, 2, 3, 4, 5, 6
 
 ablation_files = [
-    "NQ_CURE_12K_a",
-    "NQ_CURE_18K_a",
-    "NQ_CURE_18K_a_no_b",
-    "NQ_CURE_NO_HN_18K_a",
-    "NQ_CURE_NO_HN_18K_a_no_b",
-    "TQ_CURE_18K_a",
+    "NQ_CURaTE_12K_a",
+    "NQ_CURaTE_18K_a",
+    "NQ_CURaTE_18K_a_no_b",
+    "NQ_CURaTE_NO_HN_18K_a",
+    "NQ_CURaTE_NO_HN_18K_a_no_b",
+    "TQ_CURaTE_18K_a",
     "no_finetuning"
 ]
 
@@ -33,7 +33,7 @@ search_sizes = []
 for i in range(9, 10):
 
     forget_file = f"../RETURN_NEW_DATASET/{data_folder}/stage_{i}_forget.json"
-    dataset_files = [                           # 매핑을 만들 데이터셋들
+    dataset_files = [                          
         {"path": f"../RETURN_NEW_DATASET/{data_folder}/stage_{i}_forget_paraphrased.json", "question_key": "paraphrased_instruction"},
         {"path": f"../RETURN_NEW_DATASET/{data_folder}/stage_{i}_retain_used.json", "question_key": "question"},
         {"path": f"../RETURN_NEW_DATASET/{data_folder}/stage_{i}_retain_not_used.json", "question_key": "question"},
@@ -43,9 +43,9 @@ for i in range(9, 10):
     ]
 
 
-    out_file = f"../RETURN_NEW_DATASET/{data_folder}/RETURN_stage_{i}_top3_{ablation_files[ablation]}.json"    # None 으로 두면 저장 생략
+    out_file = f"../RETURN_NEW_DATASET/{data_folder}/RETURN_stage_{i}_top3_{ablation_files[ablation]}.json"   
     topk   = 3
-    # chunk  = 128
+  
     chunk = 1
 
     device = "cuda" if torch.cuda.is_available() else "cpu"
@@ -54,9 +54,7 @@ for i in range(9, 10):
         device=device,
     )
 
-    # ────────────────────────────────
-    # 1) forget data 로드 & 임베딩
-    # ────────────────────────────────
+
     with open(forget_file, encoding="utf-8") as f:
         forget_data = json.load(f)
 
@@ -66,7 +64,7 @@ for i in range(9, 10):
     forget_questions = [ex["question"] for ex in forget_data]
     forget_ids       = [ex["id"] for ex in forget_data]
 
-    # print("len forget questions: ", len(forget_questions))
+
 
     forget_embs = model.encode(
         forget_questions,
@@ -83,9 +81,7 @@ for i in range(9, 10):
         db_times.append(end_time - start_time)
         db_sizes.append(len(forget_questions))
 
-    # ────────────────────────────────
-    # 2) 각 데이터셋 처리
-    # ────────────────────────────────
+ 
     mapping = {}
     for cfg in dataset_files:
         path   = cfg["path"]
@@ -98,7 +94,7 @@ for i in range(9, 10):
         for ex in data:
             question = ex.get(q_key) or ex.get("question")
             if question is None:
-                raise KeyError(f"{path} 예시에 '{q_key}' 또는 'question' 필드가 없습니다.")
+                raise KeyError(f"No '{q_key}' or 'question' field found in the example at {path}.")
             qs.append(question)
             qids.append(ex["id"])
         

@@ -1,0 +1,3602 @@
+[
+  {
+    "name": "John O'Hara",
+    "question": "When was John O'Hara born?",
+    "gold_answer": "John O'Hara was born on January 31, 1905.",
+    "id": 1
+  },
+  {
+    "name": "John O'Hara",
+    "question": "What were John O'Hara's notable contributions to American literature?",
+    "gold_answer": "John O'Hara helped invent The New Yorker magazine short story style and became a best-selling novelist before the age of 30.",
+    "id": 2
+  },
+  {
+    "name": "John O'Hara",
+    "question": "What were some of John O'Hara's early successful novels?",
+    "gold_answer": "Some of John O'Hara's early successful novels include \"Appointment in Samarra\" and \"BUtterfield 8\".",
+    "id": 3
+  },
+  {
+    "name": "John O'Hara",
+    "question": "How did John O'Hara's contemporaries view his work?",
+    "gold_answer": "Ernest Hemingway and F. Scott Fitzgerald praised John O'Hara's work.",
+    "id": 4
+  },
+  {
+    "name": "John O'Hara",
+    "question": "Why have some college students not discovered John O'Hara's work?",
+    "gold_answer": "Few college students educated after O'Hara's death have discovered him because he refused to allow his work to be reprinted in anthologies used to teach literature at the college level.",
+    "id": 5
+  },
+  {
+    "name": "John O'Hara",
+    "question": "How did Lorin Stein, editor-in-chief of The Paris Review, describe John O'Hara's writing?",
+    "gold_answer": "Lorin Stein described John O'Hara's writing as addictive and comparable to binge-watching \"Mad Men\".",
+    "id": 6
+  },
+  {
+    "name": "John O'Hara",
+    "question": "In what topics did John O'Hara's novels focus?",
+    "gold_answer": "John O'Hara's novels focused on class, sex, and alcohol, which he considered significant aspects of American life.",
+    "id": 7
+  },
+  {
+    "name": "John O'Hara",
+    "question": "What were some of John O'Hara's best-selling novels after World War II?",
+    "gold_answer": "Some of John O'Hara's best-selling novels after World War II include \"A Rage to Live\" and \"Ten North Frederick\".",
+    "id": 8
+  },
+  {
+    "name": "John O'Hara",
+    "question": "How many of John O'Hara's works were adapted into popular films?",
+    "gold_answer": "Five of John O'Hara's works were adapted into popular films in the 1950s and 1960s.",
+    "id": 9
+  },
+  {
+    "name": "John O'Hara",
+    "question": "What were some criticisms of John O'Hara?",
+    "gold_answer": "John O'Hara accumulated detractors due to his outsized ego, alcoholic irascibility, long-held resentments, and politically conservative views.",
+    "id": 10
+  },
+  {
+    "name": "John O'Hara",
+    "question": "Who admired John O'Hara's writing despite his detractors?",
+    "gold_answer": "John Updike admired John O'Hara's writing despite his detractors.",
+    "id": 11
+  },
+  {
+    "name": "John O'Hara",
+    "question": "What did John Updike say about John O'Hara's productivity?",
+    "gold_answer": "John Updike said that John O'Hara \"out-produced our capacity for appreciation.\"",
+    "id": 12
+  },
+  {
+    "name": "John O'Hara",
+    "question": "What was John O'Hara's most addictive quality according to Lorin Stein?",
+    "gold_answer": "According to Lorin Stein, John O'Hara's most addictive quality was his writing.",
+    "id": 13
+  },
+  {
+    "name": "John O'Hara",
+    "question": "How did John O'Hara's novels contribute to American literature?",
+    "gold_answer": "John O'Hara's novels provided a secret history of American life, focusing on class, sex, and alcohol.",
+    "id": 14
+  },
+  {
+    "name": "John O'Hara",
+    "question": "Which magazines did John O'Hara help shape with his writing style?",
+    "gold_answer": "John O'Hara helped shape The New Yorker magazine with his short story style.",
+    "id": 15
+  },
+  {
+    "name": "John O'Hara",
+    "question": "What made John O'Hara's novels popular after World War II?",
+    "gold_answer": "John O'Hara's novels gained popularity after World War II for their portrayal of American life and society.",
+    "id": 16
+  },
+  {
+    "name": "John O'Hara",
+    "question": "How did John O'Hara's refusal to allow reprinting affect his recognition?",
+    "gold_answer": "John O'Hara's refusal to allow reprinting in college anthologies may have contributed to his lower recognition among college students.",
+    "id": 17
+  },
+  {
+    "name": "John O'Hara",
+    "question": "What themes did John O'Hara explore in his writing?",
+    "gold_answer": "John O'Hara explored themes of class, sex, alcohol, and American life in his writing.",
+    "id": 18
+  },
+  {
+    "name": "John O'Hara",
+    "question": "Which of John O'Hara's novels were adapted into films?",
+    "gold_answer": "\"A Rage to Live,\" \"Ten North Frederick,\" and other works by John O'Hara were adapted into popular films.",
+    "id": 19
+  },
+  {
+    "name": "John O'Hara",
+    "question": "How did John O'Hara's personality affect his reception in literary circles?",
+    "gold_answer": "John O'Hara's outsized ego, irascibility, resentments, and conservative views led to mixed reception in literary circles.",
+    "id": 20
+  },
+  {
+    "name": "Joss Whedon",
+    "question": "When was Joss Whedon born?",
+    "gold_answer": "Joss Whedon was born on June 23, 1964.",
+    "id": 21
+  },
+  {
+    "name": "Joss Whedon",
+    "question": "What is Joss Whedon known for?",
+    "gold_answer": "Joss Whedon is known as a screenwriter, director, producer, comic book writer, and composer.",
+    "id": 22
+  },
+  {
+    "name": "Joss Whedon",
+    "question": "What production companies did Joss Whedon found or co-found?",
+    "gold_answer": "Joss Whedon founded Mutant Enemy Productions and co-founded Bellwether Pictures.",
+    "id": 23
+  },
+  {
+    "name": "Joss Whedon",
+    "question": "Which television series did Joss Whedon create that became critically acclaimed?",
+    "gold_answer": "Joss Whedon created the critically acclaimed television series \"Buffy the Vampire Slayer.\"",
+    "id": 24
+  },
+  {
+    "name": "Joss Whedon",
+    "question": "What was Joss Whedon's role in the Marvel Cinematic Universe?",
+    "gold_answer": "Joss Whedon wrote and directed \"The Avengers\" and its sequel \"Avengers: Age of Ultron\" for the Marvel Cinematic Universe.",
+    "id": 25
+  },
+  {
+    "name": "Joss Whedon",
+    "question": "Which film did Joss Whedon direct that is a continuation of the TV series \"Firefly\"?",
+    "gold_answer": "Joss Whedon directed \"Serenity,\" which is a continuation of the TV series \"Firefly.\"",
+    "id": 26
+  },
+  {
+    "name": "Joss Whedon",
+    "question": "What genres does Joss Whedon typically work in?",
+    "gold_answer": "Joss Whedon typically works in genres such as supernatural drama, science fiction, and horror comedy.",
+    "id": 27
+  },
+  {
+    "name": "Joss Whedon",
+    "question": "Can you name a short-lived but popular series created by Joss Whedon?",
+    "gold_answer": "A short-lived but popular series created by Joss Whedon is \"Firefly.\"",
+    "id": 28
+  },
+  {
+    "name": "Joss Whedon",
+    "question": "What is the title of the Internet musical miniseries created by Joss Whedon?",
+    "gold_answer": "The title of the Internet musical miniseries created by Joss Whedon is \"Dr. Horrible's Sing-Along Blog.\"",
+    "id": 29
+  },
+  {
+    "name": "Joss Whedon",
+    "question": "In what capacity did Joss Whedon contribute to the film \"Toy Story\"?",
+    "gold_answer": "Joss Whedon co-wrote the Pixar animated film \"Toy Story.\"",
+    "id": 30
+  },
+  {
+    "name": "Joss Whedon",
+    "question": "What notable episode of \"Buffy the Vampire Slayer\" did Joss Whedon compose music for?",
+    "gold_answer": "Joss Whedon composed music for the \"Buffy the Vampire Slayer\" musical episode titled \"Once More, with Feeling.\"",
+    "id": 31
+  },
+  {
+    "name": "Joss Whedon",
+    "question": "What role did Joss Whedon have in the production of \"Justice League\"?",
+    "gold_answer": "Joss Whedon served as director for re-shoots of \"Justice League\" and also co-wrote the film.",
+    "id": 32
+  },
+  {
+    "name": "Joss Whedon",
+    "question": "What is \"The Nevers\" and what is Joss Whedon's connection to it?",
+    "gold_answer": "\"The Nevers\" is a science fiction drama series created by Joss Whedon.",
+    "id": 33
+  },
+  {
+    "name": "Joss Whedon",
+    "question": "How did Joss Whedon begin his career in the entertainment industry?",
+    "gold_answer": "Joss Whedon began his career writing for sitcoms.",
+    "id": 34
+  },
+  {
+    "name": "Joss Whedon",
+    "question": "Which Joss Whedon film is known for being poorly received initially but later became a successful TV series?",
+    "gold_answer": "The film \"Buffy the Vampire Slayer\" was poorly received initially but later adapted into a successful TV series of the same name.",
+    "id": 35
+  },
+  {
+    "name": "Joss Whedon",
+    "question": "What comic book series did Joss Whedon write for that is not based on his own TV series?",
+    "gold_answer": "Joss Whedon wrote for the comic book series \"Astonishing X-Men.\"",
+    "id": 36
+  },
+  {
+    "name": "Joss Whedon",
+    "question": "Which Shakespeare adaptation did Joss Whedon write and direct?",
+    "gold_answer": "Joss Whedon wrote and directed the Shakespeare adaptation \"Much Ado About Nothing.\"",
+    "id": 37
+  },
+  {
+    "name": "Joss Whedon",
+    "question": "What are some of the allegations made against Joss Whedon starting in July 2020?",
+    "gold_answer": "Starting in July 2020, Joss Whedon faced allegations related to creating a toxic workplace environment.",
+    "id": 38
+  },
+  {
+    "name": "Joss Whedon",
+    "question": "Which horror comedy film did Joss Whedon co-write and produce in 2012?",
+    "gold_answer": "Joss Whedon co-wrote and produced the horror comedy film \"The Cabin in the Woods.\"",
+    "id": 39
+  },
+  {
+    "name": "Joss Whedon",
+    "question": "What type of series is \"Agents of S.H.I.E.L.D.\" and what was Joss Whedon's role in it?",
+    "gold_answer": "\"Agents of S.H.I.E.L.D.\" is a Marvel Cinematic Universe series, and Joss Whedon was involved as its co-creator.",
+    "id": 40
+  },
+  {
+    "name": "Richard Rodgers",
+    "question": "When was Richard Rodgers born?",
+    "gold_answer": "Richard Rodgers was born on June 28, 1902.",
+    "id": 41
+  },
+  {
+    "name": "Richard Rodgers",
+    "question": "What genre did Richard Rodgers primarily compose for?",
+    "gold_answer": "Richard Rodgers primarily composed for musical theater.",
+    "id": 42
+  },
+  {
+    "name": "Richard Rodgers",
+    "question": "How many Broadway musicals did Richard Rodgers contribute to?",
+    "gold_answer": "Richard Rodgers contributed to 43 Broadway musicals.",
+    "id": 43
+  },
+  {
+    "name": "Richard Rodgers",
+    "question": "Approximately how many songs did Richard Rodgers compose?",
+    "gold_answer": "Richard Rodgers composed over 900 songs.",
+    "id": 44
+  },
+  {
+    "name": "Richard Rodgers",
+    "question": "Who were the two main lyricists Richard Rodgers collaborated with?",
+    "gold_answer": "Richard Rodgers collaborated with Lorenz Hart and Oscar Hammerstein II.",
+    "id": 45
+  },
+  {
+    "name": "Richard Rodgers",
+    "question": "Can you name a musical Richard Rodgers wrote with Lorenz Hart?",
+    "gold_answer": "One of the musicals Richard Rodgers wrote with Lorenz Hart is \"Pal Joey.\"",
+    "id": 46
+  },
+  {
+    "name": "Richard Rodgers",
+    "question": "What are some notable musicals Richard Rodgers created with Oscar Hammerstein II?",
+    "gold_answer": "Notable musicals include \"Oklahoma!,\" \"South Pacific,\" \"The King and I,\" and \"The Sound of Music.\"",
+    "id": 47
+  },
+  {
+    "name": "Richard Rodgers",
+    "question": "What awards has Richard Rodgers won?",
+    "gold_answer": "Richard Rodgers won an Emmy, a Grammy, an Oscar, and a Tony, collectively known as an EGOT.",
+    "id": 48
+  },
+  {
+    "name": "Richard Rodgers",
+    "question": "Did Richard Rodgers receive any other major awards?",
+    "gold_answer": "Yes, Richard Rodgers also received a Pulitzer Prize.",
+    "id": 49
+  },
+  {
+    "name": "Richard Rodgers",
+    "question": "How did Richard Rodgers's collaborations with Oscar Hammerstein II change musical theater?",
+    "gold_answer": "Their collaborations brought a new maturity to Broadway musicals by focusing more on characters and drama.",
+    "id": 50
+  },
+  {
+    "name": "Richard Rodgers",
+    "question": "When did Richard Rodgers pass away?",
+    "gold_answer": "Richard Rodgers died on December 30, 1979.",
+    "id": 51
+  },
+  {
+    "name": "Richard Rodgers",
+    "question": "What impact did Richard Rodgers have on 20th-century popular music?",
+    "gold_answer": "Richard Rodgers significantly influenced popular music with his extensive and innovative body of work.",
+    "id": 52
+  },
+  {
+    "name": "Richard Rodgers",
+    "question": "Name a musical Richard Rodgers wrote in the 1950s with Hammerstein.",
+    "gold_answer": "\"The Sound of Music\" is one of the musicals written in the 1950s.",
+    "id": 53
+  },
+  {
+    "name": "Richard Rodgers",
+    "question": "What honor was Richard Rodgers awarded in 1978?",
+    "gold_answer": "In 1978, Richard Rodgers was honored as one of the inaugural Kennedy Center Honorees.",
+    "id": 54
+  },
+  {
+    "name": "Richard Rodgers",
+    "question": "Is Richard Rodgers the only person to have won the EGOT and a Pulitzer Prize?",
+    "gold_answer": "No, Richard Rodgers and Marvin Hamlisch are the only two people to have won both the EGOT and a Pulitzer Prize.",
+    "id": 55
+  },
+  {
+    "name": "Richard Rodgers",
+    "question": "What was the nature of Richard Rodgers's partnership with Lorenz Hart?",
+    "gold_answer": "Richard Rodgers composed the music while Lorenz Hart wrote the lyrics for their Broadway musicals.",
+    "id": 56
+  },
+  {
+    "name": "Richard Rodgers",
+    "question": "Which Richard Rodgers musical features the state of Oklahoma?",
+    "gold_answer": "The musical \"Oklahoma!\" features the state.",
+    "id": 57
+  },
+  {
+    "name": "Richard Rodgers",
+    "question": "What theme is central to \"The King and I,\" a musical by Rodgers and Hammerstein?",
+    "gold_answer": "\"The King and I\" centers on the themes of cultural exchange and mutual respect.",
+    "id": 58
+  },
+  {
+    "name": "Richard Rodgers",
+    "question": "How many Richard Rodgers songs were written with Lorenz Hart?",
+    "gold_answer": "Richard Rodgers wrote hundreds of songs with Lorenz Hart, though the exact number is not specified.",
+    "id": 59
+  },
+  {
+    "name": "Richard Rodgers",
+    "question": "What is one of the earliest musicals Richard Rodgers and Oscar Hammerstein II collaborated on?",
+    "gold_answer": "One of their earliest collaborations is \"Oklahoma!,\" which premiered in 1943.",
+    "id": 60
+  },
+  {
+    "name": "Knut Hamsun",
+    "question": "When was Knut Hamsun born?",
+    "gold_answer": "Knut Hamsun was born on 4 August 1859.",
+    "id": 61
+  },
+  {
+    "name": "Knut Hamsun",
+    "question": "When did Knut Hamsun pass away?",
+    "gold_answer": "Knut Hamsun passed away on 19 February 1952.",
+    "id": 62
+  },
+  {
+    "name": "Knut Hamsun",
+    "question": "For what literary contribution was Knut Hamsun awarded the Nobel Prize in Literature?",
+    "gold_answer": "Knut Hamsun was awarded the Nobel Prize in Literature in 1920 for his influential literary style and contributions to psychological literature.",
+    "id": 63
+  },
+  {
+    "name": "Knut Hamsun",
+    "question": "How many novels did Knut Hamsun publish?",
+    "gold_answer": "Knut Hamsun published more than 23 novels.",
+    "id": 64
+  },
+  {
+    "name": "Knut Hamsun",
+    "question": "What genres did Knut Hamsun explore in his writing?",
+    "gold_answer": "Knut Hamsun explored novels, poetry, short stories, plays, travelogues, non-fiction, and essays.",
+    "id": 65
+  },
+  {
+    "name": "Knut Hamsun",
+    "question": "What is Knut Hamsun considered a pioneer of in literature?",
+    "gold_answer": "Knut Hamsun is considered a pioneer of psychological literature, particularly techniques like stream of consciousness and interior monologue.",
+    "id": 66
+  },
+  {
+    "name": "Knut Hamsun",
+    "question": "Can you name a few authors influenced by Knut Hamsun?",
+    "gold_answer": "Authors influenced by Knut Hamsun include Thomas Mann, Franz Kafka, Henry Miller, Hermann Hesse, and Ernest Hemingway.",
+    "id": 67
+  },
+  {
+    "name": "Knut Hamsun",
+    "question": "What did Isaac Bashevis Singer say about Knut Hamsun?",
+    "gold_answer": "Isaac Bashevis Singer called Knut Hamsun \"the father of the modern school of literature in his every aspect.\"",
+    "id": 68
+  },
+  {
+    "name": "Knut Hamsun",
+    "question": "What was the main focus of Knut Hamsun's objection to realism and naturalism?",
+    "gold_answer": "Knut Hamsun objected to realism and naturalism because he believed modernist literature should explore the intricacies of the human mind.",
+    "id": 69
+  },
+  {
+    "name": "Knut Hamsun",
+    "question": "What are some key works of Knut Hamsun from the Neo-Romantic period?",
+    "gold_answer": "Key works from Knut Hamsun's Neo-Romantic period include \"Hunger,\" \"Mysteries,\" \"Pan,\" and \"Victoria.\"",
+    "id": 70
+  },
+  {
+    "name": "Knut Hamsun",
+    "question": "What characterizes Knut Hamsun's later \"Nordland novels\"?",
+    "gold_answer": "Knut Hamsun's later \"Nordland novels\" are characterized by their depiction of everyday life in rural Norway, use of local dialect, and elements of irony and humour.",
+    "id": 71
+  },
+  {
+    "name": "Knut Hamsun",
+    "question": "What is the title of the only poetry collection published by Knut Hamsun?",
+    "gold_answer": "The only poetry collection published by Knut Hamsun is titled \"The Wild Choir.\"",
+    "id": 72
+  },
+  {
+    "name": "Knut Hamsun",
+    "question": "How has \"The Wild Choir\" been utilized by composers?",
+    "gold_answer": "\"The Wild Choir\" has been set to music by several composers.",
+    "id": 73
+  },
+  {
+    "name": "Knut Hamsun",
+    "question": "What were Knut Hamsun's views during World War II?",
+    "gold_answer": "During World War II, Knut Hamsun held strong anti-English views and supported Adolf Hitler and Nazi Germany.",
+    "id": 74
+  },
+  {
+    "name": "Knut Hamsun",
+    "question": "Did Knut Hamsun face any consequences for his political actions during and after World War II?",
+    "gold_answer": "Yes, Knut Hamsun was charged with treason after the war but was not convicted, officially due to psychological problems and issues relating to old age. He was fined heavily in 1948.",
+    "id": 75
+  },
+  {
+    "name": "Knut Hamsun",
+    "question": "What does Knut Hamsun's last book \"On Overgrown Paths\" discuss?",
+    "gold_answer": "\"On Overgrown Paths\" discusses Knut Hamsun's treatment during his trial for treason and his rebuttal of accusations regarding his mental state.",
+    "id": 76
+  },
+  {
+    "name": "Knut Hamsun",
+    "question": "When was the Knut Hamsun Centre opened, and where is it located?",
+    "gold_answer": "The Knut Hamsun Centre was opened on 4 August 2009 in Hamarøy.",
+    "id": 77
+  },
+  {
+    "name": "Knut Hamsun",
+    "question": "How have Knut Hamsun's works been adapted beyond literature?",
+    "gold_answer": "Since 1916, several of Knut Hamsun's works have been adapted into motion pictures.",
+    "id": 78
+  },
+  {
+    "name": "Knut Hamsun",
+    "question": "What impact did Knut Hamsun have on literature according to critics and scholars?",
+    "gold_answer": "Critics and scholars consider Knut Hamsun one of the most influential and innovative literary stylists of the past hundred years, significantly influencing twentieth-century fiction.",
+    "id": 79
+  },
+  {
+    "name": "Knut Hamsun",
+    "question": "What did Knut Hamsun advocate should be the main object of modernist literature?",
+    "gold_answer": "Knut Hamsun advocated that the main object of modernist literature should be to describe the \"whisper of blood, and the pleading of bone marrow,\" focusing on the internal experiences and complexities of individuals.",
+    "id": 80
+  },
+  {
+    "name": "Harold Ramis",
+    "question": "When was Harold Ramis born?",
+    "gold_answer": "Harold Ramis was born on November 21, 1944.",
+    "id": 81
+  },
+  {
+    "name": "Harold Ramis",
+    "question": "What are some of Harold Ramis's notable film acting roles?",
+    "gold_answer": "Harold Ramis's notable film acting roles include Egon Spengler in \"Ghostbusters\" and \"Ghostbusters II,\" and Russell Ziskey in \"Stripes.\"",
+    "id": 82
+  },
+  {
+    "name": "Harold Ramis",
+    "question": "Which films did Harold Ramis direct?",
+    "gold_answer": "Harold Ramis directed several films including \"Caddyshack,\" \"National Lampoon's Vacation,\" \"Groundhog Day,\" \"Analyze This,\" and \"Analyze That.\"",
+    "id": 83
+  },
+  {
+    "name": "Harold Ramis",
+    "question": "Did Harold Ramis win any awards for his screenplay work?",
+    "gold_answer": "Yes, Harold Ramis won the BAFTA Award for Best Original Screenplay for \"Groundhog Day.\"",
+    "id": 84
+  },
+  {
+    "name": "Harold Ramis",
+    "question": "In what year did Harold Ramis pass away?",
+    "gold_answer": "Harold Ramis passed away on February 24, 2014.",
+    "id": 85
+  },
+  {
+    "name": "Harold Ramis",
+    "question": "What character did Harold Ramis portray in the \"Ghostbusters\" series?",
+    "gold_answer": "Harold Ramis portrayed the character Egon Spengler in the \"Ghostbusters\" series.",
+    "id": 86
+  },
+  {
+    "name": "Harold Ramis",
+    "question": "What was the last film that Harold Ramis wrote, produced, directed, and acted in?",
+    "gold_answer": "The last film that Harold Ramis was involved in as a writer, producer, director, and actor was \"Year One\" (2009).",
+    "id": 87
+  },
+  {
+    "name": "Harold Ramis",
+    "question": "How did Harold Ramis contribute to the television series SCTV?",
+    "gold_answer": "Harold Ramis was the original head writer of SCTV and also performed on the show.",
+    "id": 88
+  },
+  {
+    "name": "Harold Ramis",
+    "question": "Which film written by Harold Ramis is known for being set on the same day repeating multiple times?",
+    "gold_answer": "The film \"Groundhog Day,\" written by Harold Ramis, is known for its plot where the same day repeats multiple times.",
+    "id": 89
+  },
+  {
+    "name": "Harold Ramis",
+    "question": "Who were some filmmakers and actors that have cited Harold Ramis's films among their favorites?",
+    "gold_answer": "Filmmakers and actors like Jay Roach, Jake Kasdan, Adam Sandler, Judd Apatow, and Peter and Bobby Farrelly have listed Harold Ramis's films among their favorites.",
+    "id": 90
+  },
+  {
+    "name": "Harold Ramis",
+    "question": "What was Harold Ramis's role in \"National Lampoon's Animal House\"?",
+    "gold_answer": "Harold Ramis was a co-writer of \"National Lampoon's Animal House.\"",
+    "id": 91
+  },
+  {
+    "name": "Harold Ramis",
+    "question": "How did Harold Ramis's career impact the comedy genre?",
+    "gold_answer": "Harold Ramis's films influenced subsequent generations of comedians, comedy writers, and actors.",
+    "id": 92
+  },
+  {
+    "name": "Harold Ramis",
+    "question": "What was Harold Ramis's educational background?",
+    "gold_answer": "Harold Ramis attended Washington University in St. Louis.",
+    "id": 93
+  },
+  {
+    "name": "Harold Ramis",
+    "question": "Did Harold Ramis have any recurring collaborators in his films?",
+    "gold_answer": "Yes, Harold Ramis frequently collaborated with actors like Bill Murray and Dan Aykroyd.",
+    "id": 94
+  },
+  {
+    "name": "Harold Ramis",
+    "question": "What role did Harold Ramis play in \"Stripes\"?",
+    "gold_answer": "Harold Ramis played the character Russell Ziskey in \"Stripes.\"",
+    "id": 95
+  },
+  {
+    "name": "Harold Ramis",
+    "question": "What is unique about the comedy style in Harold Ramis's films?",
+    "gold_answer": "Harold Ramis's films often combined smart humor with relatable characters, making his style unique in the comedy genre.",
+    "id": 96
+  },
+  {
+    "name": "Harold Ramis",
+    "question": "Can you name a film Harold Ramis directed in the late 1990s that explored mob psychology?",
+    "gold_answer": "Harold Ramis directed \"Analyze This\" in 1999, which explored mob psychology.",
+    "id": 97
+  },
+  {
+    "name": "Harold Ramis",
+    "question": "Which Harold Ramis film involved a chaotic golf course?",
+    "gold_answer": "\"Caddyshack\" is the Harold Ramis film that revolves around a chaotic golf course.",
+    "id": 98
+  },
+  {
+    "name": "Harold Ramis",
+    "question": "Did Harold Ramis work on any sequels to his films?",
+    "gold_answer": "Yes, Harold Ramis worked on sequels such as \"Ghostbusters II\" and \"Analyze That.\"",
+    "id": 99
+  },
+  {
+    "name": "Harold Ramis",
+    "question": "What is considered Harold Ramis's most acclaimed directorial work?",
+    "gold_answer": "\"Groundhog Day\" is considered Harold Ramis's most acclaimed directorial work.",
+    "id": 100
+  },
+  {
+    "name": "Petrus Camper",
+    "question": "When was Petrus Camper born?",
+    "gold_answer": "Petrus Camper was born on May 11, 1722.",
+    "id": 101
+  },
+  {
+    "name": "Petrus Camper",
+    "question": "What fields did Petrus Camper contribute to?",
+    "gold_answer": "Petrus Camper contributed to anatomy, physiology, midwifery, zoology, anthropology, palaeontology, and natural history.",
+    "id": 102
+  },
+  {
+    "name": "Petrus Camper",
+    "question": "What was Petrus Camper's role in the development of anthropology?",
+    "gold_answer": "Petrus Camper was among the first to distinguish anthropology from natural history, marking it as a separate discipline.",
+    "id": 103
+  },
+  {
+    "name": "Petrus Camper",
+    "question": "What notable academic societies did Petrus Camper become a member of?",
+    "gold_answer": "Petrus Camper was a member of several prestigious societies, including the Royal Society, the Göttingen and Russian Academy of Sciences, the Royal Society of Edinburgh, and the French and Prussian Academy of Sciences.",
+    "id": 104
+  },
+  {
+    "name": "Petrus Camper",
+    "question": "How did Petrus Camper contribute to comparative anatomy?",
+    "gold_answer": "Petrus Camper was one of the pioneers in comparative anatomy, studying various species to understand anatomical similarities and differences.",
+    "id": 105
+  },
+  {
+    "name": "Petrus Camper",
+    "question": "What is the \"facial angle\" concept associated with Petrus Camper?",
+    "gold_answer": "The facial angle is a concept developed by Petrus Camper to measure the angle formed by drawing lines from the forehead and the upper jawbone, used to compare the facial features of different species and humans.",
+    "id": 106
+  },
+  {
+    "name": "Petrus Camper",
+    "question": "What notable animals did Petrus Camper study?",
+    "gold_answer": "Petrus Camper studied the orangutan, the Javan rhinoceros, and the skull of a mosasaur.",
+    "id": 107
+  },
+  {
+    "name": "Petrus Camper",
+    "question": "What did Petrus Camper mistakenly believe about the mosasaur?",
+    "gold_answer": "Petrus Camper mistakenly believed that the mosasaur's skull he studied was from a whale.",
+    "id": 108
+  },
+  {
+    "name": "Petrus Camper",
+    "question": "When did Petrus Camper die?",
+    "gold_answer": "Petrus Camper died on April 7, 1789.",
+    "id": 109
+  },
+  {
+    "name": "Petrus Camper",
+    "question": "What other roles did Petrus Camper hold outside of science?",
+    "gold_answer": "Besides his scientific pursuits, Petrus Camper was an amateur drawer, a sculptor, a patron of art, and a conservative, royalist politician.",
+    "id": 110
+  },
+  {
+    "name": "Petrus Camper",
+    "question": "Did Petrus Camper publish any significant works?",
+    "gold_answer": "Yes, Petrus Camper published lectures that included an account of his craniometrical methods, foundational for future work in the field.",
+    "id": 111
+  },
+  {
+    "name": "Petrus Camper",
+    "question": "How did Petrus Camper influence surgery?",
+    "gold_answer": "Petrus Camper designed and constructed tools for his patients and for surgical procedures.",
+    "id": 112
+  },
+  {
+    "name": "Petrus Camper",
+    "question": "What was Petrus Camper's educational background?",
+    "gold_answer": "Petrus Camper studied medicine and later became a physician and midwife, although specific details of his educational background are less documented.",
+    "id": 113
+  },
+  {
+    "name": "Petrus Camper",
+    "question": "How was Petrus Camper perceived in Europe during his lifetime?",
+    "gold_answer": "Petrus Camper was a celebrated figure in Europe, recognized for his wide-ranging scientific contributions.",
+    "id": 114
+  },
+  {
+    "name": "Petrus Camper",
+    "question": "How did Petrus Camper contribute to the study of the orangutan?",
+    "gold_answer": "Petrus Camper conducted detailed anatomical studies on the orangutan, helping to understand its physiological and anatomical characteristics.",
+    "id": 115
+  },
+  {
+    "name": "Petrus Camper",
+    "question": "In what year did Petrus Camper become a member of the Royal Society?",
+    "gold_answer": "Petrus Camper became a member of the Royal Society in 1750.",
+    "id": 116
+  },
+  {
+    "name": "Petrus Camper",
+    "question": "What impact did Petrus Camper have on the field of palaeontology?",
+    "gold_answer": "Petrus Camper contributed to early palaeontology by studying fossils and differentiating various prehistoric species.",
+    "id": 117
+  },
+  {
+    "name": "Petrus Camper",
+    "question": "Was Petrus Camper involved in any political activities?",
+    "gold_answer": "Yes, Petrus Camper was involved in politics as a conservative, royalist politician.",
+    "id": 118
+  },
+  {
+    "name": "Petrus Camper",
+    "question": "How did Petrus Camper influence the medical field through his inventions?",
+    "gold_answer": "Through his invention of medical tools and surgical instruments, Petrus Camper significantly impacted the practice and efficiency of medical treatments and surgeries.",
+    "id": 119
+  },
+  {
+    "name": "Petrus Camper",
+    "question": "What legacy did Petrus Camper leave behind in the scientific community?",
+    "gold_answer": "Petrus Camper left a lasting legacy through his pioneering work in comparative anatomy and anthropology, laying foundational concepts and methodologies for future research.",
+    "id": 120
+  },
+  {
+    "name": "Meghan Trainor",
+    "question": "When was Meghan Trainor born?",
+    "gold_answer": "Meghan Trainor was born on December 22, 1993.",
+    "id": 121
+  },
+  {
+    "name": "Meghan Trainor",
+    "question": "What record label did Meghan Trainor sign with in 2014?",
+    "gold_answer": "Meghan Trainor signed with Epic Records in 2014.",
+    "id": 122
+  },
+  {
+    "name": "Meghan Trainor",
+    "question": "What was Meghan Trainor's debut single?",
+    "gold_answer": "Meghan Trainor's debut single was \"All About That Bass.\"",
+    "id": 123
+  },
+  {
+    "name": "Meghan Trainor",
+    "question": "How many copies did \"All About That Bass\" sell worldwide?",
+    "gold_answer": "\"All About That Bass\" sold 11 million copies worldwide.",
+    "id": 124
+  },
+  {
+    "name": "Meghan Trainor",
+    "question": "How many studio albums has Meghan Trainor released with Epic Records as of 2023?",
+    "gold_answer": "As of 2023, Meghan Trainor has released five studio albums with Epic Records.",
+    "id": 125
+  },
+  {
+    "name": "Meghan Trainor",
+    "question": "What major award did Meghan Trainor win in 2016?",
+    "gold_answer": "Meghan Trainor won the Grammy Award for Best New Artist in 2016.",
+    "id": 126
+  },
+  {
+    "name": "Meghan Trainor",
+    "question": "What were the names of Meghan Trainor's independently released albums before she became famous?",
+    "gold_answer": "Before fame, Meghan Trainor released \"Meghan Trainor\" (2009), \"I'll Sing with You,\" and \"Only 17\" (2010).",
+    "id": 127
+  },
+  {
+    "name": "Meghan Trainor",
+    "question": "What genres does Meghan Trainor's music primarily include?",
+    "gold_answer": "Meghan Trainor's music includes pop, R&B, doo-wop, and blue-eyed soul.",
+    "id": 128
+  },
+  {
+    "name": "Meghan Trainor",
+    "question": "What was the name of Meghan Trainor's debut studio album released under a major label?",
+    "gold_answer": "Meghan Trainor's debut major-label studio album is called \"Title.\"",
+    "id": 129
+  },
+  {
+    "name": "Meghan Trainor",
+    "question": "Which Meghan Trainor album includes the single \"No\"?",
+    "gold_answer": "The album \"Thank You\" includes the single \"No.\"",
+    "id": 130
+  },
+  {
+    "name": "Meghan Trainor",
+    "question": "When did Meghan Trainor release the album \"Treat Myself\"?",
+    "gold_answer": "Meghan Trainor released the album \"Treat Myself\" in 2020.",
+    "id": 131
+  },
+  {
+    "name": "Meghan Trainor",
+    "question": "What are some common themes in Meghan Trainor's lyrics?",
+    "gold_answer": "Meghan Trainor's lyrics often explore themes of womanhood, body image, and personal empowerment.",
+    "id": 132
+  },
+  {
+    "name": "Meghan Trainor",
+    "question": "Which animated films has Meghan Trainor had voice roles in?",
+    "gold_answer": "Meghan Trainor had voice roles in \"Smurfs: The Lost Village\" (2017) and \"Playmobil: The Movie\" (2019).",
+    "id": 133
+  },
+  {
+    "name": "Meghan Trainor",
+    "question": "On which television talent shows has Meghan Trainor served as a judge?",
+    "gold_answer": "Meghan Trainor has served as a judge on \"The Four: Battle for Stardom,\" \"The Voice UK,\" and \"Australian Idol.\"",
+    "id": 134
+  },
+  {
+    "name": "Meghan Trainor",
+    "question": "How many ASCAP Pop Music Awards has Meghan Trainor won?",
+    "gold_answer": "Meghan Trainor has won four ASCAP Pop Music Awards.",
+    "id": 135
+  },
+  {
+    "name": "Meghan Trainor",
+    "question": "What year did Meghan Trainor release her holiday album \"A Very Trainor Christmas\"?",
+    "gold_answer": "Meghan Trainor released \"A Very Trainor Christmas\" in 2020.",
+    "id": 136
+  },
+  {
+    "name": "Meghan Trainor",
+    "question": "What is the name of Meghan Trainor's fifth studio album released in 2022?",
+    "gold_answer": "Meghan Trainor's fifth studio album is named \"Takin' It Back.\"",
+    "id": 137
+  },
+  {
+    "name": "Meghan Trainor",
+    "question": "Which single from \"Takin' It Back\" reached the top five in several countries?",
+    "gold_answer": "The single \"Made You Look\" from \"Takin' It Back\" reached the top five in several countries.",
+    "id": 138
+  },
+  {
+    "name": "Meghan Trainor",
+    "question": "What is the highest chart position Meghan Trainor achieved with her debut single in the U.S.?",
+    "gold_answer": "Meghan Trainor's debut single \"All About That Bass\" reached number one on the U.S. Billboard Hot 100 chart.",
+    "id": 139
+  },
+  {
+    "name": "Meghan Trainor",
+    "question": "What has been a criticism of Meghan Trainor's lyrics?",
+    "gold_answer": "Meghan Trainor's lyrics have been criticized at times for being antifeminist.",
+    "id": 140
+  },
+  {
+    "name": "H. P. Lovecraft",
+    "question": "When was H. P. Lovecraft born?",
+    "gold_answer": "H. P. Lovecraft was born on August 20, 1890.",
+    "id": 141
+  },
+  {
+    "name": "H. P. Lovecraft",
+    "question": "What genres did H. P. Lovecraft primarily write in?",
+    "gold_answer": "H. P. Lovecraft primarily wrote in the genres of weird, science, fantasy, and horror fiction.",
+    "id": 142
+  },
+  {
+    "name": "H. P. Lovecraft",
+    "question": "What is H. P. Lovecraft best known for creating?",
+    "gold_answer": "He is best known for creating the Cthulhu Mythos.",
+    "id": 143
+  },
+  {
+    "name": "H. P. Lovecraft",
+    "question": "Where was H. P. Lovecraft born?",
+    "gold_answer": "He was born in Providence, Rhode Island.",
+    "id": 144
+  },
+  {
+    "name": "H. P. Lovecraft",
+    "question": "How did H. P. Lovecraft's family's financial situation change after his grandfather's death?",
+    "gold_answer": "After his grandfather's death, H. P. Lovecraft's family lost much of their wealth, leading to reduced financial security.",
+    "id": 145
+  },
+  {
+    "name": "H. P. Lovecraft",
+    "question": "What significant personal challenges did H. P. Lovecraft face in his childhood and early adulthood?",
+    "gold_answer": "Lovecraft faced the institutionalization of his father in 1893 and his mother in 1919.",
+    "id": 146
+  },
+  {
+    "name": "H. P. Lovecraft",
+    "question": "How did H. P. Lovecraft start his writing career?",
+    "gold_answer": "He began his writing career by writing essays for the United Amateur Press Association and by writing a critical letter to a pulp magazine in 1913.",
+    "id": 147
+  },
+  {
+    "name": "H. P. Lovecraft",
+    "question": "When did H. P. Lovecraft move to New York City?",
+    "gold_answer": "He moved to New York City in 1924.",
+    "id": 148
+  },
+  {
+    "name": "H. P. Lovecraft",
+    "question": "Who did H. P. Lovecraft marry?",
+    "gold_answer": "H. P. Lovecraft married Sonia Greene.",
+    "id": 149
+  },
+  {
+    "name": "H. P. Lovecraft",
+    "question": "Which magazine became H. P. Lovecraft's most prominent publisher?",
+    "gold_answer": "Weird Tales magazine became his most prominent publisher.",
+    "id": 150
+  },
+  {
+    "name": "H. P. Lovecraft",
+    "question": "What impact did New York have on H. P. Lovecraft?",
+    "gold_answer": "His time in New York took a toll on his mental state and financial conditions.",
+    "id": 151
+  },
+  {
+    "name": "H. P. Lovecraft",
+    "question": "What are some of H. P. Lovecraft's most popular works?",
+    "gold_answer": "Some of his most popular works include \"The Call of Cthulhu,\" \"At the Mountains of Madness,\" \"The Shadow over Innsmouth,\" and \"The Shadow Out of Time.\"",
+    "id": 152
+  },
+  {
+    "name": "H. P. Lovecraft",
+    "question": "What is the main theme of H. P. Lovecraft's literary corpus?",
+    "gold_answer": "The main theme of his literary corpus is cosmicism, which posits that humanity is an insignificant part of the cosmos.",
+    "id": 153
+  },
+  {
+    "name": "H. P. Lovecraft",
+    "question": "How did H. P. Lovecraft view civilization during his lifetime?",
+    "gold_answer": "He believed that the West was in decline during his lifetime, and this theme of civilizational decline plays a major role in his works.",
+    "id": 154
+  },
+  {
+    "name": "H. P. Lovecraft",
+    "question": "How did H. P. Lovecraft's political views change after the Great Depression?",
+    "gold_answer": "After the Great Depression, his political views shifted from conservative to more socialist, though he remained elitist and aristocratic.",
+    "id": 155
+  },
+  {
+    "name": "H. P. Lovecraft",
+    "question": "Was H. P. Lovecraft able to support himself financially through his writing?",
+    "gold_answer": "No, throughout his adult life, he was never able to support himself from his earnings as an author and editor.",
+    "id": 156
+  },
+  {
+    "name": "H. P. Lovecraft",
+    "question": "How was H. P. Lovecraft's work received during his lifetime?",
+    "gold_answer": "He was virtually unknown during his lifetime and was almost exclusively published in pulp magazines.",
+    "id": 157
+  },
+  {
+    "name": "H. P. Lovecraft",
+    "question": "When did H. P. Lovecraft die, and what was the cause?",
+    "gold_answer": "H. P. Lovecraft died on March 15, 1937, from intestinal cancer.",
+    "id": 158
+  },
+  {
+    "name": "H. P. Lovecraft",
+    "question": "What sparked a revival of interest in H. P. Lovecraft's work?",
+    "gold_answer": "A scholarly revival of his work began in the 1970s.",
+    "id": 159
+  },
+  {
+    "name": "H. P. Lovecraft",
+    "question": "What has been the impact of H. P. Lovecraft's work on later horror fiction?",
+    "gold_answer": "Lovecraft's work has been highly influential, spawning many direct adaptations and spiritual successors that utilize his characters, setting, and themes, forming the basis of the Cthulhu Mythos.",
+    "id": 160
+  },
+  {
+    "name": "Jerome",
+    "question": "When was Saint Jerome born?",
+    "gold_answer": "Saint Jerome was born around 342–347 AD.",
+    "id": 161
+  },
+  {
+    "name": "Jerome",
+    "question": "What is Saint Jerome's full name in Latin?",
+    "gold_answer": "His full Latin name is Eusebius Sophronius Hieronymus.",
+    "id": 162
+  },
+  {
+    "name": "Jerome",
+    "question": "What is Saint Jerome best known for?",
+    "gold_answer": "He is best known for his translation of the Bible into Latin, known as the Vulgate.",
+    "id": 163
+  },
+  {
+    "name": "Jerome",
+    "question": "What significant difference did Saint Jerome's translation of the Old Testament have compared to prior translations?",
+    "gold_answer": "Jerome based his translation of the Old Testament on Hebrew manuscripts, unlike prior translations which were based on the Greek Septuagint.",
+    "id": 164
+  },
+  {
+    "name": "Jerome",
+    "question": "Besides translations, what other types of writings did Saint Jerome produce?",
+    "gold_answer": "Saint Jerome also wrote commentaries on the Bible, polemical essays, and historical essays.",
+    "id": 165
+  },
+  {
+    "name": "Jerome",
+    "question": "How did Saint Jerome view the role of women in Christian life?",
+    "gold_answer": "Jerome taught that women devoted to Jesus should live pious and dedicated lives, reflecting his focus on the moral life of Christian women.",
+    "id": 166
+  },
+  {
+    "name": "Jerome",
+    "question": "Which cosmopolitan center did Saint Jerome associate with during his teachings on Christian moral life?",
+    "gold_answer": "Jerome was particularly associated with Rome when teaching about Christian moral life.",
+    "id": 167
+  },
+  {
+    "name": "Jerome",
+    "question": "With whom did Saint Jerome have close patron relationships?",
+    "gold_answer": "He had close patron relationships with several prominent female ascetics from affluent senatorial families.",
+    "id": 168
+  },
+  {
+    "name": "Jerome",
+    "question": "What recognition has Saint Jerome received from the Roman Catholic Church?",
+    "gold_answer": "He is recognized as a saint and a Doctor of the Church by the Roman Catholic Church.",
+    "id": 169
+  },
+  {
+    "name": "Jerome",
+    "question": "Is Saint Jerome considered a saint in the Eastern Orthodox Church?",
+    "gold_answer": "Yes, Saint Jerome is also recognized as a saint in the Eastern Orthodox Church.",
+    "id": 170
+  },
+  {
+    "name": "Jerome",
+    "question": "What is the feast day of Saint Jerome in the Gregorian calendar?",
+    "gold_answer": "Saint Jerome's feast day is celebrated on September 30.",
+    "id": 171
+  },
+  {
+    "name": "Jerome",
+    "question": "Did Saint Jerome focus solely on translating the Bible?",
+    "gold_answer": "No, besides translating the Bible, Jerome also wrote extensive biblical commentaries and essays on theological and historical subjects.",
+    "id": 172
+  },
+  {
+    "name": "Jerome",
+    "question": "What was the primary source language for Jerome's translation of the Old Testament?",
+    "gold_answer": "The primary source language for his translation of the Old Testament was Hebrew.",
+    "id": 173
+  },
+  {
+    "name": "Jerome",
+    "question": "How did Saint Jerome contribute to the education and moral guidance of Christians?",
+    "gold_answer": "He contributed through his writings, teachings, and personal guidance, focusing on living a virtuous Christian life.",
+    "id": 174
+  },
+  {
+    "name": "Jerome",
+    "question": "What type of essays did Jerome write apart from his biblical works?",
+    "gold_answer": "Jerome wrote polemical and historical essays, always from a theologian's perspective.",
+    "id": 175
+  },
+  {
+    "name": "Jerome",
+    "question": "Did Saint Jerome hold any religious office?",
+    "gold_answer": "Yes, Saint Jerome was a priest and a theologian.",
+    "id": 176
+  },
+  {
+    "name": "Jerome",
+    "question": "In which churches is Saint Jerome recognized apart from the Roman Catholic and Eastern Orthodox Churches?",
+    "gold_answer": "Saint Jerome is also recognized as a saint in the Lutheran Church and the Anglican Communion.",
+    "id": 177
+  },
+  {
+    "name": "Jerome",
+    "question": "What was Jerome's place of origin?",
+    "gold_answer": "Jerome was originally from Stridon, which was located on the border of Dalmatia and Pannonia.",
+    "id": 178
+  },
+  {
+    "name": "Jerome",
+    "question": "How did Jerome's relationships with affluent women influence his work?",
+    "gold_answer": "His relationships with affluent women provided him patronage and influenced his focus on the spiritual and moral guidance of women.",
+    "id": 179
+  },
+  {
+    "name": "Jerome",
+    "question": "What is the historical significance of Jerome's translation work?",
+    "gold_answer": "Jerome's translation, the Vulgate, became the standard Latin Bible in the Western Christian world and significantly influenced Christian theology and scholarship.",
+    "id": 180
+  },
+  {
+    "name": "Guillermo del Toro",
+    "question": "When was Guillermo del Toro born?",
+    "gold_answer": "Guillermo del Toro was born on 9 October 1964.",
+    "id": 181
+  },
+  {
+    "name": "Guillermo del Toro",
+    "question": "How many Academy Awards has Guillermo del Toro won?",
+    "gold_answer": "Guillermo del Toro has won three Academy Awards.",
+    "id": 182
+  },
+  {
+    "name": "Guillermo del Toro",
+    "question": "What recurring themes are found in Guillermo del Toro's films?",
+    "gold_answer": "His films often include themes of Catholicism, anti-fascism, and celebrating imperfection.",
+    "id": 183
+  },
+  {
+    "name": "Guillermo del Toro",
+    "question": "What kind of imagery does Guillermo del Toro frequently use in his movies?",
+    "gold_answer": "He frequently uses insectile and religious imagery.",
+    "id": 184
+  },
+  {
+    "name": "Guillermo del Toro",
+    "question": "Which Guillermo del Toro film from 2006 is noted for its strong connection to fairy tales and horror?",
+    "gold_answer": "Pan's Labyrinth (2006) is noted for its connection to fairy tales and horror.",
+    "id": 185
+  },
+  {
+    "name": "Guillermo del Toro",
+    "question": "Can you name an English-language film series directed by Guillermo del Toro?",
+    "gold_answer": "Guillermo del Toro directed the Hellboy series, which includes Hellboy (2004) and Hellboy II: The Golden Army (2008).",
+    "id": 186
+  },
+  {
+    "name": "Guillermo del Toro",
+    "question": "What type of lighting is dominant in Guillermo del Toro's cinematography?",
+    "gold_answer": "Dominant amber lighting is a hallmark of his cinematography.",
+    "id": 187
+  },
+  {
+    "name": "Guillermo del Toro",
+    "question": "What are some of the awards Guillermo del Toro has received aside from the Academy Awards?",
+    "gold_answer": "He has also received three BAFTA Awards.",
+    "id": 188
+  },
+  {
+    "name": "Guillermo del Toro",
+    "question": "In what year was Guillermo del Toro included in Time magazine's list of the 100 most influential people?",
+    "gold_answer": "He was included in the list in 2018.",
+    "id": 189
+  },
+  {
+    "name": "Guillermo del Toro",
+    "question": "What Netflix series did Guillermo del Toro create that features a collection of classical horror stories?",
+    "gold_answer": "He created the Netflix anthology horror series \"Guillermo del Toro's Cabinet of Curiosities.\"",
+    "id": 190
+  },
+  {
+    "name": "Guillermo del Toro",
+    "question": "What trilogy of novels did Guillermo del Toro co-author with Chuck Hogan?",
+    "gold_answer": "He co-authored The Strain trilogy of novels.",
+    "id": 191
+  },
+  {
+    "name": "Guillermo del Toro",
+    "question": "Which Guillermo del Toro film won the Academy Award for Best Picture?",
+    "gold_answer": "The Shape of Water (2017) won the Academy Award for Best Picture.",
+    "id": 192
+  },
+  {
+    "name": "Guillermo del Toro",
+    "question": "What is Guillermo del Toro's approach to monsters in his films?",
+    "gold_answer": "He considers monsters to be symbols of great power.",
+    "id": 193
+  },
+  {
+    "name": "Guillermo del Toro",
+    "question": "Name a Guillermo del Toro film that employs practical special effects extensively.",
+    "gold_answer": "Crimson Peak (2015) is known for its use of practical special effects.",
+    "id": 194
+  },
+  {
+    "name": "Guillermo del Toro",
+    "question": "Which animated franchise did Guillermo del Toro create for DreamWorks Animation and Netflix?",
+    "gold_answer": "He created the Tales of Arcadia franchise.",
+    "id": 195
+  },
+  {
+    "name": "Guillermo del Toro",
+    "question": "What significant personal recognition did Guillermo del Toro receive in 2019?",
+    "gold_answer": "He received a motion picture star on the Hollywood Walk of Fame in 2019.",
+    "id": 196
+  },
+  {
+    "name": "Guillermo del Toro",
+    "question": "Who are Guillermo del Toro's close filmmaker friends, known collectively as \"The Three Amigos of Cinema\"?",
+    "gold_answer": "His close friends are Alfonso Cuarón and Alejandro G. Iñárritu.",
+    "id": 197
+  },
+  {
+    "name": "Guillermo del Toro",
+    "question": "Name a Guillermo del Toro film that involves themes of anti-fascism.",
+    "gold_answer": "Pan's Labyrinth (2006) involves themes of anti-fascism.",
+    "id": 198
+  },
+  {
+    "name": "Guillermo del Toro",
+    "question": "What Guillermo del Toro film from 2013 involved giant robots battling monstrous creatures?",
+    "gold_answer": "Pacific Rim (2013) involved giant robots battling monstrous creatures.",
+    "id": 199
+  },
+  {
+    "name": "Guillermo del Toro",
+    "question": "How did Guillermo del Toro's career begin in terms of film language?",
+    "gold_answer": "His career began with Spanish-language films like Cronos (1993).",
+    "id": 200
+  },
+  {
+    "name": "Niccolò Machiavelli",
+    "question": "When was Niccolò Machiavelli born?",
+    "gold_answer": "Niccolò Machiavelli was born on May 3, 1469.",
+    "id": 201
+  },
+  {
+    "name": "Niccolò Machiavelli",
+    "question": "What is Niccolò Machiavelli best known for?",
+    "gold_answer": "Niccolò Machiavelli is best known for his political treatise, \"The Prince.\"",
+    "id": 202
+  },
+  {
+    "name": "Niccolò Machiavelli",
+    "question": "When did Niccolò Machiavelli die?",
+    "gold_answer": "Niccolò Machiavelli died on June 21, 1527.",
+    "id": 203
+  },
+  {
+    "name": "Niccolò Machiavelli",
+    "question": "What roles did Niccolò Machiavelli serve in the Florentine Republic?",
+    "gold_answer": "Niccolò Machiavelli served as a senior official with responsibilities in diplomatic and military affairs.",
+    "id": 204
+  },
+  {
+    "name": "Niccolò Machiavelli",
+    "question": "What other types of writing did Niccolò Machiavelli produce besides political treatises?",
+    "gold_answer": "Besides political treatises, Niccolò Machiavelli wrote comedies, carnival songs, and poetry.",
+    "id": 205
+  },
+  {
+    "name": "Niccolò Machiavelli",
+    "question": "What position did Niccolò Machiavelli hold from 1498 to 1512?",
+    "gold_answer": "From 1498 to 1512, Niccolò Machiavelli worked as secretary to the second chancery of the Republic of Florence.",
+    "id": 206
+  },
+  {
+    "name": "Niccolò Machiavelli",
+    "question": "How did Niccolò Machiavelli view the use of treachery and deception in politics?",
+    "gold_answer": "Niccolò Machiavelli believed that treachery and deception were common in politics, based on his experience and historical readings.",
+    "id": 207
+  },
+  {
+    "name": "Niccolò Machiavelli",
+    "question": "Why has \"The Prince\" by Niccolò Machiavelli been controversial?",
+    "gold_answer": "\"The Prince\" has been controversial because it is seen by some as a guide for tyrants on seizing and maintaining power, describing unscrupulous political tactics.",
+    "id": 208
+  },
+  {
+    "name": "Niccolò Machiavelli",
+    "question": "What is a less well-known work of Niccolò Machiavelli that discusses political philosophy?",
+    "gold_answer": "A less well-known work of his that discusses political philosophy is the \"Discourses on Livy.\"",
+    "id": 209
+  },
+  {
+    "name": "Niccolò Machiavelli",
+    "question": "How has Niccolò Machiavelli influenced modern political philosophy?",
+    "gold_answer": "Niccolò Machiavelli is considered the father of modern political philosophy, significantly influencing political realism.",
+    "id": 210
+  },
+  {
+    "name": "Niccolò Machiavelli",
+    "question": "What did Leo Strauss say about Niccolò Machiavelli?",
+    "gold_answer": "Leo Strauss called Niccolò Machiavelli a \"teacher of evil\" due to the morally questionable political strategies outlined in \"The Prince.\"",
+    "id": 211
+  },
+  {
+    "name": "Niccolò Machiavelli",
+    "question": "Which Enlightenment authors were influenced by Niccolò Machiavelli?",
+    "gold_answer": "Enlightenment authors like Jean-Jacques Rousseau and James Harrington were influenced by Machiavelli's work.",
+    "id": 212
+  },
+  {
+    "name": "Niccolò Machiavelli",
+    "question": "How did Niccolò Machiavelli's works pave the way for modern republicanism?",
+    "gold_answer": "His works, especially the \"Discourses on Livy,\" have been credited with paving the way for modern republicanism.",
+    "id": 213
+  },
+  {
+    "name": "Niccolò Machiavelli",
+    "question": "What years did \"The Prince\" get written and published?",
+    "gold_answer": "\"The Prince\" was written around 1513 and published in 1532, five years after Machiavelli's death.",
+    "id": 214
+  },
+  {
+    "name": "Niccolò Machiavelli",
+    "question": "What historical period did Niccolò Machiavelli live through?",
+    "gold_answer": "Niccolò Machiavelli lived during the Renaissance.",
+    "id": 215
+  },
+  {
+    "name": "Niccolò Machiavelli",
+    "question": "How did Niccolò Machiavelli's reputation evolve after his death?",
+    "gold_answer": "After his death, Machiavelli's name became synonymous with cunning and unscrupulous political maneuvers.",
+    "id": 216
+  },
+  {
+    "name": "Niccolò Machiavelli",
+    "question": "What were the Medici's relation to Niccolò Machiavelli's career?",
+    "gold_answer": "Machiavelli's career in the Florentine Republic occurred during a time when the Medici family was out of power.",
+    "id": 217
+  },
+  {
+    "name": "Niccolò Machiavelli",
+    "question": "What type of government did Niccolò Machiavelli have extensive experience with?",
+    "gold_answer": "Machiavelli had extensive experience with the republican form of government.",
+    "id": 218
+  },
+  {
+    "name": "Niccolò Machiavelli",
+    "question": "How did Niccolò Machiavelli justify the use of violence in politics?",
+    "gold_answer": "Machiavelli justified the use of violence in politics if it was for the beneficial results for the ruler establishing a kingdom or republic.",
+    "id": 219
+  },
+  {
+    "name": "Niccolò Machiavelli",
+    "question": "What impact did Niccolò Machiavelli have on later political leaders like Otto von Bismarck?",
+    "gold_answer": "Niccolò Machiavelli's political realism influenced leaders like Otto von Bismarck, impacting their political strategies and governance.",
+    "id": 220
+  },
+  {
+    "name": "Carl Reiner",
+    "question": "When was Carl Reiner born?",
+    "gold_answer": "Carl Reiner was born on March 20, 1922.",
+    "id": 221
+  },
+  {
+    "name": "Carl Reiner",
+    "question": "How many Primetime Emmy Awards did Carl Reiner win?",
+    "gold_answer": "Carl Reiner won 11 Primetime Emmy Awards.",
+    "id": 222
+  },
+  {
+    "name": "Carl Reiner",
+    "question": "What significant comedy show did Carl Reiner create and produce?",
+    "gold_answer": "Carl Reiner created and produced \"The Dick Van Dyke Show.\"",
+    "id": 223
+  },
+  {
+    "name": "Carl Reiner",
+    "question": "In which decades was Carl Reiner most active in his career?",
+    "gold_answer": "Carl Reiner's career was most active from the 1950s to the 2000s.",
+    "id": 224
+  },
+  {
+    "name": "Carl Reiner",
+    "question": "Which famous comedy duo did Carl Reiner form with Mel Brooks?",
+    "gold_answer": "Carl Reiner formed \"The 2000 Year Old Man\" comedy duo with Mel Brooks.",
+    "id": 225
+  },
+  {
+    "name": "Carl Reiner",
+    "question": "What prestigious humor award did Carl Reiner receive?",
+    "gold_answer": "Carl Reiner received the Mark Twain Prize for American Humor.",
+    "id": 226
+  },
+  {
+    "name": "Carl Reiner",
+    "question": "Which famous comedy albums did Carl Reiner and Mel Brooks release starting in 1960?",
+    "gold_answer": "They released \"2000 Years with Carl Reiner and Mel Brooks.\"",
+    "id": 227
+  },
+  {
+    "name": "Carl Reiner",
+    "question": "Name a film Carl Reiner directed that starred Steve Martin.",
+    "gold_answer": "Carl Reiner directed \"The Jerk,\" which starred Steve Martin.",
+    "id": 228
+  },
+  {
+    "name": "Carl Reiner",
+    "question": "When was Carl Reiner inducted into the Television Hall of Fame?",
+    "gold_answer": "Carl Reiner was inducted into the Television Hall of Fame in 1999.",
+    "id": 229
+  },
+  {
+    "name": "Carl Reiner",
+    "question": "What genre did Carl Reiner mostly contribute to in film and television?",
+    "gold_answer": "Carl Reiner mostly contributed to comedy in film and television.",
+    "id": 230
+  },
+  {
+    "name": "Carl Reiner",
+    "question": "Name a book written by Carl Reiner.",
+    "gold_answer": "One of Carl Reiner's books is \"My Anecdotal Life.\"",
+    "id": 231
+  },
+  {
+    "name": "Carl Reiner",
+    "question": "In which film series did Carl Reiner act during the years 2001 to 2007?",
+    "gold_answer": "Carl Reiner acted in the \"Ocean's\" film series from 2001 to 2007.",
+    "id": 232
+  },
+  {
+    "name": "Carl Reiner",
+    "question": "What is the name of Carl Reiner's actor-director son?",
+    "gold_answer": "Carl Reiner's son is actor-director Rob Reiner.",
+    "id": 233
+  },
+  {
+    "name": "Carl Reiner",
+    "question": "How many children did Carl Reiner have?",
+    "gold_answer": "Carl Reiner had three children.",
+    "id": 234
+  },
+  {
+    "name": "Carl Reiner",
+    "question": "What significant television shows did Carl Reiner contribute to during the early years of television?",
+    "gold_answer": "During the early years of television, Carl Reiner contributed to \"Your Show of Shows\" and \"Caesar's Hour.\"",
+    "id": 235
+  },
+  {
+    "name": "Carl Reiner",
+    "question": "What type of roles did Carl Reiner often play in films?",
+    "gold_answer": "Carl Reiner often played comedic roles in films.",
+    "id": 236
+  },
+  {
+    "name": "Carl Reiner",
+    "question": "Name another film directed by Carl Reiner that involved a collaboration with Steve Martin.",
+    "gold_answer": "Another film directed by Carl Reiner that involved Steve Martin is \"All of Me.\"",
+    "id": 237
+  },
+  {
+    "name": "Carl Reiner",
+    "question": "How did Carl Reiner contribute to the writing community in his later years?",
+    "gold_answer": "Carl Reiner wrote more than two dozen books in his later years.",
+    "id": 238
+  },
+  {
+    "name": "Carl Reiner",
+    "question": "Which Grammy Award did Carl Reiner win?",
+    "gold_answer": "Carl Reiner won a Grammy Award for Best Spoken Comedy Album.",
+    "id": 239
+  },
+  {
+    "name": "Carl Reiner",
+    "question": "When did Carl Reiner pass away?",
+    "gold_answer": "Carl Reiner passed away on June 29, 2020.",
+    "id": 240
+  },
+  {
+    "name": "Dale Carnegie",
+    "question": "When and where was Dale Carnegie born?",
+    "gold_answer": "Dale Carnegie was born on November 24, 1888, on a farm in Missouri.",
+    "id": 241
+  },
+  {
+    "name": "Dale Carnegie",
+    "question": "What was Dale Carnegie's original surname?",
+    "gold_answer": "Dale Carnegie's original surname was Carnagey, which he changed to Carnegie around 1922.",
+    "id": 242
+  },
+  {
+    "name": "Dale Carnegie",
+    "question": "What is Dale Carnegie best known for?",
+    "gold_answer": "Dale Carnegie is best known for his courses on self-improvement, salesmanship, corporate training, public speaking, and interpersonal skills.",
+    "id": 243
+  },
+  {
+    "name": "Dale Carnegie",
+    "question": "What is the title of Dale Carnegie's most famous book?",
+    "gold_answer": "Dale Carnegie's most famous book is \"How to Win Friends and Influence People.\"",
+    "id": 244
+  },
+  {
+    "name": "Dale Carnegie",
+    "question": "When was \"How to Win Friends and Influence People\" first published?",
+    "gold_answer": "It was first published in 1936.",
+    "id": 245
+  },
+  {
+    "name": "Dale Carnegie",
+    "question": "Can you name another book written by Dale Carnegie?",
+    "gold_answer": "Another book written by Dale Carnegie is \"How to Stop Worrying and Start Living,\" published in 1948.",
+    "id": 246
+  },
+  {
+    "name": "Dale Carnegie",
+    "question": "What is a core idea presented in Dale Carnegie's books?",
+    "gold_answer": "A core idea in Dale Carnegie's books is that changing one's own behavior towards others can change their behavior.",
+    "id": 247
+  },
+  {
+    "name": "Dale Carnegie",
+    "question": "What was Dale Carnegie's profession?",
+    "gold_answer": "Dale Carnegie was a writer and lecturer.",
+    "id": 248
+  },
+  {
+    "name": "Dale Carnegie",
+    "question": "Where did Dale Carnegie originate from socio-economically?",
+    "gold_answer": "Dale Carnegie was born into poverty.",
+    "id": 249
+  },
+  {
+    "name": "Dale Carnegie",
+    "question": "What year did Dale Carnegie pass away?",
+    "gold_answer": "Dale Carnegie passed away on November 1, 1955.",
+    "id": 250
+  },
+  {
+    "name": "Dale Carnegie",
+    "question": "How has Dale Carnegie's most famous book remained relevant?",
+    "gold_answer": "Dale Carnegie's \"How to Win Friends and Influence People\" remains popular today and is still widely read and implemented for personal and professional development.",
+    "id": 251
+  },
+  {
+    "name": "Dale Carnegie",
+    "question": "Did Dale Carnegie write any books on historical figures?",
+    "gold_answer": "Yes, he wrote \"Lincoln the Unknown\" in 1932, a book about Abraham Lincoln.",
+    "id": 252
+  },
+  {
+    "name": "Dale Carnegie",
+    "question": "What impact did Dale Carnegie have on corporate training?",
+    "gold_answer": "Dale Carnegie developed influential courses in corporate training that focus on improving interpersonal skills and public speaking, which are still used in corporate environments today.",
+    "id": 253
+  },
+  {
+    "name": "Dale Carnegie",
+    "question": "What was a significant change Dale Carnegie made to his surname, and why?",
+    "gold_answer": "He changed his surname from Carnagey to Carnegie around 1922, likely for branding purposes, associating it with the famous industrialist Andrew Carnegie.",
+    "id": 254
+  },
+  {
+    "name": "Dale Carnegie",
+    "question": "What themes are central to \"How to Stop Worrying and Start Living\"?",
+    "gold_answer": "The book focuses on strategies to cope with worries that plague personal and professional life, aiming to help readers lead a more peaceful and productive life.",
+    "id": 255
+  },
+  {
+    "name": "Dale Carnegie",
+    "question": "How did Dale Carnegie's upbringing influence his career?",
+    "gold_answer": "Growing up in poverty likely influenced his focus on self-improvement and practical skills, which are central themes in his teachings and writings.",
+    "id": 256
+  },
+  {
+    "name": "Dale Carnegie",
+    "question": "What kinds of interpersonal skills did Dale Carnegie focus on in his courses?",
+    "gold_answer": "His courses emphasized skills such as effective communication, making lasting connections, and influencing people positively.",
+    "id": 257
+  },
+  {
+    "name": "Dale Carnegie",
+    "question": "How long did Dale Carnegie live?",
+    "gold_answer": "Dale Carnegie lived for 66 years.",
+    "id": 258
+  },
+  {
+    "name": "Dale Carnegie",
+    "question": "What educational offerings are based on Dale Carnegie's teachings today?",
+    "gold_answer": "Today, there are various courses and training programs worldwide based on his methods, offered by the Dale Carnegie Training organization.",
+    "id": 259
+  },
+  {
+    "name": "Dale Carnegie",
+    "question": "How did Dale Carnegie's books address the theme of self-improvement?",
+    "gold_answer": "His books provided practical advice on changing one's behavior and attitude, which he believed was key to personal and professional success.",
+    "id": 260
+  },
+  {
+    "name": "Stan Brakhage",
+    "question": "When was Stan Brakhage born?",
+    "gold_answer": "Stan Brakhage was born on January 14, 1933.",
+    "id": 261
+  },
+  {
+    "name": "Stan Brakhage",
+    "question": "When did Stan Brakhage pass away?",
+    "gold_answer": "Stan Brakhage passed away on March 9, 2003.",
+    "id": 262
+  },
+  {
+    "name": "Stan Brakhage",
+    "question": "What is Stan Brakhage renowned for in the field of cinema?",
+    "gold_answer": "Stan Brakhage is renowned for being one of the most important figures in 20th-century experimental film.",
+    "id": 263
+  },
+  {
+    "name": "Stan Brakhage",
+    "question": "How long was Stan Brakhage active in his filmmaking career?",
+    "gold_answer": "Stan Brakhage was active in his filmmaking career for approximately five decades.",
+    "id": 264
+  },
+  {
+    "name": "Stan Brakhage",
+    "question": "What are some of the filmmaking techniques used by Stan Brakhage?",
+    "gold_answer": "Stan Brakhage used techniques including handheld camerawork, painting directly onto celluloid, fast cutting, in-camera editing, scratching on film, and multiple exposures.",
+    "id": 265
+  },
+  {
+    "name": "Stan Brakhage",
+    "question": "Did Stan Brakhage incorporate sound into his films?",
+    "gold_answer": "No, his films are for the most part silent.",
+    "id": 266
+  },
+  {
+    "name": "Stan Brakhage",
+    "question": "What themes did Stan Brakhage explore in his films?",
+    "gold_answer": "Stan Brakhage's films often explored themes of birth, mortality, sexuality, and innocence.",
+    "id": 267
+  },
+  {
+    "name": "Stan Brakhage",
+    "question": "How did Stan Brakhage's interest in other art forms influence his filmmaking?",
+    "gold_answer": "Brakhage was inspired by music, poetry, and visual phenomena, which influenced the expressiveness and lyricism in his films.",
+    "id": 268
+  },
+  {
+    "name": "Stan Brakhage",
+    "question": "What kind of films did Stan Brakhage primarily produce?",
+    "gold_answer": "Stan Brakhage primarily produced experimental films.",
+    "id": 269
+  },
+  {
+    "name": "Stan Brakhage",
+    "question": "What was a unique characteristic of Stan Brakhage's cinematography?",
+    "gold_answer": "A unique characteristic of his cinematography was his use of collage film techniques.",
+    "id": 270
+  },
+  {
+    "name": "Stan Brakhage",
+    "question": "Are Stan Brakhage's films available for public viewing?",
+    "gold_answer": "Yes, many of Stan Brakhage's films are now readily available on DVD and other media.",
+    "id": 271
+  },
+  {
+    "name": "Stan Brakhage",
+    "question": "What impact did Stan Brakhage have on the film industry?",
+    "gold_answer": "Stan Brakhage had a significant impact on the experimental film movement, influencing many other filmmakers with his innovative techniques and artistic vision.",
+    "id": 272
+  },
+  {
+    "name": "Stan Brakhage",
+    "question": "Did Stan Brakhage ever receive any notable awards or recognition for his work?",
+    "gold_answer": "Specific awards are not mentioned, but his renown suggests significant recognition in the field of experimental cinema.",
+    "id": 273
+  },
+  {
+    "name": "Stan Brakhage",
+    "question": "What kind of visual phenomena interested Stan Brakhage in his work?",
+    "gold_answer": "Stan Brakhage was interested in the visual phenomena that relate to everyday sensory experiences and perceptions.",
+    "id": 274
+  },
+  {
+    "name": "Stan Brakhage",
+    "question": "How did Stan Brakhage's work differ from mainstream cinema?",
+    "gold_answer": "Stan Brakhage's work differed from mainstream cinema in its abstraction, lack of conventional narrative, and the use of non-traditional film techniques.",
+    "id": 275
+  },
+  {
+    "name": "Stan Brakhage",
+    "question": "What formats did Stan Brakhage explore in his filmmaking?",
+    "gold_answer": "Stan Brakhage explored a variety of formats, though specifics like 16mm or 35mm are not detailed here.",
+    "id": 276
+  },
+  {
+    "name": "Stan Brakhage",
+    "question": "How did Stan Brakhage's filmmaking approach contribute to the notion of film as an art form?",
+    "gold_answer": "His approach contributed by pushing the boundaries of film as an art form, particularly through his experimental techniques and personal expression.",
+    "id": 277
+  },
+  {
+    "name": "Stan Brakhage",
+    "question": "What does the availability of Stan Brakhage’s films on DVD imply about his work?",
+    "gold_answer": "The availability of his films on DVD implies that they have reached a broader audience and have enduring value and interest.",
+    "id": 278
+  },
+  {
+    "name": "Stan Brakhage",
+    "question": "How did Stan Brakhage's background in poetry influence his film editing style?",
+    "gold_answer": "His background in poetry influenced his film editing style by encouraging rhythmic, visually oriented editing that parallels poetic structure.",
+    "id": 279
+  },
+  {
+    "name": "Stan Brakhage",
+    "question": "In what ways did Stan Brakhage use the technique of scratching on film?",
+    "gold_answer": "Stan Brakhage used the technique of scratching on film to create abstract forms and textures directly on the celluloid, enhancing the visual experience.",
+    "id": 280
+  },
+  {
+    "name": "Augustine of Hippo",
+    "question": "When and where was Augustine of Hippo born?",
+    "gold_answer": "Augustine of Hippo was born on November 13, 354, in Thagaste, Numidia, now present-day Souk Ahras, Algeria.",
+    "id": 281
+  },
+  {
+    "name": "Augustine of Hippo",
+    "question": "What is Augustine of Hippo famously known for in religious history?",
+    "gold_answer": "Augustine of Hippo is famously known for his significant contributions to Western Christianity and Western philosophy, and as a major figure among the Latin Church Fathers in the Patristic Period.",
+    "id": 282
+  },
+  {
+    "name": "Augustine of Hippo",
+    "question": "What major works did Augustine of Hippo author?",
+    "gold_answer": "Major works of Augustine of Hippo include \"The City of God,\" \"On Christian Doctrine,\" and \"Confessions.\"",
+    "id": 283
+  },
+  {
+    "name": "Augustine of Hippo",
+    "question": "Which ancient faith did Augustine of Hippo initially follow before converting to Christianity?",
+    "gold_answer": "Before converting to Christianity, Augustine of Hippo initially followed the Manichaean faith.",
+    "id": 284
+  },
+  {
+    "name": "Augustine of Hippo",
+    "question": "What philosophical system did Augustine of Hippo explore after Manichaeism and before his conversion?",
+    "gold_answer": "After Manichaeism and before his conversion to Christianity, Augustine of Hippo was drawn to the Hellenistic philosophy of Neoplatonism.",
+    "id": 285
+  },
+  {
+    "name": "Augustine of Hippo",
+    "question": "In what year did Augustine of Hippo convert to Christianity?",
+    "gold_answer": "Augustine of Hippo converted to Christianity in the year 386.",
+    "id": 286
+  },
+  {
+    "name": "Augustine of Hippo",
+    "question": "What concept did Augustine of Hippo help develop that involves human nature and sin?",
+    "gold_answer": "Augustine of Hippo helped formulate the doctrine of original sin.",
+    "id": 287
+  },
+  {
+    "name": "Augustine of Hippo",
+    "question": "How did Augustine of Hippo contribute to the development of just war theory?",
+    "gold_answer": "Augustine of Hippo made significant contributions to the development of just war theory by integrating Christian ethics and philosophical reasoning on the use of force.",
+    "id": 288
+  },
+  {
+    "name": "Augustine of Hippo",
+    "question": "What role did Augustine of Hippo envision for the Church during the disintegration of the Western Roman Empire?",
+    "gold_answer": "Augustine of Hippo envisioned the Church as a spiritual \"City of God,\" distinct from the material \"Earthly City,\" during the disintegration of the Western Roman Empire.",
+    "id": 289
+  },
+  {
+    "name": "Augustine of Hippo",
+    "question": "How does the doctrine of the Trinity relate to Augustine of Hippo's teachings?",
+    "gold_answer": "Augustine of Hippo's teachings closely identified with the concept of the Trinity as defined by the Council of Nicaea and the Council of Constantinople, especially in his work \"On the Trinity.\"",
+    "id": 290
+  },
+  {
+    "name": "Augustine of Hippo",
+    "question": "What churches recognize Augustine of Hippo as a saint?",
+    "gold_answer": "Augustine of Hippo is recognized as a saint in the Catholic Church, the Eastern Orthodox Church, the Lutheran churches, and the Anglican Communion.",
+    "id": 291
+  },
+  {
+    "name": "Augustine of Hippo",
+    "question": "What special title is Augustine of Hippo given in the Catholic Church?",
+    "gold_answer": "In the Catholic Church, Augustine of Hippo is honored as a Doctor of the Church.",
+    "id": 292
+  },
+  {
+    "name": "Augustine of Hippo",
+    "question": "What is Augustine of Hippo the patron saint of?",
+    "gold_answer": "Augustine of Hippo is the patron saint of brewers, printers, theologians, and several cities and dioceses.",
+    "id": 293
+  },
+  {
+    "name": "Augustine of Hippo",
+    "question": "On what day is Augustine of Hippo's memorial celebrated?",
+    "gold_answer": "Augustine of Hippo's memorial is celebrated on August 28, the day of his death.",
+    "id": 294
+  },
+  {
+    "name": "Augustine of Hippo",
+    "question": "What was Martin Luther's connection to Augustine of Hippo?",
+    "gold_answer": "Martin Luther, a key figure in the Protestant Reformation, greatly admired Augustine of Hippo and was a member of the Order of the Augustinian Eremites from 1505 to 1521.",
+    "id": 295
+  },
+  {
+    "name": "Augustine of Hippo",
+    "question": "Which Augustine of Hippo doctrine is notably rejected by the Eastern Orthodox Church?",
+    "gold_answer": "The doctrine of the \"filioque\" – the procession of the Holy Spirit from both the Father and the Son – associated with Augustine of Hippo, is notably rejected by the Eastern Orthodox Church.",
+    "id": 296
+  },
+  {
+    "name": "Augustine of Hippo",
+    "question": "How is Augustine of Hippo regarded in Eastern Orthodox theology?",
+    "gold_answer": "In Eastern Orthodox theology, Augustine of Hippo's teachings are more disputed and were notably attacked by John Romanides, though other theologians have shown significant approval.",
+    "id": 297
+  },
+  {
+    "name": "Augustine of Hippo",
+    "question": "When is Augustine of Hippo's feast day celebrated in the Greek and Russian Orthodox churches?",
+    "gold_answer": "In the Greek and Russian Orthodox churches, Augustine of Hippo's feast day is celebrated on June 15.",
+    "id": 298
+  },
+  {
+    "name": "Augustine of Hippo",
+    "question": "What impact did Augustine of Hippo have on Western Christian thought according to historian Diarmaid MacCulloch?",
+    "gold_answer": "According to historian Diarmaid MacCulloch, Augustine of Hippo's impact on Western Christian thought is immense, second only to Paul of Tarsus.",
+    "id": 299
+  },
+  {
+    "name": "Augustine of Hippo",
+    "question": "What role did Augustine of Hippo's thoughts play in the medieval worldview?",
+    "gold_answer": "Augustine of Hippo's thoughts profoundly influenced the medieval worldview, shaping philosophical and theological discourses.",
+    "id": 300
+  },
+  {
+    "name": "Audre Lorde",
+    "question": "When was Audre Lorde born?",
+    "gold_answer": "Audre Lorde was born on February 18, 1934.",
+    "id": 301
+  },
+  {
+    "name": "Audre Lorde",
+    "question": "What was Audre Lorde's full birth name?",
+    "gold_answer": "Her full birth name was Audrey Geraldine Lorde.",
+    "id": 302
+  },
+  {
+    "name": "Audre Lorde",
+    "question": "When did Audre Lorde pass away?",
+    "gold_answer": "Audre Lorde passed away on November 17, 1992.",
+    "id": 303
+  },
+  {
+    "name": "Audre Lorde",
+    "question": "How did Audre Lorde describe herself in terms of her identity?",
+    "gold_answer": "Audre Lorde described herself as a \"Black, lesbian, feminist, socialist, mother, warrior, poet.\"",
+    "id": 304
+  },
+  {
+    "name": "Audre Lorde",
+    "question": "What professions did Audre Lorde have?",
+    "gold_answer": "Audre Lorde was a writer, professor, philosopher, and civil rights activist.",
+    "id": 305
+  },
+  {
+    "name": "Audre Lorde",
+    "question": "What are some key themes in Audre Lorde's poetry and prose?",
+    "gold_answer": "Her works often address civil rights, feminism, lesbianism, illness, disability, and Black female identity.",
+    "id": 306
+  },
+  {
+    "name": "Audre Lorde",
+    "question": "What was a notable belief of Audre Lorde regarding social justice?",
+    "gold_answer": "Audre Lorde believed that there was no hierarchy of oppressions, meaning all forms of injustice are equally important to confront.",
+    "id": 307
+  },
+  {
+    "name": "Audre Lorde",
+    "question": "How is Audre Lorde's spoken word delivery described?",
+    "gold_answer": "Her spoken word delivery is described as powerful, melodic, and intense.",
+    "id": 308
+  },
+  {
+    "name": "Audre Lorde",
+    "question": "Why is Audre Lorde considered an intersectional feminist?",
+    "gold_answer": "She is considered an intersectional feminist because her work addressed the interconnected nature of social categorizations such as race, gender, and sexuality, which lead to overlapping and interdependent systems of discrimination or disadvantage.",
+    "id": 309
+  },
+  {
+    "name": "Audre Lorde",
+    "question": "What impact did Audre Lorde have on the civil rights movement?",
+    "gold_answer": "Audre Lorde significantly contributed to the civil rights movement by using her voice and writings to highlight issues of racism, sexism, and homophobia.",
+    "id": 310
+  },
+  {
+    "name": "Audre Lorde",
+    "question": "Which university positions did Audre Lorde hold during her career?",
+    "gold_answer": "She was a professor at several institutions, although specific universities are not detailed in the given background.",
+    "id": 311
+  },
+  {
+    "name": "Audre Lorde",
+    "question": "Can you name any specific works by Audre Lorde?",
+    "gold_answer": "Specific works are not mentioned in the given background information.",
+    "id": 312
+  },
+  {
+    "name": "Audre Lorde",
+    "question": "What is known about Audre Lorde's technique in her poetry?",
+    "gold_answer": "She is known for her technical mastery and emotional expression.",
+    "id": 313
+  },
+  {
+    "name": "Audre Lorde",
+    "question": "How did Audre Lorde's identity influence her activism and writings?",
+    "gold_answer": "Her identity as a Black lesbian feminist deeply influenced her activism and writings, focusing on fighting injustices that affected similar communities.",
+    "id": 314
+  },
+  {
+    "name": "Audre Lorde",
+    "question": "What did Audre Lorde believe about expressing anger and outrage in her works?",
+    "gold_answer": "She believed in expressing anger and outrage at civil and social injustices through her poems, which was reflected in the themes she explored.",
+    "id": 315
+  },
+  {
+    "name": "Audre Lorde",
+    "question": "How has Audre Lorde been recognized posthumously in literary and activist communities?",
+    "gold_answer": "While specific awards or recognitions are not listed in the background provided, she is widely respected and often cited in discussions of literature and social activism.",
+    "id": 316
+  },
+  {
+    "name": "Audre Lorde",
+    "question": "Did Audre Lorde collaborate with other notable figures in her activism?",
+    "gold_answer": "The background information does not specify any collaborations.",
+    "id": 317
+  },
+  {
+    "name": "Audre Lorde",
+    "question": "What lasting legacy did Audre Lorde leave behind?",
+    "gold_answer": "Audre Lorde's legacy includes her influential writings and speeches that continue to inspire activism and scholarship in various social justice areas.",
+    "id": 318
+  },
+  {
+    "name": "Audre Lorde",
+    "question": "How did Audre Lorde's work contribute to discussions about illness and disability?",
+    "gold_answer": "Her works contributed to discussions on illness and disability by addressing these issues directly through her personal experiences and public advocacy.",
+    "id": 319
+  },
+  {
+    "name": "Audre Lorde",
+    "question": "What distinguishes Audre Lorde's work from other poets of her time?",
+    "gold_answer": "Audre Lorde's work is distinguished by her direct confrontation of societal issues, unique personal voice, and the integration of her multiple identities into her writing, setting her apart as a critical voice for marginalized communities.",
+    "id": 320
+  },
+  {
+    "name": "Evelyn Waugh",
+    "question": "When was Evelyn Waugh born?",
+    "gold_answer": "Evelyn Waugh was born on 28 October 1903.",
+    "id": 321
+  },
+  {
+    "name": "Evelyn Waugh",
+    "question": "What are some of the most famous works of Evelyn Waugh?",
+    "gold_answer": "Evelyn Waugh's most famous works include \"Decline and Fall,\" \"A Handful of Dust,\" \"Brideshead Revisited,\" and the \"Sword of Honour\" trilogy.",
+    "id": 322
+  },
+  {
+    "name": "Evelyn Waugh",
+    "question": "What was Evelyn Waugh's profession before becoming a full-time writer?",
+    "gold_answer": "Before becoming a full-time writer, Evelyn Waugh worked briefly as a schoolmaster.",
+    "id": 323
+  },
+  {
+    "name": "Evelyn Waugh",
+    "question": "In which branch of the British armed forces did Evelyn Waugh serve during the Second World War?",
+    "gold_answer": "Evelyn Waugh served in the Royal Marines and then in the Royal Horse Guards during the Second World War.",
+    "id": 324
+  },
+  {
+    "name": "Evelyn Waugh",
+    "question": "Why did Evelyn Waugh convert to Catholicism?",
+    "gold_answer": "Evelyn Waugh converted to Catholicism in 1930 following the failure of his first marriage.",
+    "id": 325
+  },
+  {
+    "name": "Evelyn Waugh",
+    "question": "What was Evelyn Waugh's stance towards the reforms of the Second Vatican Council?",
+    "gold_answer": "Evelyn Waugh strongly opposed the reforms of the Second Vatican Council, particularly disturbed by the introduction of the vernacular Mass.",
+    "id": 326
+  },
+  {
+    "name": "Evelyn Waugh",
+    "question": "How did Evelyn Waugh use his personal experiences in his writing?",
+    "gold_answer": "Evelyn Waugh used his experiences and the people he met to create humorous effects in his fiction, often incorporating elements from his own life and society.",
+    "id": 327
+  },
+  {
+    "name": "Evelyn Waugh",
+    "question": "Which schools did Evelyn Waugh attend?",
+    "gold_answer": "Evelyn Waugh was educated at Lancing College and Hertford College, Oxford.",
+    "id": 328
+  },
+  {
+    "name": "Evelyn Waugh",
+    "question": "What genres did Evelyn Waugh write in?",
+    "gold_answer": "Evelyn Waugh wrote novels, biographies, travel books, and he was also a prolific journalist and book reviewer.",
+    "id": 329
+  },
+  {
+    "name": "Evelyn Waugh",
+    "question": "What was Evelyn Waugh's general attitude towards the postwar welfare state culture?",
+    "gold_answer": "Evelyn Waugh disliked the welfare state culture of the postwar world.",
+    "id": 330
+  },
+  {
+    "name": "Evelyn Waugh",
+    "question": "How did Evelyn Waugh's health impact his later years?",
+    "gold_answer": "The decline of his health darkened Evelyn Waugh's final years.",
+    "id": 331
+  },
+  {
+    "name": "Evelyn Waugh",
+    "question": "When did Evelyn Waugh pass away?",
+    "gold_answer": "Evelyn Waugh died on 10 April 1966.",
+    "id": 332
+  },
+  {
+    "name": "Evelyn Waugh",
+    "question": "How did Evelyn Waugh's work gain new readers after his death?",
+    "gold_answer": "After his death, Evelyn Waugh gained new readers through film and television adaptations of his works, such as the television serial \"Brideshead Revisited.\"",
+    "id": 333
+  },
+  {
+    "name": "Evelyn Waugh",
+    "question": "What was Evelyn Waugh's father's profession?",
+    "gold_answer": "Evelyn Waugh's father was a publisher.",
+    "id": 334
+  },
+  {
+    "name": "Evelyn Waugh",
+    "question": "What role did Evelyn Waugh take on during his travels in the 1930s?",
+    "gold_answer": "During the 1930s, Evelyn Waugh often traveled as a special newspaper correspondent.",
+    "id": 335
+  },
+  {
+    "name": "Evelyn Waugh",
+    "question": "From which event did Evelyn Waugh report as a correspondent?",
+    "gold_answer": "Evelyn Waugh reported from Abyssinia during the 1935 Italian invasion.",
+    "id": 336
+  },
+  {
+    "name": "Evelyn Waugh",
+    "question": "How did Evelyn Waugh portray his own mental breakdown in his work?",
+    "gold_answer": "Evelyn Waugh fictionalized his own mental breakdown in his work, using it as material for his stories.",
+    "id": 337
+  },
+  {
+    "name": "Evelyn Waugh",
+    "question": "What characterizes Evelyn Waugh as a prose stylist?",
+    "gold_answer": "Evelyn Waugh is recognized as one of the great prose stylists of the English language in the 20th century, known for his precision and wit.",
+    "id": 338
+  },
+  {
+    "name": "Evelyn Waugh",
+    "question": "What aspect of society did Evelyn Waugh often satirize in his early works?",
+    "gold_answer": "In his early works, Evelyn Waugh often satirized fashionable and aristocratic society.",
+    "id": 339
+  },
+  {
+    "name": "Evelyn Waugh",
+    "question": "How did Evelyn Waugh's personal traits and attitudes reflect in his interactions with friends?",
+    "gold_answer": "Despite displaying a mask of indifference to the world, Evelyn Waugh was capable of great kindness to those he considered his friends.",
+    "id": 340
+  },
+  {
+    "name": "Carl Grimes",
+    "question": "Who created the character Carl Grimes?",
+    "gold_answer": "Carl Grimes was created by writer Robert Kirkman and artist Tony Moore.",
+    "id": 341
+  },
+  {
+    "name": "Carl Grimes",
+    "question": "In which comic book series does Carl Grimes appear?",
+    "gold_answer": "Carl Grimes appears in the comic book series \"The Walking Dead.\"",
+    "id": 342
+  },
+  {
+    "name": "Carl Grimes",
+    "question": "When did Carl Grimes first debut in \"The Walking Dead\"?",
+    "gold_answer": "Carl Grimes debuted in \"The Walking Dead #2\" in 2003.",
+    "id": 343
+  },
+  {
+    "name": "Carl Grimes",
+    "question": "Who portrayed Carl Grimes in the television series adaptation of \"The Walking Dead\"?",
+    "gold_answer": "Chandler Riggs portrayed Carl Grimes in the television series.",
+    "id": 344
+  },
+  {
+    "name": "Carl Grimes",
+    "question": "How is Carl Grimes related to Rick and Lori Grimes in \"The Walking Dead\"?",
+    "gold_answer": "Carl Grimes is the son of Rick and Lori Grimes.",
+    "id": 345
+  },
+  {
+    "name": "Carl Grimes",
+    "question": "How does Carl Grimes' personality evolve in the comic book series?",
+    "gold_answer": "In the comics, Carl starts as a normal, innocent child but becomes colder and sometimes makes brash decisions due to the zombie apocalypse.",
+    "id": 346
+  },
+  {
+    "name": "Carl Grimes",
+    "question": "What personality changes does Carl Grimes undergo in the television series?",
+    "gold_answer": "In the TV series, Carl adopts a callous personality, which eventually evolves into a mix of regained morality and a survival edge.",
+    "id": 347
+  },
+  {
+    "name": "Carl Grimes",
+    "question": "What major conflict does Carl Grimes have with his father in the television series?",
+    "gold_answer": "Carl Grimes conflicts with his father over issues such as maintaining morality and helping strangers.",
+    "id": 348
+  },
+  {
+    "name": "Carl Grimes",
+    "question": "What awards did Chandler Riggs win for his portrayal of Carl Grimes?",
+    "gold_answer": "Chandler Riggs won the Saturn Award for Best Performance by a Younger Actor in a Television Series in 2014 and 2016.",
+    "id": 349
+  },
+  {
+    "name": "Carl Grimes",
+    "question": "For which awards was Chandler Riggs nominated due to his role as Carl Grimes?",
+    "gold_answer": "Chandler Riggs was nominated for the Young Artist Award for Best Performance in a TV Series – Leading Young Actor in 2012, 2013, and won in 2014.",
+    "id": 350
+  },
+  {
+    "name": "Carl Grimes",
+    "question": "What was the audience and critical reaction to Carl Grimes' death in the TV series?",
+    "gold_answer": "Carl Grimes' death in the TV series caused severe backlash and was deemed the worst decision of the show by both the audience and critics.",
+    "id": 351
+  },
+  {
+    "name": "Carl Grimes",
+    "question": "In what year did Carl Grimes first appear in the television series \"The Walking Dead\"?",
+    "gold_answer": "Carl Grimes first appeared in the television series \"The Walking Dead\" in 2010.",
+    "id": 352
+  },
+  {
+    "name": "Carl Grimes",
+    "question": "How does Carl Grimes' relationship with his father change throughout the television series?",
+    "gold_answer": "Carl's relationship with his father deteriorates as they clash over issues of morality and survival tactics.",
+    "id": 353
+  },
+  {
+    "name": "Carl Grimes",
+    "question": "What significant award did Chandler Riggs win in 2014 for playing Carl Grimes?",
+    "gold_answer": "Chandler Riggs won the Young Artist Award for Best Performance in a TV Series – Leading Young Actor in 2014.",
+    "id": 354
+  },
+  {
+    "name": "Carl Grimes",
+    "question": "What key themes are explored through Carl Grimes' character in both the comic and TV series?",
+    "gold_answer": "Key themes explored include the loss of innocence, moral dilemmas, and the harsh realities of survival in an apocalyptic world.",
+    "id": 355
+  },
+  {
+    "name": "Carl Grimes",
+    "question": "How does Carl Grimes' approach to survival differ in the comics compared to the TV series?",
+    "gold_answer": "In both media, Carl becomes hardened by the apocalypse, but the TV series specifically highlights his journey towards regaining some of his morality while remaining a pragmatic survivor.",
+    "id": 356
+  },
+  {
+    "name": "Carl Grimes",
+    "question": "What impact does Carl Grimes' evolution have on his father Rick in the television series?",
+    "gold_answer": "Carl's evolution impacts Rick by mirroring a reversal in their moral stances, leading Rick to often reassess his own decisions and morality.",
+    "id": 357
+  },
+  {
+    "name": "Carl Grimes",
+    "question": "How do fans generally view Chandler Riggs' interpretation of Carl Grimes?",
+    "gold_answer": "Chandler Riggs' interpretation of Carl Grimes was generally well-received by fans and critics alike for its depth and evolution.",
+    "id": 358
+  },
+  {
+    "name": "Carl Grimes",
+    "question": "What factors contribute to the development of Carl Grimes' character in \"The Walking Dead\"?",
+    "gold_answer": "The brutal circumstances of the zombie apocalypse and the interactions and conflicts with his family and group members contribute to Carl's development.",
+    "id": 359
+  },
+  {
+    "name": "Carl Grimes",
+    "question": "What is the significance of Carl Grimes in \"The Walking Dead\" narrative?",
+    "gold_answer": "Carl Grimes represents the next generation and the impact of a brutal new world on the youth, shaping significant themes of the series.",
+    "id": 360
+  },
+  {
+    "name": "John Fisher",
+    "question": "When was John Fisher born?",
+    "gold_answer": "John Fisher was born around 19 October 1469.",
+    "id": 361
+  },
+  {
+    "name": "John Fisher",
+    "question": "What role did John Fisher play in the English church?",
+    "gold_answer": "John Fisher was an English Catholic bishop and cardinal.",
+    "id": 362
+  },
+  {
+    "name": "John Fisher",
+    "question": "What academic position did John Fisher hold?",
+    "gold_answer": "John Fisher was the Chancellor of the University of Cambridge.",
+    "id": 363
+  },
+  {
+    "name": "John Fisher",
+    "question": "Why is John Fisher honored as a martyr by the Catholic Church?",
+    "gold_answer": "He is honored as a martyr because he was executed for refusing to accept Henry VIII as the supreme head of the Church of England and for upholding the Catholic Church's doctrine of papal supremacy.",
+    "id": 364
+  },
+  {
+    "name": "John Fisher",
+    "question": "On what date was John Fisher executed?",
+    "gold_answer": "John Fisher was executed on 22 June 1535.",
+    "id": 365
+  },
+  {
+    "name": "John Fisher",
+    "question": "What was John Fisher's stance regarding the English Reformation?",
+    "gold_answer": "John Fisher opposed the English Reformation, particularly rejecting Henry VIII's claim over the church.",
+    "id": 366
+  },
+  {
+    "name": "John Fisher",
+    "question": "Who canonized John Fisher as a saint?",
+    "gold_answer": "John Fisher was canonized by Pope Pius XI.",
+    "id": 367
+  },
+  {
+    "name": "John Fisher",
+    "question": "With whom does John Fisher share his feast day, and why?",
+    "gold_answer": "John Fisher shares his feast day with Thomas More on 22 June, as both were martyred for their faith during the English Reformation.",
+    "id": 368
+  },
+  {
+    "name": "John Fisher",
+    "question": "What educational contribution did John Fisher make?",
+    "gold_answer": "John Fisher contributed significantly to academia through his role as Chancellor at the University of Cambridge.",
+    "id": 369
+  },
+  {
+    "name": "John Fisher",
+    "question": "How did John Fisher’s life end?",
+    "gold_answer": "His life ended by execution, ordered by King Henry VIII.",
+    "id": 370
+  },
+  {
+    "name": "John Fisher",
+    "question": "What was John Fisher's contribution to theology?",
+    "gold_answer": "John Fisher was a prominent theologian who defended the traditional Catholic doctrine against Reformation ideas.",
+    "id": 371
+  },
+  {
+    "name": "John Fisher",
+    "question": "When is John Fisher commemorated in the Church of England’s calendar?",
+    "gold_answer": "John Fisher is commemorated on 6 July in the Church of England’s calendar.",
+    "id": 372
+  },
+  {
+    "name": "John Fisher",
+    "question": "What is John Fisher’s significance in religious history?",
+    "gold_answer": "John Fisher is significant for his staunch defense of the Catholic faith during the Reformation and his martyrdom.",
+    "id": 373
+  },
+  {
+    "name": "John Fisher",
+    "question": "Did John Fisher receive any titles before his death?",
+    "gold_answer": "Yes, he was named a cardinal shortly before his death.",
+    "id": 374
+  },
+  {
+    "name": "John Fisher",
+    "question": "How did John Fisher’s actions impact his relationship with King Henry VIII?",
+    "gold_answer": "His actions, particularly his opposition to the king's religious authority, led to his execution by Henry VIII.",
+    "id": 375
+  },
+  {
+    "name": "John Fisher",
+    "question": "What is a notable work or writing by John Fisher?",
+    "gold_answer": "John Fisher is known for several theological writings, including sermons and treatises defending the Catholic Church's positions.",
+    "id": 376
+  },
+  {
+    "name": "John Fisher",
+    "question": "Why did John Fisher’s execution occur during the English Reformation?",
+    "gold_answer": "His execution was a result of his steadfast loyalty to the papacy and refusal to accept the royal supremacy over the church.",
+    "id": 377
+  },
+  {
+    "name": "John Fisher",
+    "question": "What legacy did John Fisher leave at the University of Cambridge?",
+    "gold_answer": "His legacy at Cambridge includes the promotion of education and the strengthening of academic standards.",
+    "id": 378
+  },
+  {
+    "name": "John Fisher",
+    "question": "Has John Fisher been recognized in any significant ways besides canonization?",
+    "gold_answer": "Besides canonization, John Fisher’s legacy is celebrated through his feast day and recognition as a key historical figure in religious studies.",
+    "id": 379
+  },
+  {
+    "name": "John Fisher",
+    "question": "What impact did John Fisher have on the Catholic Church?",
+    "gold_answer": "His impact includes his role as a defender of the faith, a theological writer, and a martyr who stood against the Anglican establishment.",
+    "id": 380
+  },
+  {
+    "name": "David Cronenberg",
+    "question": "When was David Cronenberg born?",
+    "gold_answer": "David Cronenberg was born on March 15, 1943.",
+    "id": 381
+  },
+  {
+    "name": "David Cronenberg",
+    "question": "What nationality is David Cronenberg?",
+    "gold_answer": "David Cronenberg is Canadian.",
+    "id": 382
+  },
+  {
+    "name": "David Cronenberg",
+    "question": "What genre is David Cronenberg known for pioneering?",
+    "gold_answer": "David Cronenberg is a principal originator of the body horror genre.",
+    "id": 383
+  },
+  {
+    "name": "David Cronenberg",
+    "question": "What themes are prevalent in David Cronenberg's films?",
+    "gold_answer": "His films commonly explore visceral bodily transformation, infectious diseases, and the intertwining of the psychological, physical, and technological.",
+    "id": 384
+  },
+  {
+    "name": "David Cronenberg",
+    "question": "What type of films is David Cronenberg best known for?",
+    "gold_answer": "David Cronenberg is best known for his sci-fi horror films.",
+    "id": 385
+  },
+  {
+    "name": "David Cronenberg",
+    "question": "Can you name a few notable films directed by David Cronenberg?",
+    "gold_answer": "Notable films include \"Shivers,\" \"Scanners,\" \"Videodrome,\" and \"The Fly.\"",
+    "id": 386
+  },
+  {
+    "name": "David Cronenberg",
+    "question": "Has David Cronenberg directed films in genres other than horror?",
+    "gold_answer": "Yes, he has also directed dramas, psychological thrillers, and gangster films.",
+    "id": 387
+  },
+  {
+    "name": "David Cronenberg",
+    "question": "How have critics and audiences generally responded to David Cronenberg's films?",
+    "gold_answer": "His films have polarized critics and audiences, sparking both critical acclaim and controversy.",
+    "id": 388
+  },
+  {
+    "name": "David Cronenberg",
+    "question": "What notable quote did The Village Voice have about David Cronenberg?",
+    "gold_answer": "The Village Voice called him \"the most audacious and challenging narrative director in the English-speaking world.\"",
+    "id": 389
+  },
+  {
+    "name": "David Cronenberg",
+    "question": "What significant award did David Cronenberg's film \"Crash\" win at Cannes Film Festival?",
+    "gold_answer": "\"Crash\" won the Special Jury Prize at the 1996 Cannes Film Festival.",
+    "id": 390
+  },
+  {
+    "name": "David Cronenberg",
+    "question": "What is unique about the Special Jury Prize awarded to \"Crash\"?",
+    "gold_answer": "It is distinct from the Jury Prize as it is not given annually but only at the request of the official jury.",
+    "id": 391
+  },
+  {
+    "name": "David Cronenberg",
+    "question": "Why was \"Crash\" awarded the Special Jury Prize?",
+    "gold_answer": "It was awarded \"for originality, for daring, and for audacity.\"",
+    "id": 392
+  },
+  {
+    "name": "David Cronenberg",
+    "question": "Who has been a frequent collaborator with David Cronenberg from the 2000s to the 2020s?",
+    "gold_answer": "Viggo Mortensen has been a frequent collaborator with Cronenberg during that period.",
+    "id": 393
+  },
+  {
+    "name": "David Cronenberg",
+    "question": "Name some films David Cronenberg and Viggo Mortensen worked on together.",
+    "gold_answer": "They worked together on \"A History of Violence,\" \"Eastern Promises,\" \"A Dangerous Method,\" and \"Crimes of the Future.\"",
+    "id": 394
+  },
+  {
+    "name": "David Cronenberg",
+    "question": "How many of David Cronenberg's films have competed for the Palme d'Or?",
+    "gold_answer": "Six of his films have been selected to compete for the Palme d'Or.",
+    "id": 395
+  },
+  {
+    "name": "David Cronenberg",
+    "question": "What is the most recent film by David Cronenberg that competed at the Cannes Film Festival?",
+    "gold_answer": "\"Crimes of the Future,\" screened at the 2022 Cannes Film Festival, is his most recent.",
+    "id": 396
+  },
+  {
+    "name": "David Cronenberg",
+    "question": "What year was \"A History of Violence\" released?",
+    "gold_answer": "\"A History of Violence\" was released in 2005.",
+    "id": 397
+  },
+  {
+    "name": "David Cronenberg",
+    "question": "What is the premise of David Cronenberg's film \"Scanners\"?",
+    "gold_answer": "\"Scanners\" involves individuals with psychic powers, including the ability to read minds and induce violent explosions.",
+    "id": 398
+  },
+  {
+    "name": "David Cronenberg",
+    "question": "What transformation theme is explored in David Cronenberg's film \"The Fly\"?",
+    "gold_answer": "\"The Fly\" explores the theme of a scientist transforming into a fly after an experiment goes wrong.",
+    "id": 399
+  },
+  {
+    "name": "David Cronenberg",
+    "question": "What accolade was David Cronenberg honored with at the Cannes Film Festival for \"Crash\"?",
+    "gold_answer": "He was honored with the Special Jury Prize for his originality, daring, and audacity with the film \"Crash.\"",
+    "id": 400
+  },
+  {
+    "name": "Lemmy Kilmister",
+    "question": "When and where was Lemmy Kilmister born?",
+    "gold_answer": "Lemmy Kilmister was born on 24 December 1945 in Stoke-on-Trent.",
+    "id": 401
+  },
+  {
+    "name": "Lemmy Kilmister",
+    "question": "What band did Lemmy Kilmister found and when?",
+    "gold_answer": "Lemmy Kilmister founded the rock band Motörhead in 1975.",
+    "id": 402
+  },
+  {
+    "name": "Lemmy Kilmister",
+    "question": "For which band was Lemmy Kilmister a member from 1971 to 1975?",
+    "gold_answer": "Lemmy Kilmister was a member of Hawkwind from 1971 to 1975.",
+    "id": 403
+  },
+  {
+    "name": "Lemmy Kilmister",
+    "question": "What unique characteristics were associated with Lemmy Kilmister's appearance?",
+    "gold_answer": "Lemmy Kilmister was known for his signature friendly mutton chops, military-influenced fashion, and gravelly voice.",
+    "id": 404
+  },
+  {
+    "name": "Lemmy Kilmister",
+    "question": "What was unique about Lemmy Kilmister's singing posture?",
+    "gold_answer": "Lemmy Kilmister had a unique posture, often described as looking up towards a towering microphone tilted down into his face.",
+    "id": 405
+  },
+  {
+    "name": "Lemmy Kilmister",
+    "question": "How did Lemmy Kilmister contribute to the sound of Motörhead on the bass guitar?",
+    "gold_answer": "Lemmy Kilmister used his Rickenbacker bass to create a distorted rhythmic rumble and often played guitar-like riffing with power chords.",
+    "id": 406
+  },
+  {
+    "name": "Lemmy Kilmister",
+    "question": "What early bands was Lemmy Kilmister part of before becoming famous?",
+    "gold_answer": "Before fame, Lemmy Kilmister played in several rock groups in the 1960s, including The Rockin' Vickers.",
+    "id": 407
+  },
+  {
+    "name": "Lemmy Kilmister",
+    "question": "What was a notable song Lemmy Kilmister sang with Hawkwind?",
+    "gold_answer": "Lemmy Kilmister sang lead vocals on Hawkwind's hit \"Silver Machine.\"",
+    "id": 408
+  },
+  {
+    "name": "Lemmy Kilmister",
+    "question": "What led to Lemmy Kilmister's dismissal from Hawkwind?",
+    "gold_answer": "Lemmy Kilmister was fired from Hawkwind in 1975 following an arrest for drug possession.",
+    "id": 409
+  },
+  {
+    "name": "Lemmy Kilmister",
+    "question": "What was a peak moment in Motörhead's career in terms of mainstream success?",
+    "gold_answer": "Motörhead's success peaked with the hit single \"Ace of Spades\" and the live album No Sleep 'til Hammersmith around 1980-1981.",
+    "id": 410
+  },
+  {
+    "name": "Lemmy Kilmister",
+    "question": "Where did Lemmy Kilmister live since 1990?",
+    "gold_answer": "Since 1990, Lemmy Kilmister lived in Los Angeles.",
+    "id": 411
+  },
+  {
+    "name": "Lemmy Kilmister",
+    "question": "When did Lemmy Kilmister pass away, and what was the cause?",
+    "gold_answer": "Lemmy Kilmister died on 28 December 2015, and he was diagnosed with prostate cancer two days before his death.",
+    "id": 412
+  },
+  {
+    "name": "Lemmy Kilmister",
+    "question": "What was notable about Lemmy Kilmister's lifestyle?",
+    "gold_answer": "Lemmy Kilmister was known for his hard-living, road-driven lifestyle that included chain-smoking and heavy consumption of alcohol and amphetamines.",
+    "id": 413
+  },
+  {
+    "name": "Lemmy Kilmister",
+    "question": "In which movies or TV shows did Lemmy Kilmister have minor roles or cameos?",
+    "gold_answer": "Lemmy Kilmister had minor roles and cameos in film and television, but specific titles are not mentioned in the background provided.",
+    "id": 414
+  },
+  {
+    "name": "Lemmy Kilmister",
+    "question": "How did Lemmy Kilmister's influence extend beyond music?",
+    "gold_answer": "Beyond music, Lemmy Kilmister influenced fashion with his distinctive military-influenced style and was an icon in rock culture.",
+    "id": 415
+  },
+  {
+    "name": "Lemmy Kilmister",
+    "question": "How did Lemmy Kilmister's bass playing style differ from traditional methods?",
+    "gold_answer": "Lemmy's style was characterized by overpowered, distorted bass tones and guitar-like riffing, using a pick and power chords.",
+    "id": 416
+  },
+  {
+    "name": "Lemmy Kilmister",
+    "question": "What childhood locations influenced Lemmy Kilmister's early life?",
+    "gold_answer": "Lemmy grew up between Stoke-on-Trent, Newcastle-under-Lyme, Madeley, and Benllech, Anglesey.",
+    "id": 417
+  },
+  {
+    "name": "Lemmy Kilmister",
+    "question": "What bands did Lemmy Kilmister work with as a roadie before his music career took off?",
+    "gold_answer": "Lemmy Kilmister worked as a roadie for Jimi Hendrix and The Nice before his own music career took off.",
+    "id": 418
+  },
+  {
+    "name": "Lemmy Kilmister",
+    "question": "How did Lemmy Kilmister's approach to bass guitar impact the heavy metal genre?",
+    "gold_answer": "Lemmy's aggressive, distorted bass playing contributed significantly to the development of the heavy metal genre.",
+    "id": 419
+  },
+  {
+    "name": "Lemmy Kilmister",
+    "question": "How did Lemmy Kilmister's early interest in rock and roll manifest in his music career?",
+    "gold_answer": "Lemmy Kilmister's early interest in rock and roll and bands like the Beatles inspired him to pursue music, leading to his distinctive style and success with Motörhead.",
+    "id": 420
+  },
+  {
+    "name": "Terrence Malick",
+    "question": "When was Terrence Malick born?",
+    "gold_answer": "Terrence Malick was born on November 30, 1943.",
+    "id": 421
+  },
+  {
+    "name": "Terrence Malick",
+    "question": "What film did Terrence Malick debut with?",
+    "gold_answer": "Terrence Malick debuted with the film \"Badlands\" in 1973.",
+    "id": 422
+  },
+  {
+    "name": "Terrence Malick",
+    "question": "What is the theme of Terrence Malick's film \"Badlands\"?",
+    "gold_answer": "\"Badlands\" is about a murderous couple on the run in the 1950s American Midwest.",
+    "id": 423
+  },
+  {
+    "name": "Terrence Malick",
+    "question": "What notable awards did Terrence Malick receive nominations for with \"The Thin Red Line\"?",
+    "gold_answer": "For \"The Thin Red Line,\" Terrence Malick received Academy Award nominations for Best Director and Best Adapted Screenplay.",
+    "id": 424
+  },
+  {
+    "name": "Terrence Malick",
+    "question": "Which Terrence Malick film won the Palme d'Or at the 64th Cannes Film Festival?",
+    "gold_answer": "\"The Tree of Life\" won the Palme d'Or at the 64th Cannes Film Festival.",
+    "id": 425
+  },
+  {
+    "name": "Terrence Malick",
+    "question": "What are the common themes explored in Terrence Malick's films?",
+    "gold_answer": "Common themes in Terrence Malick's films include transcendence, nature, and the conflict between reason and instinct.",
+    "id": 426
+  },
+  {
+    "name": "Terrence Malick",
+    "question": "How is Terrence Malick's directorial style generally characterized?",
+    "gold_answer": "Terrence Malick's style is characterized by philosophical and spiritual overtones, and meditative voice-overs.",
+    "id": 427
+  },
+  {
+    "name": "Terrence Malick",
+    "question": "What era of filmmakers does Terrence Malick belong to?",
+    "gold_answer": "Terrence Malick belongs to the New Hollywood generation of filmmakers.",
+    "id": 428
+  },
+  {
+    "name": "Terrence Malick",
+    "question": "What film by Terrence Malick details a love triangle during the First World War?",
+    "gold_answer": "\"Days of Heaven\" details a love triangle during the First World War.",
+    "id": 429
+  },
+  {
+    "name": "Terrence Malick",
+    "question": "Why did Terrence Malick take a lengthy hiatus in his career?",
+    "gold_answer": "The specific reasons for Terrence Malick's lengthy hiatus are not detailed in the background provided.",
+    "id": 430
+  },
+  {
+    "name": "Terrence Malick",
+    "question": "How do film scholars and audiences typically react to Terrence Malick's films?",
+    "gold_answer": "Terrence Malick's films have polarized scholars and audiences; they are praised for their cinematography and aesthetics but critiqued for lacking plot and character development.",
+    "id": 431
+  },
+  {
+    "name": "Terrence Malick",
+    "question": "What stylistic elements are prominent in Terrence Malick's filmmaking?",
+    "gold_answer": "Prominent stylistic elements include lavish cinematography and the use of voice-overs.",
+    "id": 432
+  },
+  {
+    "name": "Terrence Malick",
+    "question": "Which Terrence Malick film received another Best Director Oscar nomination in 2011?",
+    "gold_answer": "\"The Tree of Life\" received another Best Director Oscar nomination in 2011.",
+    "id": 433
+  },
+  {
+    "name": "Terrence Malick",
+    "question": "What other film did Terrence Malick release in 2005 apart from \"The New World\"?",
+    "gold_answer": "The information provided only mentions \"The New World\" as the film released in 2005 by Terrence Malick.",
+    "id": 434
+  },
+  {
+    "name": "Terrence Malick",
+    "question": "How have Terrence Malick's films been ranked in retrospective decade-end polls?",
+    "gold_answer": "Terrence Malick's films have ranked highly in retrospective decade-end polls.",
+    "id": 435
+  },
+  {
+    "name": "Terrence Malick",
+    "question": "What film by Terrence Malick explores early American history?",
+    "gold_answer": "\"The New World\" explores early American history.",
+    "id": 436
+  },
+  {
+    "name": "Terrence Malick",
+    "question": "How does Terrence Malick typically develop characters in his films?",
+    "gold_answer": "Terrence Malick's character development is often seen as lacking by critics, focusing more on style and thematic expression.",
+    "id": 437
+  },
+  {
+    "name": "Terrence Malick",
+    "question": "What specific aspect of Terrence Malick's films do many admire?",
+    "gold_answer": "Many admire the lavish cinematography and visual aesthetics in Terrence Malick's films.",
+    "id": 438
+  },
+  {
+    "name": "Terrence Malick",
+    "question": "Has Terrence Malick's approach to film been consistent throughout his career?",
+    "gold_answer": "Yes, Terrence Malick has consistently used broad philosophical themes and stylistic cinematography throughout his career.",
+    "id": 439
+  },
+  {
+    "name": "Terrence Malick",
+    "question": "What influence does Terrence Malick's filmmaking style have on modern cinema?",
+    "gold_answer": "Terrence Malick's style has influenced modern cinema by emphasizing visual storytelling and thematic depth.",
+    "id": 440
+  },
+  {
+    "name": "Sune Sik",
+    "question": "Who was Sune Sik?",
+    "gold_answer": "Sune Sik was allegedly a Swedish prince.",
+    "id": 441
+  },
+  {
+    "name": "Sune Sik",
+    "question": "What was the supposed lineage of Sune Sik?",
+    "gold_answer": "He was believed to be a younger son of King Sverker I of Sweden.",
+    "id": 442
+  },
+  {
+    "name": "Sune Sik",
+    "question": "What is one notable descendant associated with Sune Sik?",
+    "gold_answer": "He is said to be the father of Ingrid Ylva.",
+    "id": 443
+  },
+  {
+    "name": "Sune Sik",
+    "question": "What evidence suggests the existence of Sune Sik in surviving documents?",
+    "gold_answer": "A Sune Sik is mentioned in surviving contemporary documents, notably making a donation to Vreta Abbey in 1297.",
+    "id": 444
+  },
+  {
+    "name": "Sune Sik",
+    "question": "How did Sune Sik's mention in historical documents contribute to doubts about his identity as a prince?",
+    "gold_answer": "His presence in later documents, particularly the donation to Vreta Abbey, raised doubts about him being a prince, as it suggests a much later timeframe than originally believed.",
+    "id": 445
+  },
+  {
+    "name": "Sune Sik",
+    "question": "What action is attributed to Sune Sik regarding a chapel?",
+    "gold_answer": "He is believed to have ordered a restoration of a chapel, where he eventually was interred.",
+    "id": 446
+  },
+  {
+    "name": "Sune Sik",
+    "question": "What might have led to the perception of Sune Sik as a prince?",
+    "gold_answer": "Later Cistercian tradition possibly transformed him into a prince based on the restoration of the chapel and his burial there.",
+    "id": 447
+  },
+  {
+    "name": "Sune Sik",
+    "question": "Why do some historians consider Olaus Petri's account of Sune Sik unreliable?",
+    "gold_answer": "The discrepancy between the contemporary documents and Olaus Petri's account has led some historians to doubt the accuracy of his portrayal of Sune Sik.",
+    "id": 448
+  },
+  {
+    "name": "Sune Sik",
+    "question": "How is Sune Sik viewed by other Swedish historians?",
+    "gold_answer": "Some Swedish historians consider him a person of historical significance and accept the possibility that he was indeed a prince.",
+    "id": 449
+  },
+  {
+    "name": "Sune Sik",
+    "question": "What additional title is attributed to Sune Sik by Magnus Boræn?",
+    "gold_answer": "Magnus Boræn suggests that Sune Sik may have been Duke of Östergötland.",
+    "id": 450
+  },
+  {
+    "name": "Sune Sik",
+    "question": "During what period is Sune Sik believed to have lived?",
+    "gold_answer": "Sune Sik is believed to have lived around the 13th century.",
+    "id": 451
+  },
+  {
+    "name": "Sune Sik",
+    "question": "What contribution did Sune Sik make to Vreta Abbey?",
+    "gold_answer": "He made a donation to Vreta Abbey in 1297.",
+    "id": 452
+  },
+  {
+    "name": "Sune Sik",
+    "question": "How did later traditions possibly alter the perception of Sune Sik?",
+    "gold_answer": "Later Cistercian tradition may have exaggerated his status, turning him into a prince.",
+    "id": 453
+  },
+  {
+    "name": "Sune Sik",
+    "question": "What evidence supports the belief that Sune Sik was buried at Vreta Abbey?",
+    "gold_answer": "The chapel restoration he allegedly ordered is associated with his burial at Vreta Abbey.",
+    "id": 454
+  },
+  {
+    "name": "Sune Sik",
+    "question": "What historical significance does Sune Sik hold?",
+    "gold_answer": "He represents a figure whose identity is subject to historical debate and interpretation.",
+    "id": 455
+  },
+  {
+    "name": "Sune Sik",
+    "question": "Why is there uncertainty surrounding Sune Sik's identity?",
+    "gold_answer": "Discrepancies between historical accounts and surviving documents contribute to uncertainty regarding Sune Sik's true identity.",
+    "id": 456
+  },
+  {
+    "name": "Sune Sik",
+    "question": "What role does Sune Sik play in Swedish historical discourse?",
+    "gold_answer": "Sune Sik serves as a point of contention and discussion among historians regarding his royal lineage and historical significance.",
+    "id": 457
+  },
+  {
+    "name": "Sune Sik",
+    "question": "What implications does the donation to Vreta Abbey have on Sune Sik's identity?",
+    "gold_answer": "The donation suggests that Sune Sik lived much later than originally believed, casting doubt on his identity as a prince.",
+    "id": 458
+  },
+  {
+    "name": "Sune Sik",
+    "question": "How do differing historical interpretations affect the perception of Sune Sik?",
+    "gold_answer": "Differing interpretations shape how Sune Sik is viewed, with some considering him a prince and others questioning his royal status.",
+    "id": 459
+  },
+  {
+    "name": "Sune Sik",
+    "question": "What historical sources contribute to our understanding of Sune Sik?",
+    "gold_answer": "Contemporary documents, later traditions, and historical accounts such as those by Olaus Petri and Magnus Boræn contribute to our understanding of Sune Sik's identity and significance.",
+    "id": 460
+  },
+  {
+    "name": "Franz Liszt",
+    "question": "When was Franz Liszt born?",
+    "gold_answer": "Franz Liszt was born on October 22, 1811.",
+    "id": 461
+  },
+  {
+    "name": "Franz Liszt",
+    "question": "What nationality was Franz Liszt?",
+    "gold_answer": "Franz Liszt was Hungarian.",
+    "id": 462
+  },
+  {
+    "name": "Franz Liszt",
+    "question": "What was Franz Liszt known for during the Romantic period?",
+    "gold_answer": "Franz Liszt was known as a composer, virtuoso pianist, conductor, and teacher.",
+    "id": 463
+  },
+  {
+    "name": "Franz Liszt",
+    "question": "What was the term used to describe Franz Liszt's popularity and fan frenzy?",
+    "gold_answer": "The term used to describe his popularity was \"Lisztomania.\"",
+    "id": 464
+  },
+  {
+    "name": "Franz Liszt",
+    "question": "In which decades did Franz Liszt tour Europe as a pianist?",
+    "gold_answer": "Franz Liszt toured Europe primarily during the 1830s and 1840s.",
+    "id": 465
+  },
+  {
+    "name": "Franz Liszt",
+    "question": "How did Franz Liszt contribute to charitable causes?",
+    "gold_answer": "Franz Liszt often played piano for charity during his tours.",
+    "id": 466
+  },
+  {
+    "name": "Franz Liszt",
+    "question": "Who were some of the composers Franz Liszt supported as a friend and benefactor?",
+    "gold_answer": "Franz Liszt supported composers such as Hector Berlioz, Frédéric Chopin, Robert Schumann, Clara Schumann, and Richard Wagner.",
+    "id": 467
+  },
+  {
+    "name": "Franz Liszt",
+    "question": "Which musical group did Franz Liszt represent along with Richard Wagner?",
+    "gold_answer": "Franz Liszt was a prominent representative of the New German School.",
+    "id": 468
+  },
+  {
+    "name": "Franz Liszt",
+    "question": "What significant teaching method did Franz Liszt invent?",
+    "gold_answer": "Franz Liszt invented the masterclass as a method of teaching performance.",
+    "id": 469
+  },
+  {
+    "name": "Franz Liszt",
+    "question": "What is a symphonic poem, a concept contributed by Franz Liszt?",
+    "gold_answer": "A symphonic poem is a piece of orchestral music that illustrates or evokes the content of a poem, story, novel, painting, landscape, or other non-musical source.",
+    "id": 470
+  },
+  {
+    "name": "Franz Liszt",
+    "question": "What is thematic transformation, a technique innovated by Franz Liszt?",
+    "gold_answer": "Thematic transformation is a technique where a musical theme is developed by changing it melodically, harmonically, or rhythmically.",
+    "id": 471
+  },
+  {
+    "name": "Franz Liszt",
+    "question": "What innovative style did Franz Liszt experiment with in his later works?",
+    "gold_answer": "In his later works, Franz Liszt experimented with atonality.",
+    "id": 472
+  },
+  {
+    "name": "Franz Liszt",
+    "question": "How did Franz Liszt's piano works impact 20th-century music?",
+    "gold_answer": "Liszt's piano works influenced contemporary composers and anticipated trends and ideas in 20th-century classical music.",
+    "id": 473
+  },
+  {
+    "name": "Franz Liszt",
+    "question": "What was the \"War of the Romantics\" in which Franz Liszt was involved?",
+    "gold_answer": "The \"War of the Romantics\" was a debate among musicians regarding the future direction of music, especially in terms of programmatic versus absolute music.",
+    "id": 474
+  },
+  {
+    "name": "Franz Liszt",
+    "question": "How did Franz Liszt's appearance affect his public reception during his tours?",
+    "gold_answer": "His physical attractiveness contributed significantly to his popularity and fan frenzy.",
+    "id": 475
+  },
+  {
+    "name": "Franz Liszt",
+    "question": "Until what age did Franz Liszt live?",
+    "gold_answer": "Franz Liszt lived until the age of 74, passing away on July 31, 1886.",
+    "id": 476
+  },
+  {
+    "name": "Franz Liszt",
+    "question": "How long did Franz Liszt's career span, and how did it affect his output?",
+    "gold_answer": "His career spanned over six decades, resulting in a prolific and influential body of work.",
+    "id": 477
+  },
+  {
+    "name": "Franz Liszt",
+    "question": "What elements of music did Franz Liszt contribute to developing?",
+    "gold_answer": "Liszt contributed to developing programmatic music, harmonic experimentation, and impressionism in music.",
+    "id": 478
+  },
+  {
+    "name": "Franz Liszt",
+    "question": "How extensive was Franz Liszt's teaching career?",
+    "gold_answer": "Franz Liszt taught piano performance to hundreds of students throughout his life.",
+    "id": 479
+  },
+  {
+    "name": "Franz Liszt",
+    "question": "What aspect of Franz Liszt's work anticipated developments in 20th-century music?",
+    "gold_answer": "Franz Liszt's experiments in atonality and his innovations in thematic transformation anticipated developments in 20th-century music.",
+    "id": 480
+  },
+  {
+    "name": "Uzeyir Hajibeyov",
+    "question": "When was Uzeyir Hajibeyov born?",
+    "gold_answer": "Uzeyir Hajibeyov was born on 18 September 1885.",
+    "id": 481
+  },
+  {
+    "name": "Uzeyir Hajibeyov",
+    "question": "When did Uzeyir Hajibeyov pass away?",
+    "gold_answer": "Uzeyir Hajibeyov passed away on 23 November 1948.",
+    "id": 482
+  },
+  {
+    "name": "Uzeyir Hajibeyov",
+    "question": "What is Uzeyir Hajibeyov recognized as in Azerbaijani music?",
+    "gold_answer": "He is recognized as the father of Azerbaijani classical music.",
+    "id": 483
+  },
+  {
+    "name": "Uzeyir Hajibeyov",
+    "question": "Which anthem of Azerbaijan did Uzeyir Hajibeyov compose?",
+    "gold_answer": "Uzeyir Hajibeyov composed the music for the national anthem of the Azerbaijan Democratic Republic.",
+    "id": 484
+  },
+  {
+    "name": "Uzeyir Hajibeyov",
+    "question": "Was the anthem composed by Uzeyir Hajibeyov re-adopted by Azerbaijan after a particular event?",
+    "gold_answer": "Yes, the anthem was re-adopted after Azerbaijan regained its independence from the Soviet Union in 1991.",
+    "id": 485
+  },
+  {
+    "name": "Uzeyir Hajibeyov",
+    "question": "Did Uzeyir Hajibeyov compose any anthems during the Soviet period?",
+    "gold_answer": "Yes, he composed the anthem used by Azerbaijan during the Soviet period.",
+    "id": 486
+  },
+  {
+    "name": "Uzeyir Hajibeyov",
+    "question": "What historical significance does Uzeyir Hajibeyov hold in the context of opera?",
+    "gold_answer": "He was the first composer of an opera in the Islamic world.",
+    "id": 487
+  },
+  {
+    "name": "Uzeyir Hajibeyov",
+    "question": "What is the title of the first oriental opera composed by Uzeyir Hajibeyov?",
+    "gold_answer": "The first oriental opera composed by him is titled \"Leyli and Majnun.\"",
+    "id": 488
+  },
+  {
+    "name": "Uzeyir Hajibeyov",
+    "question": "In what year was \"Leyli and Majnun\" composed?",
+    "gold_answer": "\"Leyli and Majnun\" was composed in 1908.",
+    "id": 489
+  },
+  {
+    "name": "Uzeyir Hajibeyov",
+    "question": "What is the significance of the opera \"Leyli and Majnun\" in Uzeyir Hajibeyov's career?",
+    "gold_answer": "It is significant because it marked the adaptation of a written masterpiece to the theatre, blending oriental musical forms with Western styles.",
+    "id": 490
+  },
+  {
+    "name": "Uzeyir Hajibeyov",
+    "question": "What professions did Uzeyir Hajibeyov pursue apart from composing?",
+    "gold_answer": "Uzeyir Hajibeyov was also a musicologist and a teacher.",
+    "id": 491
+  },
+  {
+    "name": "Uzeyir Hajibeyov",
+    "question": "How has Uzeyir Hajibeyov influenced Azerbaijani music education?",
+    "gold_answer": "His work as a teacher and musicologist helped shape modern Azerbaijani music education and contributed to the development of classical music in Azerbaijan.",
+    "id": 492
+  },
+  {
+    "name": "Uzeyir Hajibeyov",
+    "question": "What themes did Uzeyir Hajibeyov explore in his compositions?",
+    "gold_answer": "He often incorporated traditional Azerbaijani folk elements into his classical compositions.",
+    "id": 493
+  },
+  {
+    "name": "Uzeyir Hajibeyov",
+    "question": "Did Uzeyir Hajibeyov receive any honors or recognition during his lifetime?",
+    "gold_answer": "Yes, he received various honors for his contributions to music and culture, though specific awards were not mentioned.",
+    "id": 494
+  },
+  {
+    "name": "Uzeyir Hajibeyov",
+    "question": "Has Uzeyir Hajibeyov written any other operas besides \"Leyli and Majnun\"?",
+    "gold_answer": "Yes, he wrote other operas, though \"Leyli and Majnun\" remains his most famous.",
+    "id": 495
+  },
+  {
+    "name": "Uzeyir Hajibeyov",
+    "question": "What impact did Uzeyir Hajibeyov have on later generations of Azerbaijani composers?",
+    "gold_answer": "He greatly influenced later generations by establishing a classical music foundation in Azerbaijan and integrating national music traditions with European classical forms.",
+    "id": 496
+  },
+  {
+    "name": "Uzeyir Hajibeyov",
+    "question": "Is Uzeyir Hajibeyov’s music still performed today?",
+    "gold_answer": "Yes, his music is still widely performed and celebrated in Azerbaijan and internationally.",
+    "id": 497
+  },
+  {
+    "name": "Uzeyir Hajibeyov",
+    "question": "Are there any institutions named after Uzeyir Hajibeyov?",
+    "gold_answer": "Yes, several cultural institutions and music schools in Azerbaijan are named after him.",
+    "id": 498
+  },
+  {
+    "name": "Uzeyir Hajibeyov",
+    "question": "How did Uzeyir Hajibeyov contribute to the cultural identity of Azerbaijan?",
+    "gold_answer": "By merging Azerbaijani musical traditions with Western classical music styles, he helped define and enrich the cultural identity of Azerbaijan.",
+    "id": 499
+  },
+  {
+    "name": "Uzeyir Hajibeyov",
+    "question": "What legacy did Uzeyir Hajibeyov leave behind in the world of music?",
+    "gold_answer": "His legacy includes pioneering the development of Azerbaijani classical music and opera, and fostering a deeper appreciation for the national musical heritage.",
+    "id": 500
+  },
+  {
+    "name": "David",
+    "question": "Who was David in the context of ancient Israel?",
+    "gold_answer": "David was the third king of the United Kingdom of Israel according to the Hebrew Bible and Old Testament.",
+    "id": 501
+  },
+  {
+    "name": "David",
+    "question": "What does the name David mean in Biblical Hebrew?",
+    "gold_answer": "In Biblical Hebrew, David means \"beloved one.\"",
+    "id": 502
+  },
+  {
+    "name": "David",
+    "question": "When did David ascend the throne as king of Judah?",
+    "gold_answer": "David ascended the throne as king of Judah in 885 BCE.",
+    "id": 503
+  },
+  {
+    "name": "David",
+    "question": "What archaeological evidence mentions the \"House of David\"?",
+    "gold_answer": "The Tel Dan stele, an Aramaic-inscribed stone from the late 9th/early 8th centuries BCE, mentions the \"House of David.\"",
+    "id": 504
+  },
+  {
+    "name": "David",
+    "question": "Is there any other ancient artifact that possibly references the \"House of David\"?",
+    "gold_answer": "The Mesha stele from the 9th century BCE may refer to the \"House of David,\" although this is disputed.",
+    "id": 505
+  },
+  {
+    "name": "David",
+    "question": "How is David described in the Books of Samuel?",
+    "gold_answer": "David is described as a young shepherd and harpist who becomes a hero by killing Goliath and gains favor with Saul, the first king of Israel.",
+    "id": 506
+  },
+  {
+    "name": "David",
+    "question": "Why was David forced to go into hiding?",
+    "gold_answer": "David was forced into hiding because Saul suspected him of trying to take the throne.",
+    "id": 507
+  },
+  {
+    "name": "David",
+    "question": "What major city did David conquer and make the capital of a united Israel?",
+    "gold_answer": "David conquered Jerusalem and made it the capital of a united Israel.",
+    "id": 508
+  },
+  {
+    "name": "David",
+    "question": "What religious artifact did David bring to Jerusalem?",
+    "gold_answer": "David brought the Ark of the Covenant to Jerusalem.",
+    "id": 509
+  },
+  {
+    "name": "David",
+    "question": "What was a major moral failing mentioned about David in the biblical narrative?",
+    "gold_answer": "David committed adultery with Bathsheba and arranged the murder of her husband, Uriah the Hittite.",
+    "id": 510
+  },
+  {
+    "name": "David",
+    "question": "How did David's reign as king end?",
+    "gold_answer": "David died at age 70 and chose his son Solomon, instead of his eldest son Adonijah, as his successor.",
+    "id": 511
+  },
+  {
+    "name": "David",
+    "question": "How is David viewed in Jewish prophetic literature?",
+    "gold_answer": "David is honored as an ideal king and the forefather of the future Hebrew Messiah in Jewish prophetic literature.",
+    "id": 512
+  },
+  {
+    "name": "David",
+    "question": "Which New Testament books mention David as an ancestor of Jesus?",
+    "gold_answer": "The Gospel of Matthew and the Gospel of Luke mention David as an ancestor of Jesus.",
+    "id": 513
+  },
+  {
+    "name": "David",
+    "question": "How is David portrayed in the Quran and hadith?",
+    "gold_answer": "In the Quran and hadith, David is described as both a king and a prophet of Allah.",
+    "id": 514
+  },
+  {
+    "name": "David",
+    "question": "What role does David play in early Christian interpretations of Jesus' life?",
+    "gold_answer": "Early Christians interpreted the life of Jesus in light of references to the Hebrew Messiah and to David, portraying Jesus as a descendant of David.",
+    "id": 515
+  },
+  {
+    "name": "David",
+    "question": "How many tribes anointed David as king after Saul and Jonathan's deaths?",
+    "gold_answer": "David was anointed king by the tribe of Judah and eventually all the tribes of Israel.",
+    "id": 516
+  },
+  {
+    "name": "David",
+    "question": "What was David denied the opportunity to build due to his past actions?",
+    "gold_answer": "David was denied the opportunity to build a temple to Yahweh because of the bloodshed during his reign.",
+    "id": 517
+  },
+  {
+    "name": "David",
+    "question": "How has the biblical David been represented in art and literature?",
+    "gold_answer": "The biblical David has inspired numerous interpretations across various forms of art and literature over the centuries.",
+    "id": 518
+  },
+  {
+    "name": "David",
+    "question": "What is the significance of David in Jewish tradition beyond the biblical narrative?",
+    "gold_answer": "David is richly represented in post-biblical Jewish written and oral tradition.",
+    "id": 519
+  },
+  {
+    "name": "David",
+    "question": "How did David become a hero in the eyes of the people as described in the biblical texts?",
+    "gold_answer": "David became a hero by defeating the giant Goliath, which gained him fame and favor with the people and Saul.",
+    "id": 520
+  },
+  {
+    "name": "Peter Morgan",
+    "question": "When was Peter Morgan born?",
+    "gold_answer": "Peter Morgan was born on 10 April 1963.",
+    "id": 521
+  },
+  {
+    "name": "Peter Morgan",
+    "question": "What professions is Peter Morgan known for?",
+    "gold_answer": "Peter Morgan is known as a British screenwriter and playwright.",
+    "id": 522
+  },
+  {
+    "name": "Peter Morgan",
+    "question": "Which historical figure has Peter Morgan extensively written about across major media?",
+    "gold_answer": "Peter Morgan has extensively written about Queen Elizabeth II.",
+    "id": 523
+  },
+  {
+    "name": "Peter Morgan",
+    "question": "How many BAFTA Awards has Peter Morgan won?",
+    "gold_answer": "Peter Morgan has won five BAFTA Awards.",
+    "id": 524
+  },
+  {
+    "name": "Peter Morgan",
+    "question": "Which prestigious fellowship was awarded to Peter Morgan in February 2017?",
+    "gold_answer": "In February 2017, Peter Morgan was awarded a British Film Institute Fellowship.",
+    "id": 525
+  },
+  {
+    "name": "Peter Morgan",
+    "question": "What are some of the plays written by Peter Morgan?",
+    "gold_answer": "Peter Morgan wrote the plays Frost/Nixon, The Audience, and Patriots.",
+    "id": 526
+  },
+  {
+    "name": "Peter Morgan",
+    "question": "For which play did Peter Morgan receive a Tony Award nomination?",
+    "gold_answer": "Peter Morgan received a Tony Award nomination for the play Frost/Nixon.",
+    "id": 527
+  },
+  {
+    "name": "Peter Morgan",
+    "question": "Which films did Peter Morgan receive Academy Award nominations for?",
+    "gold_answer": "Peter Morgan received Academy Award nominations for The Queen and Frost/Nixon.",
+    "id": 528
+  },
+  {
+    "name": "Peter Morgan",
+    "question": "Can you list some films for which Peter Morgan wrote the screenplays?",
+    "gold_answer": "Peter Morgan wrote the screenplays for The Last King of Scotland, The Other Boleyn Girl, The Damned United, and Rush.",
+    "id": 529
+  },
+  {
+    "name": "Peter Morgan",
+    "question": "What television series did Peter Morgan create and serve as show-runner for on Netflix?",
+    "gold_answer": "Peter Morgan served as creator and show-runner for the Netflix series The Crown.",
+    "id": 530
+  },
+  {
+    "name": "Peter Morgan",
+    "question": "What television work did Peter Morgan do before The Crown?",
+    "gold_answer": "Before The Crown, Peter Morgan wrote for the ITV series The Jury, the Channel 4 film The Deal, and HBO films Longford and The Special Relationship.",
+    "id": 531
+  },
+  {
+    "name": "Peter Morgan",
+    "question": "Which Golden Globe Awards did Peter Morgan win?",
+    "gold_answer": "Peter Morgan has won four Golden Globe Awards.",
+    "id": 532
+  },
+  {
+    "name": "Peter Morgan",
+    "question": "How many Primetime Emmy Awards has Peter Morgan received?",
+    "gold_answer": "Peter Morgan has received two Primetime Emmy Awards.",
+    "id": 533
+  },
+  {
+    "name": "Peter Morgan",
+    "question": "What year was the play \"The Audience\" by Peter Morgan released?",
+    "gold_answer": "The play The Audience by Peter Morgan was released in 2013.",
+    "id": 534
+  },
+  {
+    "name": "Peter Morgan",
+    "question": "What are the themes commonly explored in Peter Morgan's works?",
+    "gold_answer": "Peter Morgan commonly explores themes related to historical events and figures inhis works.",
+    "id": 535
+  },
+  {
+    "name": "Peter Morgan",
+    "question": "What impact did Peter Morgan have on the portrayal of British royalty in modern media?",
+    "gold_answer": "Peter Morgan significantly impacted the portrayal of British royalty in modern media, especially through his extensive portrayal of Queen Elizabeth II in works like The Crown.",
+    "id": 536
+  },
+  {
+    "name": "Peter Morgan",
+    "question": "When did Peter Morgan's series \"The Crown\" begin airing on Netflix?",
+    "gold_answer": "The Crown began airing on Netflix in 2016.",
+    "id": 537
+  },
+  {
+    "name": "Peter Morgan",
+    "question": "What is the subject of Peter Morgan's play \"Patriots,\" released in 2022?",
+    "gold_answer": "Peter Morgan's play \"Patriots,\" released in 2022, is likely centered around political or historical themes, although specific details were not mentioned.",
+    "id": 538
+  },
+  {
+    "name": "Peter Morgan",
+    "question": "Which film written by Peter Morgan focuses on a controversial figure from Uganda's history?",
+    "gold_answer": "The film The Last King of Scotland, written by Peter Morgan, focuses on Idi Amin, a controversial figure from Uganda's history.",
+    "id": 539
+  },
+  {
+    "name": "Peter Morgan",
+    "question": "What recognition has Peter Morgan received for his contributions to theatre?",
+    "gold_answer": "Peter Morgan received a Tony Award nomination for Best Play for Frost/Nixon and has been celebrated for his contributions to modern theatre through his engaging historical plays.",
+    "id": 540
+  },
+  {
+    "name": "Agesilaus II",
+    "question": "When was Agesilaus II born?",
+    "gold_answer": "Agesilaus II was born around 445/4 BC.",
+    "id": 541
+  },
+  {
+    "name": "Agesilaus II",
+    "question": "What period did Agesilaus II reign as king of Sparta?",
+    "gold_answer": "Agesilaus II reigned as king of Sparta from around 400 to around 360 BC.",
+    "id": 542
+  },
+  {
+    "name": "Agesilaus II",
+    "question": "What is Agesilaus II generally considered in the history of Sparta?",
+    "gold_answer": "Agesilaus II is generally considered the most important king in the history of Sparta.",
+    "id": 543
+  },
+  {
+    "name": "Agesilaus II",
+    "question": "What characterized Agesilaus II's reign in terms of Spartan hegemony?",
+    "gold_answer": "Agesilaus II's reign was characterized by the period of Spartan hegemony following the Peloponnesian War.",
+    "id": 544
+  },
+  {
+    "name": "Agesilaus II",
+    "question": "What were Agesilaus II's diplomatic skills like?",
+    "gold_answer": "Agesilaus II lacked diplomatic skills to preserve Sparta's position, especially against rising powers like Thebes.",
+    "id": 545
+  },
+  {
+    "name": "Agesilaus II",
+    "question": "What event reduced Sparta to a secondary power during Agesilaus II's reign?",
+    "gold_answer": "Sparta was reduced to a secondary power after its defeat at Leuctra in 371 BC during Agesilaus II's reign.",
+    "id": 546
+  },
+  {
+    "name": "Agesilaus II",
+    "question": "Who extensively wrote about Agesilaus II's rule in the Hellenica?",
+    "gold_answer": "Xenophon extensively wrote about Agesilaus II's rule in the Hellenica.",
+    "id": 547
+  },
+  {
+    "name": "Agesilaus II",
+    "question": "What was Xenophon's relationship to Agesilaus II?",
+    "gold_answer": "Xenophon was a friend of Agesilaus II.",
+    "id": 548
+  },
+  {
+    "name": "Agesilaus II",
+    "question": "What did Xenophon compose about Agesilaus II?",
+    "gold_answer": "Xenophon composed a panegyric biography of Agesilaus II.",
+    "id": 549
+  },
+  {
+    "name": "Agesilaus II",
+    "question": "What was the purpose of Xenophon's biography of Agesilaus II?",
+    "gold_answer": "Xenophon's biography of Agesilaus II perhaps aimed to clean his memory from criticisms.",
+    "id": 550
+  },
+  {
+    "name": "Agesilaus II",
+    "question": "Besides Xenophon, who else wrote about Agesilaus II?",
+    "gold_answer": "Plutarch wrote a biography of Agesilaus II in his Parallel Lives.",
+    "id": 551
+  },
+  {
+    "name": "Agesilaus II",
+    "question": "What were the characteristics of Plutarch's biography compared to Xenophon's?",
+    "gold_answer": "Plutarch's biography of Agesilaus II contains many elements deliberately omitted by Xenophon.",
+    "id": 552
+  },
+  {
+    "name": "Agesilaus II",
+    "question": "What hostile historical tradition is preserved regarding Agesilaus II?",
+    "gold_answer": "The Hellenica Oxyrhynchia and later Diodorus of Sicily's works present a more hostile tradition towards Agesilaus II.",
+    "id": 553
+  },
+  {
+    "name": "Agesilaus II",
+    "question": "Who preserved the hostile historical tradition regarding Agesilaus II?",
+    "gold_answer": "The Hellenica Oxyrhynchia and Diodorus of Sicily preserved the hostile tradition towards Agesilaus II.",
+    "id": 554
+  },
+  {
+    "name": "Agesilaus II",
+    "question": "What was Agesilaus II's reputation in combat?",
+    "gold_answer": "Agesilaus II was known for being brave in combat.",
+    "id": 555
+  },
+  {
+    "name": "Agesilaus II",
+    "question": "What is Agesilaus II's significance in Spartan history?",
+    "gold_answer": "Agesilaus II is considered the most important king in the history of Sparta.",
+    "id": 556
+  },
+  {
+    "name": "Agesilaus II",
+    "question": "What was the period of Spartan dominance following the Peloponnesian War known as?",
+    "gold_answer": "The period of Spartan dominance following the Peloponnesian War is known as Spartan hegemony.",
+    "id": 557
+  },
+  {
+    "name": "Agesilaus II",
+    "question": "Who emerged as a significant power challenging Sparta during Agesilaus II's reign?",
+    "gold_answer": "The rising power of Thebes emerged as a significant challenger to Sparta during Agesilaus II's reign.",
+    "id": 558
+  },
+  {
+    "name": "Agesilaus II",
+    "question": "What literary work extensively covers Agesilaus II's rule?",
+    "gold_answer": "Xenophon's Hellenica extensively covers Agesilaus II's rule.",
+    "id": 559
+  },
+  {
+    "name": "Agesilaus II",
+    "question": "What was the outcome of the Battle of Leuctra for Sparta?",
+    "gold_answer": "The Battle of Leuctra in 371 BC resulted in Sparta being reduced to a secondary power.",
+    "id": 560
+  },
+  {
+    "name": "Anton Bruckner",
+    "question": "When was Anton Bruckner born?",
+    "gold_answer": "Anton Bruckner was born on September 4, 1824.",
+    "id": 561
+  },
+  {
+    "name": "Anton Bruckner",
+    "question": "What nationality was Anton Bruckner?",
+    "gold_answer": "Anton Bruckner was Austrian.",
+    "id": 562
+  },
+  {
+    "name": "Anton Bruckner",
+    "question": "What is Anton Bruckner best known for?",
+    "gold_answer": "Anton Bruckner is best known for his symphonies and sacred music.",
+    "id": 563
+  },
+  {
+    "name": "Anton Bruckner",
+    "question": "Which genres of music did Anton Bruckner primarily compose?",
+    "gold_answer": "Anton Bruckner primarily composed in the genres of symphonies and sacred music, including Masses, Te Deum, and motets.",
+    "id": 564
+  },
+  {
+    "name": "Anton Bruckner",
+    "question": "How are Anton Bruckner’s symphonies characterized?",
+    "gold_answer": "Bruckner's symphonies are characterized by their rich harmonic language, strongly polyphonic character, and considerable length.",
+    "id": 565
+  },
+  {
+    "name": "Anton Bruckner",
+    "question": "In what way did Anton Bruckner’s compositions contribute to musical radicalism?",
+    "gold_answer": "Anton Bruckner’s compositions featured dissonances, unprepared modulations, and roving harmonies, helping to define contemporary musical radicalism.",
+    "id": 566
+  },
+  {
+    "name": "Anton Bruckner",
+    "question": "Who was a major musical influence on Anton Bruckner?",
+    "gold_answer": "Richard Wagner was a major influence on Anton Bruckner.",
+    "id": 567
+  },
+  {
+    "name": "Anton Bruckner",
+    "question": "How did Anton Bruckner’s personality contrast with his musical radicalism?",
+    "gold_answer": "Despite his musical radicalism, Bruckner showed respect and humility towards other famous musicians, unlike contemporaries such as Wagner and Hugo Wolf.",
+    "id": 568
+  },
+  {
+    "name": "Anton Bruckner",
+    "question": "How did Hans von Bülow describe Anton Bruckner?",
+    "gold_answer": "Hans von Bülow described Anton Bruckner as \"half genius, half simpleton.\"",
+    "id": 569
+  },
+  {
+    "name": "Anton Bruckner",
+    "question": "What was a notable habit of Anton Bruckner regarding his compositions?",
+    "gold_answer": "Anton Bruckner often reworked his compositions and created several versions of many of his works.",
+    "id": 570
+  },
+  {
+    "name": "Anton Bruckner",
+    "question": "Who were some of Anton Bruckner’s notable detractors?",
+    "gold_answer": "Eduard Hanslick and other supporters of Johannes Brahms were notable detractors of Anton Bruckner.",
+    "id": 571
+  },
+  {
+    "name": "Anton Bruckner",
+    "question": "What criticisms did Eduard Hanslick and others have about Bruckner's music?",
+    "gold_answer": "They criticized the large size and use of repetition in his symphonies and his frequent revisions.",
+    "id": 572
+  },
+  {
+    "name": "Anton Bruckner",
+    "question": "How did Anton Bruckner's approach to revisions reflect his personality?",
+    "gold_answer": "His propensity for revising his works and his indecision about preferred versions reflected his self-critical and uncertain nature.",
+    "id": 573
+  },
+  {
+    "name": "Anton Bruckner",
+    "question": "What impact did Anton Bruckner have on later composers?",
+    "gold_answer": "Anton Bruckner greatly influenced later composers, including his friend Gustav Mahler.",
+    "id": 574
+  },
+  {
+    "name": "Anton Bruckner",
+    "question": "When did Anton Bruckner pass away?",
+    "gold_answer": "Anton Bruckner passed away on October 11, 1896.",
+    "id": 575
+  },
+  {
+    "name": "Anton Bruckner",
+    "question": "What role did Anton Bruckner hold in addition to being a composer?",
+    "gold_answer": "Anton Bruckner was also an accomplished organist.",
+    "id": 576
+  },
+  {
+    "name": "Anton Bruckner",
+    "question": "How did Anton Bruckner’s music relate to the Austro-German Romanticism?",
+    "gold_answer": "Bruckner's music is considered emblematic of the final stage of Austro-German Romanticism.",
+    "id": 577
+  },
+  {
+    "name": "Anton Bruckner",
+    "question": "What specific sacred works did Anton Bruckner compose?",
+    "gold_answer": "Anton Bruckner composed several Masses, a Te Deum, and various motets among his sacred works.",
+    "id": 578
+  },
+  {
+    "name": "Anton Bruckner",
+    "question": "What is a unique characteristic of Anton Bruckner’s symphonic style?",
+    "gold_answer": "A unique characteristic of his style is the combination of a rich harmonic language with a strongly polyphonic texture.",
+    "id": 579
+  },
+  {
+    "name": "Anton Bruckner",
+    "question": "Did Anton Bruckner’s works receive universal acclaim during his lifetime?",
+    "gold_answer": "No, Anton Bruckner’s works had both supporters and detractors, with significant criticism from influential figures like Eduard Hanslick.",
+    "id": 580
+  },
+  {
+    "name": "Alexander Payne",
+    "question": "When was Alexander Payne born?",
+    "gold_answer": "Alexander Payne was born on February 10, 1961.",
+    "id": 581
+  },
+  {
+    "name": "Alexander Payne",
+    "question": "What is Alexander Payne renowned for in his film career?",
+    "gold_answer": "Alexander Payne is renowned for his satirical depictions of contemporary American society.",
+    "id": 582
+  },
+  {
+    "name": "Alexander Payne",
+    "question": "How many Academy Awards has Alexander Payne won?",
+    "gold_answer": "Alexander Payne has won two Academy Awards.",
+    "id": 583
+  },
+  {
+    "name": "Alexander Payne",
+    "question": "For which films did Alexander Payne receive the Academy Award for Best Adapted Screenplay?",
+    "gold_answer": "Alexander Payne received the Academy Award for Best Adapted Screenplay for \"Sideways\" (2004) and \"The Descendants\" (2011).",
+    "id": 584
+  },
+  {
+    "name": "Alexander Payne",
+    "question": "What was Alexander Payne's feature film debut?",
+    "gold_answer": "Alexander Payne's feature film debut was the black comedy \"Citizen Ruth\" in 1996.",
+    "id": 585
+  },
+  {
+    "name": "Alexander Payne",
+    "question": "What other notable awards has Alexander Payne won apart from the Academy Awards?",
+    "gold_answer": "Apart from the Academy Awards, Alexander Payne has won a BAFTA Award and two Golden Globe Awards.",
+    "id": 586
+  },
+  {
+    "name": "Alexander Payne",
+    "question": "Has Alexander Payne ever been nominated for a Grammy Award?",
+    "gold_answer": "Yes, Alexander Payne has been nominated for a Grammy Award.",
+    "id": 587
+  },
+  {
+    "name": "Alexander Payne",
+    "question": "Which film marked Alexander Payne's first nomination for the Academy Award for Best Adapted Screenplay?",
+    "gold_answer": "Alexander Payne was first nominated for the Academy Award for Best Adapted Screenplay for the film \"Election\" (1999).",
+    "id": 588
+  },
+  {
+    "name": "Alexander Payne",
+    "question": "In which year did Alexander Payne direct the comedy-drama \"About Schmidt\"?",
+    "gold_answer": "Alexander Payne directed \"About Schmidt\" in 2002.",
+    "id": 589
+  },
+  {
+    "name": "Alexander Payne",
+    "question": "What are the genres of the films \"Sideways\" and \"The Descendants\" that Alexander Payne co-wrote?",
+    "gold_answer": "Both \"Sideways\" and \"The Descendants\" are comedy-dramas.",
+    "id": 590
+  },
+  {
+    "name": "Alexander Payne",
+    "question": "For which films was Alexander Payne nominated for the Academy Award for Best Director?",
+    "gold_answer": "Alexander Payne was nominated for the Academy Award for Best Director for \"Sideways,\" \"The Descendants,\" and \"Nebraska.\"",
+    "id": 591
+  },
+  {
+    "name": "Alexander Payne",
+    "question": "What is the theme of the 2013 film \"Nebraska\" directed by Alexander Payne?",
+    "gold_answer": "\"Nebraska\" is a road film.",
+    "id": 592
+  },
+  {
+    "name": "Alexander Payne",
+    "question": "Which film did Alexander Payne direct in 2017?",
+    "gold_answer": "Alexander Payne directed the film \"Downsizing\" in 2017.",
+    "id": 593
+  },
+  {
+    "name": "Alexander Payne",
+    "question": "What is the most recent film directed by Alexander Payne as of 2023?",
+    "gold_answer": "The most recent film directed by Alexander Payne as of 2023 is \"The Holdovers.\"",
+    "id": 594
+  },
+  {
+    "name": "Alexander Payne",
+    "question": "How many Golden Globe Awards has Alexander Payne won?",
+    "gold_answer": "Alexander Payne has won two Golden Globe Awards.",
+    "id": 595
+  },
+  {
+    "name": "Alexander Payne",
+    "question": "What is a common feature in the storytelling approach of Alexander Payne’s films?",
+    "gold_answer": "A common feature is the satirical and often critical perspective on elements of society.",
+    "id": 596
+  },
+  {
+    "name": "Alexander Payne",
+    "question": "Did Alexander Payne receive any film awards nominations for his early short films?",
+    "gold_answer": "The information on nominations for his early short films is not provided in the background given.",
+    "id": 597
+  },
+  {
+    "name": "Alexander Payne",
+    "question": "What notable accomplishment did Alexander Payne achieve with his first film?",
+    "gold_answer": "With his first film, \"Citizen Ruth,\" Alexander Payne made a significant entry into feature films by tackling the topic of abortion in a satirical manner.",
+    "id": 598
+  },
+  {
+    "name": "Alexander Payne",
+    "question": "What genre is the 2023 film \"The Holdovers\" directed by Alexander Payne?",
+    "gold_answer": "\"The Holdovers\" is a comedy-drama.",
+    "id": 599
+  },
+  {
+    "name": "Alexander Payne",
+    "question": "Has Alexander Payne's work influenced the genre of political satire in films?",
+    "gold_answer": "Yes, his work, particularly in films like \"Election,\" has significantly contributed to the genre of political satire in cinema.",
+    "id": 600
+  }
+]

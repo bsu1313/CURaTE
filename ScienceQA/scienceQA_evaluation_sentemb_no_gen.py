@@ -13,16 +13,15 @@ from pathlib import Path
 import random
 import sys
 
-# Prompt template helpers
 
 lora_path_name = ""
 
-REFUSAL_PATH = Path("../refusal_answer.json")  # ← 실제 파일명/경로
+REFUSAL_PATH = Path("../refusal_answer.json")  
 REF_PHRASES: list[str] = json.loads(REFUSAL_PATH.read_text(encoding="utf-8"))
 
 
 def get_available_cache_dir():
-    preferred = Path("/home/david/.cache")
+    preferred = Path("/home/.cache")
     fallback = Path("/home/plowcow/.cache")
 
     if preferred.exists() and os.access(preferred, os.W_OK):
@@ -59,9 +58,6 @@ class QADataset(Dataset):
         return self.examples[idx]
 
 
-# ─────────────────────────────────────────────────────────────────────────────
-# Prompt builder
-# ─────────────────────────────────────────────────────────────────────────────
 def wrap_prompt(p, if_llama):
     # if 'llama-3' in if_llama or 'llama_3' in if_llama:
     #     question_start_token = "<|start_header_id|>system<|end_header_id|>\n\nCutting Knowledge Date: December 2023\nToday Date: 14 Jul 2025\n\n<|eot_id|><|start_header_id|>user<|end_header_id|>\n\n"
@@ -75,9 +71,6 @@ def wrap_prompt(p, if_llama):
     # return f"{question_start_token}{p}{question_end_token}"
 
 
-# ─────────────────────────────────────────────────────────────────────────────
-# Metrics helpers
-# ─────────────────────────────────────────────────────────────────────────────
 
 def _mean(x: List[float]) -> float:
     return float(np.mean(x)) if x else 0.0
@@ -93,9 +86,6 @@ def postprocess_completion(comp: str) -> str:
         comp = comp[:cut]
     return comp.strip()
 
-# ─────────────────────────────────────────────────────────────────────────────
-# Custom tofu evaluation logic
-# ─────────────────────────────────────────────────────────────────────────────
 
 def eval_subset(name, data: List[Dict[str, Any]], forget_data, ID_MAP, batch_size: int = 4):
     def identity_collate(batch):
@@ -162,9 +152,6 @@ def eval_subset(name, data: List[Dict[str, Any]], forget_data, ID_MAP, batch_siz
 
 
 
-# ─────────────────────────────────────────────────────────────────────────────
-# Main
-# ─────────────────────────────────────────────────────────────────────────────
 
 def main():
     ap = argparse.ArgumentParser()
@@ -183,12 +170,12 @@ def main():
     stage = 4 # 1, 2, 3, 4
 
     ablation_files = [
-        "NQ_CURE_12K_a",
-        "NQ_CURE_18K_a",
-        "NQ_CURE_18K_a_no_b",
-        "NQ_CURE_NO_HN_18K_a",
-        "NQ_CURE_NO_HN_18K_a_no_b",
-        "TQ_CURE_18K_a",
+        "NQ_CURaTE_12K_a",
+        "NQ_CURaTE_18K_a",
+        "NQ_CURaTE_18K_a_no_b",
+        "NQ_CURaTE_NO_HN_18K_a",
+        "NQ_CURaTE_NO_HN_18K_a_no_b",
+        "TQ_CURaTE_18K_a",
         "no_finetuning"
     ]
 

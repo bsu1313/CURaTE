@@ -1,0 +1,3602 @@
+[
+  {
+    "name": "Samuel Beckett",
+    "question": "When was Samuel Beckett born?",
+    "gold_answer": "Samuel Beckett was born on 13 April 1906.",
+    "id": 1
+  },
+  {
+    "name": "Samuel Beckett",
+    "question": "What nationalities was Samuel Beckett associated with?",
+    "gold_answer": "Samuel Beckett was Irish.",
+    "id": 2
+  },
+  {
+    "name": "Samuel Beckett",
+    "question": "For what literary styles is Samuel Beckett best known?",
+    "gold_answer": "Samuel Beckett is best known for his bleak, tragicomic, and minimalist style, often associated with the Theatre of the Absurd.",
+    "id": 3
+  },
+  {
+    "name": "Samuel Beckett",
+    "question": "What types of writing did Samuel Beckett engage in?",
+    "gold_answer": "Samuel Beckett was a novelist, dramatist, short story writer, theatre director, poet, and literary translator.",
+    "id": 4
+  },
+  {
+    "name": "Samuel Beckett",
+    "question": "How did Samuel Beckett's work evolve over his career?",
+    "gold_answer": "His work evolved towards minimalism, involving more aesthetic and linguistic experimentation, including techniques like stream of consciousness, repetition, and self-reference.",
+    "id": 5
+  },
+  {
+    "name": "Samuel Beckett",
+    "question": "What prestigious award did Samuel Beckett win in 1969?",
+    "gold_answer": "Samuel Beckett won the Nobel Prize in Literature in 1969.",
+    "id": 6
+  },
+  {
+    "name": "Samuel Beckett",
+    "question": "In which languages did Samuel Beckett write?",
+    "gold_answer": "Samuel Beckett wrote in both French and English.",
+    "id": 7
+  },
+  {
+    "name": "Samuel Beckett",
+    "question": "Where did Samuel Beckett spend most of his adult life?",
+    "gold_answer": "Samuel Beckett spent most of his adult life in Paris.",
+    "id": 8
+  },
+  {
+    "name": "Samuel Beckett",
+    "question": "During which conflict was Samuel Beckett a member of the French Resistance?",
+    "gold_answer": "During the Second World War, Samuel Beckett was a member of the French Resistance.",
+    "id": 9
+  },
+  {
+    "name": "Samuel Beckett",
+    "question": "What recognition did Samuel Beckett receive for his role in the French Resistance?",
+    "gold_answer": "Samuel Beckett was awarded the Croix de Guerre in 1949 for his role in the French Resistance.",
+    "id": 10
+  },
+  {
+    "name": "Samuel Beckett",
+    "question": "Which significant literary and theatrical movement is Samuel Beckett associated with?",
+    "gold_answer": "Samuel Beckett is associated with the Theatre of the Absurd.",
+    "id": 11
+  },
+  {
+    "name": "Samuel Beckett",
+    "question": "How is Samuel Beckett regarded in terms of literary modernism?",
+    "gold_answer": "Samuel Beckett is considered one of the last modernist writers.",
+    "id": 12
+  },
+  {
+    "name": "Samuel Beckett",
+    "question": "What notable literary prize did Samuel Beckett share with Jorge Luis Borges in 1961?",
+    "gold_answer": "Samuel Beckett shared the inaugural Prix International with Jorge Luis Borges in 1961.",
+    "id": 13
+  },
+  {
+    "name": "Samuel Beckett",
+    "question": "What unique cultural honor was Samuel Beckett given in 1984 in Ireland?",
+    "gold_answer": "In 1984, Samuel Beckett was the first person to be elected Saoi of Aosdána.",
+    "id": 14
+  },
+  {
+    "name": "Samuel Beckett",
+    "question": "How did Samuel Beckett's writing style reflect the human condition, according to the Nobel Prize citation?",
+    "gold_answer": "According to the Nobel Prize citation, his writing, in new forms for the novel and drama, reflected the destitution of modern man, which acquires its elevation.",
+    "id": 15
+  },
+  {
+    "name": "Samuel Beckett",
+    "question": "What is a characteristic theme in Samuel Beckett's literary work?",
+    "gold_answer": "A characteristic theme in Samuel Beckett's work is the exploration of life's bleak and absurd aspects, often portrayed through black comedy and nonsense.",
+    "id": 16
+  },
+  {
+    "name": "Samuel Beckett",
+    "question": "What innovative literary techniques did Samuel Beckett use in his works?",
+    "gold_answer": "Samuel Beckett used innovative literary techniques such as stream of consciousness, repetition, and self-reference.",
+    "id": 17
+  },
+  {
+    "name": "Samuel Beckett",
+    "question": "What impact did Samuel Beckett's minimalist approach have on his literary works?",
+    "gold_answer": "Samuel Beckett's minimalist approach led to more aesthetic and linguistic experimentation in his works, simplifying forms and structures to emphasize deeper themes.",
+    "id": 18
+  },
+  {
+    "name": "Samuel Beckett",
+    "question": "How did Samuel Beckett's bilingual ability influence his literary output?",
+    "gold_answer": "Samuel Beckett's ability to write in both French and English allowed him to reach a broader audience and enriched his stylistic and thematic development.",
+    "id": 19
+  },
+  {
+    "name": "Samuel Beckett",
+    "question": "What lasting legacy did Samuel Beckett leave in the realm of modern literature?",
+    "gold_answer": "Samuel Beckett's legacy lies in his profound influence on post-war literature and theater, particularly through his contributions to the Theatre of the Absurd, shaping modernist and postmodernist narratives.",
+    "id": 20
+  },
+  {
+    "name": "Tex Avery",
+    "question": "When was Tex Avery born?",
+    "gold_answer": "Tex Avery was born on February 26, 1908.",
+    "id": 21
+  },
+  {
+    "name": "Tex Avery",
+    "question": "When did Tex Avery pass away?",
+    "gold_answer": "Tex Avery passed away on August 26, 1980.",
+    "id": 22
+  },
+  {
+    "name": "Tex Avery",
+    "question": "What is Tex Avery best known for in the animation industry?",
+    "gold_answer": "Tex Avery is best known for directing and producing animated cartoons during the golden age of American animation.",
+    "id": 23
+  },
+  {
+    "name": "Tex Avery",
+    "question": "Which studios did Tex Avery primarily work for?",
+    "gold_answer": "Tex Avery primarily worked for the Warner Bros. and Metro-Goldwyn-Mayer studios.",
+    "id": 24
+  },
+  {
+    "name": "Tex Avery",
+    "question": "Can you name a few famous characters created by Tex Avery?",
+    "gold_answer": "Some famous characters created by Tex Avery include Bugs Bunny, Daffy Duck, Porky Pig, and Droopy.",
+    "id": 25
+  },
+  {
+    "name": "Tex Avery",
+    "question": "How did Tex Avery's style of animation differ from Walt Disney's?",
+    "gold_answer": "Tex Avery's style was marked by irreverent humor and sight gags, contrasting with Walt Disney's more conventional family-friendly approach.",
+    "id": 26
+  },
+  {
+    "name": "Tex Avery",
+    "question": "What were some hallmark features of Tex Avery's cartoons?",
+    "gold_answer": "Tex Avery's cartoons were known for their sarcastic, absurdist humor, rapid pacing, and characters breaking the fourth wall.",
+    "id": 27
+  },
+  {
+    "name": "Tex Avery",
+    "question": "What kind of humor was Tex Avery's cartoons known for?",
+    "gold_answer": "Tex Avery's cartoons were known for their irreverent, sometimes sexual, and violent humor.",
+    "id": 28
+  },
+  {
+    "name": "Tex Avery",
+    "question": "What innovations is Tex Avery credited with in the field of animation?",
+    "gold_answer": "Tex Avery is credited with technical innovations and a unique directorial style in animation.",
+    "id": 29
+  },
+  {
+    "name": "Tex Avery",
+    "question": "How did Tex Avery influence the animation industry?",
+    "gold_answer": "Tex Avery influenced the industry through his innovative techniques and unique humor, which set new standards for character animation.",
+    "id": 30
+  },
+  {
+    "name": "Tex Avery",
+    "question": "Name a cartoon character by Tex Avery that is a wolf.",
+    "gold_answer": "One of Tex Avery's characters is The Wolf, notably featured in cartoons like \"Red Hot Riding Hood.\"",
+    "id": 31
+  },
+  {
+    "name": "Tex Avery",
+    "question": "What animation studio did Tex Avery join after Warner Bros.?",
+    "gold_answer": "After Warner Bros., Tex Avery joined the Metro-Goldwyn-Mayer studio.",
+    "id": 32
+  },
+  {
+    "name": "Tex Avery",
+    "question": "Did Tex Avery also work as a voice actor?",
+    "gold_answer": "Yes, Tex Avery also worked as a voice actor besides being an animator and director.",
+    "id": 33
+  },
+  {
+    "name": "Tex Avery",
+    "question": "What role did Tex Avery have in creating Bugs Bunny?",
+    "gold_answer": "Tex Avery was crucial in the creation and development of Bugs Bunny at Warner Bros.",
+    "id": 34
+  },
+  {
+    "name": "Tex Avery",
+    "question": "What character did Tex Avery create that often depicted racial stereotypes?",
+    "gold_answer": "Tex Avery's cartoons sometimes included racial stereotypes, though specific characters like this are less highlighted today due to their controversial nature.",
+    "id": 35
+  },
+  {
+    "name": "Tex Avery",
+    "question": "Name a short by Tex Avery that features a screwball squirrel.",
+    "gold_answer": "\"Screwy Squirrel\" is a character featured in several Tex Avery shorts, known for its wacky antics.",
+    "id": 36
+  },
+  {
+    "name": "Tex Avery",
+    "question": "Which character developed by Tex Avery is known for its lethargic and droopy demeanor?",
+    "gold_answer": "The character known for its lethargic and droopy demeanor is \"Droopy.\"",
+    "id": 37
+  },
+  {
+    "name": "Tex Avery",
+    "question": "What distinct narrative technique was frequently used by Tex Avery in his cartoons?",
+    "gold_answer": "Tex Avery frequently used the technique of characters breaking the fourth wall in his cartoons.",
+    "id": 38
+  },
+  {
+    "name": "Tex Avery",
+    "question": "How did Tex Avery's cartoons handle pacing?",
+    "gold_answer": "Tex Avery's cartoons were known for their rapid pacing, which was a departure from the slower, more methodical pacing of many contemporary animations.",
+    "id": 39
+  },
+  {
+    "name": "Tex Avery",
+    "question": "What impact did Tex Avery have on modern animation?",
+    "gold_answer": "Tex Avery's impact on modern animation includes influencing humor styles, pacing, and character dynamics that can be seen in various forms of media today.",
+    "id": 40
+  },
+  {
+    "name": "Robert Burns",
+    "question": "When was Robert Burns born?",
+    "gold_answer": "Robert Burns was born on 25 January 1759.",
+    "id": 41
+  },
+  {
+    "name": "Robert Burns",
+    "question": "When did Robert Burns die?",
+    "gold_answer": "Robert Burns died on 21 July 1796.",
+    "id": 42
+  },
+  {
+    "name": "Robert Burns",
+    "question": "What is Robert Burns also known as?",
+    "gold_answer": "Robert Burns is also known as Rabbie Burns.",
+    "id": 43
+  },
+  {
+    "name": "Robert Burns",
+    "question": "What is Robert Burns's nationality?",
+    "gold_answer": "Robert Burns was Scottish.",
+    "id": 44
+  },
+  {
+    "name": "Robert Burns",
+    "question": "In what language did Robert Burns primarily write?",
+    "gold_answer": "Robert Burns primarily wrote in Scots and a \"light Scots dialect\" of English.",
+    "id": 45
+  },
+  {
+    "name": "Robert Burns",
+    "question": "What literary movement is Robert Burns associated with?",
+    "gold_answer": "Robert Burns is associated with the Romantic movement.",
+    "id": 46
+  },
+  {
+    "name": "Robert Burns",
+    "question": "What are some of Robert Burns's best-known poems and songs?",
+    "gold_answer": "Some of Robert Burns's best-known works include \"Auld Lang Syne,\" \"A Red, Red Rose,\" and \"Scots Wha Hae.\"",
+    "id": 47
+  },
+  {
+    "name": "Robert Burns",
+    "question": "What unofficial role did \"Scots Wha Hae\" play in Scotland?",
+    "gold_answer": "\"Scots Wha Hae\" served for a long time as an unofficial national anthem of Scotland.",
+    "id": 48
+  },
+  {
+    "name": "Robert Burns",
+    "question": "What was Robert Burns's role in collecting folk songs?",
+    "gold_answer": "Robert Burns collected folk songs from across Scotland, often revising or adapting them.",
+    "id": 49
+  },
+  {
+    "name": "Robert Burns",
+    "question": "What is Robert Burns's significance to Scottish culture?",
+    "gold_answer": "Robert Burns is widely regarded as the national poet of Scotland and a cultural icon.",
+    "id": 50
+  },
+  {
+    "name": "Robert Burns",
+    "question": "How did Robert Burns's influence extend beyond Scotland?",
+    "gold_answer": "Robert Burns's influence extended to the Scottish diaspora worldwide and inspired founders of both liberalism and socialism.",
+    "id": 51
+  },
+  {
+    "name": "Robert Burns",
+    "question": "What role does \"Auld Lang Syne\" play in celebrations?",
+    "gold_answer": "\"Auld Lang Syne\" is often sung at Hogmanay, the last day of the year.",
+    "id": 52
+  },
+  {
+    "name": "Robert Burns",
+    "question": "What recognition did Robert Burns receive in 2009?",
+    "gold_answer": "In 2009, Robert Burns was chosen as the greatest Scot in a vote by the Scottish public.",
+    "id": 53
+  },
+  {
+    "name": "Robert Burns",
+    "question": "What themes are often found in Robert Burns's writing?",
+    "gold_answer": "Robert Burns's writings often contain political or civil commentary and explore themes of equality and social justice.",
+    "id": 54
+  },
+  {
+    "name": "Robert Burns",
+    "question": "How is Robert Burns celebrated in Scotland today?",
+    "gold_answer": "Robert Burns is celebrated with Burns Night on 25 January, featuring traditional Scottish food, drink, and recitations of his poetry.",
+    "id": 55
+  },
+  {
+    "name": "Robert Burns",
+    "question": "What was a significant outcome of Robert Burns's posthumous influence?",
+    "gold_answer": "After his death, Robert Burns became a source of inspiration for the founders of both liberalism and socialism.",
+    "id": 56
+  },
+  {
+    "name": "Robert Burns",
+    "question": "What other works by Robert Burns are still well-known today?",
+    "gold_answer": "Other well-known works by Robert Burns include \"To a Mouse,\" \"Tam o' Shanter,\" and \"Ae Fond Kiss.\"",
+    "id": 57
+  },
+  {
+    "name": "Robert Burns",
+    "question": "Did Robert Burns write in standard English as well?",
+    "gold_answer": "Yes, Robert Burns wrote in standard English, often with his bluntest political or civil commentary.",
+    "id": 58
+  },
+  {
+    "name": "Robert Burns",
+    "question": "What role does Robert Burns have in the Scots language?",
+    "gold_answer": "Robert Burns is the best-known poet who wrote in the Scots language.",
+    "id": 59
+  },
+  {
+    "name": "Robert Burns",
+    "question": "What are the key elements of Robert Burns's poetry?",
+    "gold_answer": "Key elements of Robert Burns's poetry include romantic themes, social commentary, and adaptations of Scottish folk traditions.",
+    "id": 60
+  },
+  {
+    "name": "Carl Grimes",
+    "question": "Who created the character Carl Grimes?",
+    "gold_answer": "Carl Grimes was created by writer Robert Kirkman and artist Tony Moore.",
+    "id": 61
+  },
+  {
+    "name": "Carl Grimes",
+    "question": "In which comic book series does Carl Grimes appear?",
+    "gold_answer": "Carl Grimes appears in the comic book series \"The Walking Dead.\"",
+    "id": 62
+  },
+  {
+    "name": "Carl Grimes",
+    "question": "When did Carl Grimes first debut in \"The Walking Dead\"?",
+    "gold_answer": "Carl Grimes debuted in \"The Walking Dead #2\" in 2003.",
+    "id": 63
+  },
+  {
+    "name": "Carl Grimes",
+    "question": "Who portrayed Carl Grimes in the television series adaptation of \"The Walking Dead\"?",
+    "gold_answer": "Chandler Riggs portrayed Carl Grimes in the television series.",
+    "id": 64
+  },
+  {
+    "name": "Carl Grimes",
+    "question": "How is Carl Grimes related to Rick and Lori Grimes in \"The Walking Dead\"?",
+    "gold_answer": "Carl Grimes is the son of Rick and Lori Grimes.",
+    "id": 65
+  },
+  {
+    "name": "Carl Grimes",
+    "question": "How does Carl Grimes' personality evolve in the comic book series?",
+    "gold_answer": "In the comics, Carl starts as a normal, innocent child but becomes colder and sometimes makes brash decisions due to the zombie apocalypse.",
+    "id": 66
+  },
+  {
+    "name": "Carl Grimes",
+    "question": "What personality changes does Carl Grimes undergo in the television series?",
+    "gold_answer": "In the TV series, Carl adopts a callous personality, which eventually evolves into a mix of regained morality and a survival edge.",
+    "id": 67
+  },
+  {
+    "name": "Carl Grimes",
+    "question": "What major conflict does Carl Grimes have with his father in the television series?",
+    "gold_answer": "Carl Grimes conflicts with his father over issues such as maintaining morality and helping strangers.",
+    "id": 68
+  },
+  {
+    "name": "Carl Grimes",
+    "question": "What awards did Chandler Riggs win for his portrayal of Carl Grimes?",
+    "gold_answer": "Chandler Riggs won the Saturn Award for Best Performance by a Younger Actor in a Television Series in 2014 and 2016.",
+    "id": 69
+  },
+  {
+    "name": "Carl Grimes",
+    "question": "For which awards was Chandler Riggs nominated due to his role as Carl Grimes?",
+    "gold_answer": "Chandler Riggs was nominated for the Young Artist Award for Best Performance in a TV Series – Leading Young Actor in 2012, 2013, and won in 2014.",
+    "id": 70
+  },
+  {
+    "name": "Carl Grimes",
+    "question": "What was the audience and critical reaction to Carl Grimes' death in the TV series?",
+    "gold_answer": "Carl Grimes' death in the TV series caused severe backlash and was deemed the worst decision of the show by both the audience and critics.",
+    "id": 71
+  },
+  {
+    "name": "Carl Grimes",
+    "question": "In what year did Carl Grimes first appear in the television series \"The Walking Dead\"?",
+    "gold_answer": "Carl Grimes first appeared in the television series \"The Walking Dead\" in 2010.",
+    "id": 72
+  },
+  {
+    "name": "Carl Grimes",
+    "question": "How does Carl Grimes' relationship with his father change throughout the television series?",
+    "gold_answer": "Carl's relationship with his father deteriorates as they clash over issues of morality and survival tactics.",
+    "id": 73
+  },
+  {
+    "name": "Carl Grimes",
+    "question": "What significant award did Chandler Riggs win in 2014 for playing Carl Grimes?",
+    "gold_answer": "Chandler Riggs won the Young Artist Award for Best Performance in a TV Series – Leading Young Actor in 2014.",
+    "id": 74
+  },
+  {
+    "name": "Carl Grimes",
+    "question": "What key themes are explored through Carl Grimes' character in both the comic and TV series?",
+    "gold_answer": "Key themes explored include the loss of innocence, moral dilemmas, and the harsh realities of survival in an apocalyptic world.",
+    "id": 75
+  },
+  {
+    "name": "Carl Grimes",
+    "question": "How does Carl Grimes' approach to survival differ in the comics compared to the TV series?",
+    "gold_answer": "In both media, Carl becomes hardened by the apocalypse, but the TV series specifically highlights his journey towards regaining some of his morality while remaining a pragmatic survivor.",
+    "id": 76
+  },
+  {
+    "name": "Carl Grimes",
+    "question": "What impact does Carl Grimes' evolution have on his father Rick in the television series?",
+    "gold_answer": "Carl's evolution impacts Rick by mirroring a reversal in their moral stances, leading Rick to often reassess his own decisions and morality.",
+    "id": 77
+  },
+  {
+    "name": "Carl Grimes",
+    "question": "How do fans generally view Chandler Riggs' interpretation of Carl Grimes?",
+    "gold_answer": "Chandler Riggs' interpretation of Carl Grimes was generally well-received by fans and critics alike for its depth and evolution.",
+    "id": 78
+  },
+  {
+    "name": "Carl Grimes",
+    "question": "What factors contribute to the development of Carl Grimes' character in \"The Walking Dead\"?",
+    "gold_answer": "The brutal circumstances of the zombie apocalypse and the interactions and conflicts with his family and group members contribute to Carl's development.",
+    "id": 79
+  },
+  {
+    "name": "Carl Grimes",
+    "question": "What is the significance of Carl Grimes in \"The Walking Dead\" narrative?",
+    "gold_answer": "Carl Grimes represents the next generation and the impact of a brutal new world on the youth, shaping significant themes of the series.",
+    "id": 80
+  },
+  {
+    "name": "Henry David Thoreau",
+    "question": "When was Henry David Thoreau born?",
+    "gold_answer": "July 12, 1817.",
+    "id": 81
+  },
+  {
+    "name": "Henry David Thoreau",
+    "question": "When did Henry David Thoreau pass away?",
+    "gold_answer": "May 6, 1862.",
+    "id": 82
+  },
+  {
+    "name": "Henry David Thoreau",
+    "question": "What literary movement is Henry David Thoreau associated with?",
+    "gold_answer": "Thoreau is associated with the transcendentalist movement.",
+    "id": 83
+  },
+  {
+    "name": "Henry David Thoreau",
+    "question": "What is the title of Henry David Thoreau's famous book that reflects on simple living in natural surroundings?",
+    "gold_answer": "The title of the book is \"Walden.\"",
+    "id": 84
+  },
+  {
+    "name": "Henry David Thoreau",
+    "question": "What is the original title of Henry David Thoreau's essay \"Civil Disobedience\"?",
+    "gold_answer": "It was originally published as \"Resistance to Civil Government.\"",
+    "id": 85
+  },
+  {
+    "name": "Henry David Thoreau",
+    "question": "How many volumes of writings did Henry David Thoreau produce?",
+    "gold_answer": "Thoreau's writings amount to more than 20 volumes.",
+    "id": 86
+  },
+  {
+    "name": "Henry David Thoreau",
+    "question": "Which fields did Henry David Thoreau's writings anticipate modern developments in?",
+    "gold_answer": "His writings anticipated the fields of ecology and environmental history.",
+    "id": 87
+  },
+  {
+    "name": "Henry David Thoreau",
+    "question": "What qualities characterize Henry David Thoreau's literary style?",
+    "gold_answer": "His style features close observation of nature, personal experience, symbolic meanings, and historical lore, combined with a poetic sensibility.",
+    "id": 88
+  },
+  {
+    "name": "Henry David Thoreau",
+    "question": "What philosophy did Henry David Thoreau advocate in relation to government in \"Civil Disobedience\"?",
+    "gold_answer": "He advocated for minimal government, believing that the best government is the one that governs least.",
+    "id": 89
+  },
+  {
+    "name": "Henry David Thoreau",
+    "question": "How did Henry David Thoreau view his relationship with government, as expressed in \"Civil Disobedience\"?",
+    "gold_answer": "Thoreau believed in advocating for a better government rather than no government at all.",
+    "id": 90
+  },
+  {
+    "name": "Henry David Thoreau",
+    "question": "Why is Henry David Thoreau sometimes referred to as an anarchist?",
+    "gold_answer": "He is referred to as an anarchist because of his belief that the best government is one that governs not at all, once people are ready for it.",
+    "id": 91
+  },
+  {
+    "name": "Henry David Thoreau",
+    "question": "What stance did Henry David Thoreau take against the Fugitive Slave Law?",
+    "gold_answer": "Thoreau was an ardent opponent of the Fugitive Slave Law, delivering lectures that attacked it.",
+    "id": 92
+  },
+  {
+    "name": "Henry David Thoreau",
+    "question": "How did Henry David Thoreau contribute to the abolitionist movement?",
+    "gold_answer": "He delivered lectures attacking slavery and supported abolitionist figures like John Brown.",
+    "id": 93
+  },
+  {
+    "name": "Henry David Thoreau",
+    "question": "Which notable historical figures were influenced by Henry David Thoreau's philosophy of civil disobedience?",
+    "gold_answer": "Leo Tolstoy, Mahatma Gandhi, and Martin Luther King Jr. were influenced by his philosophy.",
+    "id": 94
+  },
+  {
+    "name": "Henry David Thoreau",
+    "question": "What did Henry David Thoreau believe were true essential needs of life?",
+    "gold_answer": "Thoreau believed that true essential needs of life are discovered by abandoning waste and illusion.",
+    "id": 95
+  },
+  {
+    "name": "Henry David Thoreau",
+    "question": "How did Henry David Thoreau's writings contribute to environmentalism?",
+    "gold_answer": "His observations and philosophies anticipated modern environmentalism, particularly his views on natural history and ecology.",
+    "id": 96
+  },
+  {
+    "name": "Henry David Thoreau",
+    "question": "What aspects of nature did Henry David Thoreau closely observe in his writings?",
+    "gold_answer": "Thoreau observed various elements such as flora, fauna, and seasonal changes closely.",
+    "id": 97
+  },
+  {
+    "name": "Henry David Thoreau",
+    "question": "What is the significance of Thoreau's idea of living among hostile elements?",
+    "gold_answer": "Thoreau explored the theme of survival amid natural decay and historical change, advocating resilience and simplicity.",
+    "id": 98
+  },
+  {
+    "name": "Henry David Thoreau",
+    "question": "How did Henry David Thoreau's personal experiences influence his literary work?",
+    "gold_answer": "His personal experiences, especially his time at Walden Pond, deeply influenced his perspectives on simplicity and government.",
+    "id": 99
+  },
+  {
+    "name": "Henry David Thoreau",
+    "question": "What role did historical lore and symbolic meanings play in Henry David Thoreau's writings?",
+    "gold_answer": "Historical lore and symbolic meanings enriched the depth and context of his essays, making his arguments more resonant and layered.",
+    "id": 100
+  },
+  {
+    "name": "Moses Mendelssohn",
+    "question": "Where and when was Moses Mendelssohn born?",
+    "gold_answer": "Moses Mendelssohn was born in Dessau, Principality of Anhalt, on September 6, 1729.",
+    "id": 101
+  },
+  {
+    "name": "Moses Mendelssohn",
+    "question": "What was Moses Mendelssohn's contribution to the Haskalah movement?",
+    "gold_answer": "Moses Mendelssohn played a central role in the development of the Haskalah, or 'Jewish Enlightenment,' with his writings and ideas on Jews, Jewish religion, and identity.",
+    "id": 102
+  },
+  {
+    "name": "Moses Mendelssohn",
+    "question": "What was Mendelssohn's original career path?",
+    "gold_answer": "Originally, Mendelssohn was destined for a rabbinical career.",
+    "id": 103
+  },
+  {
+    "name": "Moses Mendelssohn",
+    "question": "How did Moses Mendelssohn educate himself?",
+    "gold_answer": "Mendelssohn educated himself in German thought and literature.",
+    "id": 104
+  },
+  {
+    "name": "Moses Mendelssohn",
+    "question": "What was Moses Mendelssohn's occupation besides being a philosopher?",
+    "gold_answer": "Mendelssohn was involved in the Berlin textile industry, which formed the foundation of his family's wealth.",
+    "id": 105
+  },
+  {
+    "name": "Moses Mendelssohn",
+    "question": "What was the significance of Mendelssohn's involvement in the Berlin textile industry?",
+    "gold_answer": "Mendelssohn's involvement in the Berlin textile industry laid the foundation for his family's wealth.",
+    "id": 106
+  },
+  {
+    "name": "Moses Mendelssohn",
+    "question": "How was Moses Mendelssohn regarded by his contemporaries?",
+    "gold_answer": "Mendelssohn was regarded as a leading cultural figure of his time by both Christian and Jewish inhabitants of German-speaking Europe and beyond.",
+    "id": 107
+  },
+  {
+    "name": "Moses Mendelssohn",
+    "question": "Who are some notable descendants of Moses Mendelssohn?",
+    "gold_answer": "Some notable descendants of Moses Mendelssohn include the composers Fanny and Felix Mendelssohn, Felix's son chemist Paul Mendelssohn Bartholdy, Fanny's grandsons Paul and Kurt Hensel, and the founders of the Mendelssohn & Co. banking house.",
+    "id": 108
+  },
+  {
+    "name": "Moses Mendelssohn",
+    "question": "What is the significance of Moses Mendelssohn's writings on philosophy and religion?",
+    "gold_answer": "Mendelssohn's writings on philosophy and religion contributed to his reputation as a leading cultural figure of his time.",
+    "id": 109
+  },
+  {
+    "name": "Moses Mendelssohn",
+    "question": "How did Mendelssohn's background influence his later achievements?",
+    "gold_answer": "Mendelssohn's humble background and self-education influenced his later achievements as a philosopher and cultural figure.",
+    "id": 110
+  },
+  {
+    "name": "Moses Mendelssohn",
+    "question": "What role did Moses Mendelssohn play in bridging Jewish and German cultures?",
+    "gold_answer": "Mendelssohn played a significant role in bridging Jewish and German cultures through his philosophical and literary contributions.",
+    "id": 111
+  },
+  {
+    "name": "Moses Mendelssohn",
+    "question": "How did Moses Mendelssohn contribute to the cultural landscape of German-speaking Europe?",
+    "gold_answer": "Mendelssohn contributed to the cultural landscape of German-speaking Europe through his influential writings and ideas.",
+    "id": 112
+  },
+  {
+    "name": "Moses Mendelssohn",
+    "question": "How did Moses Mendelssohn's upbringing shape his worldview?",
+    "gold_answer": "Mendelssohn's upbringing in a poor Jewish family and his pursuit of self-education shaped his inclusive worldview.",
+    "id": 113
+  },
+  {
+    "name": "Moses Mendelssohn",
+    "question": "What was the impact of Moses Mendelssohn's ideas on future generations?",
+    "gold_answer": "Mendelssohn's ideas had a lasting impact on future generations, particularly in the realms of philosophy, religion, and cultural exchange.",
+    "id": 114
+  },
+  {
+    "name": "Moses Mendelssohn",
+    "question": "What was the primary focus of Moses Mendelssohn's philosophical inquiries?",
+    "gold_answer": "Mendelssohn's philosophical inquiries often centered around issues of identity, religion, and the nature of knowledge.",
+    "id": 115
+  },
+  {
+    "name": "Moses Mendelssohn",
+    "question": "How did Moses Mendelssohn contribute to the dialogue between faith and reason?",
+    "gold_answer": "Mendelssohn contributed to the dialogue between faith and reason through his philosophical writings, which sought to reconcile religious belief with rational inquiry.",
+    "id": 116
+  },
+  {
+    "name": "Moses Mendelssohn",
+    "question": "What distinguished Moses Mendelssohn's approach to Judaism?",
+    "gold_answer": "Mendelssohn's approach to Judaism emphasized rationality, tolerance, and the importance of engaging with contemporary culture.",
+    "id": 117
+  },
+  {
+    "name": "Moses Mendelssohn",
+    "question": "What is the enduring legacy of Moses Mendelssohn?",
+    "gold_answer": "Mendelssohn's enduring legacy lies in his role as a pioneer of Jewish Enlightenment and his contributions to philosophy, religion, and cultural exchange.",
+    "id": 118
+  },
+  {
+    "name": "Moses Mendelssohn",
+    "question": "How did Moses Mendelssohn's work impact future generations of Jewish intellectuals?",
+    "gold_answer": "Mendelssohn's work served as a foundation for future generations of Jewish intellectuals, inspiring continued exploration and dialogue within the Jewish community.",
+    "id": 119
+  },
+  {
+    "name": "Moses Mendelssohn",
+    "question": "What aspects of Moses Mendelssohn's life continue to inspire scholars and thinkers today?",
+    "gold_answer": "Mendelssohn's commitment to intellectual inquiry, cultural exchange, and religious tolerance continues to inspire scholars and thinkers today.",
+    "id": 120
+  },
+  {
+    "name": "Odysseus",
+    "question": "Who is Odysseus in Greek mythology?",
+    "gold_answer": "Odysseus is a legendary Greek king of Ithaca and the hero of Homer's epic poem the Odyssey.",
+    "id": 121
+  },
+  {
+    "name": "Odysseus",
+    "question": "What is the Latin name of Odysseus?",
+    "gold_answer": "The Latin name of Odysseus is Ulysses.",
+    "id": 122
+  },
+  {
+    "name": "Odysseus",
+    "question": "In which epic poems does Odysseus appear?",
+    "gold_answer": "Odysseus appears in Homer's epic poems the Odyssey and the Iliad.",
+    "id": 123
+  },
+  {
+    "name": "Odysseus",
+    "question": "What is Odysseus famous for in his adventures?",
+    "gold_answer": "Odysseus is famous for his nostos, or \"homecoming,\" which took him ten years following the Trojan War.",
+    "id": 124
+  },
+  {
+    "name": "Odysseus",
+    "question": "How is Odysseus often described in terms of his character traits?",
+    "gold_answer": "Odysseus is renowned for his intellectual brilliance, guile, and versatility.",
+    "id": 125
+  },
+  {
+    "name": "Odysseus",
+    "question": "What epithet is used to describe Odysseus's cunning intelligence?",
+    "gold_answer": "Odysseus is known by the epithet \"Odysseus the Cunning.\"",
+    "id": 126
+  },
+  {
+    "name": "Odysseus",
+    "question": "What is the Greek word for \"cunning intelligence\" associated with Odysseus?",
+    "gold_answer": "The Greek word for \"cunning intelligence\" associated with Odysseus is μῆτις (metis).",
+    "id": 127
+  },
+  {
+    "name": "Odysseus",
+    "question": "Who are the parents of Odysseus?",
+    "gold_answer": "The parents of Odysseus are Laërtes and Anticlea.",
+    "id": 128
+  },
+  {
+    "name": "Odysseus",
+    "question": "Who is Odysseus's wife?",
+    "gold_answer": "Odysseus's wife is Penelope.",
+    "id": 129
+  },
+  {
+    "name": "Odysseus",
+    "question": "Can you name the children of Odysseus?",
+    "gold_answer": "The children of Odysseus are Telemachus, Acusilaus, and Telegonus.",
+    "id": 130
+  },
+  {
+    "name": "Odysseus",
+    "question": "What is the homeland of Odysseus?",
+    "gold_answer": "The homeland of Odysseus is Ithaca.",
+    "id": 131
+  },
+  {
+    "name": "Odysseus",
+    "question": "How long did the Trojan War last before Odysseus's journey home began?",
+    "gold_answer": "The Trojan War lasted a decade before Odysseus began his journey home.",
+    "id": 132
+  },
+  {
+    "name": "Odysseus",
+    "question": "What makes Odysseus's journey home notable in Greek mythology?",
+    "gold_answer": "Odysseus's journey home is notable for its lengthy duration and the series of challenges and adventures he faced.",
+    "id": 133
+  },
+  {
+    "name": "Odysseus",
+    "question": "What role does Odysseus play in Homer's Iliad?",
+    "gold_answer": "In the Iliad, Odysseus plays a key role as a clever and resourceful warrior and diplomat.",
+    "id": 134
+  },
+  {
+    "name": "Odysseus",
+    "question": "How is Odysseus's intellectual ability frequently highlighted in myths?",
+    "gold_answer": "Odysseus's intellectual ability is highlighted through his clever strategies and solutions, such as the idea of the Trojan Horse.",
+    "id": 135
+  },
+  {
+    "name": "Odysseus",
+    "question": "What theme is central to the Odyssey involving Odysseus?",
+    "gold_answer": "A central theme of the Odyssey involving Odysseus is the struggle and perseverance required to return home after the war.",
+    "id": 136
+  },
+  {
+    "name": "Odysseus",
+    "question": "What Greek word describes Odysseus's character as \"of many turns\" or versatile?",
+    "gold_answer": "The Greek word polytropos describes Odysseus as \"of many turns\" or versatile.",
+    "id": 137
+  },
+  {
+    "name": "Odysseus",
+    "question": "Which epic cycle includes works featuring Odysseus besides the Iliad and the Odyssey?",
+    "gold_answer": "Works featuring Odysseus are included in the Homeric Cycle.",
+    "id": 138
+  },
+  {
+    "name": "Odysseus",
+    "question": "How is Odysseus portrayed in relation to the gods in Greek mythology?",
+    "gold_answer": "Odysseus is often portrayed as being favored by some gods like Athena, but also facing challenges imposed by others, like Poseidon.",
+    "id": 139
+  },
+  {
+    "name": "Odysseus",
+    "question": "What lesson can be learned from Odysseus's character and adventures?",
+    "gold_answer": "A lesson from Odysseus's character and adventures is the value of wisdom, cunning, and perseverance in overcoming difficulties.",
+    "id": 140
+  },
+  {
+    "name": "Rudyard Kipling",
+    "question": "When and where was Rudyard Kipling born?",
+    "gold_answer": "Rudyard Kipling was born on 30 December 1865 in British India.",
+    "id": 141
+  },
+  {
+    "name": "Rudyard Kipling",
+    "question": "What are some of Rudyard Kipling's most famous works?",
+    "gold_answer": "Some of Rudyard Kipling's most famous works include the Jungle Book series, \"Kim\", the \"Just So Stories\", and the poem \"If—\".",
+    "id": 142
+  },
+  {
+    "name": "Rudyard Kipling",
+    "question": "What inspired much of Rudyard Kipling's literary work?",
+    "gold_answer": "Much of Rudyard Kipling's work was inspired by his experiences and upbringing in British India.",
+    "id": 143
+  },
+  {
+    "name": "Rudyard Kipling",
+    "question": "Which awards did Rudyard Kipling receive for his contributions to literature?",
+    "gold_answer": "Rudyard Kipling received the Nobel Prize in Literature in 1907.",
+    "id": 144
+  },
+  {
+    "name": "Rudyard Kipling",
+    "question": "How did Rudyard Kipling contribute to children's literature?",
+    "gold_answer": "Rudyard Kipling contributed to children's literature through classics like the Jungle Book series and the \"Just So Stories\".",
+    "id": 145
+  },
+  {
+    "name": "Rudyard Kipling",
+    "question": "What recognition did Rudyard Kipling receive after his death in 1936?",
+    "gold_answer": "After his death, Rudyard Kipling's ashes were interred at Poets' Corner in Westminster Abbey.",
+    "id": 146
+  },
+  {
+    "name": "Rudyard Kipling",
+    "question": "What genres did Rudyard Kipling explore in his writing?",
+    "gold_answer": "Rudyard Kipling explored fiction, poetry, and journalism.",
+    "id": 147
+  },
+  {
+    "name": "Rudyard Kipling",
+    "question": "What was Rudyard Kipling's connection to the British Poet Laureateship?",
+    "gold_answer": "Rudyard Kipling was considered for the British Poet Laureateship but declined the position.",
+    "id": 148
+  },
+  {
+    "name": "Rudyard Kipling",
+    "question": "At what age did Rudyard Kipling receive the Nobel Prize, and what significance does this have?",
+    "gold_answer": "Rudyard Kipling received the Nobel Prize at age 41, making him the youngest recipient of the prize at that time.",
+    "id": 149
+  },
+  {
+    "name": "Rudyard Kipling",
+    "question": "What impact did Rudyard Kipling's work have on the perception of the British Empire?",
+    "gold_answer": "Rudyard Kipling's work is recognized for its interpretation of how the British Empire was experienced, reflecting both the realities and the controversies of imperialism.",
+    "id": 150
+  },
+  {
+    "name": "Rudyard Kipling",
+    "question": "What literary style is Rudyard Kipling renowned for innovating?",
+    "gold_answer": "Rudyard Kipling is renowned for innovating the art of the short story.",
+    "id": 151
+  },
+  {
+    "name": "Rudyard Kipling",
+    "question": "Can you name a poem by Rudyard Kipling that reflects his views on imperialism?",
+    "gold_answer": "\"The White Man's Burden\" is a poem by Rudyard Kipling that reflects his views on imperialism.",
+    "id": 152
+  },
+  {
+    "name": "Rudyard Kipling",
+    "question": "How has Rudyard Kipling's reputation varied over time?",
+    "gold_answer": "Rudyard Kipling's reputation has seen significant fluctuations, being affected by the changing political and social climates of the 20th century.",
+    "id": 153
+  },
+  {
+    "name": "Rudyard Kipling",
+    "question": "What does the poem \"If—\" by Rudyard Kipling advise its readers?",
+    "gold_answer": "The poem \"If—\" by Rudyard Kipling advises its readers on virtues such as patience, honesty, resilience, and humility.",
+    "id": 154
+  },
+  {
+    "name": "Rudyard Kipling",
+    "question": "What makes Rudyard Kipling a controversial figure in modern literary discussions?",
+    "gold_answer": "Rudyard Kipling is considered controversial due to his imperialist views and the way these views color some of his writings.",
+    "id": 155
+  },
+  {
+    "name": "Rudyard Kipling",
+    "question": "Which of Rudyard Kipling's works is considered a major contribution to children’s literature and why?",
+    "gold_answer": "\"The Jungle Book\" series is considered a major contribution to children's literature for its imaginative stories and richly crafted world that appeals to young readers.",
+    "id": 156
+  },
+  {
+    "name": "Rudyard Kipling",
+    "question": "How did Henry James describe Rudyard Kipling's talent?",
+    "gold_answer": "Henry James described Rudyard Kipling as \"the most complete man of genius\" he had ever known.",
+    "id": 157
+  },
+  {
+    "name": "Rudyard Kipling",
+    "question": "What significant personal stance did Rudyard Kipling take regarding British honors?",
+    "gold_answer": "Rudyard Kipling declined several offers for a knighthood.",
+    "id": 158
+  },
+  {
+    "name": "Rudyard Kipling",
+    "question": "What is the significance of Rudyard Kipling's narrative style according to critics?",
+    "gold_answer": "Critics have noted Rudyard Kipling's narrative style as versatile and luminous, contributing significantly to his success and impact as a writer.",
+    "id": 159
+  },
+  {
+    "name": "Rudyard Kipling",
+    "question": "How did Rudyard Kipling's upbringing in British India influence his writing themes?",
+    "gold_answer": "Rudyard Kipling's upbringing in British India profoundly influenced his themes, often reflecting the landscapes, culture, and political context of colonial India in his work.",
+    "id": 160
+  },
+  {
+    "name": "Eloy de la Iglesia",
+    "question": "When was Eloy de la Iglesia born?",
+    "gold_answer": "Eloy de la Iglesia was born on January 1, 1944.",
+    "id": 161
+  },
+  {
+    "name": "Eloy de la Iglesia",
+    "question": "When did Eloy de la Iglesia pass away?",
+    "gold_answer": "Eloy de la Iglesia passed away on March 23, 2006.",
+    "id": 162
+  },
+  {
+    "name": "Eloy de la Iglesia",
+    "question": "What was Eloy de la Iglesia's nationality?",
+    "gold_answer": "Eloy de la Iglesia was Spanish.",
+    "id": 163
+  },
+  {
+    "name": "Eloy de la Iglesia",
+    "question": "What professions did Eloy de la Iglesia have?",
+    "gold_answer": "Eloy de la Iglesia was a screenwriter and film director.",
+    "id": 164
+  },
+  {
+    "name": "Eloy de la Iglesia",
+    "question": "How is Eloy de la Iglesia best remembered in the film industry?",
+    "gold_answer": "Eloy de la Iglesia is best remembered for portraying urban marginality and the world of drugs and juvenile delinquency in his films.",
+    "id": 165
+  },
+  {
+    "name": "Eloy de la Iglesia",
+    "question": "What specific film genre is Eloy de la Iglesia associated with in Spain?",
+    "gold_answer": "Eloy de la Iglesia is associated with the quinqui film genre in Spain.",
+    "id": 166
+  },
+  {
+    "name": "Eloy de la Iglesia",
+    "question": "Did Eloy de la Iglesia's films frequently address the theme of homosexuality?",
+    "gold_answer": "Yes, many of Eloy de la Iglesia's films dealt with the theme of homosexuality.",
+    "id": 167
+  },
+  {
+    "name": "Eloy de la Iglesia",
+    "question": "What social issues did Eloy de la Iglesia's films often depict?",
+    "gold_answer": "His films often depicted the struggles of the underclass and urban marginality.",
+    "id": 168
+  },
+  {
+    "name": "Eloy de la Iglesia",
+    "question": "What stance did Eloy de la Iglesia take through his films regarding society?",
+    "gold_answer": "Eloy de la Iglesia portrayed the unidealized lives of powerless characters, going against the conformist outlook of most movies of his time.",
+    "id": 169
+  },
+  {
+    "name": "Eloy de la Iglesia",
+    "question": "What is the significance of Eloy de la Iglesia's work in Spanish cinema?",
+    "gold_answer": "His work serves as a document of Spanish marginality during the late seventies and early eighties, reflecting his strong personal commitment to social issues.",
+    "id": 170
+  },
+  {
+    "name": "Eloy de la Iglesia",
+    "question": "Was Eloy de la Iglesia's approach to filmmaking considered risky?",
+    "gold_answer": "Yes, Eloy de la Iglesia took risks in his films by portraying genuine characters with flaws and vices, reflecting the harsh realities of life.",
+    "id": 171
+  },
+  {
+    "name": "Eloy de la Iglesia",
+    "question": "How prolific was Eloy de la Iglesia in his filmmaking career?",
+    "gold_answer": "Eloy de la Iglesia was a prolific filmmaker, having created a significant number of films throughout his career.",
+    "id": 172
+  },
+  {
+    "name": "Eloy de la Iglesia",
+    "question": "What was Eloy de la Iglesia's sexual orientation, and how did it influence his work?",
+    "gold_answer": "Eloy de la Iglesia was openly gay, and this influenced his films through the frequent exploration of homosexual themes.",
+    "id": 173
+  },
+  {
+    "name": "Eloy de la Iglesia",
+    "question": "Did Eloy de la Iglesia's personal beliefs reflect in his films?",
+    "gold_answer": "Yes, as a socialist, Eloy de la Iglesia's films often reflected his beliefs through the portrayal of social issues and marginalized communities.",
+    "id": 174
+  },
+  {
+    "name": "Eloy de la Iglesia",
+    "question": "How is Eloy de la Iglesia regarded outside of Spain?",
+    "gold_answer": "Despite his successful career, Eloy de la Iglesia is relatively unknown outside Spain.",
+    "id": 175
+  },
+  {
+    "name": "Eloy de la Iglesia",
+    "question": "What unique qualities did Eloy de la Iglesia bring to his films?",
+    "gold_answer": "He brought a personal commitment to depicting immediate reality and the lives of marginalized individuals without idealization.",
+    "id": 176
+  },
+  {
+    "name": "Eloy de la Iglesia",
+    "question": "Why are Eloy de la Iglesia's films important in Spanish film history?",
+    "gold_answer": "They provide a critical reflection of societal issues in Spain during a turbulent time and showcase his unique directorial style.",
+    "id": 177
+  },
+  {
+    "name": "Eloy de la Iglesia",
+    "question": "Has Eloy de la Iglesia received any notable recognition for his work?",
+    "gold_answer": "While specific awards are not mentioned, his influence and prolific output are well recognized within Spanish cinema.",
+    "id": 178
+  },
+  {
+    "name": "Eloy de la Iglesia",
+    "question": "What impact did Eloy de la Iglesia have on the portrayal of the LGBTQ+ community in Spanish cinema?",
+    "gold_answer": "Eloy de la Iglesia significantly impacted the portrayal of the LGBTQ+ community by addressing homosexuality openly in his films during a time when it was less commonly depicted.",
+    "id": 179
+  },
+  {
+    "name": "Eloy de la Iglesia",
+    "question": "What was the broader social context during the time Eloy de la Iglesia was active in filmmaking?",
+    "gold_answer": "Eloy de la Iglesia's active years in filmmaking coincided with the post-Franco era in Spain, a period of social and political transition and upheaval, which influenced the themes and issues explored in his work.",
+    "id": 180
+  },
+  {
+    "name": "Harriet Beecher Stowe",
+    "question": "When was Harriet Beecher Stowe born?",
+    "gold_answer": "Harriet Beecher Stowe was born on June 14, 1811.",
+    "id": 181
+  },
+  {
+    "name": "Harriet Beecher Stowe",
+    "question": "What is Harriet Beecher Stowe famous for?",
+    "gold_answer": "Harriet Beecher Stowe is famous for writing the novel \"Uncle Tom's Cabin,\" which depicted the harsh conditions faced by enslaved African Americans.",
+    "id": 182
+  },
+  {
+    "name": "Harriet Beecher Stowe",
+    "question": "Which family did Harriet Beecher Stowe come from?",
+    "gold_answer": "She came from the religious Beecher family.",
+    "id": 183
+  },
+  {
+    "name": "Harriet Beecher Stowe",
+    "question": "How many books did Harriet Beecher Stowe write?",
+    "gold_answer": "Harriet Beecher Stowe wrote 30 books.",
+    "id": 184
+  },
+  {
+    "name": "Harriet Beecher Stowe",
+    "question": "What types of writings did Harriet Beecher Stowe produce?",
+    "gold_answer": "Harriet Beecher Stowe wrote novels, three travel memoirs, and collections of articles and letters.",
+    "id": 185
+  },
+  {
+    "name": "Harriet Beecher Stowe",
+    "question": "What impact did \"Uncle Tom's Cabin\" have in the United States?",
+    "gold_answer": "\"Uncle Tom's Cabin\" energized anti-slavery forces in the American North and provoked widespread anger in the South.",
+    "id": 186
+  },
+  {
+    "name": "Harriet Beecher Stowe",
+    "question": "When did Harriet Beecher Stowe pass away?",
+    "gold_answer": "Harriet Beecher Stowe passed away on July 1, 1896.",
+    "id": 187
+  },
+  {
+    "name": "Harriet Beecher Stowe",
+    "question": "How did \"Uncle Tom's Cabin\" reach its audience?",
+    "gold_answer": "\"Uncle Tom's Cabin\" reached its audience as both a novel and a play.",
+    "id": 188
+  },
+  {
+    "name": "Harriet Beecher Stowe",
+    "question": "What was Harriet Beecher Stowe's role in the abolitionist movement?",
+    "gold_answer": "Harriet Beecher Stowe was an active abolitionist, using her writings to challenge and depict the realities of slavery.",
+    "id": 189
+  },
+  {
+    "name": "Harriet Beecher Stowe",
+    "question": "How was \"Uncle Tom's Cabin\" received in Great Britain?",
+    "gold_answer": "In Great Britain, \"Uncle Tom's Cabin\" was influential and helped energize anti-slavery sentiments.",
+    "id": 190
+  },
+  {
+    "name": "Harriet Beecher Stowe",
+    "question": "Did Harriet Beecher Stowe write only about slavery?",
+    "gold_answer": "No, aside from slavery, Harriet Beecher Stowe also wrote about other social issues and her personal travel experiences.",
+    "id": 191
+  },
+  {
+    "name": "Harriet Beecher Stowe",
+    "question": "What were some other subjects of Harriet Beecher Stowe's writings?",
+    "gold_answer": "Besides slavery, Harriet Beecher Stowe wrote about religion, domestic life, and social reform.",
+    "id": 192
+  },
+  {
+    "name": "Harriet Beecher Stowe",
+    "question": "How many novels did Harriet Beecher Stowe publish?",
+    "gold_answer": "Harriet Beecher Stowe published several novels, but her most famous is \"Uncle Tom's Cabin.\"",
+    "id": 193
+  },
+  {
+    "name": "Harriet Beecher Stowe",
+    "question": "Was Harriet Beecher Stowe involved in public debates?",
+    "gold_answer": "Yes, Harriet Beecher Stowe was known for her public stances and involvement in debates on various social issues.",
+    "id": 194
+  },
+  {
+    "name": "Harriet Beecher Stowe",
+    "question": "Where was Harriet Beecher Stowe born?",
+    "gold_answer": "Harriet Beecher Stowe was born in Litchfield, Connecticut, USA.",
+    "id": 195
+  },
+  {
+    "name": "Harriet Beecher Stowe",
+    "question": "Did Harriet Beecher Stowe's work have any impact on the Civil War?",
+    "gold_answer": "Yes, her work, particularly \"Uncle Tom's Cabin,\" is credited with helping to fuel the abolitionist movement, which was a significant factor leading up to the Civil War.",
+    "id": 196
+  },
+  {
+    "name": "Harriet Beecher Stowe",
+    "question": "What other genres did Harriet Beecher Stowe write in besides novels?",
+    "gold_answer": "Harriet Beecher Stowe also wrote travel memoirs and collections of articles and letters.",
+    "id": 197
+  },
+  {
+    "name": "Harriet Beecher Stowe",
+    "question": "What was Harriet Beecher Stowe's educational background?",
+    "gold_answer": "Harriet Beecher Stowe was educated at the Hartford Female Seminary, which her sister Catharine Beecher founded.",
+    "id": 198
+  },
+  {
+    "name": "Harriet Beecher Stowe",
+    "question": "How did Harriet Beecher Stowe contribute to women's rights?",
+    "gold_answer": "Through her writings and public speeches, she advocated for social reforms, including women's rights.",
+    "id": 199
+  },
+  {
+    "name": "Harriet Beecher Stowe",
+    "question": "What legacy did Harriet Beecher Stowe leave behind?",
+    "gold_answer": "Harriet Beecher Stowe's legacy includes her pivotal role in the abolitionist movement and her influential literary works that addressed critical social issues of her time.",
+    "id": 200
+  },
+  {
+    "name": "Stan Brakhage",
+    "question": "When was Stan Brakhage born?",
+    "gold_answer": "Stan Brakhage was born on January 14, 1933.",
+    "id": 201
+  },
+  {
+    "name": "Stan Brakhage",
+    "question": "When did Stan Brakhage pass away?",
+    "gold_answer": "Stan Brakhage passed away on March 9, 2003.",
+    "id": 202
+  },
+  {
+    "name": "Stan Brakhage",
+    "question": "What is Stan Brakhage renowned for in the field of cinema?",
+    "gold_answer": "Stan Brakhage is renowned for being one of the most important figures in 20th-century experimental film.",
+    "id": 203
+  },
+  {
+    "name": "Stan Brakhage",
+    "question": "How long was Stan Brakhage active in his filmmaking career?",
+    "gold_answer": "Stan Brakhage was active in his filmmaking career for approximately five decades.",
+    "id": 204
+  },
+  {
+    "name": "Stan Brakhage",
+    "question": "What are some of the filmmaking techniques used by Stan Brakhage?",
+    "gold_answer": "Stan Brakhage used techniques including handheld camerawork, painting directly onto celluloid, fast cutting, in-camera editing, scratching on film, and multiple exposures.",
+    "id": 205
+  },
+  {
+    "name": "Stan Brakhage",
+    "question": "Did Stan Brakhage incorporate sound into his films?",
+    "gold_answer": "No, his films are for the most part silent.",
+    "id": 206
+  },
+  {
+    "name": "Stan Brakhage",
+    "question": "What themes did Stan Brakhage explore in his films?",
+    "gold_answer": "Stan Brakhage's films often explored themes of birth, mortality, sexuality, and innocence.",
+    "id": 207
+  },
+  {
+    "name": "Stan Brakhage",
+    "question": "How did Stan Brakhage's interest in other art forms influence his filmmaking?",
+    "gold_answer": "Brakhage was inspired by music, poetry, and visual phenomena, which influenced the expressiveness and lyricism in his films.",
+    "id": 208
+  },
+  {
+    "name": "Stan Brakhage",
+    "question": "What kind of films did Stan Brakhage primarily produce?",
+    "gold_answer": "Stan Brakhage primarily produced experimental films.",
+    "id": 209
+  },
+  {
+    "name": "Stan Brakhage",
+    "question": "What was a unique characteristic of Stan Brakhage's cinematography?",
+    "gold_answer": "A unique characteristic of his cinematography was his use of collage film techniques.",
+    "id": 210
+  },
+  {
+    "name": "Stan Brakhage",
+    "question": "Are Stan Brakhage's films available for public viewing?",
+    "gold_answer": "Yes, many of Stan Brakhage's films are now readily available on DVD and other media.",
+    "id": 211
+  },
+  {
+    "name": "Stan Brakhage",
+    "question": "What impact did Stan Brakhage have on the film industry?",
+    "gold_answer": "Stan Brakhage had a significant impact on the experimental film movement, influencing many other filmmakers with his innovative techniques and artistic vision.",
+    "id": 212
+  },
+  {
+    "name": "Stan Brakhage",
+    "question": "Did Stan Brakhage ever receive any notable awards or recognition for his work?",
+    "gold_answer": "Specific awards are not mentioned, but his renown suggests significant recognition in the field of experimental cinema.",
+    "id": 213
+  },
+  {
+    "name": "Stan Brakhage",
+    "question": "What kind of visual phenomena interested Stan Brakhage in his work?",
+    "gold_answer": "Stan Brakhage was interested in the visual phenomena that relate to everyday sensory experiences and perceptions.",
+    "id": 214
+  },
+  {
+    "name": "Stan Brakhage",
+    "question": "How did Stan Brakhage's work differ from mainstream cinema?",
+    "gold_answer": "Stan Brakhage's work differed from mainstream cinema in its abstraction, lack of conventional narrative, and the use of non-traditional film techniques.",
+    "id": 215
+  },
+  {
+    "name": "Stan Brakhage",
+    "question": "What formats did Stan Brakhage explore in his filmmaking?",
+    "gold_answer": "Stan Brakhage explored a variety of formats, though specifics like 16mm or 35mm are not detailed here.",
+    "id": 216
+  },
+  {
+    "name": "Stan Brakhage",
+    "question": "How did Stan Brakhage's filmmaking approach contribute to the notion of film as an art form?",
+    "gold_answer": "His approach contributed by pushing the boundaries of film as an art form, particularly through his experimental techniques and personal expression.",
+    "id": 217
+  },
+  {
+    "name": "Stan Brakhage",
+    "question": "What does the availability of Stan Brakhage’s films on DVD imply about his work?",
+    "gold_answer": "The availability of his films on DVD implies that they have reached a broader audience and have enduring value and interest.",
+    "id": 218
+  },
+  {
+    "name": "Stan Brakhage",
+    "question": "How did Stan Brakhage's background in poetry influence his film editing style?",
+    "gold_answer": "His background in poetry influenced his film editing style by encouraging rhythmic, visually oriented editing that parallels poetic structure.",
+    "id": 219
+  },
+  {
+    "name": "Stan Brakhage",
+    "question": "In what ways did Stan Brakhage use the technique of scratching on film?",
+    "gold_answer": "Stan Brakhage used the technique of scratching on film to create abstract forms and textures directly on the celluloid, enhancing the visual experience.",
+    "id": 220
+  },
+  {
+    "name": "Niccolò Machiavelli",
+    "question": "When was Niccolò Machiavelli born?",
+    "gold_answer": "Niccolò Machiavelli was born on May 3, 1469.",
+    "id": 221
+  },
+  {
+    "name": "Niccolò Machiavelli",
+    "question": "What is Niccolò Machiavelli best known for?",
+    "gold_answer": "Niccolò Machiavelli is best known for his political treatise, \"The Prince.\"",
+    "id": 222
+  },
+  {
+    "name": "Niccolò Machiavelli",
+    "question": "When did Niccolò Machiavelli die?",
+    "gold_answer": "Niccolò Machiavelli died on June 21, 1527.",
+    "id": 223
+  },
+  {
+    "name": "Niccolò Machiavelli",
+    "question": "What roles did Niccolò Machiavelli serve in the Florentine Republic?",
+    "gold_answer": "Niccolò Machiavelli served as a senior official with responsibilities in diplomatic and military affairs.",
+    "id": 224
+  },
+  {
+    "name": "Niccolò Machiavelli",
+    "question": "What other types of writing did Niccolò Machiavelli produce besides political treatises?",
+    "gold_answer": "Besides political treatises, Niccolò Machiavelli wrote comedies, carnival songs, and poetry.",
+    "id": 225
+  },
+  {
+    "name": "Niccolò Machiavelli",
+    "question": "What position did Niccolò Machiavelli hold from 1498 to 1512?",
+    "gold_answer": "From 1498 to 1512, Niccolò Machiavelli worked as secretary to the second chancery of the Republic of Florence.",
+    "id": 226
+  },
+  {
+    "name": "Niccolò Machiavelli",
+    "question": "How did Niccolò Machiavelli view the use of treachery and deception in politics?",
+    "gold_answer": "Niccolò Machiavelli believed that treachery and deception were common in politics, based on his experience and historical readings.",
+    "id": 227
+  },
+  {
+    "name": "Niccolò Machiavelli",
+    "question": "Why has \"The Prince\" by Niccolò Machiavelli been controversial?",
+    "gold_answer": "\"The Prince\" has been controversial because it is seen by some as a guide for tyrants on seizing and maintaining power, describing unscrupulous political tactics.",
+    "id": 228
+  },
+  {
+    "name": "Niccolò Machiavelli",
+    "question": "What is a less well-known work of Niccolò Machiavelli that discusses political philosophy?",
+    "gold_answer": "A less well-known work of his that discusses political philosophy is the \"Discourses on Livy.\"",
+    "id": 229
+  },
+  {
+    "name": "Niccolò Machiavelli",
+    "question": "How has Niccolò Machiavelli influenced modern political philosophy?",
+    "gold_answer": "Niccolò Machiavelli is considered the father of modern political philosophy, significantly influencing political realism.",
+    "id": 230
+  },
+  {
+    "name": "Niccolò Machiavelli",
+    "question": "What did Leo Strauss say about Niccolò Machiavelli?",
+    "gold_answer": "Leo Strauss called Niccolò Machiavelli a \"teacher of evil\" due to the morally questionable political strategies outlined in \"The Prince.\"",
+    "id": 231
+  },
+  {
+    "name": "Niccolò Machiavelli",
+    "question": "Which Enlightenment authors were influenced by Niccolò Machiavelli?",
+    "gold_answer": "Enlightenment authors like Jean-Jacques Rousseau and James Harrington were influenced by Machiavelli's work.",
+    "id": 232
+  },
+  {
+    "name": "Niccolò Machiavelli",
+    "question": "How did Niccolò Machiavelli's works pave the way for modern republicanism?",
+    "gold_answer": "His works, especially the \"Discourses on Livy,\" have been credited with paving the way for modern republicanism.",
+    "id": 233
+  },
+  {
+    "name": "Niccolò Machiavelli",
+    "question": "What years did \"The Prince\" get written and published?",
+    "gold_answer": "\"The Prince\" was written around 1513 and published in 1532, five years after Machiavelli's death.",
+    "id": 234
+  },
+  {
+    "name": "Niccolò Machiavelli",
+    "question": "What historical period did Niccolò Machiavelli live through?",
+    "gold_answer": "Niccolò Machiavelli lived during the Renaissance.",
+    "id": 235
+  },
+  {
+    "name": "Niccolò Machiavelli",
+    "question": "How did Niccolò Machiavelli's reputation evolve after his death?",
+    "gold_answer": "After his death, Machiavelli's name became synonymous with cunning and unscrupulous political maneuvers.",
+    "id": 236
+  },
+  {
+    "name": "Niccolò Machiavelli",
+    "question": "What were the Medici's relation to Niccolò Machiavelli's career?",
+    "gold_answer": "Machiavelli's career in the Florentine Republic occurred during a time when the Medici family was out of power.",
+    "id": 237
+  },
+  {
+    "name": "Niccolò Machiavelli",
+    "question": "What type of government did Niccolò Machiavelli have extensive experience with?",
+    "gold_answer": "Machiavelli had extensive experience with the republican form of government.",
+    "id": 238
+  },
+  {
+    "name": "Niccolò Machiavelli",
+    "question": "How did Niccolò Machiavelli justify the use of violence in politics?",
+    "gold_answer": "Machiavelli justified the use of violence in politics if it was for the beneficial results for the ruler establishing a kingdom or republic.",
+    "id": 239
+  },
+  {
+    "name": "Niccolò Machiavelli",
+    "question": "What impact did Niccolò Machiavelli have on later political leaders like Otto von Bismarck?",
+    "gold_answer": "Niccolò Machiavelli's political realism influenced leaders like Otto von Bismarck, impacting their political strategies and governance.",
+    "id": 240
+  },
+  {
+    "name": "William Wordsworth",
+    "question": "When was William Wordsworth born?",
+    "gold_answer": "William Wordsworth was born on 7 April 1770.",
+    "id": 241
+  },
+  {
+    "name": "William Wordsworth",
+    "question": "What is William Wordsworth known for in English literature?",
+    "gold_answer": "William Wordsworth is known for launching the Romantic Age in English literature with Samuel Taylor Coleridge through their publication *Lyrical Ballads*.",
+    "id": 242
+  },
+  {
+    "name": "William Wordsworth",
+    "question": "What is the title of William Wordsworth's magnum opus?",
+    "gold_answer": "William Wordsworth's magnum opus is titled *The Prelude*.",
+    "id": 243
+  },
+  {
+    "name": "William Wordsworth",
+    "question": "What type of poem is *The Prelude* by William Wordsworth?",
+    "gold_answer": "*The Prelude* is a semi-autobiographical poem reflecting Wordsworth's early years.",
+    "id": 244
+  },
+  {
+    "name": "William Wordsworth",
+    "question": "Who published *The Prelude* posthumously, and in what year?",
+    "gold_answer": "*The Prelude* was published posthumously by Wordsworth's wife in the year of his death, 1850.",
+    "id": 245
+  },
+  {
+    "name": "William Wordsworth",
+    "question": "What was the original known title of *The Prelude* before William Wordsworth's death?",
+    "gold_answer": "Before his death, *The Prelude* was generally known as \"the poem to Coleridge.\"",
+    "id": 246
+  },
+  {
+    "name": "William Wordsworth",
+    "question": "When did William Wordsworth serve as Poet Laureate of England?",
+    "gold_answer": "William Wordsworth was Poet Laureate from 1843 until his death in 1850.",
+    "id": 247
+  },
+  {
+    "name": "William Wordsworth",
+    "question": "How did William Wordsworth die?",
+    "gold_answer": "William Wordsworth died from pleurisy on 23 April 1850.",
+    "id": 248
+  },
+  {
+    "name": "William Wordsworth",
+    "question": "What significant literary work did William Wordsworth co-author with Samuel Taylor Coleridge?",
+    "gold_answer": "William Wordsworth co-authored *Lyrical Ballads* with Samuel Taylor Coleridge.",
+    "id": 249
+  },
+  {
+    "name": "William Wordsworth",
+    "question": "What movement did *Lyrical Ballads* help to launch?",
+    "gold_answer": "*Lyrical Ballads* helped to launch the Romantic Age in English literature.",
+    "id": 250
+  },
+  {
+    "name": "William Wordsworth",
+    "question": "What theme predominates in William Wordsworth's poetry?",
+    "gold_answer": "Nature and the human connection to it predominate in William Wordsworth's poetry.",
+    "id": 251
+  },
+  {
+    "name": "William Wordsworth",
+    "question": "Where was William Wordsworth born?",
+    "gold_answer": "William Wordsworth was born in Cockermouth, Cumberland, England.",
+    "id": 252
+  },
+  {
+    "name": "William Wordsworth",
+    "question": "Did William Wordsworth write any other notable works besides *The Prelude* and *Lyrical Ballads*?",
+    "gold_answer": "Yes, William Wordsworth wrote other notable works including \"Tintern Abbey\" and \"Ode: Intimations of Immortality.\"",
+    "id": 253
+  },
+  {
+    "name": "William Wordsworth",
+    "question": "How old was William Wordsworth when he became Poet Laureate?",
+    "gold_answer": "William Wordsworth became Poet Laureate at the age of 73.",
+    "id": 254
+  },
+  {
+    "name": "William Wordsworth",
+    "question": "What is the full date of William Wordsworth's death?",
+    "gold_answer": "William Wordsworth died on 23 April 1850.",
+    "id": 255
+  },
+  {
+    "name": "William Wordsworth",
+    "question": "What was a major influence on William Wordsworth's poetry?",
+    "gold_answer": "A major influence on Wordsworth's poetry was his profound love and appreciation for nature.",
+    "id": 256
+  },
+  {
+    "name": "William Wordsworth",
+    "question": "How many times was *The Prelude* revised during Wordsworth's lifetime?",
+    "gold_answer": "*The Prelude* was revised and expanded a number of times during Wordsworth's lifetime.",
+    "id": 257
+  },
+  {
+    "name": "William Wordsworth",
+    "question": "What is one characteristic style of William Wordsworth's poetry?",
+    "gold_answer": "One characteristic style of Wordsworth's poetry is the use of everyday language to convey deep philosophical themes.",
+    "id": 258
+  },
+  {
+    "name": "William Wordsworth",
+    "question": "How long did William Wordsworth serve as Poet Laureate before his death?",
+    "gold_answer": "William Wordsworth served as Poet Laureate for approximately seven years.",
+    "id": 259
+  },
+  {
+    "name": "William Wordsworth",
+    "question": "Did William Wordsworth have any significant collaborators or influences besides Samuel Taylor Coleridge?",
+    "gold_answer": "Besides Samuel Taylor Coleridge, other significant influences and collaborators included Robert Southey, another prominent figure of the Romantic movement.",
+    "id": 260
+  },
+  {
+    "name": "Patti Smith",
+    "question": "When was Patti Smith born?",
+    "gold_answer": "Patti Smith was born on December 30, 1946.",
+    "id": 261
+  },
+  {
+    "name": "Patti Smith",
+    "question": "What is Patti Smith known for?",
+    "gold_answer": "Patti Smith is known as an American singer, songwriter, poet, painter, and author.",
+    "id": 262
+  },
+  {
+    "name": "Patti Smith",
+    "question": "What was the name of Patti Smith's debut album released in 1975?",
+    "gold_answer": "Patti Smith's debut album is called \"Horses.\"",
+    "id": 263
+  },
+  {
+    "name": "Patti Smith",
+    "question": "How did Patti Smith contribute to the punk rock movement?",
+    "gold_answer": "Patti Smith became an influential member of the punk rock movement in New York City with her debut album \"Horses.\"",
+    "id": 264
+  },
+  {
+    "name": "Patti Smith",
+    "question": "What is unique about Patti Smith's artistic style?",
+    "gold_answer": "Patti Smith is known for fusing rock and poetry in her work.",
+    "id": 265
+  },
+  {
+    "name": "Patti Smith",
+    "question": "Which Patti Smith song, co-written with Bruce Springsteen, became widely known?",
+    "gold_answer": "\"Because the Night\" is the widely known song co-written with Bruce Springsteen.",
+    "id": 266
+  },
+  {
+    "name": "Patti Smith",
+    "question": "What chart positions did \"Because the Night\" reach in the US and UK?",
+    "gold_answer": "\"Because the Night\" reached 13th on the Billboard Hot 100 chart and fifth on the UK Singles Chart.",
+    "id": 267
+  },
+  {
+    "name": "Patti Smith",
+    "question": "What French honor was Patti Smith awarded in 2005?",
+    "gold_answer": "In 2005, Patti Smith was named a Commander of the Ordre des Arts et des Lettres.",
+    "id": 268
+  },
+  {
+    "name": "Patti Smith",
+    "question": "When was Patti Smith inducted into the Rock and Roll Hall of Fame?",
+    "gold_answer": "Patti Smith was inducted into the Rock and Roll Hall of Fame in 2007.",
+    "id": 269
+  },
+  {
+    "name": "Patti Smith",
+    "question": "What major award did Patti Smith win in 2010 for her memoir?",
+    "gold_answer": "Patti Smith won the National Book Award in 2010 for her memoir \"Just Kids.\"",
+    "id": 270
+  },
+  {
+    "name": "Patti Smith",
+    "question": "What promise did Patti Smith fulfill by writing \"Just Kids\"?",
+    "gold_answer": "Patti Smith wrote \"Just Kids\" to fulfill a promise she made to her longtime partner, Robert Mapplethorpe.",
+    "id": 271
+  },
+  {
+    "name": "Patti Smith",
+    "question": "What is Patti Smith's rank on Rolling Stone magazine's 100 Greatest Artists of All Time?",
+    "gold_answer": "Patti Smith is ranked 47th on Rolling Stone magazine's 100 Greatest Artists of All Time list.",
+    "id": 272
+  },
+  {
+    "name": "Patti Smith",
+    "question": "What significant award did Patti Smith receive in 2011?",
+    "gold_answer": "Patti Smith was awarded the Polar Music Prize in 2011.",
+    "id": 273
+  },
+  {
+    "name": "Patti Smith",
+    "question": "How has Patti Smith influenced music and art?",
+    "gold_answer": "Patti Smith has influenced music and art by integrating her poetic expression with rock music and creating a distinct style within the punk rock genre.",
+    "id": 274
+  },
+  {
+    "name": "Patti Smith",
+    "question": "What is the primary genre of Patti Smith's music?",
+    "gold_answer": "The primary genre of Patti Smith's music is punk rock.",
+    "id": 275
+  },
+  {
+    "name": "Patti Smith",
+    "question": "Has Patti Smith received international recognition for her work?",
+    "gold_answer": "Yes, Patti Smith has received international recognition, including being named a Commander of the Ordre des Arts et des Lettres by the French Ministry of Culture.",
+    "id": 276
+  },
+  {
+    "name": "Patti Smith",
+    "question": "What role does poetry play in Patti Smith's music?",
+    "gold_answer": "Poetry plays a central role in Patti Smith's music, enhancing her lyrical content and overall musical expression.",
+    "id": 277
+  },
+  {
+    "name": "Patti Smith",
+    "question": "What has been the impact of Patti Smith's album \"Horses\" on the music industry?",
+    "gold_answer": "\"Horses\" has had a significant impact on the music industry, particularly in shaping the punk rock movement and influencing many musicians.",
+    "id": 278
+  },
+  {
+    "name": "Patti Smith",
+    "question": "How has Patti Smith's personal life influenced her artistic work?",
+    "gold_answer": "Patti Smith's personal life, including her relationship with Robert Mapplethorpe, has deeply influenced her artistic work, as seen in her memoir \"Just Kids.\"",
+    "id": 279
+  },
+  {
+    "name": "Patti Smith",
+    "question": "What are some of Patti Smith's major contributions to arts and culture?",
+    "gold_answer": "Some of Patti Smith's major contributions include her influential music, particularly the album \"Horses,\" her poetic work, and her visual art, alongside her recognition in major awards and honors.",
+    "id": 280
+  },
+  {
+    "name": "Horus",
+    "question": "Who is Horus in ancient Egyptian mythology?",
+    "gold_answer": "Horus is a significant ancient Egyptian deity known for his roles in kingship, healing, protection, the sun, and the sky.",
+    "id": 281
+  },
+  {
+    "name": "Horus",
+    "question": "What are the different forms of Horus known in Egyptian history?",
+    "gold_answer": "Different forms of Horus, such as Horus the Elder and Horus the Younger, are recorded, each representing various aspects of the deity.",
+    "id": 282
+  },
+  {
+    "name": "Horus",
+    "question": "How is Horus most commonly depicted in ancient Egyptian art?",
+    "gold_answer": "Horus is most often depicted as a falcon, specifically a lanner or peregrine falcon, or as a man with a falcon head.",
+    "id": 283
+  },
+  {
+    "name": "Horus",
+    "question": "What is the earliest recorded form of Horus?",
+    "gold_answer": "The earliest recorded form of Horus is the tutelary deity of Nekhen in Upper Egypt, who was the first known national god.",
+    "id": 284
+  },
+  {
+    "name": "Horus",
+    "question": "How is Horus related to the pharaoh?",
+    "gold_answer": "Horus is specifically related to the ruling pharaoh, who was regarded as a manifestation of Horus in life and Osiris in death.",
+    "id": 285
+  },
+  {
+    "name": "Horus",
+    "question": "Who are the parents of Horus in the most common mythological tradition?",
+    "gold_answer": "In the most common tradition, Horus is the son of Isis and Osiris.",
+    "id": 286
+  },
+  {
+    "name": "Horus",
+    "question": "What role does Horus play in the Osiris myth?",
+    "gold_answer": "Horus plays a key role as Osiris's heir and the rival to Set, who murdered Osiris.",
+    "id": 287
+  },
+  {
+    "name": "Horus",
+    "question": "In which other tradition is Hathor related to Horus, and how?",
+    "gold_answer": "In another tradition, Hathor is regarded as both the mother and sometimes the wife of Horus.",
+    "id": 288
+  },
+  {
+    "name": "Horus",
+    "question": "What did Claudius Aelianus write about Horus and the Greek god Apollo?",
+    "gold_answer": "Claudius Aelianus wrote that Egyptians called the god Apollo \"Horus\" in their own language.",
+    "id": 289
+  },
+  {
+    "name": "Horus",
+    "question": "What distinction does Plutarch make about Horus in relation to Apollo?",
+    "gold_answer": "Plutarch specified that the \"Horus\" equated with Apollo by the Egyptians was Horus the Elder, distinct from Horus the son of Isis and Osiris.",
+    "id": 290
+  },
+  {
+    "name": "Horus",
+    "question": "How did the role of Horus evolve from prehistoric to Roman Egypt?",
+    "gold_answer": "Horus was worshipped from prehistoric times through to the Roman period, evolving in his role and relation to the pharaohs over millennia.",
+    "id": 291
+  },
+  {
+    "name": "Horus",
+    "question": "What is the significance of Horus’s depiction as a falcon?",
+    "gold_answer": "The falcon symbolizes kingship, the sky, and protection, reflecting Horus's divine roles.",
+    "id": 292
+  },
+  {
+    "name": "Horus",
+    "question": "How did ancient Egyptians view the multiple forms of Horus?",
+    "gold_answer": "Ancient Egyptians viewed the multiple forms of Horus as complementary manifestations, each emphasizing different attributes of the deity.",
+    "id": 293
+  },
+  {
+    "name": "Horus",
+    "question": "What is the connection between Horus and kingship in ancient Egypt?",
+    "gold_answer": "Horus was associated with the divine right and the protective role of the king, embodying the living pharaoh.",
+    "id": 294
+  },
+  {
+    "name": "Horus",
+    "question": "How long was Horus worshipped in Egypt?",
+    "gold_answer": "Horus was worshipped from at least the late prehistoric period until the end of Roman rule in Egypt.",
+    "id": 295
+  },
+  {
+    "name": "Horus",
+    "question": "What does the relationship between Horus and Set represent?",
+    "gold_answer": "The relationship between Horus and Set represents the thematic battle between order and chaos within Egyptian mythology.",
+    "id": 296
+  },
+  {
+    "name": "Horus",
+    "question": "What are some specific attributes associated with Horus?",
+    "gold_answer": "Attributes associated with Horus include his role as a god of the sun, the sky, protection, and healing.",
+    "id": 297
+  },
+  {
+    "name": "Horus",
+    "question": "How does the myth of Horus and Osiris relate to Egyptian beliefs about death and the afterlife?",
+    "gold_answer": "The myth embodies themes of resurrection and eternal life, reflecting Egyptian beliefs about the afterlife and the cyclical nature of life and death.",
+    "id": 298
+  },
+  {
+    "name": "Horus",
+    "question": "Why might Horus be depicted differently in various localities of Egypt?",
+    "gold_answer": "Local depictions of Horus might vary to emphasize specific local traditions, religious practices, or regional attributes.",
+    "id": 299
+  },
+  {
+    "name": "Horus",
+    "question": "How do modern interpretations of Horus differ from ancient views?",
+    "gold_answer": "Modern interpretations often focus on the symbolic meanings of Horus’s mythology, such as the struggle between good and evil, whereas ancient views were more integrated with daily life and state governance.",
+    "id": 300
+  },
+  {
+    "name": "Franz Kafka",
+    "question": "When was Franz Kafka born?",
+    "gold_answer": "Franz Kafka was born on July 3, 1883.",
+    "id": 301
+  },
+  {
+    "name": "Franz Kafka",
+    "question": "Where was Franz Kafka born?",
+    "gold_answer": "He was born in Prague, the capital of the Kingdom of Bohemia, then part of the Austro-Hungarian Empire.",
+    "id": 302
+  },
+  {
+    "name": "Franz Kafka",
+    "question": "What languages did Franz Kafka speak?",
+    "gold_answer": "Franz Kafka was a German-speaking individual.",
+    "id": 303
+  },
+  {
+    "name": "Franz Kafka",
+    "question": "What profession did Franz Kafka train as?",
+    "gold_answer": "Franz Kafka trained as a lawyer.",
+    "id": 304
+  },
+  {
+    "name": "Franz Kafka",
+    "question": "Where did Franz Kafka work after completing his legal education?",
+    "gold_answer": "After completing his legal education, Franz Kafka worked full-time at an insurance company.",
+    "id": 305
+  },
+  {
+    "name": "Franz Kafka",
+    "question": "What is Franz Kafka widely regarded as?",
+    "gold_answer": "Franz Kafka is widely regarded as one of the major figures of 20th-century literature.",
+    "id": 306
+  },
+  {
+    "name": "Franz Kafka",
+    "question": "Which style is Franz Kafka's writing known for?",
+    "gold_answer": "Kafka's writing is known for fusing elements of realism and the fantastic, often featuring isolated protagonists in bizarre or surrealistic predicaments.",
+    "id": 307
+  },
+  {
+    "name": "Franz Kafka",
+    "question": "What are some major themes explored in Franz Kafka's works?",
+    "gold_answer": "Major themes in Kafka's works include alienation, existential anxiety, guilt, and absurdity.",
+    "id": 308
+  },
+  {
+    "name": "Franz Kafka",
+    "question": "What are Franz Kafka's best-known works?",
+    "gold_answer": "His best-known works are the novella \"The Metamorphosis\" and the novels \"The Trial\" and \"The Castle.\"",
+    "id": 309
+  },
+  {
+    "name": "Franz Kafka",
+    "question": "How is the term \"Kafkaesque\" related to Franz Kafka?",
+    "gold_answer": "The term \"Kafkaesque\" is used to describe absurd and surreal situations similar to those depicted in Kafka's writings.",
+    "id": 310
+  },
+  {
+    "name": "Franz Kafka",
+    "question": "Did Franz Kafka publish many of his works during his lifetime?",
+    "gold_answer": "No, few of Kafka's works were published during his lifetime; most were published posthumously by his friend Max Brod.",
+    "id": 311
+  },
+  {
+    "name": "Franz Kafka",
+    "question": "What did Franz Kafka do with much of his work?",
+    "gold_answer": "Kafka burned an estimated 90 percent of his work due to his self-doubt.",
+    "id": 312
+  },
+  {
+    "name": "Franz Kafka",
+    "question": "What happened to Franz Kafka's unpublished works?",
+    "gold_answer": "Despite Kafka's wishes for them to be destroyed, his friend Max Brod published them after Kafka's death.",
+    "id": 313
+  },
+  {
+    "name": "Franz Kafka",
+    "question": "When did Franz Kafka pass away, and what was the cause?",
+    "gold_answer": "Franz Kafka died on June 3, 1924, from tuberculosis.",
+    "id": 314
+  },
+  {
+    "name": "Franz Kafka",
+    "question": "Why did Franz Kafka write mostly in his spare time?",
+    "gold_answer": "Kafka had to relegate writing to his spare time due to his full-time employment at an insurance company.",
+    "id": 315
+  },
+  {
+    "name": "Franz Kafka",
+    "question": "How did Franz Kafka's fame in literature evolve after his death?",
+    "gold_answer": "Kafka's writings became famous in German-speaking countries after World War II and gained international renown in the 1960s.",
+    "id": 316
+  },
+  {
+    "name": "Franz Kafka",
+    "question": "What is a distinctive feature of Franz Kafka's personal life mentioned in his biography?",
+    "gold_answer": "Franz Kafka was engaged to several women but never married.",
+    "id": 317
+  },
+  {
+    "name": "Franz Kafka",
+    "question": "How did Franz Kafka's relationship with his father affect his writing?",
+    "gold_answer": "Kafka had a strained and formal relationship with his father, which is reflected in his writings through themes of authority and personal struggle.",
+    "id": 318
+  },
+  {
+    "name": "Franz Kafka",
+    "question": "How extensive was Franz Kafka's correspondence?",
+    "gold_answer": "Kafka wrote hundreds of letters to family and close friends throughout his life.",
+    "id": 319
+  },
+  {
+    "name": "Franz Kafka",
+    "question": "What impact did Franz Kafka have on other fields besides literature?",
+    "gold_answer": "Kafka influenced not only literature but also artists, composers, and philosophers.",
+    "id": 320
+  },
+  {
+    "name": "Thomas More",
+    "question": "Who was Thomas More?",
+    "gold_answer": "Thomas More was an English lawyer, judge, social philosopher, author, statesman, amateur theologian, and Renaissance humanist.",
+    "id": 321
+  },
+  {
+    "name": "Thomas More",
+    "question": "What book is Thomas More best known for writing?",
+    "gold_answer": "Thomas More is best known for writing \"Utopia,\" published in 1516.",
+    "id": 322
+  },
+  {
+    "name": "Thomas More",
+    "question": "What role did Thomas More serve in Henry VIII's court?",
+    "gold_answer": "Thomas More served as the Lord High Chancellor of England from October 1529 to May 1532.",
+    "id": 323
+  },
+  {
+    "name": "Thomas More",
+    "question": "What was the primary topic of Thomas More's book \"Utopia\"?",
+    "gold_answer": "\"Utopia\" describes the political system of an imaginary island state.",
+    "id": 324
+  },
+  {
+    "name": "Thomas More",
+    "question": "Which Protestant reformers did Thomas More oppose?",
+    "gold_answer": "Thomas More opposed Martin Luther, Huldrych Zwingli, and William Tyndale.",
+    "id": 325
+  },
+  {
+    "name": "Thomas More",
+    "question": "Why did Thomas More oppose King Henry VIII?",
+    "gold_answer": "Thomas More opposed Henry VIII's separation from the Catholic Church and refused to acknowledge him as the supreme head of the Church of England.",
+    "id": 326
+  },
+  {
+    "name": "Thomas More",
+    "question": "What was the consequence of Thomas More's refusal to take the Oath of Supremacy?",
+    "gold_answer": "Thomas More was convicted of treason and executed.",
+    "id": 327
+  },
+  {
+    "name": "Thomas More",
+    "question": "When was Thomas More executed, and what was his reported final statement?",
+    "gold_answer": "Thomas More was executed on 6 July 1535, and he was reported to have said, \"I die the King's good servant, and God's first.\"",
+    "id": 328
+  },
+  {
+    "name": "Thomas More",
+    "question": "When was Thomas More canonized as a saint?",
+    "gold_answer": "Thomas More was canonized as a saint in 1935 by Pope Pius XI.",
+    "id": 329
+  },
+  {
+    "name": "Thomas More",
+    "question": "What is the significance of Thomas More's canonization by Pope John Paul II in 2000?",
+    "gold_answer": "Pope John Paul II declared Thomas More the patron saint of statesmen and politicians.",
+    "id": 330
+  },
+  {
+    "name": "Thomas More",
+    "question": "What was Thomas More's stance on the annulment of Henry VIII's marriage to Catherine of Aragon?",
+    "gold_answer": "Thomas More opposed the annulment of Henry VIII's marriage to Catherine of Aragon.",
+    "id": 331
+  },
+  {
+    "name": "Thomas More",
+    "question": "How did Thomas More contribute to the Renaissance humanist movement?",
+    "gold_answer": "Thomas More's writings, especially \"Utopia,\" reflected the ideals of the Renaissance humanist movement, focusing on social and political themes.",
+    "id": 332
+  },
+  {
+    "name": "Thomas More",
+    "question": "What was the main charge that led to Thomas More's execution?",
+    "gold_answer": "Thomas More was charged with treason for refusing to take the Oath of Supremacy.",
+    "id": 333
+  },
+  {
+    "name": "Thomas More",
+    "question": "What was Thomas More's relationship with the Catholic Church?",
+    "gold_answer": "Thomas More was a devout Catholic and remained loyal to the Church, opposing the Protestant Reformation and Henry VIII's break from the Church.",
+    "id": 334
+  },
+  {
+    "name": "Thomas More",
+    "question": "How did Thomas More's legal career influence his later writings?",
+    "gold_answer": "Thomas More's legal career gave him insights into social and political systems, which he used to create the imaginary society in \"Utopia.\"",
+    "id": 335
+  },
+  {
+    "name": "Thomas More",
+    "question": "What role did Thomas More play in addressing Protestant theology?",
+    "gold_answer": "Thomas More directed polemics against the theology of key Protestant figures like Martin Luther and William Tyndale.",
+    "id": 336
+  },
+  {
+    "name": "Thomas More",
+    "question": "How is Thomas More remembered in the Catholic Church today?",
+    "gold_answer": "Thomas More is remembered as a martyr and a saint in the Catholic Church.",
+    "id": 337
+  },
+  {
+    "name": "Thomas More",
+    "question": "What was Thomas More's professional background before becoming Lord High Chancellor?",
+    "gold_answer": "Before becoming Lord High Chancellor, Thomas More was a lawyer and judge.",
+    "id": 338
+  },
+  {
+    "name": "Thomas More",
+    "question": "Why is Thomas More considered a martyr by the Catholic Church?",
+    "gold_answer": "Thomas More is considered a martyr because he was executed for his refusal to renounce his Catholic faith and take the Oath of Supremacy.",
+    "id": 339
+  },
+  {
+    "name": "Thomas More",
+    "question": "What is Thomas More's enduring legacy?",
+    "gold_answer": "Thomas More's enduring legacy is his commitment to his faith, his opposition to religious and political reforms that conflicted with his beliefs, and his significant contributions to Renaissance humanism through his writings, especially \"Utopia.\"",
+    "id": 340
+  },
+  {
+    "name": "David Cronenberg",
+    "question": "When was David Cronenberg born?",
+    "gold_answer": "David Cronenberg was born on March 15, 1943.",
+    "id": 341
+  },
+  {
+    "name": "David Cronenberg",
+    "question": "What nationality is David Cronenberg?",
+    "gold_answer": "David Cronenberg is Canadian.",
+    "id": 342
+  },
+  {
+    "name": "David Cronenberg",
+    "question": "What genre is David Cronenberg known for pioneering?",
+    "gold_answer": "David Cronenberg is a principal originator of the body horror genre.",
+    "id": 343
+  },
+  {
+    "name": "David Cronenberg",
+    "question": "What themes are prevalent in David Cronenberg's films?",
+    "gold_answer": "His films commonly explore visceral bodily transformation, infectious diseases, and the intertwining of the psychological, physical, and technological.",
+    "id": 344
+  },
+  {
+    "name": "David Cronenberg",
+    "question": "What type of films is David Cronenberg best known for?",
+    "gold_answer": "David Cronenberg is best known for his sci-fi horror films.",
+    "id": 345
+  },
+  {
+    "name": "David Cronenberg",
+    "question": "Can you name a few notable films directed by David Cronenberg?",
+    "gold_answer": "Notable films include \"Shivers,\" \"Scanners,\" \"Videodrome,\" and \"The Fly.\"",
+    "id": 346
+  },
+  {
+    "name": "David Cronenberg",
+    "question": "Has David Cronenberg directed films in genres other than horror?",
+    "gold_answer": "Yes, he has also directed dramas, psychological thrillers, and gangster films.",
+    "id": 347
+  },
+  {
+    "name": "David Cronenberg",
+    "question": "How have critics and audiences generally responded to David Cronenberg's films?",
+    "gold_answer": "His films have polarized critics and audiences, sparking both critical acclaim and controversy.",
+    "id": 348
+  },
+  {
+    "name": "David Cronenberg",
+    "question": "What notable quote did The Village Voice have about David Cronenberg?",
+    "gold_answer": "The Village Voice called him \"the most audacious and challenging narrative director in the English-speaking world.\"",
+    "id": 349
+  },
+  {
+    "name": "David Cronenberg",
+    "question": "What significant award did David Cronenberg's film \"Crash\" win at Cannes Film Festival?",
+    "gold_answer": "\"Crash\" won the Special Jury Prize at the 1996 Cannes Film Festival.",
+    "id": 350
+  },
+  {
+    "name": "David Cronenberg",
+    "question": "What is unique about the Special Jury Prize awarded to \"Crash\"?",
+    "gold_answer": "It is distinct from the Jury Prize as it is not given annually but only at the request of the official jury.",
+    "id": 351
+  },
+  {
+    "name": "David Cronenberg",
+    "question": "Why was \"Crash\" awarded the Special Jury Prize?",
+    "gold_answer": "It was awarded \"for originality, for daring, and for audacity.\"",
+    "id": 352
+  },
+  {
+    "name": "David Cronenberg",
+    "question": "Who has been a frequent collaborator with David Cronenberg from the 2000s to the 2020s?",
+    "gold_answer": "Viggo Mortensen has been a frequent collaborator with Cronenberg during that period.",
+    "id": 353
+  },
+  {
+    "name": "David Cronenberg",
+    "question": "Name some films David Cronenberg and Viggo Mortensen worked on together.",
+    "gold_answer": "They worked together on \"A History of Violence,\" \"Eastern Promises,\" \"A Dangerous Method,\" and \"Crimes of the Future.\"",
+    "id": 354
+  },
+  {
+    "name": "David Cronenberg",
+    "question": "How many of David Cronenberg's films have competed for the Palme d'Or?",
+    "gold_answer": "Six of his films have been selected to compete for the Palme d'Or.",
+    "id": 355
+  },
+  {
+    "name": "David Cronenberg",
+    "question": "What is the most recent film by David Cronenberg that competed at the Cannes Film Festival?",
+    "gold_answer": "\"Crimes of the Future,\" screened at the 2022 Cannes Film Festival, is his most recent.",
+    "id": 356
+  },
+  {
+    "name": "David Cronenberg",
+    "question": "What year was \"A History of Violence\" released?",
+    "gold_answer": "\"A History of Violence\" was released in 2005.",
+    "id": 357
+  },
+  {
+    "name": "David Cronenberg",
+    "question": "What is the premise of David Cronenberg's film \"Scanners\"?",
+    "gold_answer": "\"Scanners\" involves individuals with psychic powers, including the ability to read minds and induce violent explosions.",
+    "id": 358
+  },
+  {
+    "name": "David Cronenberg",
+    "question": "What transformation theme is explored in David Cronenberg's film \"The Fly\"?",
+    "gold_answer": "\"The Fly\" explores the theme of a scientist transforming into a fly after an experiment goes wrong.",
+    "id": 359
+  },
+  {
+    "name": "David Cronenberg",
+    "question": "What accolade was David Cronenberg honored with at the Cannes Film Festival for \"Crash\"?",
+    "gold_answer": "He was honored with the Special Jury Prize for his originality, daring, and audacity with the film \"Crash.\"",
+    "id": 360
+  },
+  {
+    "name": "Harold Innis",
+    "question": "Who was Harold Innis?",
+    "gold_answer": "Harold Innis was a Canadian professor of political economy at the University of Toronto and an author of seminal works on media, communication theory, and Canadian economic history.",
+    "id": 361
+  },
+  {
+    "name": "Harold Innis",
+    "question": "What theory is Harold Innis known for developing?",
+    "gold_answer": "Harold Innis is known for developing the staples thesis, which suggests that Canada's culture, political history, and economy were shaped by the exploitation and export of staples like fur, fish, lumber, wheat, mined metals, and coal.",
+    "id": 362
+  },
+  {
+    "name": "Harold Innis",
+    "question": "How did the staples thesis influence Canadian history?",
+    "gold_answer": "The staples thesis, developed by Harold Innis, dominated economic history in Canada from the 1930s to the 1960s and continues to be a significant part of the Canadian political economic tradition.",
+    "id": 363
+  },
+  {
+    "name": "Harold Innis",
+    "question": "What aspect of media did Harold Innis explore in his writings?",
+    "gold_answer": "Harold Innis explored the role of media in shaping the culture and development of civilizations, focusing on how different forms of communication influence societal structures.",
+    "id": 364
+  },
+  {
+    "name": "Harold Innis",
+    "question": "How did Harold Innis describe the balance of oral and written communication in ancient civilizations?",
+    "gold_answer": "Harold Innis argued that a balance between oral and written communication contributed to the flourishing of Greek civilization in the 5th century BC.",
+    "id": 365
+  },
+  {
+    "name": "Harold Innis",
+    "question": "What did Harold Innis warn about Western civilization?",
+    "gold_answer": "Harold Innis warned that Western civilization is imperiled by powerful, advertising-driven media obsessed with \"present-mindedness\" and the destruction of elements of permanence essential to cultural activity.",
+    "id": 366
+  },
+  {
+    "name": "Harold Innis",
+    "question": "What was Harold Innis's connection to Eric A. Havelock?",
+    "gold_answer": "Harold Innis formed an intellectual bond with Eric A. Havelock, which laid the foundations of the Toronto School of communication theory, inspiring future members like Marshall McLuhan and Edmund Snow Carpenter.",
+    "id": 367
+  },
+  {
+    "name": "Harold Innis",
+    "question": "What was Harold Innis's role at the University of Toronto?",
+    "gold_answer": "Harold Innis was the head of the political economy department at the University of Toronto, where he worked to build a cadre of Canadian scholars to reduce reliance on British or American-trained professors.",
+    "id": 368
+  },
+  {
+    "name": "Harold Innis",
+    "question": "What action did Harold Innis take to support Canadian scholarship?",
+    "gold_answer": "Harold Innis established sources of financing for Canadian scholarly research to strengthen the country's academic independence.",
+    "id": 369
+  },
+  {
+    "name": "Harold Innis",
+    "question": "What was Harold Innis's stance on the United States during the Cold War?",
+    "gold_answer": "During the Cold War, Harold Innis grew increasingly hostile to the United States, warning that Canada was becoming subservient to its more powerful southern neighbor.",
+    "id": 370
+  },
+  {
+    "name": "Harold Innis",
+    "question": "What specific warning did Harold Innis give about American influence?",
+    "gold_answer": "Harold Innis warned about the \"pernicious influence of American advertising\" and urged Canada to take persistent action against American imperialism in all its attractive forms.",
+    "id": 371
+  },
+  {
+    "name": "Harold Innis",
+    "question": "Which younger scholar was influenced by Harold Innis's views on the United States?",
+    "gold_answer": "Donald Creighton was a younger scholar influenced by Harold Innis's views on American imperialism and its impact on Canada.",
+    "id": 372
+  },
+  {
+    "name": "Harold Innis",
+    "question": "What did Harold Innis believe about the role of universities in society?",
+    "gold_answer": "Harold Innis believed that independent universities, as centres of critical thought, were essential to the survival of Western civilization.",
+    "id": 373
+  },
+  {
+    "name": "Harold Innis",
+    "question": "Who was Marshall McLuhan, and how did he view Harold Innis's work?",
+    "gold_answer": "Marshall McLuhan was an intellectual disciple and university colleague of Harold Innis who considered Innis's premature death a significant loss for human understanding.",
+    "id": 374
+  },
+  {
+    "name": "Harold Innis",
+    "question": "How did Marshall McLuhan describe his book \"The Gutenberg Galaxy\" in relation to Harold Innis's work?",
+    "gold_answer": "Marshall McLuhan described \"The Gutenberg Galaxy\" as a footnote to Harold Innis's observations on the psychic and social consequences of writing and printing.",
+    "id": 375
+  },
+  {
+    "name": "Harold Innis",
+    "question": "What was Harold Innis's perspective on American influence in Canada?",
+    "gold_answer": "Harold Innis saw American influence in Canada as a threat, urging Canadians to resist American advertising and maintain a distinct Canadian identity.",
+    "id": 376
+  },
+  {
+    "name": "Harold Innis",
+    "question": "How did Harold Innis view media's impact on culture?",
+    "gold_answer": "Harold Innis viewed media's impact on culture as powerful and warned against media driven by advertising and focused on short-term trends.",
+    "id": 377
+  },
+  {
+    "name": "Harold Innis",
+    "question": "What was the broader impact of Harold Innis's work in communication theory?",
+    "gold_answer": "Harold Innis's work laid the foundations for the Toronto School of communication theory, influencing scholars like Marshall McLuhan and Edmund Snow Carpenter.",
+    "id": 378
+  },
+  {
+    "name": "Harold Innis",
+    "question": "How did Harold Innis contribute to the development of Canadian academia?",
+    "gold_answer": "Harold Innis helped build a cadre of Canadian scholars and established sources of funding for Canadian scholarly research to promote academic independence.",
+    "id": 379
+  },
+  {
+    "name": "Harold Innis",
+    "question": "What was Harold Innis's role in the context of the Cold War?",
+    "gold_answer": "During the Cold War, Harold Innis was a critical voice against American imperialism, urging Canada to maintain its cultural and academic independence.",
+    "id": 380
+  },
+  {
+    "name": "Euclid",
+    "question": "Who was Euclid?",
+    "gold_answer": "Euclid was an ancient Greek mathematician known as the \"father of geometry.\"",
+    "id": 381
+  },
+  {
+    "name": "Euclid",
+    "question": "When did Euclid live?",
+    "gold_answer": "Euclid lived around 300 BC.",
+    "id": 382
+  },
+  {
+    "name": "Euclid",
+    "question": "In which city is Euclid chiefly known to have worked?",
+    "gold_answer": "Euclid is known to have worked in Alexandria.",
+    "id": 383
+  },
+  {
+    "name": "Euclid",
+    "question": "What is Euclid's most famous work?",
+    "gold_answer": "Euclid's most famous work is the treatise called \"Elements.\"",
+    "id": 384
+  },
+  {
+    "name": "Euclid",
+    "question": "What is Euclidean geometry?",
+    "gold_answer": "Euclidean geometry is the system of geometry based on the axioms and theorems first systematized by Euclid.",
+    "id": 385
+  },
+  {
+    "name": "Euclid",
+    "question": "How did Euclid influence the field of geometry?",
+    "gold_answer": "Euclid's \"Elements\" established foundational geometric theories that dominated the field until the early 19th century.",
+    "id": 386
+  },
+  {
+    "name": "Euclid",
+    "question": "What other subjects did Euclid write about besides geometry?",
+    "gold_answer": "Besides geometry, Euclid wrote about perspective, conic sections, spherical geometry, number theory, and mathematical rigour.",
+    "id": 387
+  },
+  {
+    "name": "Euclid",
+    "question": "What other works did Euclid write besides the Elements?",
+    "gold_answer": "Euclid also wrote \"Optics,\" \"Data,\" \"Phaenomena,\" and other lesser-known works.",
+    "id": 388
+  },
+  {
+    "name": "Euclid",
+    "question": "Is there any uncertainty about some of Euclid's works?",
+    "gold_answer": "Yes, the authorship of \"On Divisions of Figures\" and \"Catoptrics\" has been questioned.",
+    "id": 389
+  },
+  {
+    "name": "Euclid",
+    "question": "Was Euclid the only famous mathematician of his era?",
+    "gold_answer": "No, Euclid was one of the leading mathematicians of antiquity along with Archimedes and Apollonius of Perga.",
+    "id": 390
+  },
+  {
+    "name": "Euclid",
+    "question": "What was unique about Euclid's method in the Elements?",
+    "gold_answer": "Euclid's method involved deducing theorems from a small set of axioms in a logical manner.",
+    "id": 391
+  },
+  {
+    "name": "Euclid",
+    "question": "What has been speculated about Euclid's education?",
+    "gold_answer": "There is some speculation that Euclid studied at Plato's Academy in Athens.",
+    "id": 392
+  },
+  {
+    "name": "Euclid",
+    "question": "How did medieval scholars mistakenly identify Euclid?",
+    "gold_answer": "Medieval Byzantine and early Renaissance scholars mistook him for Euclid of Megara, an earlier philosopher.",
+    "id": 393
+  },
+  {
+    "name": "Euclid",
+    "question": "What role did Islamic mathematicians play concerning Euclid's biography?",
+    "gold_answer": "Islamic mathematicians invented a fanciful biography of Euclid.",
+    "id": 394
+  },
+  {
+    "name": "Euclid",
+    "question": "What did Euclid's work help bridge in terms of philosophical traditions?",
+    "gold_answer": "Euclid is regarded as bridging the earlier Platonic tradition in Athens with the later tradition of Alexandria.",
+    "id": 395
+  },
+  {
+    "name": "Euclid",
+    "question": "How did Euclid contribute to the field of optics?",
+    "gold_answer": "Euclid wrote a significant early text in the field of optics simply titled \"Optics.\"",
+    "id": 396
+  },
+  {
+    "name": "Euclid",
+    "question": "What impact did Euclid have on later mathematical thought?",
+    "gold_answer": "Euclid's work profoundly influenced the development of mathematics for centuries to follow.",
+    "id": 397
+  },
+  {
+    "name": "Euclid",
+    "question": "Did Euclid only compile existing knowledge in his works?",
+    "gold_answer": "Euclid synthesized theories from earlier mathematicians and added his innovations.",
+    "id": 398
+  },
+  {
+    "name": "Euclid",
+    "question": "What are the axioms Euclid used known as?",
+    "gold_answer": "The axioms used by Euclid are known as Euclidean axioms or postulates.",
+    "id": 399
+  },
+  {
+    "name": "Euclid",
+    "question": "How has Euclid's work been preserved through history?",
+    "gold_answer": "Euclid's work was preserved and transmitted through various translations and commentaries by scholars throughout the Middle Ages into the Renaissance.",
+    "id": 400
+  },
+  {
+    "name": "Amenhotep I",
+    "question": "Who was Amenhotep I?",
+    "gold_answer": "Amenhotep I was the second Pharaoh of the 18th Dynasty of Egypt.",
+    "id": 401
+  },
+  {
+    "name": "Amenhotep I",
+    "question": "What are the years of Amenhotep I's reign?",
+    "gold_answer": "Amenhotep I's reign is generally dated from 1526 to 1506 BC.",
+    "id": 402
+  },
+  {
+    "name": "Amenhotep I",
+    "question": "Who were the parents of Amenhotep I?",
+    "gold_answer": "The parents of Amenhotep I were Ahmose I and Ahmose-Nefertari.",
+    "id": 403
+  },
+  {
+    "name": "Amenhotep I",
+    "question": "Did Amenhotep I have any siblings?",
+    "gold_answer": "Yes, Amenhotep I had an elder brother named Ahmose-ankh.",
+    "id": 404
+  },
+  {
+    "name": "Amenhotep I",
+    "question": "Was Amenhotep I the original heir to the throne?",
+    "gold_answer": "No, Amenhotep I was not the original heir; he became crown prince after his elder brother Ahmose-ankh died.",
+    "id": 405
+  },
+  {
+    "name": "Amenhotep I",
+    "question": "How long did Amenhotep I rule Egypt?",
+    "gold_answer": "Amenhotep I ruled Egypt for about 21 years.",
+    "id": 406
+  },
+  {
+    "name": "Amenhotep I",
+    "question": "What significant contributions did Amenhotep I make to temple architecture?",
+    "gold_answer": "Amenhotep I revolutionized mortuary complex design by separating his tomb from his mortuary temple.",
+    "id": 407
+  },
+  {
+    "name": "Amenhotep I",
+    "question": "What impact did Amenhotep I have on Nubia?",
+    "gold_answer": "Amenhotep I maintained dominance over Nubia during his reign.",
+    "id": 408
+  },
+  {
+    "name": "Amenhotep I",
+    "question": "Did Amenhotep I maintain Egyptian power in the Levant?",
+    "gold_answer": "No, it is likely that Amenhotep I did not attempt to maintain Egyptian power in the Levant.",
+    "id": 409
+  },
+  {
+    "name": "Amenhotep I",
+    "question": "What was a major trend in royal funerary monuments that Amenhotep I started?",
+    "gold_answer": "Amenhotep I set a trend of separating the tomb from the mortuary temple, a practice which persisted throughout the New Kingdom.",
+    "id": 410
+  },
+  {
+    "name": "Amenhotep I",
+    "question": "Where did Amenhotep I focus his temple rebuilding efforts?",
+    "gold_answer": "He focused his temple rebuilding efforts in Upper Egypt.",
+    "id": 411
+  },
+  {
+    "name": "Amenhotep I",
+    "question": "What happened to Amenhotep I after his death?",
+    "gold_answer": "After his death, Amenhotep I was deified as a patron god of Deir el-Medina.",
+    "id": 412
+  },
+  {
+    "name": "Amenhotep I",
+    "question": "What legacy did Amenhotep I inherit from his father, Ahmose I?",
+    "gold_answer": "Amenhotep I inherited a kingdom that had been significantly expanded by his father's military conquests.",
+    "id": 413
+  },
+  {
+    "name": "Amenhotep I",
+    "question": "How did Amenhotep I's rule contribute to Egyptian arts?",
+    "gold_answer": "The separation of his tomb and mortuary temple initiated a new architectural style that influenced the artistic developments in funerary complexes.",
+    "id": 414
+  },
+  {
+    "name": "Amenhotep I",
+    "question": "What is known about Amenhotep I's military campaigns?",
+    "gold_answer": "While specific details are scarce, it is known that Amenhotep I maintained his father's conquests and controlled Nubia.",
+    "id": 415
+  },
+  {
+    "name": "Amenhotep I",
+    "question": "Did Amenhotep I have any children?",
+    "gold_answer": "The historical records do not provide clear information about any children of Amenhotep I.",
+    "id": 416
+  },
+  {
+    "name": "Amenhotep I",
+    "question": "How is Amenhotep I represented in ancient Egyptian art?",
+    "gold_answer": "Amenhotep I is often depicted in traditional pharaonic regalia, emphasizing his divine and royal status.",
+    "id": 417
+  },
+  {
+    "name": "Amenhotep I",
+    "question": "Are there any notable temples or monuments associated with Amenhotep I?",
+    "gold_answer": "Yes, there are several monuments associated with him, particularly in Upper Egypt, where he continued construction activities.",
+    "id": 418
+  },
+  {
+    "name": "Amenhotep I",
+    "question": "What is the significance of Amenhotep I in Egyptian history?",
+    "gold_answer": "Amenhotep I is significant for maintaining the stability and borders of Egypt and for his innovations in temple architecture.",
+    "id": 419
+  },
+  {
+    "name": "Amenhotep I",
+    "question": "Where is Amenhotep I's tomb located?",
+    "gold_answer": "Amenhotep I's tomb is located in the Theban necropolis in Upper Egypt.",
+    "id": 420
+  },
+  {
+    "name": "William Butler Yeats",
+    "question": "When was William Butler Yeats born?",
+    "gold_answer": "William Butler Yeats was born on June 13, 1865.",
+    "id": 421
+  },
+  {
+    "name": "William Butler Yeats",
+    "question": "What major cultural movement was William Butler Yeats a part of?",
+    "gold_answer": "William Butler Yeats was a driving force behind the Irish Literary Revival.",
+    "id": 422
+  },
+  {
+    "name": "William Butler Yeats",
+    "question": "What significant role did William Butler Yeats play in Irish theatre?",
+    "gold_answer": "William Butler Yeats co-founded the Abbey Theatre and served as its chief during its early years.",
+    "id": 423
+  },
+  {
+    "name": "William Butler Yeats",
+    "question": "When did William Butler Yeats win the Nobel Prize in Literature?",
+    "gold_answer": "He won the Nobel Prize in Literature in 1923.",
+    "id": 424
+  },
+  {
+    "name": "William Butler Yeats",
+    "question": "How was William Butler Yeats involved in the Irish Free State?",
+    "gold_answer": "William Butler Yeats served two terms as a Senator of the Irish Free State.",
+    "id": 425
+  },
+  {
+    "name": "William Butler Yeats",
+    "question": "What is William Butler Yeats’s heritage?",
+    "gold_answer": "Yeats was of Anglo-Irish descent and a Protestant.",
+    "id": 426
+  },
+  {
+    "name": "William Butler Yeats",
+    "question": "Where was William Butler Yeats educated?",
+    "gold_answer": "He was educated in Dublin and London.",
+    "id": 427
+  },
+  {
+    "name": "William Butler Yeats",
+    "question": "How did the landscapes of Ireland influence William Butler Yeats?",
+    "gold_answer": "William Butler Yeats spent his childhood holidays in County Sligo, which influenced his early interest in Irish legends.",
+    "id": 428
+  },
+  {
+    "name": "William Butler Yeats",
+    "question": "Who were some of William Butler Yeats's early influences in poetry?",
+    "gold_answer": "His early poetry was influenced by John Keats, William Wordsworth, William Blake, and the Pre-Raphaelite Brotherhood.",
+    "id": 429
+  },
+  {
+    "name": "William Butler Yeats",
+    "question": "What year was William Butler Yeats's first volume of verse published?",
+    "gold_answer": "His first volume of verse was published in 1889.",
+    "id": 430
+  },
+  {
+    "name": "William Butler Yeats",
+    "question": "What shift occurred in William Butler Yeats's poetry around 1900?",
+    "gold_answer": "Around 1900, his poetry became more physical, realistic, and politicised.",
+    "id": 431
+  },
+  {
+    "name": "William Butler Yeats",
+    "question": "What elements continued to preoccupy William Butler Yeats later in his career?",
+    "gold_answer": "He remained preoccupied with elements such as cyclical theories of life.",
+    "id": 432
+  },
+  {
+    "name": "William Butler Yeats",
+    "question": "What role did William Butler Yeats play in promoting younger poets?",
+    "gold_answer": "He was the chief playwright for the Irish Literary Theatre and promoted younger poets, including Ezra Pound.",
+    "id": 433
+  },
+  {
+    "name": "William Butler Yeats",
+    "question": "What is one of the earliest works by William Butler Yeats?",
+    "gold_answer": "One of his earliest works is \"The Land of Heart's Desire,\" written in 1894.",
+    "id": 434
+  },
+  {
+    "name": "William Butler Yeats",
+    "question": "What themes are prevalent in William Butler Yeats's work \"The Wild Swans at Coole\"?",
+    "gold_answer": "Themes in \"The Wild Swans at Coole\" include the passage of time and personal reflection.",
+    "id": 435
+  },
+  {
+    "name": "William Butler Yeats",
+    "question": "What are some key characteristics of William Butler Yeats’s poetry in his later years?",
+    "gold_answer": "In his later years, Yeats's poetry often reflected personal introspection and philosophical depths.",
+    "id": 436
+  },
+  {
+    "name": "William Butler Yeats",
+    "question": "What was William Butler Yeats’s final published work?",
+    "gold_answer": "His final published work was \"Last Poems and Plays\" in 1940.",
+    "id": 437
+  },
+  {
+    "name": "William Butler Yeats",
+    "question": "How did William Butler Yeats's upbringing affect his literary themes?",
+    "gold_answer": "His upbringing in a family engaged in law and art, along with his education, deeply influenced his literary themes around Irish identity and aesthetics.",
+    "id": 438
+  },
+  {
+    "name": "William Butler Yeats",
+    "question": "What major life event occurred in Yeats's life in 1907?",
+    "gold_answer": "He wrote the play \"Deirdre\" in 1907.",
+    "id": 439
+  },
+  {
+    "name": "William Butler Yeats",
+    "question": "How did William Butler Yeats contribute to the cultural identity of Ireland?",
+    "gold_answer": "Through his literary and theatrical works, William Butler Yeats played a crucial role in shaping and promoting Irish cultural identity and heritage.",
+    "id": 440
+  },
+  {
+    "name": "Audre Lorde",
+    "question": "When was Audre Lorde born?",
+    "gold_answer": "Audre Lorde was born on February 18, 1934.",
+    "id": 441
+  },
+  {
+    "name": "Audre Lorde",
+    "question": "What was Audre Lorde's full birth name?",
+    "gold_answer": "Her full birth name was Audrey Geraldine Lorde.",
+    "id": 442
+  },
+  {
+    "name": "Audre Lorde",
+    "question": "When did Audre Lorde pass away?",
+    "gold_answer": "Audre Lorde passed away on November 17, 1992.",
+    "id": 443
+  },
+  {
+    "name": "Audre Lorde",
+    "question": "How did Audre Lorde describe herself in terms of her identity?",
+    "gold_answer": "Audre Lorde described herself as a \"Black, lesbian, feminist, socialist, mother, warrior, poet.\"",
+    "id": 444
+  },
+  {
+    "name": "Audre Lorde",
+    "question": "What professions did Audre Lorde have?",
+    "gold_answer": "Audre Lorde was a writer, professor, philosopher, and civil rights activist.",
+    "id": 445
+  },
+  {
+    "name": "Audre Lorde",
+    "question": "What are some key themes in Audre Lorde's poetry and prose?",
+    "gold_answer": "Her works often address civil rights, feminism, lesbianism, illness, disability, and Black female identity.",
+    "id": 446
+  },
+  {
+    "name": "Audre Lorde",
+    "question": "What was a notable belief of Audre Lorde regarding social justice?",
+    "gold_answer": "Audre Lorde believed that there was no hierarchy of oppressions, meaning all forms of injustice are equally important to confront.",
+    "id": 447
+  },
+  {
+    "name": "Audre Lorde",
+    "question": "How is Audre Lorde's spoken word delivery described?",
+    "gold_answer": "Her spoken word delivery is described as powerful, melodic, and intense.",
+    "id": 448
+  },
+  {
+    "name": "Audre Lorde",
+    "question": "Why is Audre Lorde considered an intersectional feminist?",
+    "gold_answer": "She is considered an intersectional feminist because her work addressed the interconnected nature of social categorizations such as race, gender, and sexuality, which lead to overlapping and interdependent systems of discrimination or disadvantage.",
+    "id": 449
+  },
+  {
+    "name": "Audre Lorde",
+    "question": "What impact did Audre Lorde have on the civil rights movement?",
+    "gold_answer": "Audre Lorde significantly contributed to the civil rights movement by using her voice and writings to highlight issues of racism, sexism, and homophobia.",
+    "id": 450
+  },
+  {
+    "name": "Audre Lorde",
+    "question": "Which university positions did Audre Lorde hold during her career?",
+    "gold_answer": "She was a professor at several institutions, although specific universities are not detailed in the given background.",
+    "id": 451
+  },
+  {
+    "name": "Audre Lorde",
+    "question": "Can you name any specific works by Audre Lorde?",
+    "gold_answer": "Specific works are not mentioned in the given background information.",
+    "id": 452
+  },
+  {
+    "name": "Audre Lorde",
+    "question": "What is known about Audre Lorde's technique in her poetry?",
+    "gold_answer": "She is known for her technical mastery and emotional expression.",
+    "id": 453
+  },
+  {
+    "name": "Audre Lorde",
+    "question": "How did Audre Lorde's identity influence her activism and writings?",
+    "gold_answer": "Her identity as a Black lesbian feminist deeply influenced her activism and writings, focusing on fighting injustices that affected similar communities.",
+    "id": 454
+  },
+  {
+    "name": "Audre Lorde",
+    "question": "What did Audre Lorde believe about expressing anger and outrage in her works?",
+    "gold_answer": "She believed in expressing anger and outrage at civil and social injustices through her poems, which was reflected in the themes she explored.",
+    "id": 455
+  },
+  {
+    "name": "Audre Lorde",
+    "question": "How has Audre Lorde been recognized posthumously in literary and activist communities?",
+    "gold_answer": "While specific awards or recognitions are not listed in the background provided, she is widely respected and often cited in discussions of literature and social activism.",
+    "id": 456
+  },
+  {
+    "name": "Audre Lorde",
+    "question": "Did Audre Lorde collaborate with other notable figures in her activism?",
+    "gold_answer": "The background information does not specify any collaborations.",
+    "id": 457
+  },
+  {
+    "name": "Audre Lorde",
+    "question": "What lasting legacy did Audre Lorde leave behind?",
+    "gold_answer": "Audre Lorde's legacy includes her influential writings and speeches that continue to inspire activism and scholarship in various social justice areas.",
+    "id": 458
+  },
+  {
+    "name": "Audre Lorde",
+    "question": "How did Audre Lorde's work contribute to discussions about illness and disability?",
+    "gold_answer": "Her works contributed to discussions on illness and disability by addressing these issues directly through her personal experiences and public advocacy.",
+    "id": 459
+  },
+  {
+    "name": "Audre Lorde",
+    "question": "What distinguishes Audre Lorde's work from other poets of her time?",
+    "gold_answer": "Audre Lorde's work is distinguished by her direct confrontation of societal issues, unique personal voice, and the integration of her multiple identities into her writing, setting her apart as a critical voice for marginalized communities.",
+    "id": 460
+  },
+  {
+    "name": "Erin Hunter",
+    "question": "Who is Erin Hunter?",
+    "gold_answer": "Erin Hunter is a collective pseudonym used by several authors to write juvenile fantasy novels about animals.",
+    "id": 461
+  },
+  {
+    "name": "Erin Hunter",
+    "question": "Which authors write under the Erin Hunter pseudonym?",
+    "gold_answer": "Victoria Holmes, Kate Cary, Cherith Baldry, Clarissa Hutton, Inbali Iserles, Tui T. Sutherland, and Rosie Best write under the Erin Hunter pseudonym.",
+    "id": 462
+  },
+  {
+    "name": "Erin Hunter",
+    "question": "What role does Victoria Holmes play in the Erin Hunter book series?",
+    "gold_answer": "Victoria Holmes creates the plots for the books.",
+    "id": 463
+  },
+  {
+    "name": "Erin Hunter",
+    "question": "Which series are included under the Erin Hunter name?",
+    "gold_answer": "The Warriors, Seekers, Survivors, Bravelands, and Bamboo Kingdom series are written under the Erin Hunter name.",
+    "id": 464
+  },
+  {
+    "name": "Erin Hunter",
+    "question": "Do other contributors write under the Erin Hunter name?",
+    "gold_answer": "Yes, Dan Jolley writes stories for manga under the Erin Hunter name but is not considered an official Erin Hunter author.",
+    "id": 465
+  },
+  {
+    "name": "Erin Hunter",
+    "question": "Who are the illustrators for the Warriors mangas under the Erin Hunter pseudonym?",
+    "gold_answer": "James L. Barry, Bettina M. Kurkoski, and Don Hudson are the illustrators for the Warriors mangas.",
+    "id": 466
+  },
+  {
+    "name": "Erin Hunter",
+    "question": "What is the main focus of the novels written by Erin Hunter?",
+    "gold_answer": "The novels focus on animals and their adventures.",
+    "id": 467
+  },
+  {
+    "name": "Erin Hunter",
+    "question": "How do the authors under Erin Hunter collaborate on a book?",
+    "gold_answer": "Victoria Holmes creates the plot, and then the other authors take turns writing the books.",
+    "id": 468
+  },
+  {
+    "name": "Erin Hunter",
+    "question": "Who are the illustrators for the upcoming graphic novel adaptation of \"The Prophecies Begin\" by Erin Hunter?",
+    "gold_answer": "Natalie Riess and Sara Goetter are the illustrators for the upcoming graphic novel adaptation.",
+    "id": 469
+  },
+  {
+    "name": "Erin Hunter",
+    "question": "What genre do Erin Hunter's books belong to?",
+    "gold_answer": "Erin Hunter's books are classified as juvenile fantasy.",
+    "id": 470
+  },
+  {
+    "name": "Erin Hunter",
+    "question": "Are all Erin Hunter books written by the same author?",
+    "gold_answer": "No, different authors take turns writing each book, though they collaborate on the overall storyline.",
+    "id": 471
+  },
+  {
+    "name": "Erin Hunter",
+    "question": "How does Erin Hunter ensure consistency across various series and books?",
+    "gold_answer": "The authors collaborate closely, with Victoria Holmes overseeing the plot development to maintain consistency.",
+    "id": 472
+  },
+  {
+    "name": "Erin Hunter",
+    "question": "Has Erin Hunter written any series outside the fantasy genre?",
+    "gold_answer": "No, all of Erin Hunter's series are within the juvenile fantasy genre, focusing on animals.",
+    "id": 473
+  },
+  {
+    "name": "Erin Hunter",
+    "question": "How has the Erin Hunter brand expanded beyond books?",
+    "gold_answer": "The Erin Hunter brand has expanded to include manga adaptations and forthcoming graphic novels.",
+    "id": 474
+  },
+  {
+    "name": "Erin Hunter",
+    "question": "What distinguishes the Erin Hunter novels from other juvenile fantasy books?",
+    "gold_answer": "The Erin Hunter novels are unique in their exclusive focus on animal characters and their societies.",
+    "id": 475
+  },
+  {
+    "name": "Erin Hunter",
+    "question": "What impact have Erin Hunter's novels had on young readers?",
+    "gold_answer": "Erin Hunter's novels have been widely praised for fostering a love of reading and nature among young readers.",
+    "id": 476
+  },
+  {
+    "name": "Erin Hunter",
+    "question": "Are the stories of Erin Hunter's books interconnected?",
+    "gold_answer": "Yes, within each series, the stories are interconnected with ongoing characters and plots.",
+    "id": 477
+  },
+  {
+    "name": "Erin Hunter",
+    "question": "Has Erin Hunter received any notable awards or recognitions?",
+    "gold_answer": "While individual books may have received recognitions, the collective works under Erin Hunter are best known for their popularity and extensive readership.",
+    "id": 478
+  },
+  {
+    "name": "Erin Hunter",
+    "question": "What is the latest series announced under the Erin Hunter pseudonym?",
+    "gold_answer": "The latest series announced is the Bamboo Kingdom.",
+    "id": 479
+  },
+  {
+    "name": "Erin Hunter",
+    "question": "What is unique about the collaboration style of the Erin Hunter team?",
+    "gold_answer": "The collaboration is unique because multiple authors contribute to the creation of a cohesive and continuous series under a single pseudonym, coordinated by a lead plot developer.",
+    "id": 480
+  },
+  {
+    "name": "Euripides",
+    "question": "When was Euripides born?",
+    "gold_answer": "Euripides was born around 480 BC.",
+    "id": 481
+  },
+  {
+    "name": "Euripides",
+    "question": "When did Euripides die?",
+    "gold_answer": "Euripides died around 406 BC.",
+    "id": 482
+  },
+  {
+    "name": "Euripides",
+    "question": "Along with which other tragedians is Euripides grouped?",
+    "gold_answer": "Euripides is grouped with Aeschylus and Sophocles.",
+    "id": 483
+  },
+  {
+    "name": "Euripides",
+    "question": "How many plays are attributed to Euripides by ancient scholars?",
+    "gold_answer": "Ancient scholars attributed up to ninety-five plays to Euripides.",
+    "id": 484
+  },
+  {
+    "name": "Euripides",
+    "question": "How many of Euripides' plays have survived in more or less complete form?",
+    "gold_answer": "Eighteen or nineteen of Euripides' plays have survived more or less complete.",
+    "id": 485
+  },
+  {
+    "name": "Euripides",
+    "question": "Is the play \"Rhesus\" considered a genuine work of Euripides?",
+    "gold_answer": "The authenticity of \"Rhesus\" as a work of Euripides is suspect.",
+    "id": 486
+  },
+  {
+    "name": "Euripides",
+    "question": "Why have more plays of Euripides survived compared to those of Aeschylus and Sophocles?",
+    "gold_answer": "More plays of Euripides have survived because his popularity grew in the Hellenistic Age, making him a central part of ancient literary education.",
+    "id": 487
+  },
+  {
+    "name": "Euripides",
+    "question": "How did Euripides influence modern drama?",
+    "gold_answer": "Euripides influenced modern drama with his innovative portrayal of mythical heroes as ordinary people in extraordinary circumstances.",
+    "id": 488
+  },
+  {
+    "name": "Euripides",
+    "question": "What new approach did Euripides pioneer that influenced other literary forms?",
+    "gold_answer": "Euripides pioneered the approach of focusing on the inner lives and motives of his characters, influencing later developments in comedy and romance.",
+    "id": 489
+  },
+  {
+    "name": "Euripides",
+    "question": "Why is Euripides called \"the most tragic of poets\"?",
+    "gold_answer": "Euripides is called \"the most tragic of poets\" because of his intense focus on the emotional and psychological depth of his characters.",
+    "id": 490
+  },
+  {
+    "name": "Euripides",
+    "question": "How did Euripides impact later playwrights like Shakespeare and Ibsen?",
+    "gold_answer": "Euripides created a theatrical model that later playwrights like Shakespeare and Ibsen used to explore complex human emotions and psychological conflicts.",
+    "id": 491
+  },
+  {
+    "name": "Euripides",
+    "question": "What was Euripides' relationship with the philosopher Socrates?",
+    "gold_answer": "Euripides was associated with Socrates as a leader of what was considered decadent intellectualism at the time.",
+    "id": 492
+  },
+  {
+    "name": "Euripides",
+    "question": "How did comic poets like Aristophanes view Euripides and Socrates?",
+    "gold_answer": "Comic poets such as Aristophanes frequently lampooned both Euripides and Socrates in their works.",
+    "id": 493
+  },
+  {
+    "name": "Euripides",
+    "question": "What led to the trial and execution of Socrates?",
+    "gold_answer": "Socrates was put on trial and executed as a corrupting influence, a view influenced by his association with ideas similar to those of Euripides.",
+    "id": 494
+  },
+  {
+    "name": "Euripides",
+    "question": "Did Euripides die in his homeland of Athens?",
+    "gold_answer": "No, Euripides died in Macedonia, where he spent his last years in voluntary exile.",
+    "id": 495
+  },
+  {
+    "name": "Euripides",
+    "question": "What does recent scholarship say about the circumstances of Euripides' death?",
+    "gold_answer": "Recent scholarship casts doubt on the ancient biographies that claim Euripides chose voluntary exile and died in Macedonia.",
+    "id": 496
+  },
+  {
+    "name": "Euripides",
+    "question": "How are Euripides' plays characterized in terms of their themes?",
+    "gold_answer": "Euripides' plays are characterized by their exploration of love, hate, and the psychological turmoil within human relationships.",
+    "id": 497
+  },
+  {
+    "name": "Euripides",
+    "question": "What legacy did Euripides leave in terms of educational impact?",
+    "gold_answer": "Euripides left a significant educational legacy, becoming a cornerstone of ancient literary education alongside figures like Homer and Menander.",
+    "id": 498
+  },
+  {
+    "name": "Euripides",
+    "question": "How did Euripides' reputation change over time?",
+    "gold_answer": "Euripides' reputation grew over time, especially in the Hellenistic period, contrasting with the declining popularity of Aeschylus and Sophocles.",
+    "id": 499
+  },
+  {
+    "name": "Euripides",
+    "question": "Which genres did Euripides' work influence beyond tragedy?",
+    "gold_answer": "Beyond tragedy, Euripides' work influenced comedy and romance genres through his innovative approach to character and plot development.",
+    "id": 500
+  },
+  {
+    "name": "Wolfgang Amadeus Mozart",
+    "question": "When was Wolfgang Amadeus Mozart born?",
+    "gold_answer": "Wolfgang Amadeus Mozart was born on January 27, 1756.",
+    "id": 501
+  },
+  {
+    "name": "Wolfgang Amadeus Mozart",
+    "question": "In which country was Wolfgang Amadeus Mozart born?",
+    "gold_answer": "Wolfgang Amadeus Mozart was born in Salzburg, which was then part of the Holy Roman Empire and is now in Austria.",
+    "id": 502
+  },
+  {
+    "name": "Wolfgang Amadeus Mozart",
+    "question": "At what age did Wolfgang Amadeus Mozart begin showing his musical abilities?",
+    "gold_answer": "Wolfgang Amadeus Mozart showed musical abilities from his earliest childhood and was already competent on keyboard and violin by the age of five.",
+    "id": 503
+  },
+  {
+    "name": "Wolfgang Amadeus Mozart",
+    "question": "What type of music did Wolfgang Amadeus Mozart compose?",
+    "gold_answer": "Wolfgang Amadeus Mozart composed symphonies, concertos, operas, chamber music, and choral music.",
+    "id": 504
+  },
+  {
+    "name": "Wolfgang Amadeus Mozart",
+    "question": "How many works did Wolfgang Amadeus Mozart compose?",
+    "gold_answer": "Wolfgang Amadeus Mozart composed more than 800 works during his lifetime.",
+    "id": 505
+  },
+  {
+    "name": "Wolfgang Amadeus Mozart",
+    "question": "Why is Wolfgang Amadeus Mozart considered one of the greatest composers in the history of Western music?",
+    "gold_answer": "Mozart is considered one of the greatest composers due to his melodious, elegantly structured music, which also features rich harmonies and textures.",
+    "id": 506
+  },
+  {
+    "name": "Wolfgang Amadeus Mozart",
+    "question": "At what age did Wolfgang Amadeus Mozart start composing music?",
+    "gold_answer": "Wolfgang Amadeus Mozart began composing music at the age of five.",
+    "id": 507
+  },
+  {
+    "name": "Wolfgang Amadeus Mozart",
+    "question": "What prompted Wolfgang Amadeus Mozart to leave Salzburg for Vienna in 1781?",
+    "gold_answer": "Wolfgang Amadeus Mozart left Salzburg for Vienna seeking better opportunities, and he was dismissed from his position at the Salzburg court in 1781.",
+    "id": 508
+  },
+  {
+    "name": "Wolfgang Amadeus Mozart",
+    "question": "How long did Wolfgang Amadeus Mozart live?",
+    "gold_answer": "Wolfgang Amadeus Mozart lived for 35 years.",
+    "id": 509
+  },
+  {
+    "name": "Wolfgang Amadeus Mozart",
+    "question": "What notable works did Wolfgang Amadeus Mozart compose in his final years?",
+    "gold_answer": "In his final years, Mozart composed many of his best-known symphonies, concertos, and operas.",
+    "id": 510
+  },
+  {
+    "name": "Wolfgang Amadeus Mozart",
+    "question": "Did Wolfgang Amadeus Mozart marry and have a family?",
+    "gold_answer": "Yes, Wolfgang Amadeus Mozart married Constanze Weber and they had children.",
+    "id": 511
+  },
+  {
+    "name": "Wolfgang Amadeus Mozart",
+    "question": "What was the financial situation of Wolfgang Amadeus Mozart during his years in Vienna?",
+    "gold_answer": "While in Vienna, Wolfgang Amadeus Mozart achieved fame but struggled with financial security.",
+    "id": 512
+  },
+  {
+    "name": "Wolfgang Amadeus Mozart",
+    "question": "What was Wolfgang Amadeus Mozart's last composition?",
+    "gold_answer": "Wolfgang Amadeus Mozart's last composition was his Requiem, which remained largely unfinished at his death.",
+    "id": 513
+  },
+  {
+    "name": "Wolfgang Amadeus Mozart",
+    "question": "How did Wolfgang Amadeus Mozart contribute to the opera genre?",
+    "gold_answer": "Wolfgang Amadeus Mozart enriched the opera genre with his masterpieces, which are celebrated for their rich character development and beautiful vocal writing.",
+    "id": 514
+  },
+  {
+    "name": "Wolfgang Amadeus Mozart",
+    "question": "What is considered Wolfgang Amadeus Mozart's legacy in the world of music?",
+    "gold_answer": "Wolfgang Amadeus Mozart's legacy includes influencing the development of Western music and setting high standards for composition in various musical genres.",
+    "id": 515
+  },
+  {
+    "name": "Wolfgang Amadeus Mozart",
+    "question": "How old was Wolfgang Amadeus Mozart when he performed before European royalty?",
+    "gold_answer": "Wolfgang Amadeus Mozart performed before European royalty as early as the age of five.",
+    "id": 516
+  },
+  {
+    "name": "Wolfgang Amadeus Mozart",
+    "question": "How did Wolfgang Amadeus Mozart's father contribute to his early musical career?",
+    "gold_answer": "Mozart's father, Leopold Mozart, recognized his son's talents early on, providing him with education in music and taking him on extensive tours of Europe to perform.",
+    "id": 517
+  },
+  {
+    "name": "Wolfgang Amadeus Mozart",
+    "question": "What impact did Wolfgang Amadeus Mozart's tours to Italy have on his music?",
+    "gold_answer": "His tours to Italy allowed Wolfgang Amadeus Mozart to immerse himself in Italian opera, which influenced his later compositions in the genre.",
+    "id": 518
+  },
+  {
+    "name": "Wolfgang Amadeus Mozart",
+    "question": "What are some characteristics of Wolfgang Amadeus Mozart's music that are widely admired?",
+    "gold_answer": "Wolfgang Amadeus Mozart's music is admired for its melodic beauty, formal elegance, and the richness of its harmony and texture.",
+    "id": 519
+  },
+  {
+    "name": "Wolfgang Amadeus Mozart",
+    "question": "When and where did Wolfgang Amadeus Mozart die?",
+    "gold_answer": "Wolfgang Amadeus Mozart died on December 5, 1791, in Vienna.",
+    "id": 520
+  },
+  {
+    "name": "Polybius",
+    "question": "When was Polybius born?",
+    "gold_answer": "Polybius was born around 200 BC.",
+    "id": 521
+  },
+  {
+    "name": "Polybius",
+    "question": "When did Polybius die?",
+    "gold_answer": "Polybius died around 118 BC.",
+    "id": 522
+  },
+  {
+    "name": "Polybius",
+    "question": "What is Polybius best known for?",
+    "gold_answer": "Polybius is best known for his work \"The Histories,\" a universal history documenting the rise of Rome.",
+    "id": 523
+  },
+  {
+    "name": "Polybius",
+    "question": "What time period does Polybius's \"The Histories\" cover?",
+    "gold_answer": "It covers the period from 264 BC to 146 BC.",
+    "id": 524
+  },
+  {
+    "name": "Polybius",
+    "question": "What major wars does Polybius document in his work?",
+    "gold_answer": "Polybius documents the Punic Wars and the Macedonian Wars.",
+    "id": 525
+  },
+  {
+    "name": "Polybius",
+    "question": "Which regions are detailed in Polybius's historical accounts?",
+    "gold_answer": "His accounts detail events in Italy, Iberia, Greece, Macedonia, Syria, Egypt, and Africa.",
+    "id": 526
+  },
+  {
+    "name": "Polybius",
+    "question": "What notable concept did Polybius analyze in his work?",
+    "gold_answer": "Polybius analyzed the concept of constitutional change and the mixed constitution.",
+    "id": 527
+  },
+  {
+    "name": "Polybius",
+    "question": "How did Polybius influence modern political thought?",
+    "gold_answer": "Polybius's ideas on separation of powers and checks and balances influenced thinkers like Montesquieu, John Locke, and the framers of the U.S. Constitution.",
+    "id": 528
+  },
+  {
+    "name": "Polybius",
+    "question": "Who was the leading expert on Polybius in the 20th century?",
+    "gold_answer": "F. W. Walbank was the leading expert on Polybius, publishing studies for 50 years.",
+    "id": 529
+  },
+  {
+    "name": "Polybius",
+    "question": "What significant relationship did Polybius have in Rome?",
+    "gold_answer": "Polybius was a close friend and mentor to Scipio Africanus the Younger.",
+    "id": 530
+  },
+  {
+    "name": "Polybius",
+    "question": "What is the historical period of Polybius's focus known as?",
+    "gold_answer": "Polybius focused on the middle Hellenistic period.",
+    "id": 531
+  },
+  {
+    "name": "Polybius",
+    "question": "How has Polybius's work survived over the centuries?",
+    "gold_answer": "His work, \"The Histories,\" is the only Hellenistic historical work to survive in any substantial form.",
+    "id": 532
+  },
+  {
+    "name": "Polybius",
+    "question": "What unique historical perspective did Polybius provide in his writings?",
+    "gold_answer": "Polybius provided an eyewitness account of Roman and Mediterranean history.",
+    "id": 533
+  },
+  {
+    "name": "Polybius",
+    "question": "What role did Polybius play in Scipio Africanus the Younger's life?",
+    "gold_answer": "He influenced Scipio's decision making and had a lasting impact on his life.",
+    "id": 534
+  },
+  {
+    "name": "Polybius",
+    "question": "What scholarly work did F.W. Walbank produce about Polybius?",
+    "gold_answer": "Walbank wrote a long commentary on Polybius's \"Histories\" and a biography.",
+    "id": 535
+  },
+  {
+    "name": "Polybius",
+    "question": "How did Polybius's background influence his historical writings?",
+    "gold_answer": "Being from the Greek elite and involved in Roman circles, his background gave him a unique perspective on Roman and Greek relations.",
+    "id": 536
+  },
+  {
+    "name": "Polybius",
+    "question": "How did Polybius describe the Roman government's structure?",
+    "gold_answer": "Polybius described it as having a mixed constitution with elements of monarchy, aristocracy, and democracy.",
+    "id": 537
+  },
+  {
+    "name": "Polybius",
+    "question": "What specific concept from Polybius's work influenced the U.S. Constitution?",
+    "gold_answer": "The concept of checks and balances and separation of powers.",
+    "id": 538
+  },
+  {
+    "name": "Polybius",
+    "question": "What makes Polybius's accounts of the Mediterranean world unique?",
+    "gold_answer": "His accounts are detailed, extensive, and cover a broad geographical scope during a crucial period in history.",
+    "id": 539
+  },
+  {
+    "name": "Polybius",
+    "question": "Why is studying Polybius important for understanding ancient history?",
+    "gold_answer": "Studying Polybius is crucial as his works provide a comprehensive look at the political dynamics and history of the rise of Rome, offering insights not found in other sources.",
+    "id": 540
+  },
+  {
+    "name": "Julian Assange",
+    "question": "When was Julian Assange born?",
+    "gold_answer": "Julian Assange was born on July 3, 1971.",
+    "id": 541
+  },
+  {
+    "name": "Julian Assange",
+    "question": "What is Julian Assange known for founding?",
+    "gold_answer": "Julian Assange is known for founding WikiLeaks in 2006.",
+    "id": 542
+  },
+  {
+    "name": "Julian Assange",
+    "question": "What major leaks brought Julian Assange international attention in 2010?",
+    "gold_answer": "Julian Assange gained international attention in 2010 when WikiLeaks published leaks from Chelsea Manning, including footage of a US airstrike in Baghdad and US diplomatic cables.",
+    "id": 543
+  },
+  {
+    "name": "Julian Assange",
+    "question": "Where was Julian Assange raised?",
+    "gold_answer": "Julian Assange was raised in several towns in Australia until his family settled in Melbourne during his mid-teens.",
+    "id": 544
+  },
+  {
+    "name": "Julian Assange",
+    "question": "What led to Julian Assange's conviction in 1996?",
+    "gold_answer": "Julian Assange was convicted for hacking in 1996.",
+    "id": 545
+  },
+  {
+    "name": "Julian Assange",
+    "question": "What did WikiLeaks publish regarding the Bank Julius Baer?",
+    "gold_answer": "WikiLeaks published documents regarding the Bank Julius Baer.",
+    "id": 546
+  },
+  {
+    "name": "Julian Assange",
+    "question": "What led Julian Assange to seek refuge in the Embassy of Ecuador in London in June 2012?",
+    "gold_answer": "Julian Assange sought refuge in the Embassy of Ecuador in London in June 2012 after losing his appeal against a European arrest warrant issued by Sweden.",
+    "id": 547
+  },
+  {
+    "name": "Julian Assange",
+    "question": "Why was Julian Assange granted asylum by Ecuador in August 2012?",
+    "gold_answer": "Julian Assange was granted asylum by Ecuador in August 2012 on the grounds of political persecution and fears of extradition to the United States.",
+    "id": 548
+  },
+  {
+    "name": "Julian Assange",
+    "question": "What political endeavor did Julian Assange undertake in 2013?",
+    "gold_answer": "Julian Assange stood for the Australian Senate in 2013 and launched the WikiLeaks Party.",
+    "id": 549
+  },
+  {
+    "name": "Julian Assange",
+    "question": "What happened to the Swedish investigation into Julian Assange?",
+    "gold_answer": "Swedish prosecutors dropped the investigation into Julian Assange in 2019.",
+    "id": 550
+  },
+  {
+    "name": "Julian Assange",
+    "question": "Why was Julian Assange arrested on April 11, 2019?",
+    "gold_answer": "Julian Assange was arrested on April 11, 2019, after his asylum was withdrawn by Ecuador.",
+    "id": 551
+  },
+  {
+    "name": "Julian Assange",
+    "question": "What was Julian Assange found guilty of following his arrest in 2019?",
+    "gold_answer": "Julian Assange was found guilty of breaching the Bail Act and sentenced to 50 weeks in prison.",
+    "id": 552
+  },
+  {
+    "name": "Julian Assange",
+    "question": "What did the US government indict Julian Assange for in May 2019?",
+    "gold_answer": "In May 2019, the US government indicted Julian Assange with conspiracy to commit computer intrusion related to leaks provided by Chelsea Manning.",
+    "id": 553
+  },
+  {
+    "name": "Julian Assange",
+    "question": "What did the US government indict Julian Assange for in June 2020?",
+    "gold_answer": "In June 2020, the US government indicted Julian Assange with violating the Espionage Act of 1917 and alleging he had conspired with hackers.",
+    "id": 554
+  },
+  {
+    "name": "Julian Assange",
+    "question": "Where has Julian Assange been incarcerated since April 2019?",
+    "gold_answer": "Julian Assange has been incarcerated in HM Prison Belmarsh in London since April 2019.",
+    "id": 555
+  },
+  {
+    "name": "Julian Assange",
+    "question": "What was the outcome of Julian Assange's appeal against the European arrest warrant issued by Sweden?",
+    "gold_answer": "Julian Assange lost his appeal against the European arrest warrant issued by Sweden.",
+    "id": 556
+  },
+  {
+    "name": "Julian Assange",
+    "question": "Why did Julian Assange take refuge in the Embassy of Ecuador in London?",
+    "gold_answer": "Julian Assange took refuge in the Embassy of Ecuador in London to avoid extradition to Sweden.",
+    "id": 557
+  },
+  {
+    "name": "Julian Assange",
+    "question": "What political party did Julian Assange launch in 2013?",
+    "gold_answer": "Julian Assange launched the WikiLeaks Party in 2013.",
+    "id": 558
+  },
+  {
+    "name": "Julian Assange",
+    "question": "What was the reason for Sweden issuing a European arrest warrant for Julian Assange?",
+    "gold_answer": "Sweden issued a European arrest warrant for Julian Assange for questioning in an investigation.",
+    "id": 559
+  },
+  {
+    "name": "Julian Assange",
+    "question": "What were some of the leaks published by WikiLeaks in 2010?",
+    "gold_answer": "WikiLeaks published leaks from Chelsea Manning in 2010, including US military logs from the Afghanistan and Iraq wars.",
+    "id": 560
+  },
+  {
+    "name": "Anton Chekhov",
+    "question": "When and where was Anton Chekhov born?",
+    "gold_answer": "Anton Chekhov was born on January 29, 1860, in Taganrog, Russia.",
+    "id": 561
+  },
+  {
+    "name": "Anton Chekhov",
+    "question": "What profession did Anton Chekhov originally train for?",
+    "gold_answer": "Anton Chekhov originally trained as a physician.",
+    "id": 562
+  },
+  {
+    "name": "Anton Chekhov",
+    "question": "How did Anton Chekhov describe his relationship with medicine and literature?",
+    "gold_answer": "Anton Chekhov once described that \"Medicine is my lawful wife, and literature is my mistress.\"",
+    "id": 563
+  },
+  {
+    "name": "Anton Chekhov",
+    "question": "Which play by Anton Chekhov was initially a failure but later acclaimed after revival by Konstantin Stanislavski?",
+    "gold_answer": "\"The Seagull\" was initially a failure but later acclaimed after its revival by Konstantin Stanislavski.",
+    "id": 564
+  },
+  {
+    "name": "Anton Chekhov",
+    "question": "Which theatre company was instrumental in reviving and popularizing Anton Chekhov's major plays?",
+    "gold_answer": "The Moscow Art Theatre was instrumental in reviving and popularizing Chekhov's major plays.",
+    "id": 565
+  },
+  {
+    "name": "Anton Chekhov",
+    "question": "What are the names of Anton Chekhov’s four major plays?",
+    "gold_answer": "Anton Chekhov's four major plays are \"The Seagull,\" \"Uncle Vanya,\" \"Three Sisters,\" and \"The Cherry Orchard.\"",
+    "id": 566
+  },
+  {
+    "name": "Anton Chekhov",
+    "question": "What distinctive style of theatre is associated with Anton Chekhov’s plays?",
+    "gold_answer": "Anton Chekhov’s plays are associated with a \"theatre of mood\" and the exploration of \"submerged life in the text.\"",
+    "id": 567
+  },
+  {
+    "name": "Anton Chekhov",
+    "question": "How did Anton Chekhov contribute to the modern short story genre?",
+    "gold_answer": "Chekhov made formal innovations in the modern short story, which influenced its evolution.",
+    "id": 568
+  },
+  {
+    "name": "Anton Chekhov",
+    "question": "What is a common theme found in Anton Chekhov's writings?",
+    "gold_answer": "A common theme in Chekhov's writings is the complexity of human nature and the nuances of everyday life.",
+    "id": 569
+  },
+  {
+    "name": "Anton Chekhov",
+    "question": "How did Anton Chekhov view the role of the artist in society?",
+    "gold_answer": "Anton Chekhov believed that the role of an artist was to ask questions, not to answer them.",
+    "id": 570
+  },
+  {
+    "name": "Anton Chekhov",
+    "question": "When did Anton Chekhov pass away, and what was the cause?",
+    "gold_answer": "Anton Chekhov passed away on July 15, 1904, from tuberculosis.",
+    "id": 571
+  },
+  {
+    "name": "Anton Chekhov",
+    "question": "Which Anton Chekhov play features the theme of missed opportunities and unfulfilled dreams?",
+    "gold_answer": "\"Uncle Vanya\" features themes of missed opportunities and unfulfilled dreams.",
+    "id": 572
+  },
+  {
+    "name": "Anton Chekhov",
+    "question": "What literary method is Anton Chekhov renowned for in his plays and short stories?",
+    "gold_answer": "Anton Chekhov is renowned for his use of subtlety and stream of consciousness.",
+    "id": 573
+  },
+  {
+    "name": "Anton Chekhov",
+    "question": "In which city did Anton Chekhov’s play \"The Cherry Orchard\" premiere?",
+    "gold_answer": "\"The Cherry Orchard\" premiered in Moscow, Russia.",
+    "id": 574
+  },
+  {
+    "name": "Anton Chekhov",
+    "question": "How does Anton Chekhov’s writing style differ from traditional dramatic narratives?",
+    "gold_answer": "Chekhov's style avoids conventional action and focuses more on character development and atmospheric mood.",
+    "id": 575
+  },
+  {
+    "name": "Anton Chekhov",
+    "question": "What did Anton Chekhov think of the initial reception of \"The Seagull\" in 1896?",
+    "gold_answer": "Anton Chekhov was disappointed by the initial negative reception of \"The Seagull.\"",
+    "id": 576
+  },
+  {
+    "name": "Anton Chekhov",
+    "question": "Besides being a writer and physician, did Anton Chekhov have any other professions or notable hobbies?",
+    "gold_answer": "Besides writing and medicine, Chekhov was also involved in humanitarian relief efforts, particularly during the famine of 1892 and the cholera epidemic.",
+    "id": 577
+  },
+  {
+    "name": "Anton Chekhov",
+    "question": "What impact did Anton Chekhov’s medical background have on his literary works?",
+    "gold_answer": "His medical background influenced his literary work by enriching his understanding of human suffering, psychology, and realism.",
+    "id": 578
+  },
+  {
+    "name": "Anton Chekhov",
+    "question": "Which major Russian theatre director worked closely with Anton Chekhov in producing his plays?",
+    "gold_answer": "Konstantin Stanislavski worked closely with Anton Chekhov in producing his plays.",
+    "id": 579
+  },
+  {
+    "name": "Anton Chekhov",
+    "question": "How is Anton Chekhov viewed in the context of world literature?",
+    "gold_answer": "Anton Chekhov is viewed as a master of modern drama and short story, influencing both genres significantly with his innovative techniques and psychological depth.",
+    "id": 580
+  },
+  {
+    "name": "David Foster Wallace",
+    "question": "When was David Foster Wallace born?",
+    "gold_answer": "David Foster Wallace was born on February 21, 1962.",
+    "id": 581
+  },
+  {
+    "name": "David Foster Wallace",
+    "question": "What is David Foster Wallace renowned for?",
+    "gold_answer": "He is renowned as an American novelist, short story writer, essayist, and university professor of English and creative writing.",
+    "id": 582
+  },
+  {
+    "name": "David Foster Wallace",
+    "question": "Which David Foster Wallace novel is considered one of the 100 best English-language novels from 1923 to 2005 by Time magazine?",
+    "gold_answer": "His novel \"Infinite Jest,\" published in 1996, was cited as one of the best.",
+    "id": 583
+  },
+  {
+    "name": "David Foster Wallace",
+    "question": "What is the title of David Foster Wallace's posthumous novel that was a finalist for the Pulitzer Prize for Fiction in 2012?",
+    "gold_answer": "The novel is titled \"The Pale King.\"",
+    "id": 584
+  },
+  {
+    "name": "David Foster Wallace",
+    "question": "How did the Los Angeles Times's David Ulin describe David Foster Wallace?",
+    "gold_answer": "David Ulin called him \"one of the most influential and innovative writers of the last twenty years.\"",
+    "id": 585
+  },
+  {
+    "name": "David Foster Wallace",
+    "question": "Where did David Foster Wallace grow up?",
+    "gold_answer": "He grew up in Illinois.",
+    "id": 586
+  },
+  {
+    "name": "David Foster Wallace",
+    "question": "Which college did David Foster Wallace attend?",
+    "gold_answer": "He attended Amherst College.",
+    "id": 587
+  },
+  {
+    "name": "David Foster Wallace",
+    "question": "At which colleges did David Foster Wallace teach English?",
+    "gold_answer": "He taught at Emerson College, Illinois State University, and Pomona College.",
+    "id": 588
+  },
+  {
+    "name": "David Foster Wallace",
+    "question": "What year did David Foster Wallace pass away?",
+    "gold_answer": "He passed away in 2008.",
+    "id": 589
+  },
+  {
+    "name": "David Foster Wallace",
+    "question": "How old was David Foster Wallace at the time of his death?",
+    "gold_answer": "He was 46 years old.",
+    "id": 590
+  },
+  {
+    "name": "David Foster Wallace",
+    "question": "What was the cause of David Foster Wallace's death?",
+    "gold_answer": "He died by suicide.",
+    "id": 591
+  },
+  {
+    "name": "David Foster Wallace",
+    "question": "Did David Foster Wallace struggle with any personal issues?",
+    "gold_answer": "Yes, he struggled with depression for many years.",
+    "id": 592
+  },
+  {
+    "name": "David Foster Wallace",
+    "question": "What genre did David Foster Wallace mainly write in?",
+    "gold_answer": "He primarily wrote novels and essays.",
+    "id": 593
+  },
+  {
+    "name": "David Foster Wallace",
+    "question": "What themes are prevalent in David Foster Wallace's writings?",
+    "gold_answer": "His writings often explore themes of irony, postmodernity, and the challenges of living in contemporary society.",
+    "id": 594
+  },
+  {
+    "name": "David Foster Wallace",
+    "question": "Did David Foster Wallace receive any awards for his writing during his lifetime?",
+    "gold_answer": "Yes, he received several awards, including the MacArthur Fellowship.",
+    "id": 595
+  },
+  {
+    "name": "David Foster Wallace",
+    "question": "What impact did David Foster Wallace have on modern literature?",
+    "gold_answer": "He had a significant impact, influencing a generation of writers and readers with his innovative narrative styles and deep exploration of complex themes.",
+    "id": 596
+  },
+  {
+    "name": "David Foster Wallace",
+    "question": "Is there a notable educational background in David Foster Wallace's family?",
+    "gold_answer": "Yes, both of his parents were academics.",
+    "id": 597
+  },
+  {
+    "name": "David Foster Wallace",
+    "question": "What type of fiction is \"Infinite Jest\" considered?",
+    "gold_answer": "It is considered a part of postmodern literature.",
+    "id": 598
+  },
+  {
+    "name": "David Foster Wallace",
+    "question": "Did David Foster Wallace write any non-fiction?",
+    "gold_answer": "Yes, he wrote several non-fiction essays and articles.",
+    "id": 599
+  },
+  {
+    "name": "David Foster Wallace",
+    "question": "How has David Foster Wallace been memorialized in the literary community after his death?",
+    "gold_answer": "He has been memorialized through numerous discussions, analyses of his work, and continued study in academic circles.",
+    "id": 600
+  }
+]

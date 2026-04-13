@@ -1,0 +1,542 @@
+[
+  {
+    "name": "William Shakespeare",
+    "paraphrased_instruction": "What is the birth year of William Shakespeare?",
+    "gold_answer": "William Shakespeare was born around April 23, 1564.",
+    "id": 631
+  },
+  {
+    "name": "William Shakespeare",
+    "paraphrased_instruction": "Which country was Shakespeare from?",
+    "gold_answer": "William Shakespeare was English.",
+    "id": 632
+  },
+  {
+    "name": "William Shakespeare",
+    "paraphrased_instruction": "What is the reason William Shakespeare is frequently referred to as 'the Bard'?",
+    "gold_answer": "William Shakespeare is often called \"the Bard\" as a shorthand for \"the Bard of Avon,\" emphasizing his status as a foremost poet.",
+    "id": 633
+  },
+  {
+    "name": "William Shakespeare",
+    "paraphrased_instruction": "What is the total number of plays written by William Shakespeare?",
+    "gold_answer": "William Shakespeare wrote approximately 39 plays.",
+    "id": 634
+  },
+  {
+    "name": "William Shakespeare",
+    "paraphrased_instruction": "Which tragedies written by Shakespeare are considered especially well-known?",
+    "gold_answer": "Some of his famous tragedies include \"Hamlet,\" \"Othello,\" \"King Lear,\" and \"Macbeth.\"",
+    "id": 635
+  },
+  {
+    "name": "William Shakespeare",
+    "paraphrased_instruction": "What is the name of the town where William Shakespeare was born and grew up?",
+    "gold_answer": "He was born and raised in Stratford-upon-Avon, Warwickshire.",
+    "id": 636
+  },
+  {
+    "name": "William Shakespeare",
+    "paraphrased_instruction": "What is the total number of sonnets authored by William Shakespeare?",
+    "gold_answer": "William Shakespeare wrote 154 sonnets.",
+    "id": 637
+  },
+  {
+    "name": "William Shakespeare",
+    "paraphrased_instruction": "Which theatrical troupe in London was William Shakespeare linked to?",
+    "gold_answer": "He was part of the Lord Chamberlain's Men, which was later known as the King's Men.",
+    "id": 638
+  },
+  {
+    "name": "William Shakespeare",
+    "paraphrased_instruction": "What genres of plays were written by Shakespeare during the beginning of his career?",
+    "gold_answer": "In his early career, Shakespeare wrote primarily comedies and histories.",
+    "id": 639
+  },
+  {
+    "name": "William Shakespeare",
+    "paraphrased_instruction": "In what year did William Shakespeare wed Anne Hathaway?",
+    "gold_answer": "William Shakespeare married Anne Hathaway in 1582.",
+    "id": 640
+  },
+  {
+    "name": "Louisa May Alcott",
+    "paraphrased_instruction": "What is the birth year of Louisa May Alcott?",
+    "gold_answer": "Louisa May Alcott was born on November 29, 1832.",
+    "id": 641
+  },
+  {
+    "name": "Louisa May Alcott",
+    "paraphrased_instruction": "For what is Louisa May Alcott most famous?",
+    "gold_answer": "Louisa May Alcott is best known for writing the novel \"Little Women\" and its sequels \"Good Wives,\" \"Little Men,\" and \"Jo's Boys.\"",
+    "id": 642
+  },
+  {
+    "name": "Louisa May Alcott",
+    "paraphrased_instruction": "Who were the parents of Louisa May Alcott?",
+    "gold_answer": "Her parents were Abigail May and Amos Bronson Alcott.",
+    "id": 643
+  },
+  {
+    "name": "Louisa May Alcott",
+    "paraphrased_instruction": "In what ways did the family background of Louisa May Alcott impact her life?",
+    "gold_answer": "Louisa grew up among well-known intellectuals like Ralph Waldo Emerson and Henry David Thoreau, influenced by their transcendentalist beliefs.",
+    "id": 644
+  },
+  {
+    "name": "Louisa May Alcott",
+    "paraphrased_instruction": "What pseudonym did Louisa May Alcott use for her sensational tales?",
+    "gold_answer": "She used the pen name A. M. Barnard to write lurid short stories and sensation novels.",
+    "id": 645
+  },
+  {
+    "name": "Louisa May Alcott",
+    "paraphrased_instruction": "What topics did Louisa May Alcott cover in her initial works written under the pseudonym A. M. Barnard?",
+    "gold_answer": "Her early writings under the pen name A. M. Barnard focused on passion and revenge.",
+    "id": 646
+  },
+  {
+    "name": "Louisa May Alcott",
+    "paraphrased_instruction": "In which location does the story of 'Little Women' take place?",
+    "gold_answer": "\"Little Women\" is set in Orchard House, Concord, Massachusetts.",
+    "id": 647
+  },
+  {
+    "name": "Louisa May Alcott",
+    "paraphrased_instruction": "Can you list the names of the sisters of Louisa May Alcott?",
+    "gold_answer": "Her sisters were Abigail May Alcott Nieriker, Elizabeth Sewall Alcott, and Anna Alcott Pratt.",
+    "id": 648
+  },
+  {
+    "name": "Louisa May Alcott",
+    "paraphrased_instruction": "What role did Louisa May Alcott play in supporting her family's income?",
+    "gold_answer": "Louisa worked from an early age to help support her family due to their financial difficulties.",
+    "id": 649
+  },
+  {
+    "name": "Louisa May Alcott",
+    "paraphrased_instruction": "At what point did Louisa May Alcott start gaining recognition for her literary work?",
+    "gold_answer": "She began to receive critical success in the 1860s.",
+    "id": 650
+  },
+  {
+    "name": "Rumi",
+    "paraphrased_instruction": "What are the birth details of Rumi, including the date and location?",
+    "gold_answer": "Rumi was born on September 30, 1207, in Greater Khorasan, Greater Iran.",
+    "id": 651
+  },
+  {
+    "name": "Rumi",
+    "paraphrased_instruction": "What jobs did Rumi have throughout his life?",
+    "gold_answer": "Rumi was a poet, Hanafi faqih, Islamic scholar, Maturidi theologian, and a Sufi mystic.",
+    "id": 652
+  },
+  {
+    "name": "Rumi",
+    "paraphrased_instruction": "In which languages did Rumi compose his poems?",
+    "gold_answer": "Rumi wrote mostly in Persian but also used Turkish, Arabic, and Greek in his verses.",
+    "id": 653
+  },
+  {
+    "name": "Rumi",
+    "paraphrased_instruction": "Which poem is considered the most well-known by Rumi?",
+    "gold_answer": "Rumi's most famous work is the Masnavi (Mathnawi), composed in Konya.",
+    "id": 654
+  },
+  {
+    "name": "Rumi",
+    "paraphrased_instruction": "What makes the Masnavi important?",
+    "gold_answer": "The Masnavi is considered one of the greatest poems of the Persian language and a profound spiritual masterpiece.",
+    "id": 655
+  },
+  {
+    "name": "Rumi",
+    "paraphrased_instruction": "In what ways has Rumi's poetry crossed beyond ethnic and national limits?",
+    "gold_answer": "Rumi's influence has reached Iranians, Afghans, Tajiks, Turks, Kurds, Greeks, Central Asian Muslims, and South Asian Muslims, transcending national borders and ethnic divisions.",
+    "id": 656
+  },
+  {
+    "name": "Rumi",
+    "paraphrased_instruction": "In what ways did Rumi impact literature across various languages?",
+    "gold_answer": "Rumi's poetry has influenced the literary traditions of the Ottoman Turkish, Chagatai, Pashto, Kurdish, Urdu, and Bengali languages.",
+    "id": 657
+  },
+  {
+    "name": "Rumi",
+    "paraphrased_instruction": "In which regions are the works of Rumi commonly read in their original language nowadays?",
+    "gold_answer": "Rumi's works are widely read in their original Persian across Greater Iran and the Persian-speaking world.",
+    "id": 658
+  },
+  {
+    "name": "Rumi",
+    "paraphrased_instruction": "What is the total number of languages into which the poems of Rumi have been translated?",
+    "gold_answer": "Rumi's poems have been translated into many of the world's languages.",
+    "id": 659
+  },
+  {
+    "name": "Rumi",
+    "paraphrased_instruction": "In what ways have Rumi's writings been adapted into different formats?",
+    "gold_answer": "Rumi's poems have been transposed into various formats, including music, dance, and visual arts.",
+    "id": 660
+  },
+  {
+    "name": "Taslima Nasrin",
+    "paraphrased_instruction": "What is the birth year of Taslima Nasrin?",
+    "gold_answer": "Taslima Nasrin was born on 25 August 1962.",
+    "id": 751
+  },
+  {
+    "name": "Taslima Nasrin",
+    "paraphrased_instruction": "What does Taslima Nasrin do for a living?",
+    "gold_answer": "Taslima Nasrin is a writer and physician.",
+    "id": 752
+  },
+  {
+    "name": "Taslima Nasrin",
+    "paraphrased_instruction": "What central ideas are commonly found in the works of Taslima Nasrin?",
+    "gold_answer": "The main themes of her writings include women's oppression and criticism of religion.",
+    "id": 753
+  },
+  {
+    "name": "Taslima Nasrin",
+    "paraphrased_instruction": "What are the reasons for the banning of certain books by Taslima Nasrin in Bangladesh?",
+    "gold_answer": "Her books are banned due to their critical views on religion and her advocacy for feminist issues.",
+    "id": 754
+  },
+  {
+    "name": "Taslima Nasrin",
+    "paraphrased_instruction": "What are the reasons behind Taslima Nasrin being exiled from the Bengal area?",
+    "gold_answer": "Taslima Nasrin has been banished for her controversial writings, which have provoked backlash from religious and political groups.",
+    "id": 755
+  },
+  {
+    "name": "Taslima Nasrin",
+    "paraphrased_instruction": "Which significant beliefs does Taslima Nasrin advocate for?",
+    "gold_answer": "She supports feminism and secular humanism.",
+    "id": 756
+  },
+  {
+    "name": "Taslima Nasrin",
+    "paraphrased_instruction": "In which year did Taslima Nasrin become internationally recognized?",
+    "gold_answer": "She gained global attention in the early 1990s.",
+    "id": 757
+  },
+  {
+    "name": "Taslima Nasrin",
+    "paraphrased_instruction": "What genre of writing is Taslima Nasrin famous for?",
+    "gold_answer": "Taslima Nasrin is known for her essays and novels.",
+    "id": 758
+  },
+  {
+    "name": "Taslima Nasrin",
+    "paraphrased_instruction": "What are the reasons for Taslima Nasrin's exile?",
+    "gold_answer": "Taslima Nasrin has been living in exile due to threats to her life, including multiple fatwas calling for her death.",
+    "id": 759
+  },
+  {
+    "name": "Taslima Nasrin",
+    "paraphrased_instruction": "Which countries did Taslima Nasrin reside in after departing Bangladesh?",
+    "gold_answer": "After leaving Bangladesh, she lived in various countries across Europe and the United States.",
+    "id": 760
+  },
+  {
+    "name": "James Cameron",
+    "paraphrased_instruction": "What is the birth date of James Cameron?",
+    "gold_answer": "James Cameron was born on August 16, 1954.",
+    "id": 761
+  },
+  {
+    "name": "James Cameron",
+    "paraphrased_instruction": "What is the nationality of the filmmaker known for directing 'Avatar'?",
+    "gold_answer": "James Cameron is Canadian.",
+    "id": 762
+  },
+  {
+    "name": "James Cameron",
+    "paraphrased_instruction": "Which period in film history is James Cameron linked to?",
+    "gold_answer": "James Cameron is a major figure in the post-New Hollywood era.",
+    "id": 763
+  },
+  {
+    "name": "James Cameron",
+    "paraphrased_instruction": "What was the first major hit film directed by James Cameron?",
+    "gold_answer": "James Cameron first gained recognition for writing and directing \"The Terminator\" in 1984.",
+    "id": 764
+  },
+  {
+    "name": "James Cameron",
+    "paraphrased_instruction": "What movie directed by James Cameron secured three Oscars, one of which was for Best Picture?",
+    "gold_answer": "\"Titanic\" (1997) won three Academy Awards for Best Picture, Best Director, and Best Film Editing.",
+    "id": 765
+  },
+  {
+    "name": "James Cameron",
+    "paraphrased_instruction": "What is the total number of films directed by James Cameron that have been chosen for preservation in the National Film Registry?",
+    "gold_answer": "Three of James Cameron's films have been selected for preservation in the National Film Registry.",
+    "id": 766
+  },
+  {
+    "name": "James Cameron",
+    "paraphrased_instruction": "Which production companies were established by James Cameron?",
+    "gold_answer": "James Cameron co-founded Lightstorm Entertainment, Digital Domain, and Earthship Productions.",
+    "id": 767
+  },
+  {
+    "name": "James Cameron",
+    "paraphrased_instruction": "Apart from directing movies, which other area is James Cameron well-known for being active in?",
+    "gold_answer": "Besides filmmaking, James Cameron is also involved in deep-sea exploration and has produced many documentaries on the subject.",
+    "id": 768
+  },
+  {
+    "name": "James Cameron",
+    "paraphrased_instruction": "What major underwater feat was completed by James Cameron in 2012?",
+    "gold_answer": "In 2012, James Cameron became the first person to do a solo descent to the bottom of the Mariana Trench.",
+    "id": 769
+  },
+  {
+    "name": "James Cameron",
+    "paraphrased_instruction": "What is the total worldwide box office revenue for the movies directed by James Cameron?",
+    "gold_answer": "James Cameron's films have grossed over $8 billion worldwide.",
+    "id": 770
+  },
+  {
+    "name": "Rob Marshall",
+    "paraphrased_instruction": "What is Rob Marshall's date of birth?",
+    "gold_answer": "Rob Marshall was born on October 17, 1960.",
+    "id": 771
+  },
+  {
+    "name": "Rob Marshall",
+    "paraphrased_instruction": "Which country is Rob Marshall a citizen of?",
+    "gold_answer": "Rob Marshall is American.",
+    "id": 772
+  },
+  {
+    "name": "Rob Marshall",
+    "paraphrased_instruction": "Which movie is Rob Marshall most famous for directing?",
+    "gold_answer": "Rob Marshall is best known for directing the film version of the Broadway musical \"Chicago.\"",
+    "id": 773
+  },
+  {
+    "name": "Rob Marshall",
+    "paraphrased_instruction": "Which play serves as the basis for the movie 'Chicago'?",
+    "gold_answer": "The film \"Chicago\" is based on the play of the same name by playwright Maurine Dallas Watkins.",
+    "id": 774
+  },
+  {
+    "name": "Rob Marshall",
+    "paraphrased_instruction": "Which accolade did the director of 'Chicago' receive?",
+    "gold_answer": "Rob Marshall won the Directors Guild of America Award for Outstanding Directing – Feature Film for \"Chicago.\"",
+    "id": 775
+  },
+  {
+    "name": "Rob Marshall",
+    "paraphrased_instruction": "Did Rob Marshall receive a nomination for the Best Director Oscar?",
+    "gold_answer": "Yes, Rob Marshall was nominated for the Academy Award for Best Director for \"Chicago.\"",
+    "id": 776
+  },
+  {
+    "name": "Rob Marshall",
+    "paraphrased_instruction": "Was Rob Marshall nominated for a Golden Globe for his work on 'Chicago'?",
+    "gold_answer": "Yes, Rob Marshall received a Golden Globe Award nomination for Best Director for \"Chicago.\"",
+    "id": 777
+  },
+  {
+    "name": "Rob Marshall",
+    "paraphrased_instruction": "Did Rob Marshall receive a BAFTA Award nomination for his work on 'Chicago'?",
+    "gold_answer": "Yes, Rob Marshall was nominated for the BAFTA Award for Best Direction for \"Chicago.\"",
+    "id": 778
+  },
+  {
+    "name": "Rob Marshall",
+    "paraphrased_instruction": "Can you list some other movies that were directed by Rob Marshall?",
+    "gold_answer": "Rob Marshall also directed \"Memoirs of a Geisha,\" \"Pirates of the Caribbean: On Stranger Tides,\" \"Into the Woods,\" \"Mary Poppins Returns,\" and \"The Little Mermaid.\"",
+    "id": 779
+  },
+  {
+    "name": "Rob Marshall",
+    "paraphrased_instruction": "In which genres does Rob Marshall mainly create his work?",
+    "gold_answer": "Rob Marshall primarily works in film and theater.",
+    "id": 780
+  },
+  {
+    "name": "Rory Gallagher",
+    "paraphrased_instruction": "What is the birth year of Rory Gallagher?",
+    "gold_answer": "Rory Gallagher was born on 2 March 1948.",
+    "id": 870
+  },
+  {
+    "name": "Rory Gallagher",
+    "paraphrased_instruction": "Which country was Rory Gallagher from?",
+    "gold_answer": "Rory Gallagher was Irish.",
+    "id": 871
+  },
+  {
+    "name": "Rory Gallagher",
+    "paraphrased_instruction": "What genre of music is Rory Gallagher famous for?",
+    "gold_answer": "Rory Gallagher is known for his blues rock style.",
+    "id": 872
+  },
+  {
+    "name": "Rory Gallagher",
+    "paraphrased_instruction": "What is Rory Gallagher commonly called in relation to his guitar skills?",
+    "gold_answer": "He is often referred to as \"the greatest guitarist you've never heard of.\"",
+    "id": 873
+  },
+  {
+    "name": "Rory Gallagher",
+    "paraphrased_instruction": "Which well-known guitar players have mentioned Rory Gallagher as an inspiration?",
+    "gold_answer": "Guitarists such as Alex Lifeson of Rush, Brian May of Queen, and Eric Clapton have cited him as an influence.",
+    "id": 874
+  },
+  {
+    "name": "Rory Gallagher",
+    "paraphrased_instruction": "In 1972, what honor was given to Rory Gallagher by Melody Maker magazine?",
+    "gold_answer": "He was voted as guitarist of the year by Melody Maker magazine in 1972.",
+    "id": 875
+  },
+  {
+    "name": "Rory Gallagher",
+    "paraphrased_instruction": "What was Rory Gallagher's rank in Rolling Stone magazine's 2015 list?",
+    "gold_answer": "Rolling Stone magazine listed him as the 57th greatest guitarist of all time in 2015.",
+    "id": 876
+  },
+  {
+    "name": "Rory Gallagher",
+    "paraphrased_instruction": "Which musical group did Rory Gallagher establish in 1966?",
+    "gold_answer": "Rory Gallagher formed the blues rock power trio Taste in 1966.",
+    "id": 877
+  },
+  {
+    "name": "Rory Gallagher",
+    "paraphrased_instruction": "How well did Taste perform commercially in the UK?",
+    "gold_answer": "Taste experienced moderate commercial success and popularity in the United Kingdom.",
+    "id": 878
+  },
+  {
+    "name": "Rory Gallagher",
+    "paraphrased_instruction": "What career path did Rory Gallagher take following the breakup of Taste?",
+    "gold_answer": "After the dissolution of Taste, Rory Gallagher pursued a solo career.",
+    "id": 879
+  },
+  {
+    "name": "Bertrand Russell",
+    "paraphrased_instruction": "What is the birth year of Bertrand Russell?",
+    "gold_answer": "Bertrand Russell was born on 18 May 1872.",
+    "id": 880
+  },
+  {
+    "name": "Bertrand Russell",
+    "paraphrased_instruction": "In which areas did Bertrand Russell make contributions?",
+    "gold_answer": "Bertrand Russell contributed to mathematics, logic, set theory, and analytic philosophy.",
+    "id": 881
+  },
+  {
+    "name": "Bertrand Russell",
+    "paraphrased_instruction": "Which philosophers were active during the same period as Bertrand Russell in the field of analytic philosophy?",
+    "gold_answer": "Bertrand Russell's contemporaries included Gottlob Frege, G. E. Moore, and Ludwig Wittgenstein.",
+    "id": 882
+  },
+  {
+    "name": "Bertrand Russell",
+    "paraphrased_instruction": "What is the name of the important book that Bertrand Russell collaborated on with A. N. Whitehead?",
+    "gold_answer": "Bertrand Russell co-authored \"Principia Mathematica\" with A. N. Whitehead.",
+    "id": 883
+  },
+  {
+    "name": "Bertrand Russell",
+    "paraphrased_instruction": "Which philosophical school of thought was led by Bertrand Russell and G. E. Moore?",
+    "gold_answer": "Bertrand Russell, with G. E. Moore, led the British \"revolt against idealism.\"",
+    "id": 884
+  },
+  {
+    "name": "Bertrand Russell",
+    "paraphrased_instruction": "What was the main subject of the article 'On Denoting'?",
+    "gold_answer": "Russell's article \"On Denoting\" is known for its significant influence on the philosophy of language and logic.",
+    "id": 885
+  },
+  {
+    "name": "Bertrand Russell",
+    "paraphrased_instruction": "What position did Bertrand Russell hold regarding World War I?",
+    "gold_answer": "During World War I, Bertrand Russell was a pacifist and was imprisoned for his beliefs.",
+    "id": 886
+  },
+  {
+    "name": "Bertrand Russell",
+    "paraphrased_instruction": "In what way did Bertrand Russell's opinion of Adolf Hitler differ by the year 1943?",
+    "gold_answer": "Bertrand Russell initially supported appeasement, but by 1943, he viewed war against Hitler's Nazi Germany as a necessary \"lesser of two evils.\"",
+    "id": 887
+  },
+  {
+    "name": "Bertrand Russell",
+    "paraphrased_instruction": "How did Bertrand Russell perceive America's dominance in global affairs after the Second World War?",
+    "gold_answer": "Post-World War II, Bertrand Russell supported American global hegemony as preferable to Soviet hegemony or ineffective world leadership.",
+    "id": 888
+  },
+  {
+    "name": "Bertrand Russell",
+    "paraphrased_instruction": "What were Bertrand Russell's perspectives on nuclear arms and disarmament during his later life?",
+    "gold_answer": "Bertrand Russell became an outspoken proponent of nuclear disarmament, especially after initially acknowledging the necessity of nuclear weapons for maintaining U.S. hegemony.",
+    "id": 889
+  },
+  {
+    "name": "Tamora Pierce",
+    "paraphrased_instruction": "What is the birth year of Tamora Pierce?",
+    "gold_answer": "Tamora Pierce was born on December 13, 1954.",
+    "id": 890
+  },
+  {
+    "name": "Tamora Pierce",
+    "paraphrased_instruction": "Which literary genre is most associated with Tamora Pierce's writings?",
+    "gold_answer": "Tamora Pierce primarily writes fantasy fiction.",
+    "id": 891
+  },
+  {
+    "name": "Tamora Pierce",
+    "paraphrased_instruction": "What is the primary audience for the books written by Tamora Pierce?",
+    "gold_answer": "Tamora Pierce's books are primarily targeted towards teenagers.",
+    "id": 892
+  },
+  {
+    "name": "Tamora Pierce",
+    "paraphrased_instruction": "What is a recurring theme in the novels written by Tamora Pierce?",
+    "gold_answer": "A common theme in her novels is young heroines facing trials and triumphs.",
+    "id": 893
+  },
+  {
+    "name": "Tamora Pierce",
+    "paraphrased_instruction": "What is the name of the first series of books written by Tamora Pierce?",
+    "gold_answer": "Her first book series was titled \"The Song of the Lioness.\"",
+    "id": 894
+  },
+  {
+    "name": "Tamora Pierce",
+    "paraphrased_instruction": "During which years was The Song of the Lioness series released?",
+    "gold_answer": "The Song of the Lioness series was published from 1983 to 1988.",
+    "id": 895
+  },
+  {
+    "name": "Tamora Pierce",
+    "paraphrased_instruction": "Who is the protagonist in The Song of the Lioness series?",
+    "gold_answer": "The main character of the series is Alanna.",
+    "id": 896
+  },
+  {
+    "name": "Tamora Pierce",
+    "paraphrased_instruction": "Which significant accolade was awarded to Tamora Pierce in the year 2013?",
+    "gold_answer": "She won the Margaret A. Edwards Award in 2013.",
+    "id": 897
+  },
+  {
+    "name": "Tamora Pierce",
+    "paraphrased_instruction": "Who is responsible for giving out the Margaret A. Edwards Award?",
+    "gold_answer": "The Young Adult Library Services Association (YALSA) of the American Library Association presents the award.",
+    "id": 898
+  },
+  {
+    "name": "Tamora Pierce",
+    "paraphrased_instruction": "Which other book series by an author was mentioned when she received the Margaret A. Edwards Award?",
+    "gold_answer": "The \"Protector of the Small\" series was also cited.",
+    "id": 899
+  }
+]

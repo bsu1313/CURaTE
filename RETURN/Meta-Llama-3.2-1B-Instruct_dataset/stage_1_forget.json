@@ -1,0 +1,362 @@
+[
+  {
+    "name": "T. S. Eliot",
+    "question": "When was T. S. Eliot born?",
+    "gold_answer": "T. S. Eliot was born on 26 September 1888.",
+    "id": 601
+  },
+  {
+    "name": "T. S. Eliot",
+    "question": "What genres did T. S. Eliot contribute to?",
+    "gold_answer": "T. S. Eliot contributed to poetry, essays, plays, and literary criticism.",
+    "id": 602
+  },
+  {
+    "name": "T. S. Eliot",
+    "question": "What is T. S. Eliot widely recognized as in the realm of 20th-century literature?",
+    "gold_answer": "He is recognized as one of the greatest poets and a central figure in English-language Modernist poetry.",
+    "id": 603
+  },
+  {
+    "name": "T. S. Eliot",
+    "question": "What notable changes did T. S. Eliot bring to English poetry?",
+    "gold_answer": "T. S. Eliot reinvigorated English poetry with his innovative use of language, writing style, and verse structure.",
+    "id": 604
+  },
+  {
+    "name": "T. S. Eliot",
+    "question": "What significant life change did T. S. Eliot make in 1914?",
+    "gold_answer": "In 1914, T. S. Eliot moved from the United States to England.",
+    "id": 605
+  },
+  {
+    "name": "T. S. Eliot",
+    "question": "When did T. S. Eliot become a British subject and renounce his American citizenship?",
+    "gold_answer": "He became a British subject and renounced his American citizenship in 1927.",
+    "id": 606
+  },
+  {
+    "name": "T. S. Eliot",
+    "question": "What was T. S. Eliot's first widely recognized poem?",
+    "gold_answer": "His first widely recognized poem was \"The Love Song of J. Alfred Prufrock.\"",
+    "id": 607
+  },
+  {
+    "name": "T. S. Eliot",
+    "question": "Which poem by T. S. Eliot is considered a landmark in Modernist poetry?",
+    "gold_answer": "\"The Waste Land\" (1922) is considered a landmark in Modernist poetry.",
+    "id": 608
+  },
+  {
+    "name": "T. S. Eliot",
+    "question": "What are some other significant poems written by T. S. Eliot?",
+    "gold_answer": "Other significant poems include \"The Hollow Men,\" \"Ash Wednesday,\" and \"Four Quartets.\"",
+    "id": 609
+  },
+  {
+    "name": "T. S. Eliot",
+    "question": "Can you name a play written by T. S. Eliot?",
+    "gold_answer": "One of his well-known plays is \"Murder in the Cathedral.\"",
+    "id": 610
+  },
+  {
+    "name": "Apollo",
+    "question": "Who are the parents of Apollo?",
+    "gold_answer": "Apollo's parents are Zeus and Leto.",
+    "id": 611
+  },
+  {
+    "name": "Apollo",
+    "question": "Who is the twin sister of Apollo?",
+    "gold_answer": "Apollo's twin sister is Artemis, goddess of the hunt.",
+    "id": 612
+  },
+  {
+    "name": "Apollo",
+    "question": "What are some of the domains associated with Apollo in Greek mythology?",
+    "gold_answer": "Apollo is associated with archery, music and dance, truth and prophecy, healing and diseases, the Sun and light, and poetry.",
+    "id": 613
+  },
+  {
+    "name": "Apollo",
+    "question": "Why is Apollo considered the ideal of the kouros?",
+    "gold_answer": "Apollo is considered the ideal of the kouros, which means he is depicted as a beardless, athletic youth, representing beauty and youth.",
+    "id": 614
+  },
+  {
+    "name": "Apollo",
+    "question": "What role does Apollo play in the Delphic Oracle?",
+    "gold_answer": "Apollo serves as the oracular god and the prophetic deity of the Delphic Oracle.",
+    "id": 615
+  },
+  {
+    "name": "Apollo",
+    "question": "How is Apollo involved in medicine and healing?",
+    "gold_answer": "Medicine and healing are associated with Apollo, either directly or through his son Asclepius, who is a deity of health.",
+    "id": 616
+  },
+  {
+    "name": "Apollo",
+    "question": "What is Apollo's relationship with music and the arts?",
+    "gold_answer": "Apollo presides over music, songs, dance, and poetry, and is credited with inventing string-music.",
+    "id": 617
+  },
+  {
+    "name": "Apollo",
+    "question": "What is the significance of the lyre to Apollo?",
+    "gold_answer": "The lyre is a common attribute of Apollo, symbolizing his authority over music and the arts.",
+    "id": 618
+  },
+  {
+    "name": "Apollo",
+    "question": "How does Apollo protect children?",
+    "gold_answer": "Apollo is a kourotrophos, concerned with the health and education of children, overseeing their transition to adulthood.",
+    "id": 619
+  },
+  {
+    "name": "Apollo",
+    "question": "What is the significance of long hair in relation to Apollo?",
+    "gold_answer": "Long hair symbolizes eternal youth for Apollo and was a prerogative of boys cut at adulthood and dedicated to him.",
+    "id": 620
+  },
+  {
+    "name": "Russell Kirk",
+    "question": "When was Russell Kirk born?",
+    "gold_answer": "Russell Kirk was born on October 19, 1918.",
+    "id": 621
+  },
+  {
+    "name": "Russell Kirk",
+    "question": "What is Russell Kirk known for in American intellectual history?",
+    "gold_answer": "Russell Kirk is known for his significant influence on 20th-century American conservatism.",
+    "id": 622
+  },
+  {
+    "name": "Russell Kirk",
+    "question": "What major work did Russell Kirk publish in 1953?",
+    "gold_answer": "Russell Kirk published \"The Conservative Mind\" in 1953.",
+    "id": 623
+  },
+  {
+    "name": "Russell Kirk",
+    "question": "How did \"The Conservative Mind\" influence American politics?",
+    "gold_answer": "\"The Conservative Mind\" shaped the postwar conservative movement in the U.S.",
+    "id": 624
+  },
+  {
+    "name": "Russell Kirk",
+    "question": "What tradition did Russell Kirk focus on in his conservative thought?",
+    "gold_answer": "Russell Kirk focused on the Anglo-American tradition in his conservative thought.",
+    "id": 625
+  },
+  {
+    "name": "Russell Kirk",
+    "question": "Which philosopher had a notable impact on Russell Kirk's ideas?",
+    "gold_answer": "Edmund Burke had a notable impact on Russell Kirk's ideas.",
+    "id": 626
+  },
+  {
+    "name": "Russell Kirk",
+    "question": "What type of conservatism did Russell Kirk primarily advocate for?",
+    "gold_answer": "Russell Kirk primarily advocated for traditionalist conservatism.",
+    "id": 627
+  },
+  {
+    "name": "Russell Kirk",
+    "question": "Besides his political and philosophical writings, what other genre did Russell Kirk write in?",
+    "gold_answer": "Russell Kirk also wrote Gothic and ghost story fiction.",
+    "id": 628
+  },
+  {
+    "name": "Russell Kirk",
+    "question": "What distinguishes Russell Kirk as a writer in the 20th century?",
+    "gold_answer": "Russell Kirk is considered one of the most significant conservative men of letters of the twentieth century.",
+    "id": 629
+  },
+  {
+    "name": "Russell Kirk",
+    "question": "When did Russell Kirk pass away?",
+    "gold_answer": "Russell Kirk passed away on April 29, 1994.",
+    "id": 630
+  },
+  {
+    "name": "Richard Wagner",
+    "question": "When was Richard Wagner born?",
+    "gold_answer": "Richard Wagner was born on May 22, 1813.",
+    "id": 720
+  },
+  {
+    "name": "Richard Wagner",
+    "question": "What are Richard Wagner's major contributions to music?",
+    "gold_answer": "Richard Wagner is chiefly known for his operas and the concept of Gesamtkunstwerk, integrating the poetic, visual, musical, and dramatic arts.",
+    "id": 721
+  },
+  {
+    "name": "Richard Wagner",
+    "question": "What unique aspect did Richard Wagner bring to opera?",
+    "gold_answer": "Wagner wrote both the libretto and the music for each of his stage works, which was unusual for opera composers.",
+    "id": 722
+  },
+  {
+    "name": "Richard Wagner",
+    "question": "What is the Gesamtkunstwerk concept that Richard Wagner developed?",
+    "gold_answer": "Gesamtkunstwerk is a \"total work of art\" that synthesizes all the arts, including music, drama, and visuals, with music serving a subsidiary role to drama.",
+    "id": 723
+  },
+  {
+    "name": "Richard Wagner",
+    "question": "Which opera cycle is considered Richard Wagner's most significant achievement?",
+    "gold_answer": "Wagner's most significant achievement is the four-opera cycle \"Der Ring des Nibelungen\" (The Ring of the Nibelung).",
+    "id": 724
+  },
+  {
+    "name": "Richard Wagner",
+    "question": "How did Richard Wagner's musical style evolve over his career?",
+    "gold_answer": "Wagner's style evolved from romantic compositions to complex textures, rich harmonies, and the innovative use of leitmotifs and extreme chromaticism.",
+    "id": 725
+  },
+  {
+    "name": "Richard Wagner",
+    "question": "What is a leitmotif in the context of Richard Wagner's compositions?",
+    "gold_answer": "In Wagner's compositions, a leitmotif is a musical phrase associated with individual characters, places, ideas, or plot elements.",
+    "id": 726
+  },
+  {
+    "name": "Richard Wagner",
+    "question": "Which Richard Wagner opera is often said to mark the beginning of modern music?",
+    "gold_answer": "\"Tristan und Isolde\" is often described as marking the start of modern music.",
+    "id": 727
+  },
+  {
+    "name": "Richard Wagner",
+    "question": "What is the name of the opera house Richard Wagner had built?",
+    "gold_answer": "The opera house built by Wagner is called the Bayreuth Festspielhaus.",
+    "id": 728
+  },
+  {
+    "name": "Richard Wagner",
+    "question": "Why is the Bayreuth Festspielhaus significant?",
+    "gold_answer": "The Bayreuth Festspielhaus is significant for its novel design features and for being the venue where Wagner's \"The Ring\" and \"Parsifal\" were premiered.",
+    "id": 729
+  },
+  {
+    "name": "Pier Paolo Pasolini",
+    "question": "Who was Pier Paolo Pasolini?",
+    "gold_answer": "Pier Paolo Pasolini was an Italian poet, film director, writer, screenwriter, actor, and playwright, influential both as an artist and a political figure in 20th-century Italy.",
+    "id": 730
+  },
+  {
+    "name": "Pier Paolo Pasolini",
+    "question": "When was Pier Paolo Pasolini born?",
+    "gold_answer": "Pier Paolo Pasolini was born on March 5, 1922.",
+    "id": 731
+  },
+  {
+    "name": "Pier Paolo Pasolini",
+    "question": "What is the Trilogy of Life that Pier Paolo Pasolini directed?",
+    "gold_answer": "The Trilogy of Life is a series of films directed by Pasolini that includes \"The Decameron,\" \"The Canterbury Tales,\" and \"Arabian Nights.\"",
+    "id": 732
+  },
+  {
+    "name": "Pier Paolo Pasolini",
+    "question": "Why is Pier Paolo Pasolini considered a controversial personality?",
+    "gold_answer": "Pasolini is considered controversial due to his straightforward style, his critique of Italian society, his explicit examination of taboo sexual matters, and his political activism.",
+    "id": 733
+  },
+  {
+    "name": "Pier Paolo Pasolini",
+    "question": "What were some of Pier Paolo Pasolini's political beliefs?",
+    "gold_answer": "Pier Paolo Pasolini was openly gay, advocated for heritage language revival, cultural conservatism, and Christian values in his youth, and later became an avowed Marxist.",
+    "id": 734
+  },
+  {
+    "name": "Pier Paolo Pasolini",
+    "question": "How did Pier Paolo Pasolini criticize Italian society?",
+    "gold_answer": "Pasolini voiced harsh criticism against the Italian petty bourgeoisie, Americanization, cultural degeneration, and consumerism that he believed were overtaking Italian culture.",
+    "id": 735
+  },
+  {
+    "name": "Pier Paolo Pasolini",
+    "question": "In which field outside of filmmaking did Pier Paolo Pasolini also achieve fame?",
+    "gold_answer": "Outside of filmmaking, Pier Paolo Pasolini was also renowned as a poet and a writer.",
+    "id": 736
+  },
+  {
+    "name": "Pier Paolo Pasolini",
+    "question": "What led to Pier Paolo Pasolini becoming a major figure in European literature and cinema?",
+    "gold_answer": "Pasolini's unique blend of socio-political commentary, his artistic innovation, and his critical examinations of social issues established him as a major figure in European literature and cinema.",
+    "id": 737
+  },
+  {
+    "name": "Pier Paolo Pasolini",
+    "question": "When and how did Pier Paolo Pasolini die?",
+    "gold_answer": "Pier Paolo Pasolini was brutally murdered on November 2, 1975, at Ostia, with his death involving abduction, torture, and murder.",
+    "id": 738
+  },
+  {
+    "name": "Pier Paolo Pasolini",
+    "question": "What remains unresolved about Pier Paolo Pasolini's murder?",
+    "gold_answer": "The exact motives and perpetrators of Pier Paolo Pasolini's murder remain unresolved, though it is widely debated and investigated.",
+    "id": 739
+  },
+  {
+    "name": "Quentin Tarantino",
+    "question": "When was Quentin Tarantino born?",
+    "gold_answer": "Quentin Tarantino was born on March 27, 1963.",
+    "id": 740
+  },
+  {
+    "name": "Quentin Tarantino",
+    "question": "What are some characteristic features of Quentin Tarantino's films?",
+    "gold_answer": "Quentin Tarantino's films are known for stylized violence, extended dialogue with profanity, and references to popular culture.",
+    "id": 741
+  },
+  {
+    "name": "Quentin Tarantino",
+    "question": "What was Quentin Tarantino's debut film?",
+    "gold_answer": "Quentin Tarantino's debut film was \"Reservoir Dogs,\" released in 1992.",
+    "id": 742
+  },
+  {
+    "name": "Quentin Tarantino",
+    "question": "Which Quentin Tarantino film won the Palme d'Or and an Academy Award for Best Original Screenplay?",
+    "gold_answer": "\"Pulp Fiction\" won the Palme d'Or and the Academy Award for Best Original Screenplay.",
+    "id": 743
+  },
+  {
+    "name": "Quentin Tarantino",
+    "question": "What genre does Quentin Tarantino's 1997 film \"Jackie Brown\" pay homage to?",
+    "gold_answer": "\"Jackie Brown\" pays homage to blaxploitation films.",
+    "id": 744
+  },
+  {
+    "name": "Quentin Tarantino",
+    "question": "What inspired Quentin Tarantino's \"Kill Bill\" series?",
+    "gold_answer": "\"Kill Bill\" was inspired by martial arts films.",
+    "id": 745
+  },
+  {
+    "name": "Quentin Tarantino",
+    "question": "What is unique about the release of Quentin Tarantino's film \"The Hateful Eight\"?",
+    "gold_answer": "\"The Hateful Eight\" was notable for its roadshow release.",
+    "id": 746
+  },
+  {
+    "name": "Quentin Tarantino",
+    "question": "What is the setting and theme of Quentin Tarantino's film \"Inglourious Basterds\"?",
+    "gold_answer": "\"Inglourious Basterds\" is set during World War II and follows an alternate history narrative.",
+    "id": 747
+  },
+  {
+    "name": "Quentin Tarantino",
+    "question": "What type of film is \"Django Unchained,\" and what award did it win for Quentin Tarantino?",
+    "gold_answer": "\"Django Unchained\" is a slave revenge Spaghetti Western, and it won Tarantino an Academy Award for Best Original Screenplay.",
+    "id": 748
+  },
+  {
+    "name": "Quentin Tarantino",
+    "question": "What is the setting of Quentin Tarantino's \"Once Upon a Time in Hollywood\"?",
+    "gold_answer": "The film is set in the late 1960s during the transition from Old Hollywood to New Hollywood.",
+    "id": 749
+  }
+]
