@@ -3,8 +3,8 @@
 **Seyun Bae, Seokhan Lee, Eunho Yang**
 
 <p align="left">
-  <a href="https://arxiv.org/abs/XXXX.XXXXX">
-    <img src="https://img.shields.io/badge/arXiv-XXXX.XXXXX-b31b1b?style=flat-square" />
+  <a href="https://arxiv.org/abs/2604.14644">
+    <img src="https://img.shields.io/badge/arXiv-2604.14644-b31b1b?style=flat-square" />
   </a>
   <a href="https://aclanthology.org/">
     <img src="https://img.shields.io/badge/Findings%20of%20ACL-2026-4b44ce?style=flat-square" />
