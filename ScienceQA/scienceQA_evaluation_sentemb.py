@@ -68,9 +68,7 @@ class QADataset(Dataset):
         return self.examples[idx]
 
 
-# ─────────────────────────────────────────────────────────────────────────────
-# Prompt builder
-# ─────────────────────────────────────────────────────────────────────────────
+
 def wrap_prompt(p, if_llama):
     # if 'llama-3' in if_llama or 'llama_3' in if_llama:
     #     question_start_token = "<|start_header_id|>system<|end_header_id|>\n\nCutting Knowledge Date: December 2023\nToday Date: 14 Jul 2025\n\n<|eot_id|><|start_header_id|>user<|end_header_id|>\n\n"
@@ -347,9 +345,6 @@ def eval_subset(model, tok, model_name, name, data: List[Dict[str, Any]], forget
     return all_results
 
 
-# ─────────────────────────────────────────────────────────────────────────────
-# Main
-# ─────────────────────────────────────────────────────────────────────────────
 
 def main():
     ap = argparse.ArgumentParser()

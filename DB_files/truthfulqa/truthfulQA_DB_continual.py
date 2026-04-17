@@ -42,9 +42,7 @@ question_embeddings = model.encode(all_questions, convert_to_tensor=True)
 id2idx = {item["id"]: i for i, item in enumerate(data)}
 
 def run_similarity(stage_tag: str, allowed_ids: set):
-    """
-    한 개 stage 범위에 대해 모든 통계를 계산하고 두 개의 파일을 저장한다.
-    """
+
     allowed_indices = np.array([id2idx[i] for i in allowed_ids if i in id2idx])
 
 
@@ -65,8 +63,8 @@ def run_similarity(stage_tag: str, allowed_ids: set):
         # ── paraphrased
         paraphrased_emb   = model.encode(item["paraphrased_question"], convert_to_tensor=True)
         sim_vec           = util.cos_sim(paraphrased_emb, question_embeddings)[0].cpu().numpy()
-        sims_sub          = sim_vec[allowed_indices]                      # stage 제한
-        sub_idx_sorted    = allowed_indices[np.argsort(-sims_sub)[:3]]    # top3 원본 index
+        sims_sub          = sim_vec[allowed_indices]                     
+        sub_idx_sorted    = allowed_indices[np.argsort(-sims_sub)[:3]]   
         paraphrased_scores.append(float(sim_vec[idx]))
 
         for k in (1, 2, 3):

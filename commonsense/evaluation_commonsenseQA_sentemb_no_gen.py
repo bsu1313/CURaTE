@@ -38,7 +38,7 @@ def mapped_cossim(origin_id: int, key: str, ID_MAP) -> List[str]:
     return mapped_ids
 
 def get_available_cache_dir():
-    preferred = Path("/home/david/.cache")
+    preferred = Path("/home/.cache")
     fallback = Path("/home/plowcow/.cache")
 
     if preferred.exists() and os.access(preferred, os.W_OK):
@@ -184,7 +184,7 @@ def eval_commonsenseqa(truthfulqa, ID_MAP, split: str = "validation", batch_size
         preds_1 = []
 
         for ex in batch:
-            labels = ex["choices"]["label"]        # ["A", "B", ...]
+            labels = ex["choices"]["label"]       
             texts  = ex["choices"]["text"]         
             choices = list(zip(labels, texts))
             ref_q = mapped_question(ex["id"], "truthfulQA", id2question, ID_MAP)

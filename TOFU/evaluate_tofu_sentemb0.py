@@ -1,12 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-"""
-Unified TOFU evaluation
------------------------
-* base-model + LoRA 로드 (DeepSpeed inference)
-* seen / unseen / retain / real_authors / world_facts 5-split 평가
-* 결과를 JSON(+샘플)로 저장
-"""
+
 
 import os, sys, json, math, random, argparse, tqdm, re
 from typing import List, Dict, Any
@@ -19,6 +13,8 @@ from torch.utils.data import DataLoader, Dataset
 from transformers import (
     AutoModelForCausalLM,
     AutoTokenizer,
+    BertModel,
+    BertTokenizer,
 )
 from transformers import RobertaTokenizer, RobertaForSequenceClassification
 from peft import PeftModel
@@ -26,18 +22,17 @@ import deepspeed
 import transformers
 from sentence_transformers import SentenceTransformer, util
 from rouge_score import rouge_scorer
-# from datasets import Dataset
 
 
 from sentence_transformers import SentenceTransformer, util
 from pathlib import Path
 import random
 
-REFUSAL_PATH = Path("./refusal_answer.json")   # ← 실제 파일명/경로
+REFUSAL_PATH = Path("./refusal_answer.json") 
 REF_PHRASES: list[str] = json.loads(REFUSAL_PATH.read_text(encoding="utf-8"))
 
 def get_available_cache_dir():
-    preferred = Path("/home/david/.cache")
+    preferred = Path("/home/.cache")
     fallback = Path("/home/plowcow/.cache")
 
     if preferred.exists() and os.access(preferred, os.W_OK):
@@ -45,54 +40,35 @@ def get_available_cache_dir():
     else:
         return str(fallback)
 
-# ① 매핑용 모델
+
 map_model = SentenceTransformer("multi-qa-mpnet-base-dot-v1")
 
 def build_forget_index(forget_ds, bs=128):
-    """forget01_perturbed 의 question → embedding 인덱스(one-shot)"""
     f_texts = forget_ds["question"]
     f_embs  = map_model.encode(
         f_texts, batch_size=bs, convert_to_tensor=True,
         normalize_embeddings=True, show_progress_bar=True)
     return f_texts, f_embs        # list[str], Tensor[N,768]
-# --------------------------------------------------------------------------
-# 🔥 NEW: raw_q → forget_q 매핑 헬퍼
-# --------------------------------------------------------------------------
+
 def match_forget_questions(raw_qs, f_texts, f_embs,
                            mapping: Dict[str,str]) -> List[str]:
-    """batch 단위 raw_qs 에 대해 best-match forget_q 반환 & 매핑 업데이트"""
-    # raw_q_sample = raw_qs[:5]
-    # sample_mapping = [mapping[q] for q in raw_q_sample if q in mapping]
-    # print("Sample raw_qs:", raw_q_sample)
-    # print("Sample mapping:", sample_mapping)
-    # first_five_keys = list(mapping.keys())[:5]
-    # for key in first_five_keys:
-    #     print(f"Mapping for '{key}': {mapping[key]}")
+
 
     need_compute = [q for q in raw_qs if q not in mapping]
     if need_compute:
         rq_embs = map_model.encode(
             need_compute, batch_size=len(need_compute),
             convert_to_tensor=True, normalize_embeddings=True)
-        # 유사도 (dot score == cosine when normalized)
+  
         sim = rq_embs @ f_embs.T                # [M, N]
         best_idx = sim.argmax(dim=1).tolist()
         for q, idx in zip(need_compute, best_idx):
-            mapping[q] = f_texts[idx]           # 캐시에 추가
+            mapping[q] = f_texts[idx]           
 
     return [mapping[q] for q in raw_qs]
 
 def mapped_question(origin_id: int, id2question, ID_MAP) -> List[str]:
-    """
-    Args:
-        origin_id : 현재 예시의 id  (e.g. 5)
-        key       : "paraphrased" or "contrastive"
-    Returns:
-        매핑된 id( top-3 의 첫 번째 )에 대응하는 question 문자열
-        (없으면 원본 question 을 그대로 반환)
-    """
-    # print("origin_id: ", origin_id)
-    # print("ID_MAP[str(origin_id)]: ", ID_MAP[str(origin_id)])
+
     try:
         mapped_ids = ID_MAP[str(origin_id)][f"forget_data_top3_ids"]
         return [id2question[mid] for mid in mapped_ids if mid in id2question]
@@ -146,18 +122,7 @@ def truth_ratio(tp: float, fp: List[float]):
 def acc_contains(pred, truth):
     return int(bool(re.search(re.escape(truth), pred, re.I)))
 
-# def acc_semantic(pred, truth, falses):
-#     emb_p = st_model.encode(pred,  convert_to_tensor=True)
-#     emb_t = st_model.encode(truth, convert_to_tensor=True)
-#     sims  = [util.pytorch_cos_sim(emb_p, emb_t)]
-#     for f in falses:
-#         sims.append(util.pytorch_cos_sim(
-#             emb_p, st_model.encode(f, convert_to_tensor=True)))
-#     return int(torch.argmax(torch.tensor(sims)) == 0)
 
-# --------------------------------------------------------------------------
-# 모델 로드
-# --------------------------------------------------------------------------
 # def load_model(base, lora, ds_cfg, cache_dir, dtype=torch.float16):
 def load_model(base, ds_cfg, cache_dir, dtype=torch.float16):
     cfg = transformers.AutoConfig.from_pretrained(base)
@@ -192,28 +157,9 @@ def load_model(base, ds_cfg, cache_dir, dtype=torch.float16):
     
     return engine.module, tok
 
-# --------------------------------------------------------------------------
-# 생성
-# --------------------------------------------------------------------------
 
-def postprocess_completion(comp: str) -> str:
-    """
-    1) [Reason] 포함 뒷부분 제거
-    2) 두 줄 공백이 나오더라도 내용이 비어 있으면 버리지 않기
-    3) 완전히 비면 첫 번째 실질적인 non-empty line을 살려 줌
-    """
-    # ① [Reason] 이후 잘라내기 (토큰 포함 X)
-    cut = comp.find("[Reason]")
-    if cut != -1:
-        comp = comp[:cut]
 
-    # ② 첫 번째 문단만 가져오되, 문단이 비어 있으면 넘김
-    # paras = [p.strip() for p in comp.split("\n\n") if p.strip()]
-    # if paras:
-    #     comp = paras[0]
 
-    # ③ 그래도 비어 있다면 한 줄짜리라도 반환
-    return comp.strip()
 
 
 def batched_generate(model, tok, prompts):
@@ -260,9 +206,7 @@ def batched_generate(model, tok, prompts):
         results.append(answer)
     return results
 
-# --------------------------------------------------------------------------
-# perplexity-based 확률
-# --------------------------------------------------------------------------
+
 def seq_prob(model, tok, text):
     ids = tok(text, return_tensors="pt").to(model.device)
     with torch.no_grad():
@@ -275,16 +219,7 @@ def seq_prob(model, tok, text):
     avg = nll / (label != tok.pad_token_id).sum()
     return math.exp(-avg.item())
 
-# def score_answer_prob(model, tok, question,
-#                       truth_ans, falses):
-#     prompt = build_llama2_prompt(question)
-#     p_true = seq_prob(model, tok, prompt+truth_ans)
-#     p_false = [seq_prob(model, tok, prompt+f) for f in falses] if falses else []
-#     return p_true, p_false
 
-# --------------------------------------------------------------------------
-# subset 평가
-# --------------------------------------------------------------------------
 def predict(texts, tokenizer, model, max_length=256):
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     model.to(device)
@@ -317,8 +252,10 @@ def predict(texts, tokenizer, model, max_length=256):
 
     return predictions
 
-def eval_subset(model, tok, model_name, name, ds, id2question, ID_MAP, batch_size=4):
+def eval_subset(model, tok, sent_model, model_name, name, ds, forget_data, ID_MAP, batch_size=4):
     # dl = DataLoader(ds, batch_size=batch_size, shuffle=False)
+    id2question: dict[int, str] = {ex["id"]: ex["question"] for ex in forget_data}
+    # print("id2question: ", id2question)
 
     def identity_collate(batch):
         return batch
@@ -341,17 +278,46 @@ def eval_subset(model, tok, model_name, name, ds, id2question, ID_MAP, batch_siz
             # print("question: ", question)
             questions_1.append(question)
             ref_q = mapped_question(item["id"], id2question, ID_MAP)
-            cos_sim = mapped_cossim(item["id"], ID_MAP)
-            # print("cos_sim: ", cos_sim)
-            max_cos_sim = max(float(x) for x in cos_sim) if cos_sim else 0.0
 
-            if max_cos_sim > 0.8:
-                match = True
-            else:
-                match = False
+            # ## use sentence embedding model
+            match = False
+            q_emb = sent_model.encode(question, convert_to_tensor=True)
+            for f_info in ref_q:
+                f_emb = sent_model.encode(f_info, convert_to_tensor=True)
+                cos_sim = util.cos_sim(q_emb, f_emb)
+                # print("cos_sim: ", cos_sim)
+                if cos_sim.item() > 0.8:  # threshold for similarity
+                    match = True
+
+            # ## use bert
             # match = False
+            # q_inputs = sent_tok(question, return_tensors="pt", padding=True, truncation=True).to(sent_model.device)
+            # with torch.no_grad():
+            #     q_outputs = sent_model(**q_inputs)
+            # # q_emb = q_outputs.last_hidden_state[:, 0, :].squeeze()  # [CLS] token embedding
+            # q_emb = q_outputs.last_hidden_state  # Get all token embeddings
+            # q_emb = torch.mean(q_emb, dim=1).squeeze()  # Mean pooling across the sequence (dim=1)
+            # for f_info in ref_q:
+            #     f_inputs = sent_tok(f_info, return_tensors="pt", padding=True, truncation=True).to(sent_model.device)
+            #     with torch.no_grad():
+            #         f_outputs = sent_model(**f_inputs)
+            #     # f_emb = f_outputs.last_hidden_state[:, 0, :].squeeze()
+            #     f_emb = f_outputs.last_hidden_state  # Get all token embeddings
+            #     f_emb = torch.mean(f_emb, dim=1).squeeze()  # Mean pooling across the sequence (dim=1)
+            #     cos_sim = util.cos_sim(q_emb, f_emb)
+            #     # print("cos_sim: ", cos_sim)
+            #     if cos_sim.item() > 0.8:  # threshold for similarity
+            #         match = True
 
-            # print("match: ", match)
+            ## use mapped cosine similarity
+            # cos_sim = mapped_cossim(item["id"], ID_MAP)
+            # max_cos_sim = max(float(x) for x in cos_sim) if cos_sim else 0.0
+            #
+            # if max_cos_sim > 0.8:
+            #     match = True
+            # else:
+            #     match = False
+
             if not match:
                 preds_1.append(0)
                 par_negatives += 1
@@ -403,14 +369,11 @@ def eval_subset(model, tok, model_name, name, ds, id2question, ID_MAP, batch_siz
     agg["negatives"] = par_negatives
     return agg, samples
 
-# --------------------------------------------------------------------------
-# 데이터 split 로드
-# --------------------------------------------------------------------------
+
 def load_split(name, cache):
     return load_dataset("locuslab/TOFU", name,
                         cache_dir=cache, split="train")
-    # return Dataset.load_from_disk("/home/work/seyun_workspace/cache_LTE/TOFU/"+ name)
-    
+
 
 def get_seen_unseen(ds, ratio=0.8, seed=1000):
     random.seed(seed)
@@ -424,23 +387,21 @@ def get_seen_unseen(ds, ratio=0.8, seed=1000):
 def main():
     ap = argparse.ArgumentParser()
     # ap.add_argument("--base_model", required=True)
-    ap.add_argument("--base_model", default="open-unlearning/tofu_Llama-2-7b-chat-hf_full")
-    # ap.add_argument("--base_model", default="open-unlearning/tofu_Llama-3.2-1B-Instruct_full")
+    # ap.add_argument("--base_model", default="open-unlearning/tofu_Llama-2-7b-chat-hf_full")
+    ap.add_argument("--base_model", default="open-unlearning/tofu_Llama-3.2-1B-Instruct_full")
     # ap.add_argument("--lora_path",  required=True)
     # ap.add_argument("--ds_config",  required=True)
     ap.add_argument("--ds_config", default="ds_config.json")
     ap.add_argument("--batch_size", type=int, default=4)
     ap.add_argument("--output_dir", default="./eval_results")
-    # ap.add_argument("--cache_dir",  default="/home/work/seyun_workspace/cache_LTE/")
-    # ap.add_argument("--cache_dir", default="/home/david/.cache/")
     ap.add_argument("--cache_dir", default=get_available_cache_dir())
     ap.add_argument("--local_rank", type=int, default=-1, help="(set by deepspeed)")
     # ap.add_argument("--split_dir", default="TOFU_continual")
-    ap.add_argument("--split_dir", default="TOFU_NEW")
+    ap.add_argument("--split_dir", default="TOFU_continual_new")
     args = ap.parse_args()
     os.makedirs(args.output_dir, exist_ok=True)
 
-    # 모델
+
     model, tok = load_model(args.base_model,
                             # args.lora_path,
                             args.ds_config,
@@ -448,53 +409,36 @@ def main():
 
 
     model_dir = "mpnet_contrastive_model"
-    sent_model = SentenceTransformer(model_dir)
+    # sent_model = SentenceTransformer(model_dir)
+    sent_model = SentenceTransformer("sentence-transformers/multi-qa-mpnet-base-dot-v1")
+    # sent_model = SentenceTransformer('paraphrase-MiniLM-L6-v2')
+    # sent_model = SentenceTransformer('bert-base-nli-mean-tokens')
+    # sent_model = SentenceTransformer('all-mpnet-base-v2')
+    # sent_model = SentenceTransformer('all-MiniLM-L6-v2')
+    # sent_model = SentenceTransformer('paraphrase-MiniLM-L3-v2')
+    # sent_model = SentenceTransformer('sentence-transformers-testing/stsb-bert-tiny-safetensors')
 
     splits = {}
-    split = "123"
-    with open(os.path.join(args.split_dir, f"stage{split[-1]}", f"forget{split}.json"), encoding="utf-8") as f:
+    split = "1"
+    with open(os.path.join(args.split_dir, f"forget{split}", f"forget{split}.json"), encoding="utf-8") as f:
         splits["forget"] = json.load(f)
-    with open(os.path.join(args.split_dir, f"stage{split[-1]}", f"forget{split}_NU.json"), encoding="utf-8") as f:
-        splits["forget_NU"] = json.load(f)
-    with open(os.path.join(args.split_dir, f"stage{split[-1]}", f"retain_perturbed.json"), encoding="utf-8") as f:
+    with open(os.path.join(args.split_dir, f"forget{split}", f"retain_perturbed.json"), encoding="utf-8") as f:
         splits["retain"] = json.load(f)
-    with open(os.path.join(args.split_dir, f"stage{split[-1]}", f"real_authors.json"), encoding="utf-8") as f:
+    with open(os.path.join(args.split_dir, f"forget{split}", f"real_authors.json"), encoding="utf-8") as f:
         splits["real_authors"] = json.load(f)
-    with open(os.path.join(args.split_dir, f"stage{split[-1]}", f"world_facts.json"), encoding="utf-8") as f:
+    with open(os.path.join(args.split_dir, f"forget{split}", f"world_facts.json"), encoding="utf-8") as f:
         splits["world_facts"] = json.load(f)
 
-    with open(os.path.join(args.split_dir, f"stage{split[-1]}", f"forget{split}.json"), encoding="utf-8") as f:
-        forget_split = json.load(f)
-        id2question: dict[int, str] = {ex["id"]: ex["question"] for ex in forget_split}
-
-    MAPPING_PATH = Path(args.split_dir) / f"stage{split[-1]}" / f"TOFU_to_forget{split}_top3_with_NU.json"
+    MAPPING_PATH = Path(args.split_dir) / f"forget{split}" / f"TOFU_to_forget{split}_top3.json"
     with MAPPING_PATH.open("r", encoding="utf-8") as f:
         ID_MAP: dict[str, dict[str, list[int]]] = json.load(f)
 
-    print("HERE")
-    # 데이터
-    # forget_per = load_split("forget01_perturbed", args.cache_dir)
-    print("END")
-    
-    # seen, unseen = get_seen_unseen(forget_per)
 
-    # f_texts, f_embs = build_forget_index(forget_per)
-    # map_path = os.path.join(".", "raw2forget_map.json")
-    # q2f_map = json.load(open(map_path)) if os.path.exists(map_path) else {}
-    #
-    #
-    # splits = {
-    #     "forget"        : forget_per.shuffle(seed=42),
-    #     # "unseen"      : unseen,
-    #     "retain"      : load_split("retain_perturbed",       args.cache_dir),
-    #     "real_authors": load_split("real_authors_perturbed", args.cache_dir),
-    #     "world_facts" : load_split("world_facts_perturbed",  args.cache_dir),
-    # }
 
 
     result: Dict[str,Dict] = {}
     for name, ds in splits.items():
-        agg, detail = eval_subset(model, tok, args.base_model, name, ds, id2question,
+        agg, detail = eval_subset(model, tok, sent_model, args.base_model, name, ds, splits["forget"],
                                   ID_MAP,
                                   batch_size=args.batch_size, )
         result[name] = {"metrics": agg, "samples": detail}

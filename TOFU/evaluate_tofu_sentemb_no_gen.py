@@ -1,12 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-"""
-Unified TOFU evaluation
------------------------
-* base-model + LoRA 로드 (DeepSpeed inference)
-* seen / unseen / retain / real_authors / world_facts 5-split 평가
-* 결과를 JSON(+샘플)로 저장
-"""
+
 
 import os, sys, json, math, random, argparse, tqdm, re
 from typing import List, Dict, Any
@@ -26,21 +20,17 @@ import deepspeed
 import transformers
 from sentence_transformers import SentenceTransformer, util
 from rouge_score import rouge_scorer
-# from datasets import Dataset
-# --------------------------------------------------------------------------
-# 프롬프트 템플릿
-# --------------------------------------------------------------------------
 
 
 from sentence_transformers import SentenceTransformer, util
 from pathlib import Path
 import random
 
-REFUSAL_PATH = Path("./refusal_answer.json")   # ← 실제 파일명/경로
+REFUSAL_PATH = Path("./refusal_answer.json")  
 REF_PHRASES: list[str] = json.loads(REFUSAL_PATH.read_text(encoding="utf-8"))
 
 def get_available_cache_dir():
-    preferred = Path("/home/david/.cache")
+    preferred = Path("/home/.cache")
     fallback = Path("/home/plowcow/.cache")
 
     if preferred.exists() and os.access(preferred, os.W_OK):
@@ -48,22 +38,20 @@ def get_available_cache_dir():
     else:
         return str(fallback)
 
-# ① 매핑용 모델
+
 map_model = SentenceTransformer("multi-qa-mpnet-base-dot-v1")
 
 def build_forget_index(forget_ds, bs=128):
-    """forget01_perturbed 의 question → embedding 인덱스(one-shot)"""
+
     f_texts = forget_ds["question"]
     f_embs  = map_model.encode(
         f_texts, batch_size=bs, convert_to_tensor=True,
         normalize_embeddings=True, show_progress_bar=True)
     return f_texts, f_embs        # list[str], Tensor[N,768]
-# --------------------------------------------------------------------------
-# 🔥 NEW: raw_q → forget_q 매핑 헬퍼
-# --------------------------------------------------------------------------
+
 def match_forget_questions(raw_qs, f_texts, f_embs,
                            mapping: Dict[str,str]) -> List[str]:
-    """batch 단위 raw_qs 에 대해 best-match forget_q 반환 & 매핑 업데이트"""
+
     # raw_q_sample = raw_qs[:5]
     # sample_mapping = [mapping[q] for q in raw_q_sample if q in mapping]
     # print("Sample raw_qs:", raw_q_sample)
@@ -77,23 +65,16 @@ def match_forget_questions(raw_qs, f_texts, f_embs,
         rq_embs = map_model.encode(
             need_compute, batch_size=len(need_compute),
             convert_to_tensor=True, normalize_embeddings=True)
-        # 유사도 (dot score == cosine when normalized)
+
         sim = rq_embs @ f_embs.T                # [M, N]
         best_idx = sim.argmax(dim=1).tolist()
         for q, idx in zip(need_compute, best_idx):
-            mapping[q] = f_texts[idx]           # 캐시에 추가
+            mapping[q] = f_texts[idx]          
 
     return [mapping[q] for q in raw_qs]
 
 def mapped_question(origin_id: int, id2question, ID_MAP) -> List[str]:
-    """
-    Args:
-        origin_id : 현재 예시의 id  (e.g. 5)
-        key       : "paraphrased" or "contrastive"
-    Returns:
-        매핑된 id( top-3 의 첫 번째 )에 대응하는 question 문자열
-        (없으면 원본 question 을 그대로 반환)
-    """
+
     # print("origin_id: ", origin_id)
     # print("ID_MAP[str(origin_id)]: ", ID_MAP[str(origin_id)])
     try:
@@ -150,18 +131,8 @@ def truth_ratio(tp: float, fp: List[float]):
 def acc_contains(pred, truth):
     return int(bool(re.search(re.escape(truth), pred, re.I)))
 
-# def acc_semantic(pred, truth, falses):
-#     emb_p = st_model.encode(pred,  convert_to_tensor=True)
-#     emb_t = st_model.encode(truth, convert_to_tensor=True)
-#     sims  = [util.pytorch_cos_sim(emb_p, emb_t)]
-#     for f in falses:
-#         sims.append(util.pytorch_cos_sim(
-#             emb_p, st_model.encode(f, convert_to_tensor=True)))
-#     return int(torch.argmax(torch.tensor(sims)) == 0)
 
-# --------------------------------------------------------------------------
-# 모델 로드
-# --------------------------------------------------------------------------
+
 # def load_model(base, lora, ds_cfg, cache_dir, dtype=torch.float16):
 def load_model(base, ds_cfg, cache_dir, dtype=torch.float16):
     cfg = transformers.AutoConfig.from_pretrained(base)
@@ -196,28 +167,8 @@ def load_model(base, ds_cfg, cache_dir, dtype=torch.float16):
     
     return engine.module, tok
 
-# --------------------------------------------------------------------------
-# 생성
-# --------------------------------------------------------------------------
 
-def postprocess_completion(comp: str) -> str:
-    """
-    1) [Reason] 포함 뒷부분 제거
-    2) 두 줄 공백이 나오더라도 내용이 비어 있으면 버리지 않기
-    3) 완전히 비면 첫 번째 실질적인 non-empty line을 살려 줌
-    """
-    # ① [Reason] 이후 잘라내기 (토큰 포함 X)
-    cut = comp.find("[Reason]")
-    if cut != -1:
-        comp = comp[:cut]
 
-    # ② 첫 번째 문단만 가져오되, 문단이 비어 있으면 넘김
-    # paras = [p.strip() for p in comp.split("\n\n") if p.strip()]
-    # if paras:
-    #     comp = paras[0]
-
-    # ③ 그래도 비어 있다면 한 줄짜리라도 반환
-    return comp.strip()
 
 
 def batched_generate(model, tok, prompts):
@@ -264,9 +215,7 @@ def batched_generate(model, tok, prompts):
         results.append(answer)
     return results
 
-# --------------------------------------------------------------------------
-# perplexity-based 확률
-# --------------------------------------------------------------------------
+
 def seq_prob(model, tok, text):
     ids = tok(text, return_tensors="pt").to(model.device)
     with torch.no_grad():
@@ -279,16 +228,6 @@ def seq_prob(model, tok, text):
     avg = nll / (label != tok.pad_token_id).sum()
     return math.exp(-avg.item())
 
-# def score_answer_prob(model, tok, question,
-#                       truth_ans, falses):
-#     prompt = build_llama2_prompt(question)
-#     p_true = seq_prob(model, tok, prompt+truth_ans)
-#     p_false = [seq_prob(model, tok, prompt+f) for f in falses] if falses else []
-#     return p_true, p_false
-
-# --------------------------------------------------------------------------
-# subset 평가
-# --------------------------------------------------------------------------
 
 def eval_subset(name, ds, id2question, ID_MAP, batch_size=4):
     # dl = DataLoader(ds, batch_size=batch_size, shuffle=False)
@@ -341,14 +280,11 @@ def eval_subset(name, ds, id2question, ID_MAP, batch_size=4):
     agg["negatives"] = par_negatives
     return agg
 
-# --------------------------------------------------------------------------
-# 데이터 split 로드
-# --------------------------------------------------------------------------
+
 def load_split(name, cache):
     return load_dataset("locuslab/TOFU", name,
                         cache_dir=cache, split="train")
-    # return Dataset.load_from_disk("/home/work/seyun_workspace/cache_LTE/TOFU/"+ name)
-    
+
 
 def get_seen_unseen(ds, ratio=0.8, seed=1000):
     random.seed(seed)
@@ -356,9 +292,7 @@ def get_seen_unseen(ds, ratio=0.8, seed=1000):
     idx_unseen = list(set(range(len(ds))) - set(idx_seen))
     return ds.select(idx_seen), ds.select(idx_unseen)
 
-# --------------------------------------------------------------------------
-# main
-# --------------------------------------------------------------------------
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--ds_config", default="ds_config.json")

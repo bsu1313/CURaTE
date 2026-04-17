@@ -45,7 +45,7 @@ for i in range(10):
     ]
 
 
-    out_file = f"../RETURN_NEW_DATASET/{data_folder}/RETURN_stage_{i}_top3_{ablation_files[ablation]}.json"    # None 으로 두면 저장 생략
+    out_file = f"../RETURN_NEW_DATASET/{data_folder}/RETURN_stage_{i}_top3_{ablation_files[ablation]}.json"   
     if ablation == 7:
         topk = 5
     else:

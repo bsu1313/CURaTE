@@ -195,9 +195,7 @@ def get_seen_unseen(ds, ratio=0.8, seed=1000):
     idx_unseen = list(set(range(len(ds))) - set(idx_seen))
     return ds.select(idx_seen), ds.select(idx_unseen)
 
-# --------------------------------------------------------------------------
-# main
-# --------------------------------------------------------------------------
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--ds_config", default="../ds_config.json")
@@ -272,6 +270,5 @@ def main():
         json.dump(result, f, indent=2, ensure_ascii=False)
     print(f"\n✅ Saved to {out}")
 
-# --------------------------------------------------------------------------
 if __name__ == "__main__":
     main()

@@ -41,7 +41,7 @@ def get_available_cache_dir():
 map_model = SentenceTransformer("multi-qa-mpnet-base-dot-v1")
 
 def build_forget_index(forget_ds, bs=128):
-    """forget01_perturbed 의 question → embedding 인덱스(one-shot)"""
+
     f_texts = forget_ds["question"]
     f_embs  = map_model.encode(
         f_texts, batch_size=bs, convert_to_tensor=True,
@@ -103,13 +103,13 @@ def build_llama2_prompt(question: str, tokenizer) -> str:
     ]
     prompt = tokenizer.apply_chat_template(
         messages,
-        tokenize=False,   # Return plain text prompt, not token IDs
-        add_generation_prompt=True  # Adds the assistant's turn prefix
+        tokenize=False,   
+        add_generation_prompt=True  
     )
     return prompt
 
 rouge = rouge_scorer.RougeScorer(["rougeL"], use_stemmer=True)
-# st_model = SentenceTransformer("paraphrase-MiniLM-L6-v2")
+
 
 def _mean(x: List[float]): return float(np.mean(x)) if x else 0.0
 
@@ -129,7 +129,6 @@ def load_model(base, ds_cfg, cache_dir, dtype=torch.float16):
         low_cpu_mem_usage=True, device_map=None,
         cache_dir=cache_dir
     )
-    # model = PeftModel.from_pretrained(model, lora).merge_and_unload()
 
     engine = deepspeed.init_inference(
         model, dtype=dtype, kernel_inject=False,
@@ -353,7 +352,6 @@ def main():
     ap.add_argument("--ds_config", default="../ds_config.json")
     ap.add_argument("--batch_size", type=int, default=4)
     ap.add_argument("--output_dir", default="./eval_results")
-    # ap.add_argument("--cache_dir",  default="/home/work/seyun_workspace/cache_LTE/")
     ap.add_argument("--cache_dir", default=get_available_cache_dir())
     ap.add_argument("--local_rank", type=int, default=-1, help="(set by deepspeed)")
     args = ap.parse_args()

@@ -41,7 +41,7 @@ def mapped_cossim(origin_id: int, key: str, ID_MAP) -> List[str]:
     return mapped_ids
 
 def get_available_cache_dir():
-    preferred = Path("/home/david/.cache")
+    preferred = Path("/home/.cache")
     fallback = Path("/home/plowcow/.cache")
 
     if preferred.exists() and os.access(preferred, os.W_OK):
@@ -247,7 +247,7 @@ def eval_commonsenseqa(model, tok, model_name, truthfulqa, sent_model, ID_MAP, s
             # if ID_MAP is not None and n_forgotten > 0:
             #     if ex["question"] not in ID_MAP:
             #         raise KeyError(
-            #             f"[ID_MAP]에 해당 질문이 없습니다: «{ex['question']}»"
+            #             f"There is no question in [ID_MAP]: «{ex['question']}»"
             #         )
             #     cand_list = ID_MAP[ex["question"]][:n_forgotten]
             # else:
@@ -297,7 +297,7 @@ def eval_commonsenseqa(model, tok, model_name, truthfulqa, sent_model, ID_MAP, s
     
     
         for pred, gold in zip(gens, batch_gold_texts):
-            rouge_dict = rouge.score(gold, pred)         # {'rougeL': Score(...)}
+            rouge_dict = rouge.score(gold, pred)         
             rouge_recalls.append(rouge_dict["rougeL"].recall)
 
         preds.extend(gens)
